@@ -3,7 +3,7 @@
 
 **Last Updated:** 2025-11-18
 **Total Tasks:** 13
-**Completed:** 9
+**Completed:** 13
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -12,15 +12,7 @@
 
 *새로 추가된 작업들 (아직 시작 전)*
 
-### Phase 2: 핵심 페이지 (Week 3-4)
-- [ ] [Feature] PRODUCTS - Pump 상세 페이지 (CP Pumpen, 15개 모델) (p:Medium, added:2025-11-18)
-- [ ] [Feature] PRODUCTS - Bearing 상세 페이지 (터보링크, 3개 제품군) (p:Medium, added:2025-11-18)
-- [ ] [Feature] PRODUCTS - Cylinder Liner for Ship 상세 페이지 (WTQ) (p:Medium, added:2025-11-18)
-- [ ] [Feature] PRODUCTS - Oil Purifier 상세 페이지 (삼영필텍, 모델 스펙 테이블) (p:Medium, added:2025-11-18)
-
 ### Phase 3: 기능 페이지 (Week 5-6)
-- [ ] [Feature] PARTNERS - 글로벌 파트너 섹션 (p:Medium, added:2025-11-18)
-- [ ] [Feature] PARTNERS - 주요 고객사 그리드 (p:Medium, added:2025-11-18)
 - [ ] [Feature] CONTACT - 문의 폼 (shadcn Form + Zod) (p:High, added:2025-11-18)
 - [ ] [Feature] CONTACT - API Route 구현 (/api/contact) (p:High, added:2025-11-18)
 - [ ] [Feature] Resend API 이메일 전송 연동 (p:High, added:2025-11-18)
@@ -56,6 +48,12 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] PARTNERS - 주요 고객사 그리드 (7개 고객사) (done:2025-11-18)
+- [x] [Feature] PARTNERS - 글로벌 파트너 섹션 (10개 파트너사) (done:2025-11-18)
+- [x] [Feature] PRODUCTS - Oil Purifier 상세 페이지 (삼영필텍, 모델 스펙 테이블) (done:2025-11-18)
+- [x] [Feature] PRODUCTS - Cylinder Liner for Ship 상세 페이지 (WTQ) (done:2025-11-18)
+- [x] [Feature] PRODUCTS - Bearing 상세 페이지 (터보링크, 3개 제품군) (done:2025-11-18)
+- [x] [Feature] PRODUCTS - Pump 상세 페이지 (CP Pumpen, 15개 모델) (done:2025-11-18)
 - [x] [Feature] PRODUCTS - Motor 상세 페이지 (NIDEC, 8개 제품군) (done:2025-11-18)
 - [x] [Feature] PRODUCTS - Mixer & Agitator 상세 페이지 (SPX FLOW) (done:2025-11-18)
 - [x] [Feature] PRODUCTS - Compressor 상세 (6개 섹션, Consumable parts 4개 하위 Accordion) (done:2025-11-18)
@@ -86,14 +84,14 @@
 ## 📊 Statistics
 
 ### This Week (2025-11-18 ~ 2025-11-24)
-**Completed:** 15 tasks
+**Completed:** 21 tasks
 **Added:** 13 tasks
-**Average Completion Time:** ~45분/작업
+**Average Completion Time:** ~35분/작업
 
 ### This Month (2025-11)
-**Completed:** 9 tasks
+**Completed:** 15 tasks
 **Bugs Fixed:** 0
-**Features Added:** 7
+**Features Added:** 13
 
 ## 🗓️ Scheduled Tasks
 

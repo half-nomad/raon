@@ -11,6 +11,70 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Note
 다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
 
+## [0.6.0] - 2025-11-18
+
+### Added - PARTNERS Page
+- PARTNERS 페이지 (`/partners`)
+  - 글로벌 파트너 섹션 (10개 파트너사)
+    - SPXFLOW, NEUMAN & ESSER, CASTANET, KB DELTA
+    - TURBO LINK, WTQ, CP Pumpen, FIMA, NIDEC, 삼영필텍 (SYT)
+    - 각 파트너사별 정보: 국가, 계약 연도, 관계, 설명, 제품군
+  - 파트너십의 강점 (6개 카드)
+    - 공식 대리점 계약, 글로벌 네트워크, 기술 지원
+    - 안정적 공급, 경쟁력 있는 가격, 품질 보증
+  - 주요 고객사 섹션 (7개 고객사)
+    - 정유: SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크
+    - 화학·중공업: TKG, Hanwha, 휴켐스
+    - 고객사 로고 그리드 (7개)
+  - 신뢰 지표 (Trust Indicators)
+    - 30+ 년 업력, 10+ 글로벌 파트너사, 7+ 주요 고객사
+
+### Technical
+- 총 17개 routes 빌드 성공
+- 파트너사 정보 구조화 (10개 객체)
+- 고객사 산업별 분류 필터링
+- 반응형 로고 그리드 (2/4/7 열)
+
+## [0.5.0] - 2025-11-18
+
+### Added - PRODUCTS 전체 완료 (Phase 2 완료)
+- Pump 상세 페이지 (`/products/pump`)
+  - CP Pumpen (스위스) 브랜드 소개
+  - 15개 펌프 모델 Accordion (MKP, MKPL, MKP-S, MKPD, MKPV, CPP, MSP, ASP, PGP, GP, LP, PP, SP, DP, VP)
+  - 105개 이상 펌프 사이즈 제공
+  - 6개 핵심 특징 (누출 방지, 내화학성, 유지보수 최소화, 다양한 사이즈, 고온·고압 대응, 인증)
+  - 8개 적용 산업 (석유화학, 화학, 제약, 식품, 수처리, 반도체, 도료·페인트, 환경·에너지)
+  - 기술 사양 (유량, 압력, 온도, 재질)
+- Bearing 상세 페이지 (`/products/bearing`)
+  - 터보링크 (TURBO LINK) 브랜드 소개
+  - 3개 베어링 제품군 (TILTING PAD THRUST, VERTICAL, JOURNAL & THRUST COMBINED)
+  - 각 제품군별 사양 (회전속도, 하중, 직경)
+  - 6개 강점 (고속 회전, 고하중, 자동 정렬, 온도 안정성, 긴 수명, 국내 제작)
+  - 6개 적용 산업 (정유·석유화학, 발전, 조선·해양, 중공업, 공조·환경, 연구소)
+- Cylinder Liner for Ship 상세 페이지 (`/products/cylinder-liner`)
+  - WTQ (Yangzhou Wuting Qiao) 브랜드 소개
+  - 4개 핵심 역할 (엔진 보호, 마모 저감, 열 관리, 교체 용이)
+  - 기술 사양 (재질, 표면 처리, 엔진 타입, 사이즈)
+  - 4개 적용 선박 (화물선, 여객선, 특수 선박, 중소형 선박)
+  - 제작 공정 5단계 (주조 → 열처리 → 가공 → 표면 처리 → 품질 검사)
+  - 국제 인증 (ISO 9001, CCS, ABS, DNV-GL, LR) 및 호환 엔진 (MAN, Wärtsilä, Mitsubishi 등)
+- Oil Purifier 상세 페이지 (`/products/oil-purifier`)
+  - 삼영필텍 (SYT) 브랜드 소개
+  - 4개 주요 기능 (수분 제거, 불순물 제거, 오일 수명 연장, 설비 보호)
+  - 9개 모델 스펙 테이블 (DVEFB-10-PW ~ DVEFB-CO-PW)
+    - 청정 유량 (10~200 L/min), 크기, 소비 전력 명시
+    - 맞춤 제작 (DVEFB-CO-PW) 옵션 제공
+  - 오일 정화 원리 5단계 (흡입 → 1차 여과 → 진공 증발 → 정밀 여과 → 배출)
+  - 6개 적용 분야 (터빈, 유압, 압축기, 변압기, 기어, 선박 엔진 오일)
+  - 기술 사양 (수분 제거율 99%, 여과 정밀도 1μm, 운전 조건, 안전 기능)
+
+### Technical
+- 총 16개 routes 빌드 성공
+- PRODUCTS 7개 상세 페이지 모두 완료
+- Phase 2 (핵심 페이지) 100% 완료
+- shadcn/ui Accordion 활용한 일관된 UI 패턴
+- 반응형 테이블 (Oil Purifier 모델 스펙)
+
 ## [0.4.0] - 2025-11-18
 
 ### Added - PRODUCTS Pages

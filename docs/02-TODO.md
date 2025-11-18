@@ -1,0 +1,120 @@
+# Todo List
+# Raon Total Solution B2B Website
+
+**Last Updated:** 2025-11-18
+**Total Tasks:** 24
+**Completed:** 2
+**In Progress:** 0
+
+## 📥 Inbox
+
+*새로 추가된 작업들 (아직 시작 전)*
+
+### Phase 1: 기본 구조 (Week 1-2)
+- [ ] [Feature] 색상 시스템 globals.css 업데이트 (p:High, added:2025-11-18)
+- [ ] [Feature] Pretendard Variable 폰트 설치 및 설정 (p:Medium, added:2025-11-18)
+- [ ] [Feature] Header 컴포넌트 구현 (고정, 스크롤 효과) (p:High, added:2025-11-18)
+- [ ] [Feature] Footer 컴포넌트 구현 (p:Medium, added:2025-11-18)
+- [ ] [Feature] CTA 버튼 컴포넌트 2종 (상담/제품 문의) (p:High, added:2025-11-18)
+- [ ] [Feature] PlaceholderImage 컴포넌트 (p:Low, added:2025-11-18)
+- [ ] [Feature] 모바일 Sheet 메뉴 (shadcn Sheet + Accordion) (p:High, added:2025-11-18)
+
+### Phase 2: 핵심 페이지 (Week 3-4)
+- [ ] [Feature] HOME - Hero 섹션 (배경 비디오 placeholder + CTA) (p:High, added:2025-11-18)
+- [ ] [Feature] HOME - Industries Highlight (2개 카드) (p:High, added:2025-11-18)
+- [ ] [Feature] HOME - Products Snapshot (5개 제품군 카드) (p:High, added:2025-11-18)
+- [ ] [Feature] HOME - Partners & Clients (로고 슬라이더) (p:Medium, added:2025-11-18)
+- [ ] [Feature] COMPANY - CEO 인사말 섹션 (p:Medium, added:2025-11-18)
+- [ ] [Feature] COMPANY - 연혁 타임라인 (2020~2025) (p:Medium, added:2025-11-18)
+- [ ] [Feature] COMPANY - 오시는 길 (지도 placeholder) (p:Low, added:2025-11-18)
+- [ ] [Feature] INDUSTRIES - 정유·석유화학 페이지 (p:High, added:2025-11-18)
+- [ ] [Feature] INDUSTRIES - 조선 페이지 (p:High, added:2025-11-18)
+- [ ] [Feature] PRODUCTS - 7개 제품군 카드 + Accordion (p:High, added:2025-11-18)
+
+### Phase 3: 기능 페이지 (Week 5-6)
+- [ ] [Feature] PARTNERS - 글로벌 파트너 섹션 (p:Medium, added:2025-11-18)
+- [ ] [Feature] PARTNERS - 주요 고객사 그리드 (p:Medium, added:2025-11-18)
+- [ ] [Feature] CONTACT - 문의 폼 (shadcn Form + Zod) (p:High, added:2025-11-18)
+- [ ] [Feature] CONTACT - API Route 구현 (/api/contact) (p:High, added:2025-11-18)
+- [ ] [Feature] Resend API 이메일 전송 연동 (p:High, added:2025-11-18)
+- [ ] [Feature] SEO 최적화 (메타 태그, sitemap.xml) (p:Medium, added:2025-11-18)
+
+### Phase 4: 테스트 & 배포 (Week 7-8)
+- [ ] [Test] 모바일/태블릿/데스크톱 반응형 테스트 (p:High, added:2025-11-18)
+- [ ] [Test] 브라우저 호환성 테스트 (Chrome, Safari, Firefox, Edge) (p:Medium, added:2025-11-18)
+- [ ] [Deploy] Vercel 프로덕션 배포 (p:Critical, added:2025-11-18)
+
+### 작업 타입
+- `[Feature]` - 새로운 기능
+- `[Bug]` - 버그 수정
+- `[Refactor]` - 코드 리팩토링
+- `[Docs]` - 문서 작업
+- `[Test]` - 테스트 작성
+- `[Deploy]` - 배포 관련
+- `[Chore]` - 기타 작업
+
+### 우선순위
+- `p:Critical` - 즉시 처리 필요
+- `p:High` - 높은 우선순위
+- `p:Medium` - 보통 (기본값)
+- `p:Low` - 낮은 우선순위
+
+## 🔄 In Progress
+
+*현재 작업 중인 항목들*
+
+<!-- 작업 시작 시 여기로 이동 -->
+
+## ✅ Done
+
+*완료된 작업들 (최근 완료 순)*
+
+- [x] [Chore] Tailwind CSS v4 + shadcn/ui 설치 (done:2025-11-18)
+- [x] [Docs] 프로젝트 문서 생성 (PLAN, PRD, DESIGN_SYSTEM) (done:2025-11-18)
+- [x] [Chore] Git 초기화 및 GitHub 리포지토리 생성 (done:2025-11-18)
+
+## 📊 Statistics
+
+### This Week (2025-11-18 ~ 2025-11-24)
+**Completed:** 2 tasks
+**Added:** 24 tasks
+**Average Completion Time:** N/A
+
+### This Month (2025-11)
+**Completed:** 2 tasks
+**Bugs Fixed:** 0
+**Features Added:** 0
+
+## 🗓️ Scheduled Tasks
+
+### Week 1-2 (2025-11-18 ~ 2025-11-29)
+- [ ] 색상 시스템 및 공통 컴포넌트 완료 (due:2025-11-29)
+
+### Week 3-4 (2025-12-02 ~ 2025-12-13)
+- [ ] 핵심 페이지 4개 완료 (HOME, COMPANY, INDUSTRIES, PRODUCTS) (due:2025-12-13)
+
+### Week 5-6 (2025-12-16 ~ 2025-12-27)
+- [ ] PARTNERS, CONTACT 페이지 및 SEO 최적화 (due:2025-12-27)
+
+### Week 7-8 (2025-12-30 ~ 2026-01-10)
+- [ ] 테스트 및 프로덕션 배포 (due:2026-01-10)
+
+## 🔖 Notes
+
+### 작업 규칙
+1. 새 작업은 Inbox에 추가
+2. 시작할 때 In Progress로 이동
+3. 완료 시 Done으로 이동 (자동 날짜 기록)
+4. Critical 우선순위는 즉시 처리
+
+### 사용 방법
+- **작업 추가:** "TODO에 [작업명] 추가해줘"
+- **작업 시작:** "[작업명] 시작했어"
+- **작업 완료:** "[작업명] 완료했어"
+- **긴급 버그:** "버그 기록해줘: [내용]"
+
+### 주요 마일스톤
+- **2025-11-29:** Phase 1 완료 (공통 컴포넌트)
+- **2025-12-13:** Phase 2 완료 (핵심 페이지)
+- **2025-12-27:** Phase 3 완료 (기능 페이지)
+- **2026-01-10:** Phase 4 완료 (배포)

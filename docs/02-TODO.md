@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-11-18
-**Total Tasks:** 24
-**Completed:** 19
+**Total Tasks:** 26
+**Completed:** 20
 **In Progress:** 0
 
 ## 📥 Inbox
@@ -11,7 +11,9 @@
 *새로 추가된 작업들 (아직 시작 전)*
 
 ### Phase 2: 핵심 페이지 (Week 3-4)
-- [ ] [Feature] PRODUCTS - 7개 제품군 카드 + Accordion (p:High, added:2025-11-18)
+- [ ] [Feature] PRODUCTS - 메인 페이지 (7개 제품군 카드) (p:High, added:2025-11-18)
+- [ ] [Feature] PRODUCTS - Compressor 상세 (9개 하위 Accordion) (p:High, added:2025-11-18)
+- [ ] [Feature] PRODUCTS - 나머지 6개 제품 상세 페이지 (p:Medium, added:2025-11-18)
 
 ### Phase 3: 기능 페이지 (Week 5-6)
 - [ ] [Feature] PARTNERS - 글로벌 파트너 섹션 (p:Medium, added:2025-11-18)
@@ -51,6 +53,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] Header INDUSTRIES 드롭다운 메뉴 (done:2025-11-18)
 - [x] [Feature] INDUSTRIES - 조선 페이지 (done:2025-11-18)
 - [x] [Feature] INDUSTRIES - 정유·석유화학 페이지 (done:2025-11-18)
 - [x] [Feature] INDUSTRIES - 메인 페이지 리다이렉트 구현 (done:2025-11-18)

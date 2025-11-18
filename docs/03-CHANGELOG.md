@@ -9,10 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned for Next Release
-- PRODUCTS 페이지 (7개 제품군)
+- PRODUCTS 페이지 구현
+  - 메인 페이지 (7개 제품군 카드)
+  - Compressor & Spare parts 상세 페이지 (9개 하위 항목 Accordion)
+  - 나머지 6개 제품 상세 페이지
 - PARTNERS 페이지
 - CONTACT 페이지 및 문의 폼
 - SEO 기본 최적화
+
+## [0.3.1] - 2025-11-18
+
+### Fixed - Header Navigation
+- Header의 INDUSTRIES 드롭다운 메뉴 구현 완료
+  - 데스크톱: JavaScript 기반 hover 드롭다운 (onMouseEnter/onMouseLeave)
+  - 모바일: Accordion 메뉴
+  - 정유·석유화학 / 조선 2개 링크 추가
+- shadcn/ui navigation-menu 컴포넌트 설치
+- 모바일 메뉴 URL 수정 (`/industries/refinery` → `/industries/oil-refinery`)
+- `.next` 빌드 캐시 삭제 후 재빌드로 문제 해결
+
+### Technical
+- NavigationMenu 컴포넌트 시도 후 JavaScript state 기반으로 변경
+- Hot Module Replacement 이슈 해결
+- 브라우저 캐시 문제 해결
 
 ## [0.3.0] - 2025-11-18
 

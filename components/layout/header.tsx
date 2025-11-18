@@ -21,6 +21,7 @@ import {
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,14 +72,52 @@ export function Header() {
             >
               COMPANY
             </Link>
-            <Link
-              href="/industries"
-              className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
-                scrolled ? "text-[#0A1628]" : "text-white"
-              }`}
+
+            {/* Industries Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIndustriesOpen(true)}
+              onMouseLeave={() => setIndustriesOpen(false)}
             >
-              INDUSTRIES
-            </Link>
+              <button
+                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
+                  scrolled ? "text-[#0A1628]" : "text-white"
+                }`}
+              >
+                INDUSTRIES
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              {/* Dropdown Menu */}
+              {industriesOpen && (
+                <div className="absolute top-full left-0 mt-2 w-[280px] bg-white rounded-lg shadow-lg border border-gray-200 z-50 animate-in fade-in duration-200">
+                  <div className="p-2">
+                    <Link
+                      href="/industries/oil-refinery"
+                      className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="text-sm font-medium text-[#0A1628]">
+                        정유·석유화학
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Oil Refinery & Petrochemical
+                      </p>
+                    </Link>
+                    <Link
+                      href="/industries/shipbuilding"
+                      className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                    >
+                      <div className="text-sm font-medium text-[#0A1628]">
+                        조선
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">
+                        Ship Building
+                      </p>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <Link
               href="/products"
               className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
@@ -181,7 +220,7 @@ export function Header() {
                         </AccordionTrigger>
                         <AccordionContent className="pl-8 space-y-2">
                           <Link
-                            href="/industries/refinery"
+                            href="/industries/oil-refinery"
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
                           >

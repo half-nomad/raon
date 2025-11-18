@@ -20,16 +20,16 @@
 ## Milestones
 
 ### Phase 1: 기본 구조 및 공통 컴포넌트 (Week 1-2)
-- [ ] 색상 시스템 구축 및 Tailwind 설정 (완료일: 2025-11-25)
-- [ ] Header + Footer 컴포넌트 (완료일: 2025-11-25)
-- [ ] CTA 버튼 시스템 (상담/제품 문의) (완료일: 2025-11-25)
-- [ ] Placeholder 이미지 컴포넌트 (완료일: 2025-11-26)
-- [ ] Logo Carousel 컴포넌트 (완료일: 2025-11-27)
+- [x] 색상 시스템 구축 및 Tailwind 설정 (완료일: 2025-11-18)
+- [x] Header + Footer 컴포넌트 (완료일: 2025-11-18)
+- [x] CTA 버튼 시스템 (상담/제품 문의) (완료일: 2025-11-18)
+- [x] Placeholder 이미지 컴포넌트 (완료일: 2025-11-18)
+- [x] Logo Carousel 컴포넌트 (완료일: 2025-11-18)
 
 ### Phase 2: 핵심 페이지 개발 (Week 3-4)
-- [ ] HOME 페이지 (Hero + Industries + Products + Partners) (완료일: 2025-12-05)
-- [ ] COMPANY 페이지 (인사말 + 연혁 타임라인 + 오시는 길) (완료일: 2025-12-08)
-- [ ] INDUSTRIES 페이지 (정유·석유화학 / 조선) (완료일: 2025-12-10)
+- [x] HOME 페이지 (Hero + Industries + Products + Partners) (완료일: 2025-11-18)
+- [x] COMPANY 페이지 (인사말 + 연혁 타임라인 + 오시는 길) (완료일: 2025-11-18)
+- [x] INDUSTRIES 페이지 (정유·석유화학 / 조선) (완료일: 2025-11-18)
 - [ ] PRODUCTS 페이지 (7개 제품군 + Accordion) (완료일: 2025-12-12)
 
 ### Phase 3: 기능 페이지 및 최적화 (Week 5-6)
@@ -47,26 +47,18 @@
 ## Progress Tracking
 
 ### Overall Progress
-**현재 진행률:** 5%
-**완료된 마일스톤:** 0 / 17
+**현재 진행률:** 47%
+**완료된 마일스톤:** 8 / 17
 **예상 완료일:** 2025-12-31
 
 ### Weekly Progress
 
+**Note:** 세부 작업 내역은 `docs/02-TODO.md`와 `docs/03-CHANGELOG.md`를 참조하세요.
+
 #### Week of 2025-11-18
-**진행률:** 0% → 5%
-**완료:**
-- Tailwind CSS v4 + shadcn/ui 설치
-- 프로젝트 구조 설정
-- Git 초기화 및 GitHub 리포지토리 생성
-
-**이슈:**
-- 없음
-
-**다음 주 계획:**
-- 색상 시스템 구축
-- Header/Footer 컴포넌트 개발
-- HOME 페이지 Hero 섹션 시작
+**마일스톤 진행:** 0% → 47% (8/17 완료)
+- Phase 1: ✅ 완료
+- Phase 2: 🔄 3/4 완료 (PRODUCTS 남음)
 
 ## Scope
 

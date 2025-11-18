@@ -8,14 +8,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned for Next Release
-- PRODUCTS 페이지 구현
-  - 메인 페이지 (7개 제품군 카드)
-  - Compressor & Spare parts 상세 페이지 (9개 하위 항목 Accordion)
-  - 나머지 6개 제품 상세 페이지
-- PARTNERS 페이지
-- CONTACT 페이지 및 문의 폼
-- SEO 기본 최적화
+### Note
+다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
+
+## [0.4.0] - 2025-11-18
+
+### Added - PRODUCTS Pages
+- PRODUCTS 메인 페이지 (`/products`)
+  - 7개 제품군 카드 그리드 (2열 반응형 레이아웃)
+  - 각 제품군별 브랜드, 설명, 주요 특징 표시
+  - 상세 페이지 링크 연결
+- Compressor & Spare parts 상세 페이지 (`/products/compressor`)
+  - 6개 주요 섹션 Accordion 구조
+  - Cylinder liner (WTQ), Piston (Castanet SA), Piston Rod, Crosshead
+  - Consumable parts (4개 하위 Accordion): Piston ring, Rider ring, Packing Cup/Ring, Oil Scraper
+  - Valve Assy & Internal Parts (KB Delta)
+- Mixer & Agitator 상세 페이지 (`/products/mixer`)
+  - SPX FLOW (Lightnin, Plenty, Stelzer) 브랜드 소개
+  - 6개 적용 분야 카드 (석유화학, 제약·화학, 식품·음료, 도료·코팅, 수처리, 기타)
+  - 기술 사양 (혼합 용량, 구동 방식, 임펠러 타입, 재질)
+- Motor 상세 페이지 (`/products/motor`)
+  - NIDEC 브랜드 소개 및 8개 제품군 Accordion
+  - Inverter, Vector, Three-phase, Anti-explosion, High-efficiency, Servo, Geared, DC Brushless
+  - 6개 적용 분야 및 기술 사양 (출력 범위, 전압, 보호 등급, 에너지 효율)
+
+### Changed - Documentation
+- 문서 구조 개선: PLAN/TODO/CHANGELOG 중복 제거
+  - CHANGELOG "Unreleased" 섹션 삭제 → TODO 참조
+  - PLAN 주간 세부 내역 간소화 → TODO 참조
+  - 각 문서 간 상호 링크 추가
+- MAINTENANCE.md 아카이브 이동 (`docs/archive/`)
+- CLAUDE.md 업데이트 규칙 명시
+
+### Technical
+- 총 12개 routes 빌드 성공
+- Accordion 컴포넌트 활용 (shadcn/ui)
+- Nested Accordion 구현 (Consumable parts)
+- 반응형 디자인 적용 (모바일 → 태블릿 → 데스크톱)
 
 ## [0.3.1] - 2025-11-18
 

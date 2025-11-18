@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# 문서 일관성 체크
+echo "📋 Checking documentation consistency..."
+
+# TODO 완료 개수 추출
+TODO_DONE=$(grep -c "^- \[x\]" docs/02-TODO.md || echo "0")
+TODO_TOTAL=$(grep -c "^- \[" docs/02-TODO.md || echo "0")
+
+# PLAN 완료 개수 추출
+PLAN_DONE=$(grep -c "^- \[x\]" docs/01-PLAN.md || echo "0")
+
+# 경고 메시지
+echo "✅ TODO: $TODO_DONE/$TODO_TOTAL completed"
+echo "✅ PLAN: $PLAN_DONE milestones completed"
+
+# CHANGELOG 최근 업데이트 확인
+CHANGELOG_DATE=$(grep -m 1 "## \[" docs/03-CHANGELOG.md | grep -o "[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" || echo "none")
+echo "📅 CHANGELOG last updated: $CHANGELOG_DATE"
+
+# 경고만 표시 (커밋 차단 안 함)
+if [ "$CHANGELOG_DATE" != "$(date +%Y-%m-%d)" ]; then
+  echo "⚠️  Warning: CHANGELOG might need update"
+fi
+
+exit 0

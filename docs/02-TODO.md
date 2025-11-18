@@ -3,7 +3,7 @@
 
 **Last Updated:** 2025-11-18
 **Total Tasks:** 24
-**Completed:** 9
+**Completed:** 19
 **In Progress:** 0
 
 ## 📥 Inbox
@@ -11,15 +11,6 @@
 *새로 추가된 작업들 (아직 시작 전)*
 
 ### Phase 2: 핵심 페이지 (Week 3-4)
-- [ ] [Feature] HOME - Hero 섹션 (배경 비디오 placeholder + CTA) (p:High, added:2025-11-18)
-- [ ] [Feature] HOME - Industries Highlight (2개 카드) (p:High, added:2025-11-18)
-- [ ] [Feature] HOME - Products Snapshot (5개 제품군 카드) (p:High, added:2025-11-18)
-- [ ] [Feature] HOME - Partners & Clients (로고 슬라이더) (p:Medium, added:2025-11-18)
-- [ ] [Feature] COMPANY - CEO 인사말 섹션 (p:Medium, added:2025-11-18)
-- [ ] [Feature] COMPANY - 연혁 타임라인 (2020~2025) (p:Medium, added:2025-11-18)
-- [ ] [Feature] COMPANY - 오시는 길 (지도 placeholder) (p:Low, added:2025-11-18)
-- [ ] [Feature] INDUSTRIES - 정유·석유화학 페이지 (p:High, added:2025-11-18)
-- [ ] [Feature] INDUSTRIES - 조선 페이지 (p:High, added:2025-11-18)
 - [ ] [Feature] PRODUCTS - 7개 제품군 카드 + Accordion (p:High, added:2025-11-18)
 
 ### Phase 3: 기능 페이지 (Week 5-6)
@@ -60,6 +51,16 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] INDUSTRIES - 조선 페이지 (done:2025-11-18)
+- [x] [Feature] INDUSTRIES - 정유·석유화학 페이지 (done:2025-11-18)
+- [x] [Feature] INDUSTRIES - 메인 페이지 리다이렉트 구현 (done:2025-11-18)
+- [x] [Feature] COMPANY - 오시는 길 (지도 placeholder) (done:2025-11-18)
+- [x] [Feature] COMPANY - 연혁 타임라인 (2020~2025) (done:2025-11-18)
+- [x] [Feature] COMPANY - CEO 인사말 섹션 (done:2025-11-18)
+- [x] [Feature] HOME - Partners & Clients (로고 슬라이더) (done:2025-11-18)
+- [x] [Feature] HOME - Products Snapshot (5개 제품군 카드) (done:2025-11-18)
+- [x] [Feature] HOME - Industries Highlight (2개 카드) (done:2025-11-18)
+- [x] [Feature] HOME - Hero 섹션 (배경 비디오 placeholder + CTA) (done:2025-11-18)
 - [x] [Feature] 모바일 Sheet 메뉴 (shadcn Sheet + Accordion) (done:2025-11-18)
 - [x] [Feature] PlaceholderImage 컴포넌트 (done:2025-11-18)
 - [x] [Feature] CTA 버튼 컴포넌트 2종 (상담/제품 문의) (done:2025-11-18)

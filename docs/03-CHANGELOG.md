@@ -8,14 +8,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned for v1.0.0
-- HOME 페이지 전체 섹션 완성
-- COMPANY 페이지 (인사말, 연혁, 오시는 길)
-- INDUSTRIES 페이지 (정유·석유화학, 조선)
+### Planned for Next Release
 - PRODUCTS 페이지 (7개 제품군)
 - PARTNERS 페이지
 - CONTACT 페이지 및 문의 폼
 - SEO 기본 최적화
+
+## [0.3.0] - 2025-11-18
+
+### Added - HOME Page (Complete)
+- HeroSection 컴포넌트 (배경 비디오 placeholder, CTA 버튼 2개)
+- IndustriesHighlight 컴포넌트 (정유·석유화학, 조선 카드)
+- ProductsSnapshot 컴포넌트 (5개 제품군 카드)
+- PartnersClients 컴포넌트 (로고 슬라이더 + 고객사 그리드)
+- ContactCTA 컴포넌트 (문의 유도 배너 + Scroll-to-top 버튼)
+
+### Added - COMPANY Page (Complete)
+- CEOMessage 컴포넌트 (대표이사 인사말, 2열 레이아웃)
+- HistoryTimeline 컴포넌트 (2020~2025 연혁, 반응형 타임라인)
+- Location 컴포넌트 (오시는 길, 지도 placeholder, 연락처 정보)
+- COMPANY 메인 페이지 (`/company`)
+
+### Added - INDUSTRIES Pages (Complete)
+- IndustryHero 공통 컴포넌트
+- 정유·석유화학 페이지 (`/industries/oil-refinery`)
+  - 30년 노하우 강조
+  - 6개 주요 서비스 그리드
+  - 3개 핵심 특징 카드
+  - 관련 제품 링크
+- 조선 페이지 (`/industries/shipbuilding`)
+  - WTQ 대리점 소개
+  - 제품 사양 (직경 480~1500mm)
+  - 4개 주요 서비스
+  - 3개 핵심 특징 카드
+
+### Changed
+- CTA 버튼 컴포넌트에 `size` prop 추가 (default, large)
+- PlaceholderImage를 인라인 div로 교체 (props 단순화)
+
+### Technical
+- 모든 페이지 빌드 성공 확인 (7/7 routes)
+- 반응형 디자인 적용 (모바일 → 태블릿 → 데스크톱)
+- Client/Server 컴포넌트 최적화
+- 로고 슬라이더 애니메이션 구현 (RequestAnimationFrame)
 
 ## [0.2.0] - 2025-11-18
 

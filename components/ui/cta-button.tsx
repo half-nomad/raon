@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface CTAButtonProps {
   variant?: "primary" | "secondary";
+  size?: "default" | "large";
   href: string;
   children: React.ReactNode;
   className?: string;
@@ -10,12 +11,18 @@ interface CTAButtonProps {
 
 export function CTAButton({
   variant = "primary",
+  size = "default",
   href,
   children,
   className,
 }: CTAButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center px-8 py-3 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5";
+    "inline-flex items-center justify-center rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5";
+
+  const sizes = {
+    default: "px-6 py-2.5 text-sm",
+    large: "px-8 py-3 text-base",
+  };
 
   const variants = {
     primary:
@@ -27,7 +34,7 @@ export function CTAButton({
   return (
     <Link
       href={href}
-      className={cn(baseStyles, variants[variant], className)}
+      className={cn(baseStyles, sizes[size], variants[variant], className)}
     >
       {children}
     </Link>

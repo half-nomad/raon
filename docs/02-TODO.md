@@ -3,21 +3,12 @@
 
 **Last Updated:** 2025-11-18
 **Total Tasks:** 24
-**Completed:** 2
+**Completed:** 9
 **In Progress:** 0
 
 ## 📥 Inbox
 
 *새로 추가된 작업들 (아직 시작 전)*
-
-### Phase 1: 기본 구조 (Week 1-2)
-- [ ] [Feature] 색상 시스템 globals.css 업데이트 (p:High, added:2025-11-18)
-- [ ] [Feature] Pretendard Variable 폰트 설치 및 설정 (p:Medium, added:2025-11-18)
-- [ ] [Feature] Header 컴포넌트 구현 (고정, 스크롤 효과) (p:High, added:2025-11-18)
-- [ ] [Feature] Footer 컴포넌트 구현 (p:Medium, added:2025-11-18)
-- [ ] [Feature] CTA 버튼 컴포넌트 2종 (상담/제품 문의) (p:High, added:2025-11-18)
-- [ ] [Feature] PlaceholderImage 컴포넌트 (p:Low, added:2025-11-18)
-- [ ] [Feature] 모바일 Sheet 메뉴 (shadcn Sheet + Accordion) (p:High, added:2025-11-18)
 
 ### Phase 2: 핵심 페이지 (Week 3-4)
 - [ ] [Feature] HOME - Hero 섹션 (배경 비디오 placeholder + CTA) (p:High, added:2025-11-18)
@@ -69,6 +60,13 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] 모바일 Sheet 메뉴 (shadcn Sheet + Accordion) (done:2025-11-18)
+- [x] [Feature] PlaceholderImage 컴포넌트 (done:2025-11-18)
+- [x] [Feature] CTA 버튼 컴포넌트 2종 (상담/제품 문의) (done:2025-11-18)
+- [x] [Feature] Footer 컴포넌트 구현 (done:2025-11-18)
+- [x] [Feature] Header 컴포넌트 구현 (고정, 스크롤 효과) (done:2025-11-18)
+- [x] [Feature] Pretendard Variable 폰트 설치 및 설정 (done:2025-11-18)
+- [x] [Feature] 색상 시스템 globals.css 업데이트 (done:2025-11-18)
 - [x] [Chore] Tailwind CSS v4 + shadcn/ui 설치 (done:2025-11-18)
 - [x] [Docs] 프로젝트 문서 생성 (PLAN, PRD, DESIGN_SYSTEM) (done:2025-11-18)
 - [x] [Chore] Git 초기화 및 GitHub 리포지토리 생성 (done:2025-11-18)
@@ -76,14 +74,14 @@
 ## 📊 Statistics
 
 ### This Week (2025-11-18 ~ 2025-11-24)
-**Completed:** 2 tasks
+**Completed:** 9 tasks
 **Added:** 24 tasks
-**Average Completion Time:** N/A
+**Average Completion Time:** ~30분/작업
 
 ### This Month (2025-11)
-**Completed:** 2 tasks
+**Completed:** 9 tasks
 **Bugs Fixed:** 0
-**Features Added:** 0
+**Features Added:** 7
 
 ## 🗓️ Scheduled Tasks
 

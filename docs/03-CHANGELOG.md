@@ -9,14 +9,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned for v1.0.0
-- HOME 페이지 전체 섹션
+- HOME 페이지 전체 섹션 완성
 - COMPANY 페이지 (인사말, 연혁, 오시는 길)
 - INDUSTRIES 페이지 (정유·석유화학, 조선)
 - PRODUCTS 페이지 (7개 제품군)
 - PARTNERS 페이지
 - CONTACT 페이지 및 문의 폼
-- 모바일 반응형 디자인
 - SEO 기본 최적화
+
+## [0.2.0] - 2025-11-18
+
+### Added
+- 라온 브랜드 색상 시스템 (Navy #0A1628, Blue #3B82F6, Red #EF4444)
+- Pretendard Variable 폰트 적용 (CDN)
+- Header 컴포넌트 (고정 헤더, 스크롤 효과)
+- Footer 컴포넌트 (4열 그리드 레이아웃)
+- CTA 버튼 컴포넌트 2종 (Primary, Secondary)
+- PlaceholderImage 컴포넌트 (3가지 비율)
+- 모바일 Sheet 메뉴 (Accordion 포함)
+- shadcn/ui 컴포넌트 설치 (Button, Sheet, Accordion)
+- HOME 페이지 임시 콘텐츠 (Hero, Industries)
+
+### Changed
+- globals.css - 라온 브랜드 색상 변수 추가
+- layout.tsx - Pretendard 폰트 및 메타데이터 업데이트
+- page.tsx - 임시 Hero 섹션 및 Industries 카드
+
+### Technical
+- 모바일 우선 반응형 디자인 구현
+- 스크롤 시 헤더 배경 전환 효과
+- Tailwind CSS 커스텀 색상 변수 적용
 
 ## [0.1.0] - 2025-11-18
 

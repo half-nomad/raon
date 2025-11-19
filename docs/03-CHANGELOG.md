@@ -11,6 +11,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Note
 다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
 
+## [0.6.1] - 2025-11-19
+
+### Fixed - Header Navigation
+- Header INDUSTRIES 드롭다운 메뉴 호버 버그 수정
+  - 문제: 버튼에서 드롭다운 메뉴로 커서 이동 시 메뉴가 사라지는 현상
+  - 해결: 드롭다운 컨테이너에 `onMouseEnter/onMouseLeave` 이벤트 추가
+  - 보이지 않는 hover 브릿지 추가 (8px 높이)
+  - 부모 div와 드롭다운 컨테이너 모두 state 동기화
+- components/layout/header.tsx 수정 (77-128번 줄)
+
+### Technical
+- JavaScript state 기반 hover 제어 개선
+- 브릿지 요소로 hover 영역 연속성 확보
+- 사용자 경험 개선 (메뉴 안정성 향상)
+
 ## [0.6.0] - 2025-11-18
 
 ### Added - PARTNERS Page

@@ -87,32 +87,41 @@ export function Header() {
                 INDUSTRIES
                 <ChevronDown className="h-4 w-4" />
               </button>
-              {/* Dropdown Menu */}
+              {/* Dropdown Menu Container with hover bridge */}
               {industriesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[280px] bg-white rounded-lg shadow-lg border border-gray-200 z-50 animate-in fade-in duration-200">
-                  <div className="p-2">
-                    <Link
-                      href="/industries/oil-refinery"
-                      className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="text-sm font-medium text-[#0A1628]">
-                        정유·석유화학
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">
-                        Oil Refinery & Petrochemical
-                      </p>
-                    </Link>
-                    <Link
-                      href="/industries/shipbuilding"
-                      className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                    >
-                      <div className="text-sm font-medium text-[#0A1628]">
-                        조선
-                      </div>
-                      <p className="text-xs text-gray-500 mt-1">
-                        Ship Building
-                      </p>
-                    </Link>
+                <div
+                  className="absolute top-full left-0 w-[280px] z-50"
+                  onMouseEnter={() => setIndustriesOpen(true)}
+                  onMouseLeave={() => setIndustriesOpen(false)}
+                >
+                  {/* Invisible hover bridge */}
+                  <div className="h-2 w-full" />
+                  {/* Actual menu */}
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 animate-in fade-in duration-200">
+                    <div className="p-2">
+                      <Link
+                        href="/industries/oil-refinery"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          정유·석유화학
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          Oil Refinery & Petrochemical
+                        </p>
+                      </Link>
+                      <Link
+                        href="/industries/shipbuilding"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          조선
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          Ship Building
+                        </p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}

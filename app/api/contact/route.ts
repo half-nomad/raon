@@ -153,7 +153,7 @@ export async function POST(request: NextRequest) {
     `;
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "라온토탈솔루션 문의 <onboarding@resend.dev>", // Resend 기본 발신 주소
       to: ["sales@raontotalsolution.co.kr"],
       replyTo: email, // 고객 이메일로 답장 가능
@@ -161,8 +161,12 @@ export async function POST(request: NextRequest) {
       html: emailHtml,
     });
 
+    if (error) {
+      throw error;
+    }
+
     return NextResponse.json(
-      { success: true, messageId: data.id },
+      { success: true, messageId: data?.id },
       { status: 200 }
     );
   } catch (error) {

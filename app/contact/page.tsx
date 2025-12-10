@@ -27,7 +27,9 @@ import { Location } from "@/components/company/location";
 // Form validation schema
 const contactFormSchema = z.object({
   category: z.string({
-    required_error: "문의 구분을 선택해주세요.",
+    message: "문의 구분을 선택해주세요.",
+  }).min(1, {
+    message: "문의 구분을 선택해주세요.",
   }),
   name: z.string().min(2, {
     message: "이름은 최소 2자 이상 입력해주세요.",

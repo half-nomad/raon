@@ -11,6 +11,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Note
 다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
 
+## [0.6.2] - 2025-12-10
+
+### Security
+- React Server Components 보안 취약점 패치 (CVE-2025-55182)
+  - 심각도: CVSS 10.0 (Critical) - 원격 코드 실행 취약점
+  - Next.js 16.0.3 → 16.0.7 업그레이드
+  - React 19.2.0 → 19.2.1 업그레이드
+  - React-dom 19.2.0 → 19.2.1 업그레이드
+  - npm audit 결과: 0 vulnerabilities
+
+### Fixed
+- Resend API 타입 에러 수정
+  - CreateEmailResponse 타입 처리 개선
+  - app/api/contact/route.ts:165 에러 해결
+  - Error destructuring 패턴 적용
+- Zod validation 스키마 업데이트
+  - Zod v4 API 변경사항 반영
+  - `required_error` → `message` + `min(1)` 패턴으로 변경
+  - app/contact/page.tsx:30 타입 에러 해결
+
+### Technical
+- 빌드 성공 확인 (17개 routes)
+- Next.js 16.0.7 (Turbopack) 호환성 검증 완료
+- TypeScript 컴파일 오류 해결
+
 ## [0.6.1] - 2025-11-19
 
 ### Fixed - Header Navigation

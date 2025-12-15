@@ -145,7 +145,7 @@ export async function POST(request: NextRequest) {
 
     <div class="footer">
       <p>이 메일은 라온토탈솔루션 웹사이트 문의 폼을 통해 자동 발송되었습니다.</p>
-      <p><strong>라온토탈솔루션</strong> | sales@raontotalsolution.co.kr | 02-575-3051</p>
+      <p><strong>라온토탈솔루션</strong> | rts@raontotalsolution.co.kr | 02-575-3051</p>
     </div>
   </div>
 </body>
@@ -155,7 +155,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: "라온토탈솔루션 문의 <onboarding@resend.dev>", // Resend 기본 발신 주소
-      to: ["sales@raontotalsolution.co.kr"],
+      to: ["rts@raontotalsolution.co.kr"],
       replyTo: email, // 고객 이메일로 답장 가능
       subject: `[${categoryMap[category]}] ${company} - ${name}님의 문의`,
       html: emailHtml,

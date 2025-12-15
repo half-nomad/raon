@@ -23,6 +23,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Location } from "@/components/company/location";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 // Form validation schema
 const contactFormSchema = z.object({
@@ -103,14 +105,27 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-white">
+      <Header />
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0A1628] via-[#0A1628] to-[#1A2D47] py-16 sm:py-20">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               Contact Us
             </h1>
-            <p className="text-base sm:text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
               궁금하신 사항이 있으신 경우 문의내용을 작성해 주시면
               <br className="hidden sm:block" />
               빠른 시일 안에 답변드리겠습니다.
@@ -369,7 +384,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="mailto:sales@raontotalsolution.co.kr"
+              href="mailto:rts@raontotalsolution.co.kr"
               className="flex items-center gap-4 p-6 bg-gradient-to-br from-[#3B82F6] to-[#60A5FA] rounded-xl hover:shadow-lg transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
@@ -390,7 +405,7 @@ export default function ContactPage() {
               <div>
                 <p className="text-sm text-white/70 mb-1">이메일 문의</p>
                 <p className="text-white font-semibold text-sm sm:text-base break-all">
-                  sales@raontotalsolution.co.kr
+                  rts@raontotalsolution.co.kr
                 </p>
               </div>
             </a>
@@ -402,6 +417,8 @@ export default function ContactPage() {
 
       {/* Location Section */}
       <Location />
+
+      <Footer />
     </main>
   );
 }

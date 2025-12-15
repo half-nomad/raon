@@ -1,9 +1,9 @@
 # Todo List
 # Raon Total Solution B2B Website
 
-**Last Updated:** 2025-11-18
-**Total Tasks:** 13
-**Completed:** 13
+**Last Updated:** 2025-12-15
+**Total Tasks:** 17
+**Completed:** 17
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -13,9 +13,6 @@
 *새로 추가된 작업들 (아직 시작 전)*
 
 ### Phase 3: 기능 페이지 (Week 5-6)
-- [ ] [Feature] CONTACT - 문의 폼 (shadcn Form + Zod) (p:High, added:2025-11-18)
-- [ ] [Feature] CONTACT - API Route 구현 (/api/contact) (p:High, added:2025-11-18)
-- [ ] [Feature] Resend API 이메일 전송 연동 (p:High, added:2025-11-18)
 - [ ] [Feature] SEO 최적화 (메타 태그, sitemap.xml) (p:Medium, added:2025-11-18)
 
 ### Phase 4: 테스트 & 배포 (Week 7-8)
@@ -48,6 +45,11 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Style] PRODUCTS, PARTNERS, CONTACT 페이지 히어로 섹션 가운데 정렬 (done:2025-12-15)
+- [x] [Style] 전체 페이지 통일 (Header, Footer, 배경 무늬 패턴 추가) (done:2025-12-15)
+- [x] [Feature] Resend API 이메일 전송 연동 (rts@raontotalsolution.co.kr) (done:2025-12-15)
+- [x] [Feature] CONTACT - API Route 구현 (/api/contact) (done:2025-12-15)
+- [x] [Feature] CONTACT - 문의 폼 (shadcn Form + Zod) (done:2025-12-15)
 - [x] [Feature] PARTNERS - 주요 고객사 그리드 (7개 고객사) (done:2025-11-18)
 - [x] [Feature] PARTNERS - 글로벌 파트너 섹션 (10개 파트너사) (done:2025-11-18)
 - [x] [Feature] PRODUCTS - Oil Purifier 상세 페이지 (삼영필텍, 모델 스펙 테이블) (done:2025-11-18)
@@ -83,15 +85,16 @@
 
 ## 📊 Statistics
 
-### This Week (2025-11-18 ~ 2025-11-24)
-**Completed:** 21 tasks
-**Added:** 13 tasks
-**Average Completion Time:** ~35분/작업
+### This Week (2025-12-09 ~ 2025-12-15)
+**Completed:** 5 tasks
+**Added:** 1 task
+**Average Completion Time:** ~40분/작업
 
-### This Month (2025-11)
-**Completed:** 15 tasks
+### This Month (2025-12)
+**Completed:** 5 tasks
 **Bugs Fixed:** 0
-**Features Added:** 13
+**Features Added:** 3
+**Style Updates:** 2
 
 ## 🗓️ Scheduled Tasks
 

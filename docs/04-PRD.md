@@ -94,6 +94,58 @@
    - I want to: 회사의 설립 배경, 성장 과정, 비전 확인
    - So that: 장기 파트너로서 신뢰할 수 있는지 판단
 
+### Image Asset Requirements
+
+#### Required Images by Page
+
+**HOME 페이지:**
+- Hero 배경 이미지/비디오 (정유 플랜트 야경 또는 엔지니어 점검 이미지, 1920x1080px)
+
+**INDUSTRIES 페이지:**
+- 정유·석유화학 히어로 이미지 (플랜트, 압축기, 파이프라인)
+- 조선 히어로 이미지 (선박 엔진, 조선소, 실린더라이너)
+
+**PRODUCTS 페이지 (7개 제품군):**
+1. Compressor - NEUMAN & ESSER, FIMA, CASTANET
+2. Mixer & Agitator - SPX FLOW (Lightnin)
+3. Motor - NIDEC
+4. Pump - CP Pumpen
+5. Bearing - 터보링크
+6. Cylinder Liner for Ship - WTQ
+7. Oil Purifier - 삼영필텍 (SYT)
+
+**PARTNERS 페이지:**
+
+*글로벌 파트너 로고 (10개):*
+1. CASTANET (프랑스 - Wearing Parts)
+2. KB DELTA (미국 - Valve)
+3. SPX FLOW
+4. NEUMAN & ESSER (독일)
+5. 터보링크 (Turbo Link)
+6. WTQ (중국 - Cylinder Liner)
+7. CP Pumpen (스위스)
+8. FIMA (독일 - Compressor)
+9. NIDEC (일본 - Motor)
+10. 삼영필텍 (SYT - Oil Purifier)
+
+*주요 고객사 로고 (7개):*
+1. TKG
+2. SK에너지
+3. S-OIL
+4. GS칼텍스
+5. HD현대오일뱅크
+6. Hanwha
+7. 휴켐스
+
+**COMPANY 페이지:**
+- CEO 사진 (인사말 섹션)
+- 라온토탈솔루션 로고
+
+**Image Collection Strategy:**
+- 파트너사/고객사 로고: 공식 웹사이트에서 다운로드
+- 제품 이미지: 제조사 웹사이트 또는 카탈로그
+- 배경 이미지: Unsplash, Pexels 등 무료 이미지 또는 실제 촬영
+
 ### Should Have (중요하지만 MVP 아님)
 1. **카탈로그 다운로드**
    - As a: 엔지니어

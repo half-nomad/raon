@@ -660,9 +660,76 @@ body {
 
 ### Icon Library
 - Lucide React: https://lucide.dev
+- 2,000개 이상의 아이콘 제공
+- shadcn/ui와 완벽 호환
+- 일관된 2px stroke width 디자인
+
+### Image Assets
+
+#### Asset Directory Structure
+```
+public/
+├── images/
+│   ├── hero/
+│   │   └── plant-night.jpg (or .mp4)  # 정유 플랜트 야경 또는 엔지니어 점검 이미지 (1920x1080px)
+│   ├── industries/
+│   │   ├── oil-refinery.jpg           # 플랜트, 압축기, 파이프라인
+│   │   └── shipbuilding.jpg           # 선박 엔진, 조선소, 실린더라이너
+│   ├── products/
+│   │   ├── compressor.jpg             # NEUMAN & ESSER, FIMA, CASTANET
+│   │   ├── mixer.jpg                  # SPX FLOW - Lightnin
+│   │   ├── motor.jpg                  # NIDEC
+│   │   ├── pump.jpg                   # CP Pumpen
+│   │   ├── bearing.jpg                # 터보링크
+│   │   ├── cylinder-liner.jpg         # WTQ
+│   │   └── oil-purifier.jpg           # 삼영필텍 (SYT)
+│   ├── partners/                      # 파트너사 로고 (PNG, 투명 배경)
+│   │   ├── castanet-logo.png          # CASTANET (프랑스)
+│   │   ├── kb-delta-logo.png          # KB DELTA (미국 Valve)
+│   │   ├── spxflow-logo.png           # SPX FLOW
+│   │   ├── neuman-esser-logo.png      # NEUMAN & ESSER (독일)
+│   │   ├── turbolink-logo.png         # 터보링크 (Turbo Link)
+│   │   ├── wtq-logo.png               # WTQ (중국)
+│   │   ├── cp-pumpen-logo.png         # CP Pumpen (스위스)
+│   │   ├── fima-logo.png              # FIMA (독일)
+│   │   ├── nidec-logo.png             # NIDEC (일본)
+│   │   └── syt-logo.png               # 삼영필텍 (SYT)
+│   ├── clients/                       # 주요 고객사 로고 (PNG, 투명 배경)
+│   │   ├── tkg-logo.png               # TKG
+│   │   ├── sk-logo.png                # SK에너지
+│   │   ├── soil-logo.png              # S-OIL
+│   │   ├── gs-caltex-logo.png         # GS칼텍스
+│   │   ├── hd-oilbank-logo.png        # HD현대오일뱅크
+│   │   ├── hanwha-logo.png            # Hanwha
+│   │   └── huchems-logo.png           # 휴켐스
+│   └── company/
+│       ├── ceo.jpg                    # CEO 사진 (COMPANY > 인사말)
+│       └── raon-logo.png              # 라온토탈솔루션 로고
+└── fonts/
+    └── ...
+```
+
+#### Image Requirements
+- **Format:**
+  - Photos: JPG (optimized for web)
+  - Logos: PNG (transparent background)
+  - Hero: JPG or MP4 (video background)
+- **Size:**
+  - Hero: 1920x1080px (Full HD)
+  - Product images: 800x600px (4:3 aspect ratio)
+  - Logos: 200x100px (flexible, maintain aspect ratio)
+- **Optimization:**
+  - Use Next.js Image component for automatic optimization
+  - Compress images before upload (TinyPNG, ImageOptim)
+  - Lazy loading enabled by default
 
 ## Changelog
-- 2025-11-18: Initial version (v1.0)
+- 2025-12-15: v1.1 - Image Asset System
+  - Image asset directory structure 추가
+  - 페이지별 필요 이미지 목록 정의
+  - Image requirements & optimization 가이드
+  - Lucide React 아이콘 시스템 상세 설명
+- 2025-11-18: v1.0 - Initial version
   - 색상 시스템 정의 (Navy + White + Blue Gradient + Red Accent)
   - Typography 시스템 (Pretendard Variable)
   - Component styles (Buttons, Cards, Inputs)

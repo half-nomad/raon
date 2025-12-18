@@ -27,13 +27,14 @@
 | 문서 | 용도 | 언제 참고? |
 |------|------|-----------|
 | **01-PLAN.md** | 프로젝트 계획 (4 Phase) | 일정, 마일스톤 확인 |
-| **02-TODO.md** | 작업 목록 (24개) | 다음 작업 확인 |
+| **02-TODO.md** | 작업 목록 (22개) | 다음 작업 확인 |
 | **03-CHANGELOG.md** | 변경 기록 | 버전 릴리스 시 업데이트 |
 | **04-PRD.md** | 제품 요구사항 | 기능 명세, User Stories |
 | **05-TRD.md** | 기술 명세서 | API 스펙, 기술 구현 |
 | **06-DESIGN_SYSTEM.md** | 디자인 시스템 | 색상, 스타일, 컴포넌트 |
 | **07-DEPLOYMENT.md** | 배포 가이드 | Vercel 배포 방법 |
-| ~~**08-MAINTENANCE.md**~~ | ~~유지보수~~ | ~~아카이브 (v1.0 이후)~~ |
+| **08-SEO-STRATEGY.md** | SEO 전략 (4단계) | SEO 작업 시 참조 |
+| **OG_IMAGE_GUIDE.md** | OG 이미지 제작 가이드 | 디자이너 협업 시 참조 |
 
 ---
 
@@ -96,7 +97,13 @@ public/images/IMAGE_COLLECTION_CHECKLIST.md → 필요 이미지 목록
 public/images/DOWNLOAD_GUIDE.md → 다운로드 방법
 ```
 
-### 6. 세션 종료
+### 6. SEO 작업
+```
+docs/08-SEO-STRATEGY.md → SEO 전략 (4단계)
+docs/OG_IMAGE_GUIDE.md → OG 이미지 제작 가이드 (13개)
+```
+
+### 7. 세션 종료
 ```
 "작업 정리해줘" → 문서 업데이트
 ```
@@ -121,7 +128,7 @@ SPXFLOW, NEUMAN & ESSER, CASTANET, WTQ, CP pump
 SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크
 
 ### 연락처
-- Email: sales@raontotalsolution.co.kr
+- Email: rts@raontotalsolution.co.kr
 - Tel: 02-575-3051
 
 ---
@@ -148,7 +155,8 @@ public/images/
 ├── products/       # 제품군 이미지 (7개)
 ├── partners/       # 파트너사 로고 (10개)
 ├── clients/        # 주요 고객사 로고 (7개)
-└── company/        # 회사 로고, CEO 사진 (2개)
+├── company/        # 회사 로고, CEO 사진 (2개)
+└── og/             # Open Graph 이미지 (13개) - SEO용
 ```
 
 ### 이미지 수집 가이드
@@ -164,4 +172,21 @@ public/images/
 
 ---
 
-**Version:** 1.1 | **Last Updated:** 2025-12-15
+---
+
+## 🔍 SEO 현황 (v0.8.0)
+
+### 완료된 SEO 작업
+- ✅ **Phase 1**: 메타 태그, Organization Schema, Breadcrumb Schema, sitemap.xml, robots.txt
+- ✅ **Phase 2**: Product Schema (7개), 페이지별 메타 태그 (9개), OG 이미지 가이드
+
+### 다음 SEO 작업
+- [ ] **Phase 3**: OG 이미지 13개 제작, Naver/Google 검색엔진 등록 (도메인 연결 후)
+
+### SEO 참고 문서
+- **전략**: [docs/08-SEO-STRATEGY.md](docs/08-SEO-STRATEGY.md)
+- **OG 이미지**: [docs/OG_IMAGE_GUIDE.md](docs/OG_IMAGE_GUIDE.md)
+
+---
+
+**Version:** 1.2 | **Last Updated:** 2025-12-18

@@ -2,15 +2,15 @@
 
 **작성일:** 2025-12-15
 **최종 업데이트:** 2025-12-18
-**총 이미지:** 56개 (로고 17개 + 제품부품 33개 + 산업/Hero 6개)
+**총 이미지:** 63개 (로고 16개 + 제품부품 33개 + 제품카테고리 7개 + 산업/Hero 5개 + 회사 2개)
 
 ---
 
 ## 📋 수집 진행 상황
 
-### ✅ 완료: 54/56
-### 🔄 진행 중: 0/56
-### ⏳ 대기 중: 2/56
+### ✅ 완료: 47/63
+### 🔄 진행 중: 0/63
+### ⏳ 대기 중: 16/63
 
 **Note:**
 - KB Delta는 노출 금지 (데이터 유지)
@@ -199,20 +199,46 @@
 
 ---
 
-## 📦 제품 카테고리 대표 이미지 (7개) - 선택사항
+## 📦 제품 카테고리 대표 이미지 (7개) ⏳ 대기 중
 
 ### 제품 페이지 히어로 이미지 (현재 PlaceholderImage 사용 중)
 
-**Note:** 현재 제품 부품 상세 이미지 33개가 있으므로, 카테고리 대표 이미지는 선택사항입니다.
-필요 시 Unsplash에서 다운로드하거나 기존 부품 이미지를 대표로 사용 가능.
+**⚠️ 필수:** 각 제품 페이지 상단에 표시되는 대표 이미지입니다.
 
-- [ ] **compressor.jpg** - Compressor 카테고리
-- [ ] **mixer.jpg** - Mixer 카테고리
-- [ ] **motor.jpg** - Motor 카테고리
-- [ ] **pump.jpg** - Pump 카테고리
-- [ ] **bearing.jpg** - Bearing 카테고리
-- [ ] **cylinder-liner.jpg** - Cylinder Liner 카테고리
-- [ ] **oil-purifier.jpg** - Oil Purifier 카테고리
+- [ ] **compressor.jpg** - Compressor 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/industrial-compressor
+  - 📐 권장 크기: 800x600px
+
+- [ ] **mixer.jpg** - Mixer & Agitator 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/industrial-mixer
+  - 📐 권장 크기: 800x600px
+
+- [ ] **motor.jpg** - Motor 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/electric-motor
+  - 📐 권장 크기: 800x600px
+
+- [ ] **pump.jpg** - Pump 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/industrial-pump
+  - 📐 권장 크기: 800x600px
+
+- [ ] **bearing.jpg** - Bearing 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/bearing-mechanical
+  - 📐 권장 크기: 800x600px
+
+- [ ] **cylinder-liner.jpg** - Cylinder Liner for Ship 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/ship-engine
+  - 📐 권장 크기: 800x600px
+
+- [ ] **oil-purifier.jpg** - Oil Purifier 카테고리 ⏳
+  - 📁 저장 위치: public/images/products/
+  - 🔗 Unsplash: https://unsplash.com/s/photos/oil-filter-industrial
+  - 📐 권장 크기: 800x600px
 
 ---
 

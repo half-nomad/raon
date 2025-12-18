@@ -1,14 +1,46 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Compressor & Spare Parts | 왕복동 압축기 전문',
+  description: '왕복동, 로터리 스크류, 원심식 등 다양한 산업용 압축기와 핵심 부품 일체 공급. Cylinder Liner, Piston, Valve, Piston Rod 등 소모성 부품 전문. WTQ, Castanet, KB Delta 파트너십.',
+  keywords: ['Compressor', '압축기 부품', '왕복동 압축기', 'Cylinder Liner', 'Piston', 'Valve', 'WTQ', 'Castanet', 'KB Delta'],
+  openGraph: {
+    title: 'Compressor & Spare Parts | 라온토탈솔루션',
+    description: '왕복동, 로터리 스크류, 원심식 등 다양한 산업용 압축기와 핵심 부품 일체 공급',
+    images: ['/images/og/compressor-og.jpg'],
+  },
+};
 
 export default function CompressorPage() {
   return (
     <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Compressor & Spare Parts (왕복동 압축기 부품)"
+        description="왕복동, 로터리 스크류, 원심식 등 다양한 산업용 압축기와 핵심 부품 일체. Cylinder Liner, Piston, Valve, Piston Rod 등 소모성 부품 전문 공급."
+        category="압축기 부품"
+        manufacturers={[
+          { name: 'WTQ' },
+          { name: 'Castanet SA' },
+          { name: 'KB Delta' },
+        ]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Compressor', url: '/products/compressor' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">

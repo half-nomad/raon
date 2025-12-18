@@ -1,12 +1,47 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Motor & Electric Motor | 산업용 전동기',
+  description: 'NIDEC 산업용 전동기 전문 공급. Inverter, Vector, Servo, Geared, Brake, Explosion-proof, High Efficiency, Special Purpose Motor 등 8개 제품군.',
+  keywords: ['Motor', '전동기', 'NIDEC', 'Inverter Motor', 'Servo Motor', '산업용 모터'],
+  openGraph: {
+    title: 'Motor & Electric Motor | 라온토탈솔루션',
+    description: 'NIDEC 산업용 전동기 전문 공급. 8개 제품군으로 다양한 산업 현장 대응',
+    images: ['/images/og/motor-og.jpg'],
+  },
+};
 
 export default function MotorPage() {
+  return (
+    <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Motor & Electric Motor (산업용 전동기)"
+        description="NIDEC 산업용 전동기 8개 제품군. Inverter, Vector, Servo, Geared, Brake, Explosion-proof, High Efficiency, Special Purpose Motor 전문 공급."
+        category="전동기"
+        manufacturers={[{ name: 'NIDEC' }]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Motor', url: '/products/motor' },
+        ]}
+      />
+      <MotorContent />
+    </div>
+  );
+}
+
+function MotorContent() {
   const motorTypes = [
     {
       id: "inverter",
@@ -107,7 +142,7 @@ export default function MotorPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
@@ -423,6 +458,6 @@ export default function MotorPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

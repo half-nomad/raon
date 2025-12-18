@@ -1,10 +1,24 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Pump | 산업용 펌프 솔루션',
+  description: 'CP Pumpen 산업용 펌프 전문 공급. MKP, MKPL, MCP, MCPL, VCP 등 15개 모델로 화학약품 이송, 정유·석유화학 산업 최적화.',
+  keywords: ['Pump', '펌프', 'CP Pumpen', 'Magnetic Drive Pump', 'Chemical Pump'],
+  openGraph: {
+    title: 'Pump | 라온토탈솔루션',
+    description: 'CP Pumpen 산업용 펌프 전문 공급. 15개 모델로 다양한 화학 공정 대응',
+    images: ['/images/og/pump-og.jpg'],
+  },
+};
 
 export default function PumpPage() {
   const pumpModels = [
@@ -207,6 +221,20 @@ export default function PumpPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Pump (산업용 펌프)"
+        description="CP Pumpen 산업용 펌프 15개 모델. MKP, MKPL, MCP, MCPL, VCP 등 화학약품 이송 및 정유·석유화학 산업 전문."
+        category="펌프"
+        manufacturers={[{ name: 'CP Pumpen' }]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Pump', url: '/products/pump' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">

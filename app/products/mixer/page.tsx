@@ -1,8 +1,41 @@
 import Link from "next/link";
+import { Metadata } from "next";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Mixer & Agitator | 산업용 믹서 솔루션',
+  description: 'SPX FLOW 믹서 및 교반기 전문 공급. Lightnin, Plenty, Stelzer 브랜드로 다양한 유체 혼합, 균질화 솔루션 제공. 정유·석유화학 산업 최적화.',
+  keywords: ['Mixer', 'Agitator', '믹서', '교반기', 'SPX FLOW', 'Lightnin', 'Plenty', 'Stelzer'],
+  openGraph: {
+    title: 'Mixer & Agitator | 라온토탈솔루션',
+    description: 'SPX FLOW 믹서 및 교반기 전문 공급. 다양한 유체 혼합, 균질화 솔루션 제공',
+    images: ['/images/og/mixer-og.jpg'],
+  },
+};
 
 export default function MixerPage() {
   return (
     <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Mixer & Agitator (산업용 믹서)"
+        description="SPX FLOW의 검증된 기술력으로 다양한 유체를 효과적으로 섞고, 균질화하며, 일정한 상태로 유지하는 장치. Lightnin, Plenty, Stelzer 브랜드."
+        category="믹서 및 교반기"
+        manufacturers={[
+          { name: 'SPX FLOW' },
+          { name: 'Lightnin' },
+          { name: 'Plenty' },
+          { name: 'Stelzer' },
+        ]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Mixer', url: '/products/mixer' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">

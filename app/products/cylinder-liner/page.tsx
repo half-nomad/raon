@@ -1,4 +1,18 @@
 import Link from "next/link";
+import { Metadata } from "next";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Cylinder Liner for Ship | 선박용 실린더 라이너',
+  description: 'WTQ 선박용 실린더 라이너 전문 공급. 고온·고압 환경에서 엔진 보호, 마모 저감, 열 관리 최적화. 조선 산업 필수 부품.',
+  keywords: ['Cylinder Liner', '실린더 라이너', '선박용', 'WTQ', '조선 부품', 'Marine Engine'],
+  openGraph: {
+    title: 'Cylinder Liner for Ship | 라온토탈솔루션',
+    description: 'WTQ 선박용 실린더 라이너 전문 공급. 엔진 보호 및 마모 저감',
+    images: ['/images/og/cylinder-liner-og.jpg'],
+  },
+};
 
 export default function CylinderLinerPage() {
   const features = [
@@ -88,6 +102,20 @@ export default function CylinderLinerPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Cylinder Liner for Ship (선박용 실린더 라이너)"
+        description="WTQ 선박용 실린더 라이너. 고온·고압 환경에서 엔진 실린더 보호, 마모 저감, 열 관리 최적화. 조선 산업 필수 부품."
+        category="실린더 라이너"
+        manufacturers={[{ name: 'WTQ' }]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Cylinder Liner', url: '/products/cylinder-liner' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">

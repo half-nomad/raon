@@ -1,10 +1,24 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Bearing | 산업용 베어링 솔루션',
+  description: '터보링크 고성능 베어링 전문 공급. Tilting Pad Thrust, Tilting Pad Journal, Hydrodynamic Bearing 등 3개 제품군으로 고속·고하중 환경 대응.',
+  keywords: ['Bearing', '베어링', '터보링크', 'Tilting Pad', 'Thrust Bearing', 'Journal Bearing'],
+  openGraph: {
+    title: 'Bearing | 라온토탈솔루션',
+    description: '터보링크 고성능 베어링 전문 공급. 고속·고하중 환경 최적화',
+    images: ['/images/og/bearing-og.jpg'],
+  },
+};
 
 export default function BearingPage() {
   const bearingTypes = [
@@ -93,6 +107,20 @@ export default function BearingPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Bearing (산업용 베어링)"
+        description="터보링크 고성능 베어링 3개 제품군. Tilting Pad Thrust, Tilting Pad Journal, Hydrodynamic Bearing으로 고속·고하중 회전기계 최적화."
+        category="베어링"
+        manufacturers={[{ name: '터보링크' }]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Bearing', url: '/products/bearing' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">

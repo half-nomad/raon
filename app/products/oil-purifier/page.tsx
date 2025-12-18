@@ -1,4 +1,18 @@
 import Link from "next/link";
+import { Metadata } from "next";
+import { ProductSchema } from "@/components/seo/product-schema";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+
+export const metadata: Metadata = {
+  title: 'Oil Purifier | 오일 정화 시스템',
+  description: '삼영필텍 오일 정화 시스템. 진공 증발 방식으로 수분·불순물 제거, 오일 수명 연장, 설비 보호. 산업용 오일 관리 솔루션.',
+  keywords: ['Oil Purifier', '오일 정화기', '삼영필텍', '진공 증발', 'Oil Filtration'],
+  openGraph: {
+    title: 'Oil Purifier | 라온토탈솔루션',
+    description: '삼영필텍 오일 정화 시스템. 수분·불순물 제거로 오일 수명 연장',
+    images: ['/images/og/oil-purifier-og.jpg'],
+  },
+};
 
 export default function OilPurifierPage() {
   const features = [
@@ -120,6 +134,20 @@ export default function OilPurifierPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ProductSchema
+        name="Oil Purifier (오일 정화 시스템)"
+        description="삼영필텍 오일 정화 시스템. 진공 증발 방식으로 수분·불순물 제거, 오일 수명 연장, 설비 보호. 산업용 오일 관리 전문."
+        category="오일 정화 시스템"
+        manufacturers={[{ name: '삼영필텍' }]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Products', url: '/products' },
+          { name: 'Oil Purifier', url: '/products/oil-purifier' },
+        ]}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">

@@ -23,7 +23,7 @@ export function OrganizationSchema() {
       availableLanguage: ['Korean', 'English'],
     },
     foundingDate: '2020',
-    slogan: 'Technology Connecting Energy's Future',
+    slogan: "Technology Connecting Energy's Future",
   };
 
   return (

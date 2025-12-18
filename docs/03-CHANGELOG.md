@@ -11,6 +11,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Note
 다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
 
+## [0.8.0] - 2025-12-18
+
+### Added - SEO Optimization Phase 2
+- **Product Schema (7개 제품)**
+  - `components/seo/product-schema.tsx` - Reusable Product Schema component
+  - Schema.org Product type with name, description, category, manufacturers
+  - Offers, brand, seller information included
+  - Applied to: Compressor, Mixer, Motor, Pump, Bearing, Cylinder Liner, Oil Purifier
+- **Page-specific Metadata (9개 페이지)**
+  - 제품 페이지 7개: 각 제품별 맞춤 title, description, keywords, OpenGraph
+  - 산업 페이지 2개: 정유·석유화학, 조선 산업별 최적화된 메타데이터
+  - 모든 페이지에 BreadcrumbList Schema 추가
+- **OG Image Guide Document**
+  - `docs/OG_IMAGE_GUIDE.md` - 13개 OG 이미지 제작 가이드
+  - 디자인 규격 (1200x630px), 안전 영역, 브랜드 가이드
+  - 템플릿 A/B/C 레이아웃, 제품별 텍스트 명세
+  - 무료 이미지 소스 및 제작 도구 가이드
+
+### Changed
+- 제품 페이지 7개: SEO 메타데이터 및 Schema 추가
+  - [app/products/compressor/page.tsx](app/products/compressor/page.tsx)
+  - [app/products/mixer/page.tsx](app/products/mixer/page.tsx)
+  - [app/products/motor/page.tsx](app/products/motor/page.tsx)
+  - [app/products/pump/page.tsx](app/products/pump/page.tsx)
+  - [app/products/bearing/page.tsx](app/products/bearing/page.tsx)
+  - [app/products/cylinder-liner/page.tsx](app/products/cylinder-liner/page.tsx)
+  - [app/products/oil-purifier/page.tsx](app/products/oil-purifier/page.tsx)
+- 산업 페이지 2개: SEO 메타데이터 및 BreadcrumbSchema 추가
+  - [app/industries/oil-refinery/page.tsx](app/industries/oil-refinery/page.tsx)
+  - [app/industries/shipbuilding/page.tsx](app/industries/shipbuilding/page.tsx)
+
+### Fixed
+- `components/seo/organization-schema.tsx` - slogan 필드 따옴표 문법 오류 수정
+
+### Technical
+- Schema.org JSON-LD format (Product, BreadcrumbList)
+- Next.js Metadata API 활용한 페이지별 SEO 최적화
+- TypeScript 타입 안전성 유지
+- 빌드 성공 (21/21 pages generated)
+
 ## [0.7.0] - 2025-12-18
 
 ### Added - SEO Optimization Phase 1

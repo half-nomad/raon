@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-12-18
-**Total Tasks:** 18
-**Completed:** 18
+**Total Tasks:** 22
+**Completed:** 21
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -13,11 +13,9 @@
 *새로 추가된 작업들 (아직 시작 전)*
 
 ### Phase 3: 기능 페이지 (Week 5-6)
-- [ ] [Feature] SEO Phase 2 - Product Schema 추가 (7개 제품) (p:Medium, added:2025-12-18)
-- [ ] [Feature] SEO Phase 2 - 페이지별 맞춤 메타 태그 추가 (p:Medium, added:2025-12-18)
-- [ ] [Feature] SEO Phase 2 - OG 이미지 생성 및 삽입 (14개) (p:Medium, added:2025-12-18)
-- [ ] [Feature] SEO Phase 3 - Naver Search Advisor 등록 (p:Low, added:2025-12-18)
-- [ ] [Feature] SEO Phase 3 - Google Search Console 등록 (p:Low, added:2025-12-18)
+- [ ] [Design] OG 이미지 13개 제작 (디자이너 협업 필요) (p:Medium, added:2025-12-18)
+- [ ] [Feature] SEO Phase 3 - Naver Search Advisor 등록 (도메인 연결 후) (p:Low, added:2025-12-18)
+- [ ] [Feature] SEO Phase 3 - Google Search Console 등록 (도메인 연결 후) (p:Low, added:2025-12-18)
 
 ### Phase 4: 테스트 & 배포 (Week 7-8)
 - [ ] [Test] 모바일/태블릿/데스크톱 반응형 테스트 (p:High, added:2025-11-18)
@@ -49,6 +47,9 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] SEO Phase 2 - Product Schema 7개 제품 추가 (done:2025-12-18)
+- [x] [Feature] SEO Phase 2 - 페이지별 맞춤 메타 태그 (제품 7개 + 산업 2개) (done:2025-12-18)
+- [x] [Docs] OG 이미지 제작 가이드 작성 (13개 이미지 스펙) (done:2025-12-18)
 - [x] [Feature] SEO Phase 1 - 메타 태그, Schema, Sitemap 구현 (done:2025-12-18)
 - [x] [Style] PRODUCTS, PARTNERS, CONTACT 페이지 히어로 섹션 가운데 정렬 (done:2025-12-15)
 - [x] [Style] 전체 페이지 통일 (Header, Footer, 배경 무늬 패턴 추가) (done:2025-12-15)
@@ -91,14 +92,15 @@
 ## 📊 Statistics
 
 ### This Week (2025-12-16 ~ 2025-12-22)
-**Completed:** 1 task
-**Added:** 5 tasks
-**Average Completion Time:** ~90분/작업
+**Completed:** 4 tasks
+**Added:** 3 tasks
+**Average Completion Time:** ~80분/작업
 
 ### This Month (2025-12)
-**Completed:** 6 tasks
+**Completed:** 9 tasks
 **Bugs Fixed:** 0
-**Features Added:** 4
+**Features Added:** 6
+**Docs Added:** 1
 **Style Updates:** 2
 
 ## 🗓️ Scheduled Tasks

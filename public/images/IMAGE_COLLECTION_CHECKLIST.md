@@ -7,9 +7,13 @@
 
 ## 📋 수집 진행 상황
 
-### ✅ 완료: 0/29
+### ✅ 완료: 22/29
 ### 🔄 진행 중: 0/29
-### ⏳ 대기 중: 29/29
+### ⏳ 대기 중: 7/29
+
+**Note:**
+- KB Delta는 노출 금지 (데이터 유지)
+- LDW 파트너사 추가 (2025-12-18)
 
 ---
 
@@ -17,45 +21,49 @@
 
 ### 글로벌 파트너
 
-- [ ] **castanet-logo.png** - CASTANET (프랑스, Wearing Parts)
+- [x] **castanet.jpg** - CASTANET (프랑스, Wearing Parts) ✅ (2025-12-15)
   - 🔗 공식 사이트: http://www.castanet-sa.fr/en/home
   - 📥 다운로드: 공식 웹사이트 Contact 또는 Brandfetch
 
-- [ ] **kb-delta-logo.png** - KB DELTA (미국, Valve)
-  - 🔗 공식 사이트: 검색 필요
-  - 📥 다운로드: 공식 웹사이트
+- [x] ~~**kb-delta-logo.png** - KB DELTA (미국, Valve)~~ ❌ **노출 금지** (2025-12-18)
+  - ⚠️ 파트너사 목록에서 제외 (데이터는 유지, 노출만 금지)
 
-- [ ] **spxflow-logo.png** - SPX FLOW
+- [x] **spx-flow.jpg** - SPX FLOW ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.spxflow.com
   - 📥 다운로드: https://brandfetch.com/spxflow.com
 
-- [ ] **neuman-esser-logo.png** - NEUMAN & ESSER (독일)
+- [x] **neuman-esser.jpg** - NEUMAN & ESSER (독일) ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.neuman-esser.com/en/
   - 📥 다운로드: 공식 웹사이트 Brochures 섹션
 
-- [ ] **turbolink-logo.png** - 터보링크 (Turbo Link)
+- [x] **turbolink.jpg** - 터보링크 (Turbo Link) ✅ (2025-12-15)
   - 🔗 공식 사이트: 검색 필요
   - 📥 다운로드: 공식 웹사이트
 
-- [ ] **wtq-logo.png** - WTQ (중국, Cylinder Liner)
+- [x] **wtq.jpg** - WTQ (중국, Cylinder Liner) ✅ (2025-12-15)
   - 🔗 공식 사이트: 검색 필요
   - 📥 다운로드: 공식 웹사이트
 
-- [ ] **cp-pumpen-logo.png** - CP Pumpen (스위스)
+- [x] **cp-pump-systems.jpg** - CP Pumpen (스위스) ✅ (2025-12-15)
   - 🔗 공식 사이트: 검색 필요
   - 📥 다운로드: 공식 웹사이트
 
-- [ ] **fima-logo.png** - FIMA (독일, Compressor)
+- [x] **fima.jpg** - FIMA (독일, Compressor) ✅ (2025-12-15)
   - 🔗 공식 사이트: 검색 필요
   - 📥 다운로드: 공식 웹사이트
 
-- [ ] **nidec-logo.png** - NIDEC (일본, Motor)
+- [x] **nidec.webp** - NIDEC (일본, Motor) ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.nidec.com/en/
   - 📥 다운로드: 공식 웹사이트 또는 https://acim.nidec.com/motors
 
-- [ ] **syt-logo.png** - 삼영필텍 (SYT, Oil Purifier)
+- [x] **syt.jpg** - 삼영필텍 (SYT, Oil Purifier) ✅ (2025-12-15)
   - 🔗 공식 사이트: 검색 필요 (삼영필텍)
   - 📥 다운로드: 공식 웹사이트
+
+- [x] **ldw-logo.png** - LDW (독일, Motor/Generator) ✅ (2025-12-18)
+  - 🔗 공식 사이트: https://www.ldw.de/
+  - 📥 다운로드: 공식 웹사이트
+  - 💡 Lloyd Dynamowerke GmbH (브레멘 본사)
 
 ---
 
@@ -67,27 +75,27 @@
   - 🔗 공식 사이트: 검색 필요
   - 📥 다운로드: 공식 웹사이트
 
-- [ ] **sk-logo.png** - SK에너지
+- [x] **sk-logo.JPG** - SK에너지 ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.skenergy.com
   - 📥 다운로드: https://www.skenergy.com/company/ci?curTab=init
 
-- [ ] **soil-logo.png** - S-OIL
+- [x] **soil-logo.JPG** - S-OIL ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.s-oil.com
   - 📥 다운로드: https://www.s-oil.com/company/CI.aspx (JPG, AI, EPS)
 
-- [ ] **gs-caltex-logo.png** - GS칼텍스
+- [x] **gs-caltex-logo.webp** - GS칼텍스 ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.gscaltex.com
   - 📥 다운로드: https://www.gscaltex.com/kr/company/brand/ci
 
-- [ ] **hd-oilbank-logo.png** - HD현대오일뱅크
+- [x] **hd-oilbank-logo.png** - HD현대오일뱅크 ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.oilbank.co.kr
   - 📥 다운로드: 공식 웹사이트 또는 고객지원 문의
 
-- [ ] **hanwha-logo.png** - Hanwha
+- [x] **hanhwa-logo.webp** - Hanwha ✅ (2025-12-15)
   - 🔗 공식 사이트: https://www.hanwha.com
   - 📥 다운로드: 공식 웹사이트 CI/BI 섹션
 
-- [ ] **huchems-logo.png** - 휴켐스
+- [ ] **huchems-logo.png** - 휴켐스 (TJG Huchems)
   - 🔗 공식 사이트: 검색 필요
   - 📥 다운로드: 공식 웹사이트
 
@@ -97,40 +105,13 @@
 
 ### Unsplash/Pexels에서 다운로드 가능
 
-- [ ] **compressor.jpg** - Compressor (NEUMAN & ESSER, FIMA, CASTANET)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/compressor
-  - 🔗 검색어: "industrial compressor", "air compressor machinery"
-  - 📐 권장 크기: 800x600px (4:3)
+- [x] **Uploaded Product Images** - 33개 제품 이미지 업로드 완료 ✅ (2025-12-18)
+  - Piston (4개), Piston Rod (5개), Piston Ring (2개), Rider Ring (3개)
+  - Crosshead (4개), Cylinder Liner (2개), Packing (7개)
+  - Valve Assembly & Internal Parts (3개), Valve Repair Kits (1개), Spring (1개)
+  - 📁 위치: public/images/ (루트)
 
-- [ ] **mixer.jpg** - Mixer & Agitator (SPX FLOW - Lightnin)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/industrial-mixer
-  - 🔗 검색어: "industrial mixer", "agitator equipment"
-  - 📐 권장 크기: 800x600px (4:3)
-
-- [ ] **motor.jpg** - Motor (NIDEC)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/electric-motor
-  - 🔗 검색어: "electric motor", "industrial motor"
-  - 📐 권장 크기: 800x600px (4:3)
-
-- [ ] **pump.jpg** - Pump (CP Pumpen)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/industrial-pump
-  - 🔗 검색어: "industrial pump", "water pump equipment"
-  - 📐 권장 크기: 800x600px (4:3)
-
-- [ ] **bearing.jpg** - Bearing (터보링크)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/bearing
-  - 🔗 검색어: "industrial bearing", "mechanical bearing"
-  - 📐 권장 크기: 800x600px (4:3)
-
-- [ ] **cylinder-liner.jpg** - Cylinder Liner for Ship (WTQ)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/ship-engine
-  - 🔗 검색어: "ship engine", "marine cylinder", "diesel engine"
-  - 📐 권장 크기: 800x600px (4:3)
-
-- [ ] **oil-purifier.jpg** - Oil Purifier (삼영필텍 - SYT)
-  - 🔗 Unsplash: https://unsplash.com/s/photos/oil-filter
-  - 🔗 검색어: "oil filter", "industrial filtration"
-  - 📐 권장 크기: 800x600px (4:3)
+**Note:** 제품 카테고리별 대표 이미지는 업로드된 파일들을 사용할 수 있습니다.
 
 ---
 
@@ -138,13 +119,13 @@
 
 ### 산업 히어로 이미지
 
-- [ ] **oil-refinery.jpg** - 정유·석유화학
+- [x] **oil-refinery.PNG** - 정유·석유화학 ✅ (2025-12-15)
   - 🔗 Unsplash: https://unsplash.com/s/photos/oil-refinery
   - 🔗 검색어: "oil refinery night", "petrochemical plant", "industrial plant"
   - 📐 권장 크기: 1920x1080px (Full HD)
   - 💡 추천: 정유 플랜트 야경 또는 파이프라인 이미지
 
-- [ ] **shipbuilding.jpg** - 조선
+- [x] **shipbuilding.PNG** - 조선 ✅ (2025-12-15)
   - 🔗 Unsplash: https://unsplash.com/s/photos/shipyard
   - 🔗 검색어: "shipyard", "ship building", "marine construction"
   - 📐 권장 크기: 1920x1080px (Full HD)
@@ -156,11 +137,18 @@
 
 ### 메인 페이지 히어로
 
-- [ ] **plant-night.jpg** - 정유 플랜트 야경
+- [x] **plant-night.png** - 정유 플랜트 야경 ✅ (2025-12-15)
   - 🔗 Unsplash: https://unsplash.com/s/photos/oil-refinery
   - 🔗 검색어: "oil refinery night", "industrial plant twilight"
   - 📐 권장 크기: 1920x1080px (Full HD)
   - 💡 추천: 조명이 켜진 정유 플랜트 야경 (블루/오렌지 톤)
+
+- [x] **plant-sunset.png** - 정유 플랜트 석양 ✅ (2025-12-15)
+  - 📐 권장 크기: 1920x1080px (Full HD)
+
+- [x] **plant_video.mp4** - 정유 플랜트 동영상 ✅ (2025-12-18)
+  - 📐 비디오 파일
+  - 💡 Hero 섹션 배경 동영상용
 
 ---
 

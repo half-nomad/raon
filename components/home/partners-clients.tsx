@@ -111,9 +111,13 @@ export function PartnersClients() {
     { name: "CASTANET", type: "Cylinder Liner" },
     { name: "WTQ", type: "Pump" },
     { name: "CP pump", type: "Pump System" },
-    { name: "KB DELTA", type: "Bearing" },
+    // KB DELTA - 노출 금지 (2025-12-18)
+    // { name: "KB DELTA", type: "Bearing" },
     { name: "TURBO LINK", type: "Turbocharger" },
     { name: "FIMA", type: "Oil Purifier" },
+    { name: "NIDEC", type: "Motor" },
+    { name: "삼영필텍", type: "Oil Purifier" },
+    { name: "LDW", type: "Motor/Generator" },
   ];
 
   const clients: LogoItem[] = [

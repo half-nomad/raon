@@ -29,14 +29,15 @@ export default function PartnersPage() {
       description: "압축기용 피스톤, 라이너 등 소모성 부품 전문 제조사",
       products: ["Piston", "Wearing Parts"],
     },
-    {
-      name: "KB DELTA",
-      country: "USA",
-      year: "2021",
-      relationship: "대리점",
-      description: "압축기용 밸브 전문 제조사",
-      products: ["Valve"],
-    },
+    // KB DELTA - 노출 금지 (2025-12-18)
+    // {
+    //   name: "KB DELTA",
+    //   country: "USA",
+    //   year: "2021",
+    //   relationship: "대리점",
+    //   description: "압축기용 밸브 전문 제조사",
+    //   products: ["Valve"],
+    // },
     {
       name: "TURBO LINK",
       country: "Korea",
@@ -84,6 +85,14 @@ export default function PartnersPage() {
       relationship: "파트너",
       description: "오일 정화 장비 전문 제조사",
       products: ["Oil Purifier"],
+    },
+    {
+      name: "LDW",
+      country: "Germany",
+      year: "-",
+      relationship: "파트너",
+      description: "대형 전동기/발전기 전문 제조사 (Lloyd Dynamowerke GmbH)",
+      products: ["Motor", "Generator"],
     },
   ];
 
@@ -410,7 +419,7 @@ export default function PartnersPage() {
             </div>
 
             <div>
-              <div className="text-5xl font-bold text-[#3B82F6] mb-2">10+</div>
+              <div className="text-5xl font-bold text-[#3B82F6] mb-2">9+</div>
               <p className="text-lg font-semibold text-[#0A1628] mb-1">
                 글로벌 파트너사
               </p>

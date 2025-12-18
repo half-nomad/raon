@@ -5,11 +5,25 @@ import { CTAButton } from "@/components/ui/cta-button";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Video Placeholder */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full flex items-center justify-center border-2 border-dashed border-gray-300 bg-gray-800 text-gray-400 text-sm">
-          <span>배경 비디오 삽입 예정 (정유 플랜트 야경)</span>
-        </div>
+        {/* Video for desktop/tablet */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hidden md:block w-full h-full object-cover"
+        >
+          <source src="/images/hero/plant_video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Fallback image for mobile */}
+        <div
+          className="md:hidden w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/hero/plant-night.png')" }}
+        />
+
         {/* Dark Overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/80 via-[#0A1628]/70 to-[#3B82F6]/60" />
       </div>

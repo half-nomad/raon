@@ -11,6 +11,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Note
 다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
 
+## [0.7.0] - 2025-12-18
+
+### Added - SEO Optimization Phase 1
+- Enhanced metadata in `app/layout.tsx`
+  - `metadataBase` URL 설정 (https://raontotalsolution.co.kr)
+  - Template-based title system (`'%s | 라온토탈솔루션'`)
+  - Comprehensive `description` and `keywords` for B2B industrial target
+  - Full OpenGraph metadata (type, locale, siteName, images)
+  - Twitter Card metadata (summary_large_image)
+  - Enhanced robots configuration (googleBot settings)
+- Schema.org structured data components
+  - `components/seo/organization-schema.tsx` - Company info (name, address, contact, founding date)
+  - `components/seo/breadcrumb-schema.tsx` - Navigation breadcrumbs
+- SEO infrastructure files
+  - `app/sitemap.ts` - 15 pages sitemap (static pages + 7 products)
+  - `app/robots.ts` - Crawler configuration (allow all except /api/)
+- Comprehensive SEO strategy document (`docs/08-SEO-STRATEGY.md`)
+  - 4-phase implementation roadmap
+  - Target keyword strategy (Naver & Google)
+  - Current state analysis
+  - KPI monitoring guidelines
+
+### Technical
+- Next.js 16 MetadataRoute API 활용
+- Schema.org JSON-LD format
+- 검색 엔진 최적화 기반 마련 (Phase 1 완료)
+- Phase 2-4 작업 항목 TODO에 추가
+
 ## [0.6.2] - 2025-12-10
 
 ### Security

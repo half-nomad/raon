@@ -1,9 +1,9 @@
 # Todo List
 # Raon Total Solution B2B Website
 
-**Last Updated:** 2025-12-15
-**Total Tasks:** 17
-**Completed:** 17
+**Last Updated:** 2025-12-18
+**Total Tasks:** 18
+**Completed:** 18
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -13,7 +13,11 @@
 *새로 추가된 작업들 (아직 시작 전)*
 
 ### Phase 3: 기능 페이지 (Week 5-6)
-- [ ] [Feature] SEO 최적화 (메타 태그, sitemap.xml) (p:Medium, added:2025-11-18)
+- [ ] [Feature] SEO Phase 2 - Product Schema 추가 (7개 제품) (p:Medium, added:2025-12-18)
+- [ ] [Feature] SEO Phase 2 - 페이지별 맞춤 메타 태그 추가 (p:Medium, added:2025-12-18)
+- [ ] [Feature] SEO Phase 2 - OG 이미지 생성 및 삽입 (14개) (p:Medium, added:2025-12-18)
+- [ ] [Feature] SEO Phase 3 - Naver Search Advisor 등록 (p:Low, added:2025-12-18)
+- [ ] [Feature] SEO Phase 3 - Google Search Console 등록 (p:Low, added:2025-12-18)
 
 ### Phase 4: 테스트 & 배포 (Week 7-8)
 - [ ] [Test] 모바일/태블릿/데스크톱 반응형 테스트 (p:High, added:2025-11-18)
@@ -45,6 +49,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] SEO Phase 1 - 메타 태그, Schema, Sitemap 구현 (done:2025-12-18)
 - [x] [Style] PRODUCTS, PARTNERS, CONTACT 페이지 히어로 섹션 가운데 정렬 (done:2025-12-15)
 - [x] [Style] 전체 페이지 통일 (Header, Footer, 배경 무늬 패턴 추가) (done:2025-12-15)
 - [x] [Feature] Resend API 이메일 전송 연동 (rts@raontotalsolution.co.kr) (done:2025-12-15)
@@ -85,15 +90,15 @@
 
 ## 📊 Statistics
 
-### This Week (2025-12-09 ~ 2025-12-15)
-**Completed:** 5 tasks
-**Added:** 1 task
-**Average Completion Time:** ~40분/작업
+### This Week (2025-12-16 ~ 2025-12-22)
+**Completed:** 1 task
+**Added:** 5 tasks
+**Average Completion Time:** ~90분/작업
 
 ### This Month (2025-12)
-**Completed:** 5 tasks
+**Completed:** 6 tasks
 **Bugs Fixed:** 0
-**Features Added:** 3
+**Features Added:** 4
 **Style Updates:** 2
 
 ## 🗓️ Scheduled Tasks

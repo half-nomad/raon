@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface LogoItem {
   name: string;
   type?: string;
+  logo: string;
 }
 
 function LogoSlider({
@@ -63,13 +65,14 @@ function LogoSlider({
             key={`${logo.name}-${index}`}
             className="flex-shrink-0 w-[200px] h-24 flex items-center justify-center bg-white rounded-lg border border-gray-200 hover:border-[#3B82F6] hover:shadow-lg transition-all px-6"
           >
-            <div className="text-center">
-              <p className="text-sm font-bold text-gray-700 mb-1">
-                {logo.name}
-              </p>
-              {logo.type && (
-                <p className="text-xs text-gray-500">{logo.type}</p>
-              )}
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image
+                src={logo.logo}
+                alt={logo.name}
+                width={160}
+                height={80}
+                className="object-contain"
+              />
             </div>
           </div>
         ))}
@@ -90,13 +93,14 @@ function ClientsGrid({ clients }: { clients: LogoItem[] }) {
           key={index}
           className="flex items-center justify-center bg-white rounded-lg border border-gray-200 hover:border-[#3B82F6] hover:shadow-lg transition-all p-6 h-28"
         >
-          <div className="text-center">
-            <p className="text-sm font-bold text-gray-700 mb-1">
-              {client.name}
-            </p>
-            {client.type && (
-              <p className="text-xs text-gray-500">{client.type}</p>
-            )}
+          <div className="relative w-full h-full flex items-center justify-center">
+            <Image
+              src={client.logo}
+              alt={client.name}
+              width={120}
+              height={60}
+              className="object-contain"
+            />
           </div>
         </div>
       ))}
@@ -106,29 +110,27 @@ function ClientsGrid({ clients }: { clients: LogoItem[] }) {
 
 export function PartnersClients() {
   const partners: LogoItem[] = [
-    { name: "SPXFLOW", type: "Mixer/Heat Exchange" },
-    { name: "NEUMAN & ESSER", type: "Compressor" },
-    { name: "CASTANET", type: "Cylinder Liner" },
-    { name: "WTQ", type: "Pump" },
-    { name: "CP pump", type: "Pump System" },
+    { name: "SPXFLOW", type: "Mixer/Heat Exchange", logo: "/images/partners/spx-flow.jpg" },
+    { name: "NEUMAN & ESSER", type: "Compressor", logo: "/images/partners/neuman-esser.jpg" },
+    { name: "CASTANET", type: "Cylinder Liner", logo: "/images/partners/castanet.jpg" },
+    { name: "WTQ", type: "Pump", logo: "/images/partners/wtq.jpg" },
+    { name: "CP pump", type: "Pump System", logo: "/images/partners/cp-pump-systems.jpg" },
     // KB DELTA - 노출 금지 (2025-12-18)
-    // { name: "KB DELTA", type: "Bearing" },
-    { name: "TURBO LINK", type: "Turbocharger" },
-    { name: "FIMA", type: "Oil Purifier" },
-    { name: "NIDEC", type: "Motor" },
-    { name: "삼영필텍", type: "Oil Purifier" },
-    { name: "LDW", type: "Motor/Generator" },
+    // { name: "KB DELTA", type: "Bearing", logo: "/images/partners/kb-delta-logo.png" },
+    { name: "TURBO LINK", type: "Turbocharger", logo: "/images/partners/turbolink.jpg" },
+    { name: "FIMA", type: "Oil Purifier", logo: "/images/partners/fima.jpg" },
+    { name: "NIDEC", type: "Motor", logo: "/images/partners/nidec.webp" },
+    { name: "삼영필텍", type: "Oil Purifier", logo: "/images/partners/syt.jpg" },
+    { name: "LDW", type: "Motor/Generator", logo: "/images/partners/ldw_logo.png" },
   ];
 
   const clients: LogoItem[] = [
-    { name: "TKG", type: "석유화학" },
-    { name: "SK에너지", type: "정유" },
-    { name: "S-OIL", type: "정유" },
-    { name: "GS칼텍스", type: "정유" },
-    { name: "HD현대오일뱅크", type: "정유" },
-    { name: "Hanwha", type: "조선" },
-    { name: "휴켐스", type: "석유화학" },
-    { name: "여수석유화학", type: "석유화학" },
+    { name: "TJG Huchems", type: "석유화학", logo: "/images/clients/tjg-huchems-logo.png" },
+    { name: "SK에너지", type: "정유", logo: "/images/clients/sk-logo.JPG" },
+    { name: "S-OIL", type: "정유", logo: "/images/clients/soil-logo.JPG" },
+    { name: "GS칼텍스", type: "정유", logo: "/images/clients/gs-caltex-logo.webp" },
+    { name: "HD현대오일뱅크", type: "정유", logo: "/images/clients/hd-oilbank-logo.png" },
+    { name: "Hanwha", type: "조선", logo: "/images/clients/hanhwa-logo.webp" },
   ];
 
   return (

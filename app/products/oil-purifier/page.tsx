@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ImageGallery } from "@/components/ui/image-gallery";
 
 export const metadata: Metadata = {
   title: 'Oil Purifier | 오일 정화 시스템',
@@ -13,6 +14,14 @@ export const metadata: Metadata = {
     images: ['/images/og/oil-purifier-og.jpg'],
   },
 };
+
+// 이미지 데이터 정의
+const oilPurifierImages = [
+  { src: "/images/products/oil-purifier/Oil Purifier_1.png", alt: "삼영필텍 Oil Purifier 1" },
+  { src: "/images/products/oil-purifier/Oil Purifier_2.png", alt: "삼영필텍 Oil Purifier 2" },
+  { src: "/images/products/oil-purifier/Oil Purifier_3.png", alt: "삼영필텍 Oil Purifier 3" },
+  { src: "/images/products/oil-purifier/Oil Purifier_4.png", alt: "삼영필텍 Oil Purifier 4" },
+];
 
 export default function OilPurifierPage() {
   const features = [
@@ -169,55 +178,69 @@ export default function OilPurifierPage() {
         </div>
       </section>
 
-      {/* Brand Overview */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      {/* Main Content */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-slate-400">
-                <div className="text-8xl mb-4">🛢️</div>
-                <p className="text-sm">삼영필텍 로고 삽입 예정</p>
-              </div>
-            </div>
+            <ImageGallery images={oilPurifierImages} />
 
             {/* Content */}
             <div>
               <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                삼영필텍 (SYT) 소개
+                제품 개요
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                삼영필텍(SYT)은 대한민국의 오일 정화 장비 전문 제조업체입니다.
-                산업용 오일 퓨리파이어(Oil Purifier)를 설계·제작하며, 정유,
-                석유화학, 발전, 조선 산업의 윤활유 및 유압유 정화 솔루션을
-                제공합니다.
+              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+                Oil Purifier는 오염된 오일(윤활유, 유압유 등)을 정화하여 재사용 가능하도록
+                만드는 장치입니다. 진공 증발 방식으로 수분, 불순물, 미세 입자를 제거하여
+                오일 수명을 연장하고 설비를 보호합니다.
               </p>
-              <ul className="space-y-3">
+
+              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
+                주요 특징
+              </h3>
+              <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>국내 전문 기업:</strong> 산업용 오일 정화 장비 특화
+                    <strong>수분 제거:</strong> 진공 증발 방식으로 99% 이상 수분 제거
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>진공 증발 방식:</strong> 수분 제거 효율 99% 이상
+                    <strong>불순물 제거:</strong> 다단계 필터링으로 1μm 이하 미세 입자 제거
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>맞춤형 제작:</strong> 고객 요구에 맞춘 커스터마이징
+                    <strong>오일 수명 연장:</strong> 오일 교체 주기 연장으로 비용 80% 절감
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>A/S 신속 대응:</strong> 국내 생산으로 빠른 유지보수
+                    <strong>설비 보호:</strong> 깨끗한 오일로 베어링, 기어, 유압 시스템 마모 저감
                   </span>
                 </li>
               </ul>
+
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-[#0A1628] mb-3">
+                  파트너 브랜드
+                </h4>
+                <div className="space-y-2 text-sm text-slate-600">
+                  <p>
+                    <strong>삼영필텍 (SYT):</strong> 국내 오일 정화 장비 전문 제조업체
+                  </p>
+                  <p className="text-xs leading-relaxed">
+                    산업용 오일 퓨리파이어(Oil Purifier) 설계·제작 전문.
+                    정유, 석유화학, 발전, 조선 산업 윤활유 및 유압유 정화 솔루션 제공.
+                    진공 증발 방식 수분 제거율 99% 이상, 맞춤형 제작 및 신속 A/S.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

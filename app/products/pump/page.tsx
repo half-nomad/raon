@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ImageGallery } from "@/components/ui/image-gallery";
 
 export const metadata: Metadata = {
   title: 'Pump | 산업용 펌프 솔루션',
@@ -19,6 +20,13 @@ export const metadata: Metadata = {
     images: ['/images/og/pump-og.jpg'],
   },
 };
+
+// 이미지 데이터 정의
+const pumpImages = [
+  { src: "/images/products/pump/pump_2-1.PNG", alt: "CP Pumpen Pump 1" },
+  { src: "/images/products/pump/pump_2-2.PNG", alt: "CP Pumpen Pump 2" },
+  { src: "/images/products/pump/pump_3.png", alt: "CP Pumpen Pump 3" },
+];
 
 export default function PumpPage() {
   const pumpModels = [
@@ -253,57 +261,70 @@ export default function PumpPage() {
         </div>
       </section>
 
-      {/* Brand Overview */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      {/* Main Content */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-slate-400">
-                <div className="text-8xl mb-4">💧</div>
-                <p className="text-sm">CP Pumpen 로고 삽입 예정</p>
-              </div>
-            </div>
+            <ImageGallery images={pumpImages} />
 
             {/* Content */}
             <div>
               <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                CP Pumpen 소개
+                제품 개요
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                CP Pumpen (CP Pump Systems)은 스위스에 본사를 둔 산업용 펌프
-                전문 제조업체입니다. 화학, 석유화학, 제약, 식품 산업을 위한
-                고품질 펌프 솔루션을 제공하며, 특히 자기 구동 펌프(Magnetic
-                Drive Pump) 기술에 강점을 보유하고 있습니다.
+              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+                Pump는 액체를 한 장소에서 다른 장소로 이동시키는 장치입니다.
+                화학, 석유화학, 제약, 식품 산업에서 필수적인 장비로,
+                CP Pumpen은 누출 방지 설계와 내화학성을 갖춘 고품질 펌프를
+                15개 모델, 105개 이상의 사이즈로 제공합니다.
               </p>
-              <ul className="space-y-3">
+
+              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
+                주요 특징
+              </h3>
+              <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>15개 모델:</strong> 다양한 산업 요구사항에 맞는 펌프
-                    라인업
+                    <strong>누출 방지:</strong> 자기 구동 방식(Magnetic Drive)으로 100% 안전
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>105개 이상 사이즈:</strong> 소형부터 대형까지 모든
-                    용량
+                    <strong>내화학성:</strong> PFA 라이닝 등 다양한 재질로 강산·강알칼리 대응
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>누출 방지:</strong> 자기 구동 방식으로 100% 안전
+                    <strong>다양한 용량:</strong> 105개 이상의 사이즈로 모든 산업 요구사항 충족
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>내화학성:</strong> PFA 라이닝 등 다양한 재질 옵션
+                    <strong>유지보수 최소화:</strong> 씰 교체 불필요, 운영비 절감
                   </span>
                 </li>
               </ul>
+
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-[#0A1628] mb-3">
+                  파트너 브랜드
+                </h4>
+                <div className="space-y-2 text-sm text-slate-600">
+                  <p>
+                    <strong>CP Pumpen:</strong> 스위스 산업용 펌프 전문 제조업체
+                  </p>
+                  <p className="text-xs leading-relaxed">
+                    화학, 석유화학, 제약, 식품 산업을 위한 자기 구동 펌프(Magnetic Drive Pump) 기술 전문.
+                    15개 모델, 105개 이상의 사이즈로 다양한 화학 공정에 최적화된 솔루션 제공.
+                    ISO 9001, ATEX, FDA 인증 보유.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

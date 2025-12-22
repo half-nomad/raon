@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ImageGallery } from "@/components/ui/image-gallery";
 
 export const metadata: Metadata = {
   title: 'Bearing | 산업용 베어링 솔루션',
@@ -19,6 +20,14 @@ export const metadata: Metadata = {
     images: ['/images/og/bearing-og.jpg'],
   },
 };
+
+// 이미지 데이터 정의
+const bearingImages = [
+  { src: "/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png", alt: "Tilting Pad Thrust Bearing" },
+  { src: "/images/products/bearing/bearing_VERTICAL BEARING.png", alt: "Vertical Bearing" },
+  { src: "/images/products/bearing/bearing_JOURNAL & THRUST COMBINED BEARING.png", alt: "Journal & Thrust Combined Bearing" },
+  { src: "/images/products/bearing/bearing_FIXED PROFILE BEARING.png", alt: "Fixed Profile Bearing" },
+];
 
 export default function BearingPage() {
   const bearingTypes = [
@@ -140,54 +149,70 @@ export default function BearingPage() {
         </div>
       </section>
 
-      {/* Brand Overview */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      {/* Main Content */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-slate-400">
-                <div className="text-8xl mb-4">⚙️</div>
-                <p className="text-sm">터보링크 로고 삽입 예정</p>
-              </div>
-            </div>
+            <ImageGallery images={bearingImages} />
 
             {/* Content */}
             <div>
               <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                터보링크 (TURBO LINK) 소개
+                제품 개요
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                터보링크는 대한민국의 회전기계 베어링 전문 제조업체입니다.
-                정유·석유화학 산업에 특화된 고성능 베어링을 설계·제조하며,
-                압축기, 터빈, 펌프 등 대형 회전기계의 핵심 부품을 공급합니다.
+              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+                Bearing은 회전하거나 움직이는 기계 부품을 지지하고, 마찰을 줄이며,
+                안정적으로 작동하도록 돕는 장치입니다. 터보링크의 베어링은
+                고속·고하중 환경에서도 안정적인 성능을 제공하며, 압축기, 터빈, 펌프 등
+                대형 회전기계의 핵심 부품으로 사용됩니다.
               </p>
-              <ul className="space-y-3">
+
+              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
+                주요 특징
+              </h3>
+              <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>국내 전문 기업:</strong> 정유·석유화학 분야 특화
+                    <strong>고속 회전 대응:</strong> 15,000 RPM 이상의 초고속 회전에도 안정적 유막 형성
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>고속·고하중:</strong> 극한 환경에서도 안정적 성능
+                    <strong>고하중 환경:</strong> 최대 500 ton 축 방향 하중 지지
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>맞춤 설계:</strong> 고객 요구에 맞춘 커스터마이징
+                    <strong>자동 정렬:</strong> 틸팅 패드 구조로 축 미세 정렬 오차 자동 흡수
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>신속 대응:</strong> 국내 생산으로 빠른 납기
+                    <strong>긴 수명:</strong> 최적화된 유막 설계와 고품질 재질로 교체 주기 연장
                   </span>
                 </li>
               </ul>
+
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-[#0A1628] mb-3">
+                  파트너 브랜드
+                </h4>
+                <div className="space-y-2 text-sm text-slate-600">
+                  <p>
+                    <strong>터보링크 (TURBO LINK):</strong> 국내 회전기계 베어링 전문 제조업체
+                  </p>
+                  <p className="text-xs leading-relaxed">
+                    정유·석유화학 산업 특화 고성능 베어링 설계·제조.
+                    압축기, 터빈, 펌프용 틸팅 패드 베어링 전문.
+                    국내 주요 정유사 납품 실적, 맞춤형 설계 및 신속 A/S 제공.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

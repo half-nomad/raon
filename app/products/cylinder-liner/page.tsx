@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ImageGallery } from "@/components/ui/image-gallery";
 
 export const metadata: Metadata = {
   title: 'Cylinder Liner for Ship | 선박용 실린더 라이너',
@@ -13,6 +14,13 @@ export const metadata: Metadata = {
     images: ['/images/og/cylinder-liner-og.jpg'],
   },
 };
+
+// 이미지 데이터 정의
+const cylinderLinerImages = [
+  { src: "/images/products/cylinder-liner/cylinder-liner_1.jpg", alt: "WTQ Cylinder Liner 1" },
+  { src: "/images/products/cylinder-liner/cylinder-liner_2.jpg", alt: "WTQ Cylinder Liner 2" },
+  { src: "/images/products/cylinder-liner/cylinder-liner_3.png", alt: "WTQ Cylinder Liner 3" },
+];
 
 export default function CylinderLinerPage() {
   const features = [
@@ -136,55 +144,70 @@ export default function CylinderLinerPage() {
         </div>
       </section>
 
-      {/* Brand Overview */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      {/* Main Content */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-slate-400">
-                <div className="text-8xl mb-4">🚢</div>
-                <p className="text-sm">WTQ 로고 삽입 예정</p>
-              </div>
-            </div>
+            <ImageGallery images={cylinderLinerImages} />
 
             {/* Content */}
             <div>
               <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                WTQ (Yangzhou Wuting Qiao) 소개
+                제품 개요
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Yangzhou Wuting Qiao Cylinder Liner Co., Ltd.는 중국의 선박용
-                실린더 라이너 전문 제조업체입니다. 조선 산업을 위한 고품질
-                실린더 라이너를 생산하며, 전 세계 주요 조선소 및 선박 엔진
-                제조사에 공급하고 있습니다.
+              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+                Cylinder Liner는 선박 엔진 내부의 피스톤이 움직이는 공간을 감싸는
+                부품입니다. 엔진 실린더를 보호하고 마모를 줄이며 엔진 수명을 연장하는
+                핵심 부품으로, 고온·고압 환경에서 안정적인 성능을 발휘합니다.
               </p>
-              <ul className="space-y-3">
+
+              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
+                주요 특징
+              </h3>
+              <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>선박 엔진 특화:</strong> 대형 선박 주기관 전문
+                    <strong>엔진 실린더 보호:</strong> 피스톤과의 마찰로부터 실린더 벽면 보호
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>글로벌 공급:</strong> 세계 주요 조선소 납품 실적
+                    <strong>마모 저감:</strong> 고온·고압 환경에서도 낮은 마모율 유지
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>품질 인증:</strong> ISO 9001, CCS, ABS 등 국제 인증
+                    <strong>열 관리:</strong> 연소 고온을 효과적으로 분산시켜 엔진 온도 안정화
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>경쟁력 있는 가격:</strong> 합리적인 가격과 빠른 납기
+                    <strong>교체 용이:</strong> 실린더 라이너만 교체하여 유지보수 비용 절감
                   </span>
                 </li>
               </ul>
+
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-[#0A1628] mb-3">
+                  파트너 브랜드
+                </h4>
+                <div className="space-y-2 text-sm text-slate-600">
+                  <p>
+                    <strong>WTQ (Yangzhou Wuting Qiao):</strong> 중국 선박용 실린더 라이너 전문 제조업체
+                  </p>
+                  <p className="text-xs leading-relaxed">
+                    조선 산업 특화 고품질 실린더 라이너 생산.
+                    전 세계 주요 조선소 및 선박 엔진 제조사 공급.
+                    ISO 9001, CCS, ABS, DNV-GL, LR 등 국제 선급 인증 보유.
+                    합리적인 가격과 빠른 납기로 경쟁력 확보.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
@@ -12,6 +13,7 @@ export default function PartnersPage() {
       description:
         "믹서, 교반기, 펌프 등 산업용 유체 처리 장비 전문 글로벌 기업",
       products: ["Mixer & Agitator", "Pump"],
+      logo: "/images/partners/spx-flow.jpg",
     },
     {
       name: "NEUMAN & ESSER",
@@ -20,6 +22,7 @@ export default function PartnersPage() {
       relationship: "울산 대리점",
       description: "왕복동 압축기 및 고압 가스 압축 시스템 전문 제조사",
       products: ["Compressor"],
+      logo: "/images/partners/neuman-esser.jpg",
     },
     {
       name: "CASTANET",
@@ -28,6 +31,7 @@ export default function PartnersPage() {
       relationship: "Wearing Parts 대리점",
       description: "압축기용 피스톤, 라이너 등 소모성 부품 전문 제조사",
       products: ["Piston", "Wearing Parts"],
+      logo: "/images/partners/castanet.jpg",
     },
     // KB DELTA - 노출 금지 (2025-12-18)
     // {
@@ -45,6 +49,7 @@ export default function PartnersPage() {
       relationship: "정유·석유화학 분야 대리점",
       description: "고성능 베어링 전문 제조사",
       products: ["Bearing"],
+      logo: "/images/partners/turbolink.jpg",
     },
     {
       name: "WTQ",
@@ -53,6 +58,7 @@ export default function PartnersPage() {
       relationship: "한국 대리점",
       description: "선박용 실린더 라이너 전문 제조사",
       products: ["Cylinder Liner"],
+      logo: "/images/partners/wtq.jpg",
     },
     {
       name: "CP Pumpen",
@@ -61,6 +67,7 @@ export default function PartnersPage() {
       relationship: "울산 대리점",
       description: "산업용 펌프 시스템 전문 제조사",
       products: ["Pump"],
+      logo: "/images/partners/cp-pump-systems.jpg",
     },
     {
       name: "FIMA",
@@ -69,6 +76,7 @@ export default function PartnersPage() {
       relationship: "대리점",
       description: "압축기 전문 제조사",
       products: ["Compressor"],
+      logo: "/images/partners/fima.jpg",
     },
     {
       name: "NIDEC",
@@ -77,6 +85,7 @@ export default function PartnersPage() {
       relationship: "파트너",
       description: "세계 최대 모터 제조업체",
       products: ["Motor"],
+      logo: "/images/partners/nidec.webp",
     },
     {
       name: "삼영필텍 (SYT)",
@@ -85,6 +94,7 @@ export default function PartnersPage() {
       relationship: "파트너",
       description: "오일 정화 장비 전문 제조사",
       products: ["Oil Purifier"],
+      logo: "/images/partners/syt.jpg",
     },
     {
       name: "LDW",
@@ -93,6 +103,7 @@ export default function PartnersPage() {
       relationship: "파트너",
       description: "대형 전동기/발전기 전문 제조사 (Lloyd Dynamowerke GmbH)",
       products: ["Motor", "Generator"],
+      logo: "/images/partners/ldw_logo.png",
     },
   ];
 
@@ -101,36 +112,37 @@ export default function PartnersPage() {
       name: "SK에너지",
       industry: "정유",
       description: "국내 1위 정유사",
+      logo: "/images/clients/sk-logo.JPG",
     },
     {
       name: "S-OIL",
       industry: "정유",
       description: "국내 주요 정유사",
+      logo: "/images/clients/soil-logo.JPG",
     },
     {
       name: "GS칼텍스",
       industry: "정유",
       description: "국내 주요 정유사",
+      logo: "/images/clients/gs-caltex-logo.webp",
     },
     {
       name: "HD현대오일뱅크",
       industry: "정유",
       description: "국내 주요 정유사",
+      logo: "/images/clients/hd-oilbank-logo.png",
     },
     {
-      name: "TKG",
+      name: "TJG Huchems",
       industry: "석유화학",
       description: "석유화학 전문 기업",
+      logo: "/images/clients/tjg-huchems-logo.png",
     },
     {
       name: "Hanwha",
       industry: "종합",
       description: "대기업 그룹",
-    },
-    {
-      name: "휴켐스",
-      industry: "화학",
-      description: "화학 전문 기업",
+      logo: "/images/clients/hanhwa-logo.webp",
     },
   ];
 
@@ -186,14 +198,16 @@ export default function PartnersPage() {
                 key={idx}
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all"
               >
-                {/* Partner Logo Placeholder */}
-                <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg mb-4 flex items-center justify-center">
-                  <div className="text-center text-slate-400">
-                    <div className="text-4xl mb-2">🏢</div>
-                    <p className="text-sm font-semibold text-slate-600">
-                      {partner.name}
-                    </p>
-                    <p className="text-xs text-slate-400">로고 삽입 예정</p>
+                {/* Partner Logo */}
+                <div className="aspect-video bg-white border border-slate-100 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
                 </div>
 
@@ -328,77 +342,45 @@ export default function PartnersPage() {
           </div>
 
           {/* Client Logo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
             {clients.map((client, idx) => (
               <div
                 key={idx}
-                className="aspect-square bg-white border border-slate-200 rounded-lg flex items-center justify-center hover:border-[#3B82F6] hover:shadow-md transition-all p-4"
+                className="bg-white border border-slate-200 rounded-lg flex items-center justify-center hover:border-[#3B82F6] hover:shadow-md transition-all p-8 h-32"
               >
-                <div className="text-center">
-                  <div className="text-3xl mb-2">🏢</div>
-                  <p className="text-xs font-semibold text-slate-700">
-                    {client.name}
-                  </p>
-                  <p className="text-xs text-slate-400 mt-1">로고 삽입 예정</p>
+                <div className="relative w-full h-full">
+                  <Image
+                    src={client.logo}
+                    alt={`${client.name} logo`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                  />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Client Details */}
+          {/* Client Highlight */}
           <div className="bg-slate-50 rounded-2xl p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-[#0A1628] mb-6">
-              산업별 주요 고객사
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-lg font-semibold text-[#0A1628] mb-4 flex items-center">
-                  <span className="text-[#3B82F6] mr-2">🏭</span>
-                  정유·석유화학
-                </h4>
-                <ul className="space-y-2">
-                  {clients
-                    .filter((c) => c.industry === "정유")
-                    .map((client, idx) => (
-                      <li key={idx} className="flex items-start text-slate-700">
-                        <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                        <span>
-                          <strong>{client.name}</strong> - {client.description}
-                        </span>
-                      </li>
-                    ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-semibold text-[#0A1628] mb-4 flex items-center">
-                  <span className="text-[#3B82F6] mr-2">⚗️</span>
-                  화학·중공업
-                </h4>
-                <ul className="space-y-2">
-                  {clients
-                    .filter(
-                      (c) => c.industry !== "정유" && c.industry !== "정유"
-                    )
-                    .map((client, idx) => (
-                      <li key={idx} className="flex items-start text-slate-700">
-                        <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                        <span>
-                          <strong>{client.name}</strong> - {client.description}
-                        </span>
-                      </li>
-                    ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-8 p-6 bg-white rounded-lg border border-slate-200">
-              <p className="text-slate-600 text-sm text-center">
-                <span className="font-semibold text-[#0A1628]">30년 경험</span>
-                을 바탕으로 국내 주요 에너지·화학·중공업 기업들에게 신뢰받는
-                파트너로 자리매김하고 있습니다.
+            <div className="text-center max-w-3xl mx-auto">
+              <h3 className="text-2xl font-bold text-[#0A1628] mb-4">
+                신뢰받는 파트너
+              </h3>
+              <p className="text-slate-700 text-lg leading-relaxed mb-6">
+                <span className="font-semibold text-[#3B82F6]">
+                  SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크
+                </span>{" "}
+                등 국내 4대 정유사를 비롯하여, 석유화학 및 종합 산업 기업들이
+                라온토탈솔루션의 전문성을 신뢰합니다.
               </p>
+              <div className="p-6 bg-white rounded-lg border border-slate-200">
+                <p className="text-slate-600 text-sm">
+                  <span className="font-semibold text-[#0A1628]">30년 경험</span>
+                  을 바탕으로 국내 주요 에너지·화학·중공업 기업들에게 최고
+                  수준의 부품과 기술 서비스를 제공하는 신뢰받는 파트너입니다.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -429,12 +411,12 @@ export default function PartnersPage() {
             </div>
 
             <div>
-              <div className="text-5xl font-bold text-[#3B82F6] mb-2">7+</div>
+              <div className="text-5xl font-bold text-[#3B82F6] mb-2">6+</div>
               <p className="text-lg font-semibold text-[#0A1628] mb-1">
                 주요 고객사
               </p>
               <p className="text-sm text-slate-600">
-                국내 유수 에너지·화학 기업
+                국내 4대 정유사 포함 주요 기업
               </p>
             </div>
           </div>

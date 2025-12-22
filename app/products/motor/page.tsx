@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ImageGallery } from "@/components/ui/image-gallery";
 
 export const metadata: Metadata = {
   title: 'Motor & Electric Motor | 산업용 전동기',
@@ -19,6 +20,13 @@ export const metadata: Metadata = {
     images: ['/images/og/motor-og.jpg'],
   },
 };
+
+// 이미지 데이터 정의
+const motorImages = [
+  { src: "/images/products/motor/motor_1.jpg", alt: "NIDEC Motor 1" },
+  { src: "/images/products/motor/motor_2.png", alt: "NIDEC Motor 2" },
+  { src: "/images/products/motor/motor_3.webp", alt: "NIDEC Motor 3" },
+];
 
 export default function MotorPage() {
   return (
@@ -161,55 +169,68 @@ function MotorContent() {
         </div>
       </section>
 
-      {/* Brand Overview */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      {/* Main Content */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="aspect-video bg-gradient-to-br from-slate-200 to-slate-300 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-slate-400">
-                <div className="text-8xl mb-4">⚡</div>
-                <p className="text-sm">NIDEC 로고 삽입 예정</p>
-              </div>
-            </div>
+            <ImageGallery images={motorImages} />
 
             {/* Content */}
             <div>
               <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                NIDEC 소개
+                제품 개요
               </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Nidec Corporation은 일본에 본사를 둔 세계 최대의 종합 모터
-                제조업체입니다. 1973년 설립 이후 50년 이상 축적된 기술력으로
-                산업용, 자동차용, 가전용 등 다양한 분야의 모터를 생산하고
-                있습니다.
+              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+                Motor는 전기 에너지를 기계 에너지로 변환하여 기계를 움직이게 하는 장치입니다.
+                펌프, 압축기, 믹서, 컨베이어 등 다양한 산업 설비의 구동원으로 사용되며,
+                정유·석유화학, 조선, 제조업 등 모든 산업 분야에서 필수적인 핵심 장비입니다.
               </p>
-              <ul className="space-y-3">
+
+              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
+                주요 특징
+              </h3>
+              <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>글로벌 1위:</strong> 세계 모터 시장 점유율 1위
+                    <strong>고효율 설계:</strong> IE2, IE3, IE4 에너지 효율 등급으로 전력 소비 최소화
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>기술력:</strong> 50년 이상의 모터 설계·제조 경험
+                    <strong>다양한 제품군:</strong> 인버터, 서보, 방폭, 기어드 등 용도별 최적 솔루션
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>품질:</strong> ISO 9001, ISO 14001 인증
+                    <strong>안정적 운전:</strong> 장기간 연속 운전에도 안정적인 성능 유지
                   </span>
                 </li>
                 <li className="flex items-start text-slate-700">
                   <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
                   <span>
-                    <strong>지원:</strong> 전 세계 네트워크를 통한 신속한 A/S
+                    <strong>내구성:</strong> 고온·고압·고부하 환경에서도 뛰어난 내구성
                   </span>
                 </li>
               </ul>
+
+              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                <h4 className="font-bold text-[#0A1628] mb-3">
+                  파트너 브랜드
+                </h4>
+                <div className="space-y-2 text-sm text-slate-600">
+                  <p>
+                    <strong>NIDEC:</strong> 세계 최대의 종합 모터 제조업체 (일본)
+                  </p>
+                  <p className="text-xs leading-relaxed">
+                    50년 이상의 기술력으로 산업용, 자동차용, 가전용 등 다양한 분야의 고품질 정밀 모터를 설계 및 제조합니다.
+                    세계 모터 시장 점유율 1위, ISO 9001/14001 인증, 전 세계 네트워크를 통한 신속한 A/S를 제공합니다.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

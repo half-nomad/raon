@@ -1,9 +1,9 @@
 # Todo List
 # Raon Total Solution B2B Website
 
-**Last Updated:** 2025-12-18
+**Last Updated:** 2025-12-22
 **Total Tasks:** 22
-**Completed:** 21
+**Completed:** 22
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -47,6 +47,10 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Chore] 산업별 이미지 최적화 (shipbuilding 7.4MB→1.6MB, oil-refinery 6.2MB→1.3MB) (done:2025-12-22)
+- [x] [Feature] Motor 제품 통합 (제품 상세/메인/Products 페이지에 이미지 적용) (done:2025-12-22)
+- [x] [Refactor] Motor 페이지 구조 변경 (파트너 중심→제품 중심, ImageGallery 적용) (done:2025-12-22)
+- [x] [Feature] 전체 제품 이미지 적용 (Products & Solutions 7개, 주요 제품 6개) (done:2025-12-22)
 - [x] [Feature] SEO Phase 2 - Product Schema 7개 제품 추가 (done:2025-12-18)
 - [x] [Feature] SEO Phase 2 - 페이지별 맞춤 메타 태그 (제품 7개 + 산업 2개) (done:2025-12-18)
 - [x] [Docs] OG 이미지 제작 가이드 작성 (13개 이미지 스펙) (done:2025-12-18)
@@ -92,16 +96,18 @@
 ## 📊 Statistics
 
 ### This Week (2025-12-16 ~ 2025-12-22)
-**Completed:** 4 tasks
+**Completed:** 8 tasks
 **Added:** 3 tasks
-**Average Completion Time:** ~80분/작업
+**Average Completion Time:** ~60분/작업
 
 ### This Month (2025-12)
-**Completed:** 9 tasks
+**Completed:** 13 tasks
 **Bugs Fixed:** 0
-**Features Added:** 6
+**Features Added:** 9
 **Docs Added:** 1
 **Style Updates:** 2
+**Refactoring:** 1
+**Chore:** 1
 
 ## 🗓️ Scheduled Tasks
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -17,6 +18,7 @@ export default function ProductsPage() {
         "Valve Assy & Internal Parts",
       ],
       slug: "/products/compressor",
+      image: "/images/products/compressor-parts/piston_1.jpg",
     },
     {
       id: "mixer",
@@ -30,6 +32,7 @@ export default function ProductsPage() {
         "맞춤형 솔루션 제공",
       ],
       slug: "/products/mixer",
+      image: "/images/products/mixer/Mixer & Agitator_1.jpg",
     },
     {
       id: "motor",
@@ -43,6 +46,7 @@ export default function ProductsPage() {
         "Anti-explosion motor",
       ],
       slug: "/products/motor",
+      image: "/images/products/motor/motor_1.jpg",
     },
     {
       id: "pump",
@@ -56,6 +60,7 @@ export default function ProductsPage() {
         "PFA-Lined (MKPL), Self-Priming (MKP-S)",
       ],
       slug: "/products/pump",
+      image: "/images/products/pump/pump_3.png",
     },
     {
       id: "bearing",
@@ -69,6 +74,7 @@ export default function ProductsPage() {
         "Journal & Thrust Combined Bearing",
       ],
       slug: "/products/bearing",
+      image: "/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png",
     },
     {
       id: "cylinder-liner",
@@ -82,6 +88,7 @@ export default function ProductsPage() {
         "고내구성 소재",
       ],
       slug: "/products/cylinder-liner",
+      image: "/images/products/cylinder-liner/cylinder-liner_1.jpg",
     },
     {
       id: "oil-purifier",
@@ -95,6 +102,7 @@ export default function ProductsPage() {
         "설비 보호 및 유지비용 절감",
       ],
       slug: "/products/oil-purifier",
+      image: "/images/products/oil-purifier/Oil Purifier_1.png",
     },
   ];
 
@@ -134,17 +142,19 @@ export default function ProductsPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {products.map((product, index) => (
+            {products.map((product) => (
               <div
                 key={product.id}
                 className="group border border-slate-200 rounded-2xl overflow-hidden hover:border-[#3B82F6] hover:shadow-xl transition-all duration-300"
               >
-                {/* Image Placeholder */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center border-b border-slate-200">
-                  <div className="text-center text-slate-400">
-                    <div className="text-6xl mb-2">📦</div>
-                    <p className="text-sm">이미지 삽입 예정</p>
-                  </div>
+                {/* Product Image */}
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-slate-200 bg-gray-50">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
 
                 {/* Content */}

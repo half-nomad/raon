@@ -1,18 +1,19 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProductCardProps {
   name: string;
   description: string;
   href: string;
-  imagePlaceholder: string;
+  image: string;
 }
 
 function ProductCard({
   name,
   description,
   href,
-  imagePlaceholder,
+  image,
 }: ProductCardProps) {
   return (
     <Link
@@ -21,9 +22,12 @@ function ProductCard({
     >
       {/* Product Image */}
       <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-50">
-        <div className="w-full h-full flex items-center justify-center border-2 border-dashed border-gray-300 bg-gray-50 text-gray-400 text-sm group-hover:scale-110 transition-transform duration-500">
-          <span>{imagePlaceholder}</span>
-        </div>
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-500"
+        />
       </div>
 
       {/* Product Info */}
@@ -63,32 +67,38 @@ export function ProductsSnapshot() {
       name: "Reciprocating Compressor",
       description:
         "왕복동 압축기 및 부품. 정유·석유화학 플랜트의 핵심 설비",
-      href: "/products#compressor",
-      imagePlaceholder: "왕복동 압축기 이미지",
+      href: "/products/compressor",
+      image: "/images/products/compressor-parts/piston_1.jpg",
     },
     {
       name: "Mixer / Agitator",
       description: "산업용 믹서 및 교반기. 화학공정의 필수 장비",
-      href: "/products#mixer",
-      imagePlaceholder: "믹서/교반기 이미지",
+      href: "/products/mixer",
+      image: "/images/products/mixer/Mixer & Agitator_1.jpg",
+    },
+    {
+      name: "Motor",
+      description: "산업용 전동기. 설비 구동의 핵심 동력원",
+      href: "/products/motor",
+      image: "/images/products/motor/motor_1.jpg",
     },
     {
       name: "Pump",
       description: "산업용 펌프 솔루션. 다양한 유체 이송 및 순환 시스템",
-      href: "/products#pump",
-      imagePlaceholder: "펌프 이미지",
+      href: "/products/pump",
+      image: "/images/products/pump/pump_3.png",
     },
     {
       name: "Bearing",
       description: "고성능 베어링 및 윤활 시스템. 회전기계의 핵심 부품",
-      href: "/products#bearing",
-      imagePlaceholder: "베어링 이미지",
+      href: "/products/bearing",
+      image: "/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png",
     },
     {
       name: "Oil Purifier",
       description: "오일 정화 시스템. 윤활유 수명 연장 및 설비 보호",
-      href: "/products#oil-purifier",
-      imagePlaceholder: "오일 정화기 이미지",
+      href: "/products/oil-purifier",
+      image: "/images/products/oil-purifier/Oil Purifier_1.png",
     },
   ];
 

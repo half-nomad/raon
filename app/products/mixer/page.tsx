@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
+import { ImageGallery } from "@/components/ui/image-gallery";
 
 export const metadata: Metadata = {
   title: 'Mixer & Agitator | 산업용 믹서 솔루션',
@@ -13,6 +14,14 @@ export const metadata: Metadata = {
     images: ['/images/og/mixer-og.jpg'],
   },
 };
+
+// 이미지 데이터 정의
+const mixerImages = [
+  { src: "/images/products/mixer/Mixer & Agitator_1.jpg", alt: "Mixer & Agitator 1" },
+  { src: "/images/products/mixer/Mixer & Agitator_2.jpg", alt: "Mixer & Agitator 2" },
+  { src: "/images/products/mixer/Mixer & Agitator_3.jpg", alt: "Mixer & Agitator 3" },
+  { src: "/images/products/mixer/Mixer & Agitator_4.jpg", alt: "Mixer & Agitator 4" },
+];
 
 export default function MixerPage() {
   return (
@@ -61,12 +70,7 @@ export default function MixerPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
-            <div className="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl flex items-center justify-center">
-              <div className="text-center text-slate-400">
-                <div className="text-8xl mb-4">🌀</div>
-                <p className="text-sm">이미지 삽입 예정</p>
-              </div>
-            </div>
+            <ImageGallery images={mixerImages} />
 
             {/* Content */}
             <div>

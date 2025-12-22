@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface IndustryCardProps {
   title: string;
@@ -8,7 +9,7 @@ interface IndustryCardProps {
   bullets: string[];
   tags: string[];
   href: string;
-  imagePlaceholder: string;
+  image: string;
 }
 
 function IndustryCard({
@@ -18,7 +19,7 @@ function IndustryCard({
   bullets,
   tags,
   href,
-  imagePlaceholder,
+  image,
 }: IndustryCardProps) {
   return (
     <Link
@@ -27,10 +28,14 @@ function IndustryCard({
     >
       {/* Background Image with Overlay */}
       <div className="relative h-64 sm:h-80 overflow-hidden">
-        <div className="w-full h-full flex items-center justify-center border-2 border-dashed border-gray-300 bg-gray-100 text-gray-400 text-sm group-hover:scale-105 transition-transform duration-500">
-          <span>{imagePlaceholder}</span>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/50 to-transparent" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/95 via-[#0A1628]/70 to-[#0A1628]/20" />
 
         {/* Content Overlay */}
         <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end text-white">
@@ -107,7 +112,7 @@ export function IndustriesHighlight() {
       ],
       tags: ["Compressor & Parts", "Pump", "Bearing"],
       href: "/industries/oil-refinery",
-      imagePlaceholder: "정유 플랜트 이미지",
+      image: "/images/industries/oil-refinery.PNG",
     },
     {
       title: "조선",
@@ -120,7 +125,7 @@ export function IndustriesHighlight() {
       ],
       tags: ["Cylinder Liner", "Engine Parts"],
       href: "/industries/shipbuilding",
-      imagePlaceholder: "조선소/선박 이미지",
+      image: "/images/industries/shipbuilding.PNG",
     },
   ];
 

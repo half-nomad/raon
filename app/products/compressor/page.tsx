@@ -23,63 +23,63 @@ export const metadata: Metadata = {
 
 // 이미지 데이터 정의
 const cylinderLinerImages = [
-  { src: "/images/cylinder-liner_1.jpg", alt: "Cylinder Liner - 실린더 라이너 1" },
-  { src: "/images/cylinder-liner_2.jpg", alt: "Cylinder Liner - 실린더 라이너 2" },
+  { src: "/images/products/compressor-parts/cylinder-liner_1.jpg", alt: "Cylinder Liner - 실린더 라이너 1" },
+  { src: "/images/products/compressor-parts/cylinder-liner_2.jpg", alt: "Cylinder Liner - 실린더 라이너 2" },
 ];
 
 const pistonImages = [
-  { src: "/images/piston_1.jpg", alt: "Piston - 피스톤 1" },
-  { src: "/images/piston_2.jpg", alt: "Piston - 피스톤 2" },
-  { src: "/images/piston_3.jpg", alt: "Piston - 피스톤 3" },
-  { src: "/images/piston_4.jpg", alt: "Piston - 피스톤 4" },
+  { src: "/images/products/compressor-parts/piston_1.jpg", alt: "Piston - 피스톤 1" },
+  { src: "/images/products/compressor-parts/piston_2.jpg", alt: "Piston - 피스톤 2" },
+  { src: "/images/products/compressor-parts/piston_3.jpg", alt: "Piston - 피스톤 3" },
+  { src: "/images/products/compressor-parts/piston_4.jpg", alt: "Piston - 피스톤 4" },
 ];
 
 const pistonRodImages = [
-  { src: "/images/piston-rod_1.jpg", alt: "Piston Rod - 피스톤 로드 1" },
-  { src: "/images/piston-rod_2.jpg", alt: "Piston Rod - 피스톤 로드 2" },
-  { src: "/images/piston-rod_3.jpg", alt: "Piston Rod - 피스톤 로드 3" },
-  { src: "/images/piston-rod_4.jpg", alt: "Piston Rod - 피스톤 로드 4" },
-  { src: "/images/piston-rod_5.jpg", alt: "Piston Rod - 피스톤 로드 5" },
+  { src: "/images/products/compressor-parts/piston-rod_1.jpg", alt: "Piston Rod - 피스톤 로드 1" },
+  { src: "/images/products/compressor-parts/piston-rod_2.jpg", alt: "Piston Rod - 피스톤 로드 2" },
+  { src: "/images/products/compressor-parts/piston-rod_3.jpg", alt: "Piston Rod - 피스톤 로드 3" },
+  { src: "/images/products/compressor-parts/piston-rod_4.jpg", alt: "Piston Rod - 피스톤 로드 4" },
+  { src: "/images/products/compressor-parts/piston-rod_5.jpg", alt: "Piston Rod - 피스톤 로드 5" },
 ];
 
 const crossheadImages = [
-  { src: "/images/Crosshead_1.jpg", alt: "Crosshead - 크로스헤드 1" },
-  { src: "/images/Crosshead_2.jpg", alt: "Crosshead - 크로스헤드 2" },
-  { src: "/images/Crosshead_3.jpg", alt: "Crosshead - 크로스헤드 3" },
-  { src: "/images/Crosshead_4.jpg", alt: "Crosshead - 크로스헤드 4" },
+  { src: "/images/products/compressor-parts/Crosshead_1.jpg", alt: "Crosshead - 크로스헤드 1" },
+  { src: "/images/products/compressor-parts/Crosshead_2.jpg", alt: "Crosshead - 크로스헤드 2" },
+  { src: "/images/products/compressor-parts/Crosshead_3.jpg", alt: "Crosshead - 크로스헤드 3" },
+  { src: "/images/products/compressor-parts/Crosshead_4.jpg", alt: "Crosshead - 크로스헤드 4" },
 ];
 
 const pistonRingImages = [
-  { src: "/images/Piston-ring_1.jpg", alt: "Piston Ring - 피스톤 링 1" },
-  { src: "/images/Piston-ring_2.jpg", alt: "Piston Ring - 피스톤 링 2" },
+  { src: "/images/products/compressor-parts/Piston-ring_1.jpg", alt: "Piston Ring - 피스톤 링 1" },
+  { src: "/images/products/compressor-parts/Piston-ring_2.jpg", alt: "Piston Ring - 피스톤 링 2" },
 ];
 
 const riderRingImages = [
-  { src: "/images/Rider-ring_1.jpg", alt: "Rider Ring - 라이더 링 1" },
-  { src: "/images/Rider-ring_2.jpg", alt: "Rider Ring - 라이더 링 2" },
-  { src: "/images/Rider-ring_3.jpg", alt: "Rider Ring - 라이더 링 3" },
+  { src: "/images/products/compressor-parts/Rider-ring_1.jpg", alt: "Rider Ring - 라이더 링 1" },
+  { src: "/images/products/compressor-parts/Rider-ring_2.jpg", alt: "Rider Ring - 라이더 링 2" },
+  { src: "/images/products/compressor-parts/Rider-ring_3.jpg", alt: "Rider Ring - 라이더 링 3" },
 ];
 
 const packingCupImages = [
-  { src: "/images/Packing-Cup&Packing-Ring_1.jpg", alt: "Packing Cup & Ring 1" },
-  { src: "/images/Packing-Cup&Packing-Ring_2.jpg", alt: "Packing Cup & Ring 2" },
-  { src: "/images/Packing-Cup&Packing-Ring_3.jpg", alt: "Packing Cup & Ring 3" },
-  { src: "/images/Packing-Cup&Packing-Ring_4.jpg", alt: "Packing Cup & Ring 4" },
+  { src: "/images/products/compressor-parts/Packing-Cup&Packing-Ring_1.jpg", alt: "Packing Cup & Ring 1" },
+  { src: "/images/products/compressor-parts/Packing-Cup&Packing-Ring_2.jpg", alt: "Packing Cup & Ring 2" },
+  { src: "/images/products/compressor-parts/Packing-Cup&Packing-Ring_3.jpg", alt: "Packing Cup & Ring 3" },
+  { src: "/images/products/compressor-parts/Packing-Cup&Packing-Ring_4.jpg", alt: "Packing Cup & Ring 4" },
 ];
 
 const oilScraperImages = [
-  { src: "/images/Oil-Scraper-Packing_1.jpg", alt: "Oil Scraper Packing 1" },
-  { src: "/images/Oil-Scraper-Packing_2.jpg", alt: "Oil Scraper Packing 2" },
-  { src: "/images/Oil-Scraper-Packing_3.jpg", alt: "Oil Scraper Packing 3" },
-  { src: "/images/Oil-Scraper-Packing_4.jpg", alt: "Oil Scraper Packing 4" },
+  { src: "/images/products/compressor-parts/Oil-Scraper-Packing_1.jpg", alt: "Oil Scraper Packing 1" },
+  { src: "/images/products/compressor-parts/Oil-Scraper-Packing_2.jpg", alt: "Oil Scraper Packing 2" },
+  { src: "/images/products/compressor-parts/Oil-Scraper-Packing_3.jpg", alt: "Oil Scraper Packing 3" },
+  { src: "/images/products/compressor-parts/Oil-Scraper-Packing_4.jpg", alt: "Oil Scraper Packing 4" },
 ];
 
 const valveImages = [
-  { src: "/images/Valve-Assy&Internal-Parts_1.jpg", alt: "Valve Assembly 1" },
-  { src: "/images/Valve-Assy&Internal-Parts_2.png", alt: "Valve Assembly 2" },
-  { src: "/images/Valve-Assy&Internal-Parts_3.png", alt: "Valve Assembly 3" },
-  { src: "/images/Valve-Repair-Kits_1.PNG", alt: "Valve Repair Kit" },
-  { src: "/images/spring_1.PNG", alt: "Valve Spring" },
+  { src: "/images/products/compressor-parts/Valve-Assy&Internal-Parts_1.jpg", alt: "Valve Assembly 1" },
+  { src: "/images/products/compressor-parts/Valve-Assy&Internal-Parts_2.png", alt: "Valve Assembly 2" },
+  { src: "/images/products/compressor-parts/Valve-Assy&Internal-Parts_3.png", alt: "Valve Assembly 3" },
+  { src: "/images/products/compressor-parts/Valve-Repair-Kits_1.PNG", alt: "Valve Repair Kit" },
+  { src: "/images/products/compressor-parts/spring_1.PNG", alt: "Valve Spring" },
 ];
 
 export default function CompressorPage() {

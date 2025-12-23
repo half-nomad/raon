@@ -9,6 +9,8 @@ import {
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import BackButton from "@/components/ui/back-button";
+import Breadcrumb from "@/components/ui/breadcrumb";
 
 export const metadata: Metadata = {
   title: 'Compressor & Spare Parts | 왕복동 압축기 전문',
@@ -107,6 +109,14 @@ export default function CompressorPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="max-w-3xl">
+            <BackButton href="/products" variant="dark" />
+
+            <Breadcrumb variant="dark" items={[
+              { label: "HOME", href: "/" },
+              { label: "PRODUCTS", href: "/products" },
+              { label: "Compressor" }
+            ]} />
+
             <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
               WTQ · Castanet SA · KB Delta
             </div>

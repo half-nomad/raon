@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CheckCircle2, Globe, Wrench, Package, BadgeDollarSign, Award } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
@@ -262,7 +263,9 @@ export default function PartnersPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">✅</div>
+              <div className="flex justify-center mb-4">
+                <CheckCircle2 className="w-10 h-10 text-[#3B82F6]" />
+              </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 공식 대리점 계약
               </h3>
@@ -273,7 +276,9 @@ export default function PartnersPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🌍</div>
+              <div className="flex justify-center mb-4">
+                <Globe className="w-10 h-10 text-[#3B82F6]" />
+              </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 글로벌 네트워크
               </h3>
@@ -284,7 +289,9 @@ export default function PartnersPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔧</div>
+              <div className="flex justify-center mb-4">
+                <Wrench className="w-10 h-10 text-[#3B82F6]" />
+              </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 기술 지원
               </h3>
@@ -295,7 +302,9 @@ export default function PartnersPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">📦</div>
+              <div className="flex justify-center mb-4">
+                <Package className="w-10 h-10 text-[#3B82F6]" />
+              </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 안정적 공급
               </h3>
@@ -306,7 +315,9 @@ export default function PartnersPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💰</div>
+              <div className="flex justify-center mb-4">
+                <BadgeDollarSign className="w-10 h-10 text-[#3B82F6]" />
+              </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 경쟁력 있는 가격
               </h3>
@@ -316,7 +327,9 @@ export default function PartnersPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🏆</div>
+              <div className="flex justify-center mb-4">
+                <Award className="w-10 h-10 text-[#3B82F6]" />
+              </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 품질 보증
               </h3>

@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-12-23
-**Total Tasks:** 25
-**Completed:** 25
+**Total Tasks:** 27
+**Completed:** 27
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -16,9 +16,6 @@
 - [ ] [Design] OG 이미지 13개 제작 (디자이너 협업 필요) (p:Medium, added:2025-12-18)
 - [ ] [Feature] SEO Phase 3 - Naver Search Advisor 등록 (도메인 연결 후) (p:Low, added:2025-12-18)
 - [ ] [Feature] SEO Phase 3 - Google Search Console 등록 (도메인 연결 후) (p:Low, added:2025-12-18)
-
-### 이슈/버그
-- [ ] [Bug] 개발 서버 포트 락 문제 - .next/dev/lock 파일 지속 (p:Low, added:2025-12-23)
 
 ### Phase 4: 테스트 & 배포 (Week 7-8)
 - [ ] [Test] 모바일/태블릿/데스크톱 반응형 테스트 (p:High, added:2025-11-18)
@@ -50,6 +47,8 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] CONTACT - 파일 첨부 기능 (PDF, 이미지, Word, 최대 5MB, 3개) (done:2025-12-23)
+- [x] [Style] 문의 이메일 템플릿 테이블 형식으로 개선 (가시성 향상) (done:2025-12-23)
 - [x] [Refactor] 전체 코드베이스 lucide-react 아이콘 적용 (14개 파일, 이모지 50개 제거) (done:2025-12-23)
 - [x] [Feature] Industries 페이지 대표 이미지 추가 (정유·석유화학, 조선) (done:2025-12-23)
 - [x] [Feature] Partners 페이지 파트너/클라이언트 로고 16개 삽입 (done:2025-12-23)

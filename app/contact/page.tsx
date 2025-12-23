@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Check, Home, Phone, Mail } from "lucide-react";
+import { Check, Home, Phone, Mail, Paperclip, X, FileText, Image as ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -53,12 +53,84 @@ const contactFormSchema = z.object({
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
+// 허용 파일 타입
+const ALLOWED_FILE_TYPES = [
+  "image/jpeg",
+  "image/png",
+  "image/gif",
+  "image/webp",
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+];
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_FILES = 3;
+
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
+  const [files, setFiles] = useState<File[]>([]);
+  const [fileError, setFileError] = useState<string | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // 파일 검증 함수
+  const validateFile = (file: File): string | null => {
+    if (!ALLOWED_FILE_TYPES.includes(file.type)) {
+      return `${file.name}: 지원하지 않는 파일 형식입니다. (PDF, 이미지, Word 문서만 가능)`;
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      return `${file.name}: 파일 크기가 5MB를 초과합니다.`;
+    }
+    return null;
+  };
+
+  // 파일 추가 핸들러
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFiles = Array.from(e.target.files || []);
+    setFileError(null);
+
+    if (files.length + selectedFiles.length > MAX_FILES) {
+      setFileError(`최대 ${MAX_FILES}개의 파일만 첨부할 수 있습니다.`);
+      return;
+    }
+
+    for (const file of selectedFiles) {
+      const error = validateFile(file);
+      if (error) {
+        setFileError(error);
+        return;
+      }
+    }
+
+    setFiles((prev) => [...prev, ...selectedFiles]);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
+  // 파일 제거 핸들러
+  const removeFile = (index: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+    setFileError(null);
+  };
+
+  // 파일 아이콘 선택
+  const getFileIcon = (type: string) => {
+    if (type.startsWith("image/")) {
+      return <ImageIcon className="w-4 h-4" />;
+    }
+    return <FileText className="w-4 h-4" />;
+  };
+
+  // 파일 크기 포맷
+  const formatFileSize = (bytes: number): string => {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+  };
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -77,12 +149,22 @@ export default function ContactPage() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
+      const formData = new FormData();
+      formData.append("category", data.category);
+      formData.append("name", data.name);
+      formData.append("company", data.company);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("message", data.message);
+
+      // 파일 추가
+      files.forEach((file) => {
+        formData.append("files", file);
+      });
+
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -94,6 +176,7 @@ export default function ContactPage() {
         message: "문의가 성공적으로 전송되었습니다. 빠른 시일 내에 답변드리겠습니다.",
       });
       form.reset();
+      setFiles([]);
     } catch (error) {
       setSubmitStatus({
         type: "error",
@@ -313,12 +396,78 @@ export default function ContactPage() {
                   )}
                 />
 
-                {/* File Upload Info */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-sm text-blue-900">
-                    <strong>파일 첨부가 필요하신 경우:</strong>
-                    <br />
-                    도면, 사진, 스펙시트 등의 파일은 답변 이메일에 첨부하여 회신해주시면 더욱 정확한 상담이 가능합니다.
+                {/* File Upload */}
+                <div className="space-y-3">
+                  <label className="text-[#0A1628] font-semibold block">
+                    파일 첨부 <span className="text-gray-400 font-normal">(선택)</span>
+                  </label>
+
+                  {/* 파일 선택 버튼 */}
+                  <div className="flex items-center gap-3">
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.webp"
+                      onChange={handleFileChange}
+                      className="hidden"
+                      multiple
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={files.length >= MAX_FILES}
+                      className="h-12 px-6 border-gray-300 hover:border-[#3B82F6] hover:text-[#3B82F6]"
+                    >
+                      <Paperclip className="w-4 h-4 mr-2" />
+                      파일 선택
+                    </Button>
+                    <span className="text-sm text-gray-500">
+                      {files.length}/{MAX_FILES}개 첨부됨
+                    </span>
+                  </div>
+
+                  {/* 파일 목록 */}
+                  {files.length > 0 && (
+                    <div className="space-y-2">
+                      {files.map((file, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200"
+                        >
+                          <div className="flex items-center gap-3 min-w-0">
+                            <div className="flex-shrink-0 w-8 h-8 bg-[#3B82F6]/10 rounded-lg flex items-center justify-center text-[#3B82F6]">
+                              {getFileIcon(file.type)}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-sm font-medium text-gray-900 truncate">
+                                {file.name}
+                              </p>
+                              <p className="text-xs text-gray-500">
+                                {formatFileSize(file.size)}
+                              </p>
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(index)}
+                            className="flex-shrink-0 p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition-colors"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* 파일 에러 메시지 */}
+                  {fileError && (
+                    <p className="text-sm text-red-600">{fileError}</p>
+                  )}
+
+                  {/* 안내 문구 */}
+                  <p className="text-xs text-gray-500">
+                    PDF, 이미지(JPG, PNG, GIF, WebP), Word 문서 첨부 가능 (파일당 최대 5MB, 최대 3개)
                   </p>
                 </div>
 

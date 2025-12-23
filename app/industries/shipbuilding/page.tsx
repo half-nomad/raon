@@ -4,6 +4,7 @@ import { IndustryHero } from "@/components/industries/industry-hero";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: '조선 산업 | Shipbuilding',
@@ -53,6 +54,28 @@ export default function ShipbuildingPage() {
         subtitle="Ship Building"
         description="중국 양주 실린더라이너 제조사(WTQ)의 한국 대리점으로 고품질 선박용 부품을 공급합니다"
       />
+
+      {/* Industry Representative Image */}
+      <section className="py-12 bg-slate-50">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+            <Image
+              src="/images/industries/shipbuilding.PNG"
+              alt="조선소 및 선박 건조 현장"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1240px) 100vw, 1240px"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <p className="text-sm sm:text-base font-medium opacity-90">
+                대형 선박 건조 현장에서 사용되는 고품질 실린더 라이너 및 해양 설비
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">

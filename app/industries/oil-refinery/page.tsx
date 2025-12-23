@@ -4,6 +4,7 @@ import { IndustryHero } from "@/components/industries/industry-hero";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: '정유·석유화학 산업 | Oil Refinery & Petrochemical',
@@ -49,6 +50,28 @@ export default function OilRefineryPage() {
         subtitle="Oil Refinery & Petrochemical"
         description="30년 경험과 노하우를 바탕으로 왕복동 압축기와 회전기계에 대한 전문 솔루션을 제공합니다"
       />
+
+      {/* Industry Representative Image */}
+      <section className="py-12 bg-slate-50">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
+            <Image
+              src="/images/industries/oil-refinery.PNG"
+              alt="정유·석유화학 플랜트"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1240px) 100vw, 1240px"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <p className="text-sm sm:text-base font-medium opacity-90">
+                정유·석유화학 플랜트에서 가동되는 산업용 압축기 및 회전기계 시스템
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">

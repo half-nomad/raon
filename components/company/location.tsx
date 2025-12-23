@@ -1,6 +1,41 @@
-import { MapPin, Building2, Phone, Printer, Mail } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { MapPin, Building2, Phone, Printer, Mail, ExternalLink } from "lucide-react";
+
+type MapType = "google" | "kakao" | "naver";
+
+const MAP_CONFIG = {
+  google: {
+    name: "구글",
+    embedUrl: "https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%EC%8B%9C+%EC%84%9C%EC%B4%88%EA%B5%AC+%EB%A7%88%EB%B0%A9%EB%A1%9C+16&t=&z=17&ie=UTF8&iwloc=&output=embed",
+    linkUrl: "https://maps.google.com/maps?q=%EC%84%9C%EC%9A%B8%EC%8B%9C+%EC%84%9C%EC%B4%88%EA%B5%AC+%EB%A7%88%EB%B0%A9%EB%A1%9C+16",
+    imageUrl: "/images/maps/google-map.png",
+    color: "bg-white border-gray-300 text-gray-700 hover:bg-gray-50",
+    activeColor: "bg-[#4285F4] text-white border-[#4285F4]",
+    useIframe: true,
+  },
+  kakao: {
+    name: "카카오",
+    linkUrl: "https://map.kakao.com/?q=%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EB%A7%88%EB%B0%A9%EB%A1%9C%2016",
+    imageUrl: "/images/maps/kakao-map.png",
+    color: "bg-white border-gray-300 text-gray-700 hover:bg-gray-50",
+    activeColor: "bg-[#FEE500] text-[#000000] border-[#FEE500]",
+    useIframe: false,
+  },
+  naver: {
+    name: "네이버",
+    linkUrl: "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%EC%8B%9C%20%EC%84%9C%EC%B4%88%EA%B5%AC%20%EB%A7%88%EB%B0%A9%EB%A1%9C%2016",
+    imageUrl: "/images/maps/naver-map.png",
+    color: "bg-white border-gray-300 text-gray-700 hover:bg-gray-50",
+    activeColor: "bg-[#03C75A] text-white border-[#03C75A]",
+    useIframe: false,
+  },
+};
 
 export function Location() {
+  const [activeMap, setActiveMap] = useState<MapType>("google");
+
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-white">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,40 +53,70 @@ export function Location() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left: Map */}
           <div className="order-2 lg:order-1">
-            <div className="relative aspect-[4/3] bg-gray-100 rounded-2xl border-2 border-dashed border-gray-300 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-400 text-sm">
-                    구글/네이버 지도 삽입 예정
-                  </p>
-                </div>
-              </div>
+            {/* Map Tabs */}
+            <div className="flex gap-2 mb-4">
+              {(Object.keys(MAP_CONFIG) as MapType[]).map((mapType) => (
+                <button
+                  key={mapType}
+                  onClick={() => setActiveMap(mapType)}
+                  className={`flex-1 px-4 py-2.5 text-sm font-semibold rounded-lg border transition-all ${
+                    activeMap === mapType
+                      ? MAP_CONFIG[mapType].activeColor
+                      : MAP_CONFIG[mapType].color
+                  }`}
+                >
+                  {MAP_CONFIG[mapType].name} 지도
+                </button>
+              ))}
             </div>
 
-            {/* Map Buttons */}
-            <div className="grid grid-cols-2 gap-4 mt-4">
+            {/* Map Display */}
+            <div className="relative aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+              {activeMap === "google" ? (
+                <iframe
+                  src={MAP_CONFIG.google.embedUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="구글 지도 - 라온토탈솔루션"
+                />
+              ) : (
+                <a
+                  href={MAP_CONFIG[activeMap].linkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full relative group"
+                >
+                  {/* Map Screenshot Image */}
+                  <img
+                    src={MAP_CONFIG[activeMap].imageUrl}
+                    alt={`${MAP_CONFIG[activeMap].name} 지도 - 라온토탈솔루션 위치`}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-200 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white rounded-full px-6 py-3 shadow-lg flex items-center gap-2">
+                      <ExternalLink className="w-5 h-5" />
+                      <span className="font-semibold">{MAP_CONFIG[activeMap].name} 지도에서 보기</span>
+                    </div>
+                  </div>
+                </a>
+              )}
+            </div>
+
+            {/* External Link Button */}
+            <div className="mt-4">
               <a
-                href="https://map.kakao.com"
+                href={MAP_CONFIG[activeMap].linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-[#FEE500] hover:bg-[#FDD835] text-[#000000] font-semibold rounded-lg transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
               >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3zm5.907 8.06l1.47-1.424a.472.472 0 0 0-.656-.678l-1.928 1.866V9.282a.472.472 0 0 0-.944 0v2.557a.471.471 0 0 0 0 .222V13.5a.472.472 0 0 0 .944 0v-1.363l.427-.413 1.428 2.033a.472.472 0 1 0 .773-.543l-1.514-2.155zm-2.958 1.924h-1.46V9.297a.472.472 0 0 0-.943 0v4.159c0 .26.21.472.471.472h1.932a.472.472 0 1 0 0-.944zm-5.857-1.092l.696-1.707.638 1.707H9.092zm2.523.488l.002-.016a.469.469 0 0 0-.127-.32l-1.046-2.8a.69.69 0 0 0-.627-.474.696.696 0 0 0-.653.447l-1.661 4.075a.472.472 0 0 0 .874.357l.33-.813h2.07l.293.801a.472.472 0 1 0 .886-.325l-.341-.932zM8.293 9.302a.472.472 0 0 0-.471-.472H4.577a.472.472 0 1 0 0 .944h1.16v3.736a.472.472 0 0 0 .944 0V9.774h1.14c.261 0 .472-.212.472-.472z" />
-                </svg>
-                카카오맵
-              </a>
-              <a
-                href="https://map.naver.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-[#03C75A] hover:bg-[#02B350] text-white font-semibold rounded-lg transition-colors"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M16.273 12.845L7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845z" />
-                </svg>
-                네이버맵
+                <ExternalLink className="w-4 h-4" />
+                {MAP_CONFIG[activeMap].name} 지도에서 크게 보기
               </a>
             </div>
           </div>

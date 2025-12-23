@@ -47,6 +47,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] Contact 오시는 길 지도 삽입 (구글 iframe + 카카오/네이버 이미지 탭) (done:2025-12-23)
 - [x] [Style] Company 연혁 타임라인 redesign (내림차순, 지그재그, 전파 효과) (done:2025-12-23)
 - [x] [Feature] Company 페이지 연혁 Framer Motion 애니메이션 적용 (done:2025-12-23)
 - [x] [Feature] BackButton & Breadcrumb 컴포넌트 생성 (dark/light variant) (done:2025-12-23)

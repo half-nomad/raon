@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-12-23
-**Total Tasks:** 27
-**Completed:** 27
+**Total Tasks:** 32
+**Completed:** 32
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -47,6 +47,11 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Style] Company 연혁 타임라인 redesign (내림차순, 지그재그, 전파 효과) (done:2025-12-23)
+- [x] [Feature] Company 페이지 연혁 Framer Motion 애니메이션 적용 (done:2025-12-23)
+- [x] [Feature] BackButton & Breadcrumb 컴포넌트 생성 (dark/light variant) (done:2025-12-23)
+- [x] [Feature] 제품 상세 페이지 7개에 뒤로가기 버튼 + Breadcrumb 추가 (done:2025-12-23)
+- [x] [Refactor] Partners 페이지 이모지 6개를 lucide-react 아이콘으로 교체 (done:2025-12-23)
 - [x] [Feature] CONTACT - 파일 첨부 기능 (PDF, 이미지, Word, 최대 5MB, 3개) (done:2025-12-23)
 - [x] [Style] 문의 이메일 템플릿 테이블 형식으로 개선 (가시성 향상) (done:2025-12-23)
 - [x] [Refactor] 전체 코드베이스 lucide-react 아이콘 적용 (14개 파일, 이모지 50개 제거) (done:2025-12-23)

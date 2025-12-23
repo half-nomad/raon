@@ -9,6 +9,7 @@ import {
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { Zap, Dumbbell, Target, Thermometer, Timer, Flag, Factory, Waves, Cog, Wind, FlaskConical } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Bearing | 산업용 베어링 솔루션',
@@ -324,7 +325,7 @@ export default function BearingPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🏃</div>
+              <Zap className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 고속 회전 대응
               </h3>
@@ -335,7 +336,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💪</div>
+              <Dumbbell className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 고하중 환경
               </h3>
@@ -346,7 +347,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🎯</div>
+              <Target className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 자동 정렬
               </h3>
@@ -357,7 +358,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🌡️</div>
+              <Thermometer className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 온도 안정성
               </h3>
@@ -368,7 +369,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">⏱️</div>
+              <Timer className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 긴 수명
               </h3>
@@ -379,7 +380,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🇰🇷</div>
+              <Flag className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 국내 제작
               </h3>
@@ -399,7 +400,7 @@ export default function BearingPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🏭</div>
+              <Factory className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 정유·석유화학
               </h3>
@@ -409,7 +410,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">⚡</div>
+              <Zap className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">발전</h3>
               <p className="text-slate-600 text-sm">
                 가스 터빈, 증기 터빈, 발전기
@@ -417,7 +418,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🌊</div>
+              <Waves className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 조선·해양
               </h3>
@@ -427,7 +428,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">⚙️</div>
+              <Cog className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 중공업
               </h3>
@@ -437,7 +438,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">💨</div>
+              <Wind className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 공조·환경
               </h3>
@@ -447,7 +448,7 @@ export default function BearingPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🔬</div>
+              <FlaskConical className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">연구소</h3>
               <p className="text-slate-600 text-sm">
                 시험기, 실험 장비, 특수 회전기계

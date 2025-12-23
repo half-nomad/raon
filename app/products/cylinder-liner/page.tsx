@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { Shield, Timer, Thermometer, Wrench, Ship, Anchor, Sailboat, CheckCircle, Target, DollarSign } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Cylinder Liner for Ship | 선박용 실린더 라이너',
@@ -25,25 +26,25 @@ const cylinderLinerImages = [
 export default function CylinderLinerPage() {
   const features = [
     {
-      icon: "🛡️",
+      icon: <Shield className="w-12 h-12 text-[#3B82F6]" />,
       title: "엔진 실린더 보호",
       description:
         "피스톤이 움직이는 공간을 보호하여 실린더 벽면의 직접적인 마모를 방지합니다.",
     },
     {
-      icon: "⏱️",
+      icon: <Timer className="w-12 h-12 text-[#3B82F6]" />,
       title: "마모 저감",
       description:
         "고온·고압 환경에서 피스톤과의 마찰을 최소화하고 엔진 수명을 연장합니다.",
     },
     {
-      icon: "🌡️",
+      icon: <Thermometer className="w-12 h-12 text-[#3B82F6]" />,
       title: "열 관리",
       description:
         "연소 과정에서 발생하는 고온을 효과적으로 분산시켜 엔진 온도를 안정화합니다.",
     },
     {
-      icon: "🔧",
+      icon: <Wrench className="w-12 h-12 text-[#3B82F6]" />,
       title: "교체 용이",
       description:
         "실린더 라이너만 교체하여 전체 엔진 블록을 보호하고 유지보수 비용을 절감합니다.",
@@ -52,22 +53,22 @@ export default function CylinderLinerPage() {
 
   const applications = [
     {
-      icon: "🚢",
+      icon: <Ship className="w-16 h-16 text-[#3B82F6]" />,
       title: "화물선",
       description: "컨테이너선, 벌크선, 탱커 등 대형 화물선 주기관",
     },
     {
-      icon: "⚓",
+      icon: <Anchor className="w-16 h-16 text-[#3B82F6]" />,
       title: "여객선",
       description: "크루즈, 페리, 여객선 엔진 시스템",
     },
     {
-      icon: "⛴️",
+      icon: <Ship className="w-16 h-16 text-[#3B82F6]" />,
       title: "특수 선박",
       description: "LNG선, 케미컬 탱커, 해양 플랜트 지원선",
     },
     {
-      icon: "🛥️",
+      icon: <Sailboat className="w-16 h-16 text-[#3B82F6]" />,
       title: "중소형 선박",
       description: "어선, 예인선, 작업선, 연안 여객선",
     },
@@ -231,7 +232,7 @@ export default function CylinderLinerPage() {
                 key={idx}
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   {feature.title}
                 </h3>
@@ -288,7 +289,7 @@ export default function CylinderLinerPage() {
                 key={idx}
                 className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all"
               >
-                <div className="text-5xl mb-4">{app.icon}</div>
+                <div className="mb-4 flex justify-center">{app.icon}</div>
                 <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                   {app.title}
                 </h3>
@@ -308,7 +309,7 @@ export default function CylinderLinerPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💪</div>
+              <Shield className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 뛰어난 내구성
               </h3>
@@ -319,7 +320,7 @@ export default function CylinderLinerPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🎯</div>
+              <Target className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 정밀 가공
               </h3>
@@ -330,7 +331,7 @@ export default function CylinderLinerPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">✅</div>
+              <CheckCircle className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 국제 인증
               </h3>
@@ -341,7 +342,7 @@ export default function CylinderLinerPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔧</div>
+              <Wrench className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 호환성
               </h3>
@@ -352,7 +353,7 @@ export default function CylinderLinerPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💰</div>
+              <DollarSign className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 가격 경쟁력
               </h3>
@@ -363,7 +364,7 @@ export default function CylinderLinerPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">⏱️</div>
+              <Timer className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 신속한 납기
               </h3>

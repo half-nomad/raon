@@ -9,6 +9,7 @@ import {
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { Factory, Settings, Wind, Droplets, Tornado, Wrench } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Motor & Electric Motor | 산업용 전동기',
@@ -300,7 +301,7 @@ function MotorContent() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🏭</div>
+              <Factory className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 석유화학 플랜트
               </h3>
@@ -310,7 +311,7 @@ function MotorContent() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">⚙️</div>
+              <Settings className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 산업 자동화
               </h3>
@@ -320,7 +321,7 @@ function MotorContent() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💨</div>
+              <Wind className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 HVAC 시스템
               </h3>
@@ -330,7 +331,7 @@ function MotorContent() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💧</div>
+              <Droplets className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 펌프 시스템
               </h3>
@@ -340,7 +341,7 @@ function MotorContent() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🌀</div>
+              <Tornado className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 믹서·교반기
               </h3>
@@ -350,7 +351,7 @@ function MotorContent() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔧</div>
+              <Wrench className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 기타 산업
               </h3>

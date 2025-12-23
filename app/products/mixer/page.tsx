@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { Factory, Pill, Coffee, Palette, Droplets, FlaskConical } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Mixer & Agitator | 산업용 믹서 솔루션',
@@ -150,7 +151,7 @@ export default function MixerPage() {
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">🏭</div>
+                <Factory className="w-12 h-12 mb-4 text-[#3B82F6]" />
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   석유화학
                 </h3>
@@ -160,7 +161,7 @@ export default function MixerPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">💊</div>
+                <Pill className="w-12 h-12 mb-4 text-[#3B82F6]" />
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   제약·화학
                 </h3>
@@ -170,7 +171,7 @@ export default function MixerPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">🥤</div>
+                <Coffee className="w-12 h-12 mb-4 text-[#3B82F6]" />
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   식품·음료
                 </h3>
@@ -180,7 +181,7 @@ export default function MixerPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">🎨</div>
+                <Palette className="w-12 h-12 mb-4 text-[#3B82F6]" />
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   도료·코팅
                 </h3>
@@ -190,7 +191,7 @@ export default function MixerPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">💧</div>
+                <Droplets className="w-12 h-12 mb-4 text-[#3B82F6]" />
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   수처리
                 </h3>
@@ -200,7 +201,7 @@ export default function MixerPage() {
               </div>
 
               <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <div className="text-4xl mb-4">🔬</div>
+                <FlaskConical className="w-12 h-12 mb-4 text-[#3B82F6]" />
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   기타 산업
                 </h3>

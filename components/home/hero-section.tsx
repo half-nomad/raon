@@ -1,6 +1,7 @@
 "use client";
 
 import { CTAButton } from "@/components/ui/cta-button";
+import { ArrowDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -75,19 +76,7 @@ export function HeroSection() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2 text-white/60 animate-bounce">
         <span className="text-xs uppercase tracking-wider">Scroll</span>
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+        <ArrowDown className="w-5 h-5" />
       </div>
     </section>
   );

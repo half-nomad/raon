@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { Droplets, FlaskConical, Timer, Shield, Cog, Settings, Factory, Zap, Ship, DollarSign, Wrench, Flag, Leaf } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Oil Purifier | 오일 정화 시스템',
@@ -26,25 +27,25 @@ const oilPurifierImages = [
 export default function OilPurifierPage() {
   const features = [
     {
-      icon: "💧",
+      icon: <Droplets className="w-12 h-12 text-[#3B82F6]" />,
       title: "수분 제거",
       description:
         "진공 증발 방식으로 오일 내 수분을 효과적으로 제거하여 오일 성능을 회복합니다.",
     },
     {
-      icon: "🔬",
+      icon: <FlaskConical className="w-12 h-12 text-[#3B82F6]" />,
       title: "불순물 제거",
       description:
         "다단계 필터링으로 금속 입자, 슬러지, 미세 불순물을 제거하여 오일을 정화합니다.",
     },
     {
-      icon: "⏱️",
+      icon: <Timer className="w-12 h-12 text-[#3B82F6]" />,
       title: "오일 수명 연장",
       description:
         "오일을 정화하여 재사용함으로써 오일 교체 주기를 연장하고 비용을 절감합니다.",
     },
     {
-      icon: "🛡️",
+      icon: <Shield className="w-12 h-12 text-[#3B82F6]" />,
       title: "설비 보호",
       description:
         "깨끗한 오일로 베어링, 기어, 유압 시스템 등의 마모를 줄이고 설비 수명을 연장합니다.",
@@ -53,32 +54,32 @@ export default function OilPurifierPage() {
 
   const applications = [
     {
-      icon: "⚙️",
+      icon: <Cog className="w-16 h-16 text-[#3B82F6]" />,
       title: "터빈 오일",
       description: "증기 터빈, 가스 터빈의 윤활유 정화",
     },
     {
-      icon: "🔩",
+      icon: <Settings className="w-16 h-16 text-[#3B82F6]" />,
       title: "유압 오일",
       description: "유압 시스템, 프레스, 사출기 오일 정화",
     },
     {
-      icon: "🏭",
+      icon: <Factory className="w-16 h-16 text-[#3B82F6]" />,
       title: "압축기 오일",
       description: "왕복동/원심 압축기 윤활유 정화",
     },
     {
-      icon: "⚡",
+      icon: <Zap className="w-16 h-16 text-[#3B82F6]" />,
       title: "변압기 오일",
       description: "전력 변압기 절연유 정화",
     },
     {
-      icon: "⚙️",
+      icon: <Cog className="w-16 h-16 text-[#3B82F6]" />,
       title: "기어 오일",
       description: "기어박스, 감속기 윤활유 정화",
     },
     {
-      icon: "🚢",
+      icon: <Ship className="w-16 h-16 text-[#3B82F6]" />,
       title: "선박 엔진 오일",
       description: "선박 주기관, 발전기 윤활유 정화",
     },
@@ -264,7 +265,7 @@ export default function OilPurifierPage() {
                 key={idx}
                 className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all"
               >
-                <div className="text-4xl mb-4">{feature.icon}</div>
+                <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                   {feature.title}
                 </h3>
@@ -419,7 +420,7 @@ export default function OilPurifierPage() {
                 key={idx}
                 className="bg-white border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all"
               >
-                <div className="text-5xl mb-4">{app.icon}</div>
+                <div className="mb-4 flex justify-center">{app.icon}</div>
                 <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                   {app.title}
                 </h3>
@@ -439,7 +440,7 @@ export default function OilPurifierPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💧</div>
+              <Droplets className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 높은 수분 제거율
               </h3>
@@ -450,7 +451,7 @@ export default function OilPurifierPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔬</div>
+              <FlaskConical className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 정밀 여과
               </h3>
@@ -461,7 +462,7 @@ export default function OilPurifierPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">💰</div>
+              <DollarSign className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 비용 절감
               </h3>
@@ -472,7 +473,7 @@ export default function OilPurifierPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🌿</div>
+              <Leaf className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 친환경
               </h3>
@@ -482,7 +483,7 @@ export default function OilPurifierPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔧</div>
+              <Wrench className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 자동 운전
               </h3>
@@ -493,7 +494,7 @@ export default function OilPurifierPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🇰🇷</div>
+              <Flag className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 국내 제작
               </h3>

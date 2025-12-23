@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 
 interface ProductCardProps {
   name: string;
@@ -42,19 +43,7 @@ function ProductCard({
         {/* View More Link */}
         <div className="flex items-center text-sm font-semibold text-[#3B82F6] group-hover:gap-2 transition-all">
           <span>자세히 보기</span>
-          <svg
-            className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
+          <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </Link>
@@ -135,19 +124,7 @@ export function ProductsSnapshot() {
           >
             <Link href="/products">
               더 많은 제품 보기
-              <svg
-                className="ml-2 w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+              <ChevronRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>
         </div>

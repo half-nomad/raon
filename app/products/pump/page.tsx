@@ -9,6 +9,7 @@ import {
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { Lock, FlaskConical, Wrench, Ruler, Thermometer, CheckCircle, Factory, Pill, UtensilsCrossed, Droplets, Palette, Waves } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Pump | 산업용 펌프 솔루션',
@@ -408,7 +409,7 @@ export default function PumpPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔒</div>
+              <Lock className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 누출 방지 (Seal-less)
               </h3>
@@ -419,7 +420,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">⚗️</div>
+              <FlaskConical className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 내화학성
               </h3>
@@ -430,7 +431,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🔧</div>
+              <Wrench className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 유지보수 최소화
               </h3>
@@ -441,7 +442,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">📏</div>
+              <Ruler className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 다양한 사이즈
               </h3>
@@ -452,7 +453,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">🌡️</div>
+              <Thermometer className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 고온·고압 대응
               </h3>
@@ -463,7 +464,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-4">✅</div>
+              <CheckCircle className="w-12 h-12 mb-4 text-[#3B82F6]" />
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
                 인증 및 규격
               </h3>
@@ -484,7 +485,7 @@ export default function PumpPage() {
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🏭</div>
+              <Factory className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 석유화학
               </h3>
@@ -494,7 +495,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">⚗️</div>
+              <FlaskConical className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">화학</h3>
               <p className="text-slate-600 text-sm">
                 화학 공정, 반응기, 배치 시스템
@@ -502,7 +503,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">💊</div>
+              <Pill className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">제약</h3>
               <p className="text-slate-600 text-sm">
                 제약 공정, 고순도 액체 이송
@@ -510,7 +511,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🍲</div>
+              <UtensilsCrossed className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">식품</h3>
               <p className="text-slate-600 text-sm">
                 식품 제조, 위생 공정, CIP 시스템
@@ -518,7 +519,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">💧</div>
+              <Droplets className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 수처리
               </h3>
@@ -528,7 +529,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🔬</div>
+              <FlaskConical className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 반도체
               </h3>
@@ -538,7 +539,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🎨</div>
+              <Palette className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 도료·페인트
               </h3>
@@ -548,7 +549,7 @@ export default function PumpPage() {
             </div>
 
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <div className="text-4xl mb-3">🌊</div>
+              <Waves className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
               <h3 className="text-lg font-bold text-[#0A1628] mb-2">
                 환경·에너지
               </h3>

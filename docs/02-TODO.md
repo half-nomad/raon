@@ -1,9 +1,9 @@
 # Todo List
 # Raon Total Solution B2B Website
 
-**Last Updated:** 2025-12-23
-**Total Tasks:** 32
-**Completed:** 32
+**Last Updated:** 2025-12-24
+**Total Tasks:** 33
+**Completed:** 33
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -47,6 +47,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] History Timeline 스크롤 인터랙티브 프로그레스 바 (다크테마, 지그재그, IntersectionObserver) (done:2025-12-24)
 - [x] [Feature] Contact 오시는 길 지도 삽입 (구글 iframe + 카카오/네이버 이미지 탭) (done:2025-12-23)
 - [x] [Style] Company 연혁 타임라인 redesign (내림차순, 지그재그, 전파 효과) (done:2025-12-23)
 - [x] [Feature] Company 페이지 연혁 Framer Motion 애니메이션 적용 (done:2025-12-23)

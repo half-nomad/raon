@@ -3,7 +3,7 @@
 
 **Last Updated:** 2025-12-24
 **Total Tasks:** 42
-**Completed:** 41
+**Completed:** 42
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -30,7 +30,7 @@
 
 #### Phase 3: UI & 테스트 (순차) ✅ 완료
 - [x] [Feature] 언어 스위처 컴포넌트 (Header에 추가) (done:2025-12-24)
-- [ ] [Test] 다국어 라우팅 테스트 (p:Medium, added:2025-12-24)
+- [x] [Test] 다국어 라우팅 테스트 (done:2025-12-24)
 
 ### 기타 SEO & 디자인
 - [ ] [Design] OG 이미지 13개 제작 (디자이너 협업 필요) (p:Medium, added:2025-12-18)
@@ -67,6 +67,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Test] i18n 다국어 라우팅 테스트 (라우트, 메타데이터, hreflang 검증) (done:2025-12-24)
 - [x] [Feature] i18n Phase 3 - 언어 스위처 컴포넌트 (Header 데스크톱/모바일) (done:2025-12-24)
 - [x] [Feature] i18n Phase 2 - 번역 파일(ko/en.json), sitemap 다국어화, 메타데이터 다국어화 (done:2025-12-24)
 - [x] [Feature] i18n Phase 1 - next-intl 설치, config, 디렉터리 구조 변경 ([locale] 동적 라우트) (done:2025-12-24)
@@ -132,14 +133,15 @@
 ## 📊 Statistics
 
 ### This Week (2025-12-23 ~ 2025-12-24)
-**Completed:** 14 tasks
+**Completed:** 15 tasks
 **Added:** 4 tasks
 **Average Completion Time:** ~40분/작업
 
 ### This Month (2025-12)
-**Completed:** 19 tasks
+**Completed:** 20 tasks
 **Bugs Fixed:** 0
 **Features Added:** 13
+**Tests Added:** 1
 **Docs Added:** 1
 **Style Updates:** 2
 **Refactoring:** 3

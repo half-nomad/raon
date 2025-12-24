@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { Menu, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,11 +18,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { LanguageSwitcher } from "./language-switcher";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const t = useTranslations("nav");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +65,7 @@ export function Header() {
                 scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              HOME
+              {t("home")}
             </Link>
             <Link
               href="/company"
@@ -70,7 +73,7 @@ export function Header() {
                 scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              COMPANY
+              {t("company")}
             </Link>
 
             {/* Industries Dropdown */}
@@ -84,7 +87,7 @@ export function Header() {
                   scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
-                INDUSTRIES
+                {t("industries")}
                 <ChevronDown className="h-4 w-4" />
               </button>
               {/* Dropdown Menu Container with hover bridge */}
@@ -104,7 +107,7 @@ export function Header() {
                         className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
                       >
                         <div className="text-sm font-medium text-[#0A1628]">
-                          정유·석유화학
+                          {t("oilRefinery")}
                         </div>
                         <p className="text-xs text-gray-500 mt-1">
                           Oil Refinery & Petrochemical
@@ -115,7 +118,7 @@ export function Header() {
                         className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
                       >
                         <div className="text-sm font-medium text-[#0A1628]">
-                          조선
+                          {t("shipbuilding")}
                         </div>
                         <p className="text-xs text-gray-500 mt-1">
                           Ship Building
@@ -133,7 +136,7 @@ export function Header() {
                 scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              PRODUCTS
+              {t("products")}
             </Link>
             <Link
               href="/partners"
@@ -141,7 +144,7 @@ export function Header() {
                 scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              PARTNERS
+              {t("partners")}
             </Link>
             <Link
               href="/contact"
@@ -149,18 +152,23 @@ export function Header() {
                 scrolled ? "text-[#0A1628]" : "text-white"
               }`}
             >
-              CONTACT
+              {t("contact")}
             </Link>
           </nav>
 
-          {/* CTA Button + Mobile Menu */}
+          {/* CTA Button + Language Switcher + Mobile Menu */}
           <div className="flex items-center space-x-4">
+            {/* Desktop Language Switcher */}
+            <div className="hidden lg:block">
+              <LanguageSwitcher scrolled={scrolled} />
+            </div>
+
             {/* Desktop CTA */}
             <Button
               asChild
               className="hidden lg:flex bg-[#0A1628] hover:bg-[#1A2D47] text-white rounded-full px-6"
             >
-              <Link href="/contact">상담 문의</Link>
+              <Link href="/contact">{t("cta")}</Link>
             </Button>
 
             {/* Mobile Menu */}
@@ -181,7 +189,7 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
-                  <SheetTitle className="text-[#0A1628]">메뉴</SheetTitle>
+                  <SheetTitle className="text-[#0A1628]">{t("menu")}</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-8">
                   <Accordion type="single" collapsible className="w-full">
@@ -191,12 +199,12 @@ export function Header() {
                         onClick={() => setOpen(false)}
                         className="block py-3 px-4 text-[#0A1628] hover:bg-gray-100 rounded-lg transition-colors"
                       >
-                        HOME
+                        {t("home")}
                       </Link>
 
                       <AccordionItem value="company" className="border-0">
                         <AccordionTrigger className="py-3 px-4 hover:bg-gray-100 rounded-lg">
-                          COMPANY
+                          {t("company")}
                         </AccordionTrigger>
                         <AccordionContent className="pl-8 space-y-2">
                           <Link
@@ -204,28 +212,28 @@ export function Header() {
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
                           >
-                            인사말
+                            {t("greeting")}
                           </Link>
                           <Link
                             href="/company#history"
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
                           >
-                            연혁
+                            {t("history")}
                           </Link>
                           <Link
                             href="/company#location"
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
                           >
-                            오시는 길
+                            {t("location")}
                           </Link>
                         </AccordionContent>
                       </AccordionItem>
 
                       <AccordionItem value="industries" className="border-0">
                         <AccordionTrigger className="py-3 px-4 hover:bg-gray-100 rounded-lg">
-                          INDUSTRIES
+                          {t("industries")}
                         </AccordionTrigger>
                         <AccordionContent className="pl-8 space-y-2">
                           <Link
@@ -233,14 +241,14 @@ export function Header() {
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
                           >
-                            정유·석유화학
+                            {t("oilRefinery")}
                           </Link>
                           <Link
                             href="/industries/shipbuilding"
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
                           >
-                            조선
+                            {t("shipbuilding")}
                           </Link>
                         </AccordionContent>
                       </AccordionItem>
@@ -250,7 +258,7 @@ export function Header() {
                         onClick={() => setOpen(false)}
                         className="block py-3 px-4 text-[#0A1628] hover:bg-gray-100 rounded-lg transition-colors"
                       >
-                        PRODUCTS
+                        {t("products")}
                       </Link>
 
                       <Link
@@ -258,7 +266,7 @@ export function Header() {
                         onClick={() => setOpen(false)}
                         className="block py-3 px-4 text-[#0A1628] hover:bg-gray-100 rounded-lg transition-colors"
                       >
-                        PARTNERS
+                        {t("partners")}
                       </Link>
 
                       <Link
@@ -266,19 +274,24 @@ export function Header() {
                         onClick={() => setOpen(false)}
                         className="block py-3 px-4 text-[#0A1628] hover:bg-gray-100 rounded-lg transition-colors"
                       >
-                        CONTACT
+                        {t("contact")}
                       </Link>
                     </div>
                   </Accordion>
 
+                  {/* Mobile Language Switcher */}
+                  <div className="mt-6 pt-6 border-t flex items-center justify-center">
+                    <LanguageSwitcher scrolled={true} />
+                  </div>
+
                   {/* Mobile CTA */}
-                  <div className="mt-8 pt-6 border-t">
+                  <div className="mt-6">
                     <Button
                       asChild
                       className="w-full bg-[#0A1628] hover:bg-[#1A2D47] text-white rounded-full"
                     >
                       <Link href="/contact" onClick={() => setOpen(false)}>
-                        상담 문의
+                        {t("cta")}
                       </Link>
                     </Button>
                   </div>

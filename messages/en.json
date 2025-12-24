@@ -8,13 +8,19 @@
     "home": "Home"
   },
   "nav": {
-    "company": "About Us",
-    "industries": "Industries",
-    "products": "Products",
-    "partners": "Partners",
-    "contact": "Contact",
+    "home": "HOME",
+    "company": "COMPANY",
+    "industries": "INDUSTRIES",
+    "products": "PRODUCTS",
+    "partners": "PARTNERS",
+    "contact": "CONTACT",
     "oilRefinery": "Oil Refinery & Petrochemical",
-    "shipbuilding": "Shipbuilding"
+    "shipbuilding": "Shipbuilding",
+    "menu": "Menu",
+    "greeting": "CEO Message",
+    "history": "History",
+    "location": "Location",
+    "cta": "Contact Us"
   },
   "metadata": {
     "siteName": "Raon Total Solution",

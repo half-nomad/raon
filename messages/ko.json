@@ -8,13 +8,19 @@
     "home": "홈"
   },
   "nav": {
-    "company": "회사 소개",
-    "industries": "산업 분야",
-    "products": "제품",
-    "partners": "파트너",
-    "contact": "문의하기",
+    "home": "HOME",
+    "company": "COMPANY",
+    "industries": "INDUSTRIES",
+    "products": "PRODUCTS",
+    "partners": "PARTNERS",
+    "contact": "CONTACT",
     "oilRefinery": "정유·석유화학",
-    "shipbuilding": "조선"
+    "shipbuilding": "조선",
+    "menu": "메뉴",
+    "greeting": "인사말",
+    "history": "연혁",
+    "location": "오시는 길",
+    "cta": "상담 문의"
   },
   "metadata": {
     "siteName": "라온토탈솔루션",

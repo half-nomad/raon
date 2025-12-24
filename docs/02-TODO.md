@@ -3,7 +3,7 @@
 
 **Last Updated:** 2025-12-24
 **Total Tasks:** 42
-**Completed:** 36
+**Completed:** 40
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -22,11 +22,11 @@
 - [x] [Feature] i18n config 파일 생성 (i18n/, middleware.ts) (done:2025-12-24)
 - [x] [Refactor] 디렉터리 구조 변경 - [locale] 동적 라우트 (15개 페이지) (done:2025-12-24)
 
-#### Phase 2: 콘텐츠 & SEO (병렬 가능)
-- [ ] [Feature] 번역 파일 생성 - messages/ko.json (p:High, added:2025-12-24)
-- [ ] [Feature] 번역 파일 생성 - messages/en.json (p:High, added:2025-12-24)
-- [ ] [Feature] sitemap.ts 다국어화 (hreflang 포함) (p:High, added:2025-12-24)
-- [ ] [Feature] 메타데이터 다국어화 (15개 페이지) (p:High, added:2025-12-24)
+#### Phase 2: 콘텐츠 & SEO (병렬 가능) ✅ 완료
+- [x] [Feature] 번역 파일 생성 - messages/ko.json (done:2025-12-24)
+- [x] [Feature] 번역 파일 생성 - messages/en.json (done:2025-12-24)
+- [x] [Feature] sitemap.ts 다국어화 (hreflang 포함) (done:2025-12-24)
+- [x] [Feature] 메타데이터 다국어화 (layout.tsx) (done:2025-12-24)
 
 #### Phase 3: UI & 테스트 (순차)
 - [ ] [Feature] 언어 스위처 컴포넌트 (Header에 추가) (p:High, added:2025-12-24)
@@ -67,6 +67,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] i18n Phase 2 - 번역 파일(ko/en.json), sitemap 다국어화, 메타데이터 다국어화 (done:2025-12-24)
 - [x] [Feature] i18n Phase 1 - next-intl 설치, config, 디렉터리 구조 변경 ([locale] 동적 라우트) (done:2025-12-24)
 - [x] [Feature] History Timeline 스크롤 인터랙티브 프로그레스 바 (다크테마, 지그재그, IntersectionObserver) (done:2025-12-24)
 - [x] [Feature] Contact 오시는 길 지도 삽입 (구글 iframe + 카카오/네이버 이미지 탭) (done:2025-12-23)
@@ -129,15 +130,15 @@
 
 ## 📊 Statistics
 
-### This Week (2025-12-16 ~ 2025-12-23)
-**Completed:** 11 tasks
+### This Week (2025-12-23 ~ 2025-12-24)
+**Completed:** 13 tasks
 **Added:** 4 tasks
-**Average Completion Time:** ~60분/작업
+**Average Completion Time:** ~45분/작업
 
 ### This Month (2025-12)
-**Completed:** 16 tasks
+**Completed:** 18 tasks
 **Bugs Fixed:** 0
-**Features Added:** 10
+**Features Added:** 12
 **Docs Added:** 1
 **Style Updates:** 2
 **Refactoring:** 3

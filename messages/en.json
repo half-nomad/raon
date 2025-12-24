@@ -50,5 +50,196 @@
       "title": "Contact",
       "description": "Rotating equipment parts quotation and technical consultation inquiry"
     }
+  },
+  "hero": {
+    "title": "Rotating Equipment & Compressor Parts",
+    "titleHighlight": "Global Solution Partner",
+    "description": "Delivering optimized parts solutions for oil refinery, petrochemical, and shipbuilding industries with 30 years of expertise",
+    "cta": {
+      "contact": "Contact Us",
+      "products": "View Products"
+    }
+  },
+  "company": {
+    "hero": {
+      "title": "About Us",
+      "description": "Building customer success together with 30 years of expertise and trust"
+    },
+    "ceo": {
+      "title": "CEO Message",
+      "greeting": "Greetings",
+      "message": "Raon Total Solution is a B2B parts solution company founded by rotating machinery experts with over 30 years of experience. We supply core components such as compressors, pumps, and mixers specialized for the oil refinery, petrochemical, and shipbuilding industries, providing the highest quality and technical expertise through our global partnerships.",
+      "name": "CEO",
+      "company": "Raon Total Solution"
+    },
+    "history": {
+      "title": "History",
+      "description": "The Journey of Raon Total Solution",
+      "years": {
+        "2025": ["Signed domestic agency contract with WTQ and CP Pumpen"],
+        "2024": ["Signed domestic agency contract with NIDEC and Samyoung Filtech", "Started business with HD Hyundai Oilbank and TJG Huchems"],
+        "2023": ["Established Raon Total Solution Co., Ltd.", "Signed exclusive domestic distributor contract with NEA Group NEUMAN & ESSER Compressor", "Signed exclusive domestic distributor contract with SPXFLOW", "Started business with SK Energy, GS Caltex, and S-OIL"]
+      }
+    },
+    "location": {
+      "title": "Location",
+      "address": "4F Jun Building, 71 Banpo-daero 14-gil, Seocho-gu, Seoul, Korea",
+      "phone": "+82-2-575-3051",
+      "email": "rts@raontotalsolution.co.kr",
+      "businessHours": "Mon-Fri 09:00 - 18:00"
+    }
+  },
+  "industries": {
+    "hero": {
+      "title": "Industries",
+      "description": "Optimized rotating equipment parts solutions for oil refinery, petrochemical, and shipbuilding industries"
+    },
+    "oilRefinery": {
+      "title": "Oil Refinery & Petrochemical",
+      "description": "Supplying compressors, pumps, mixers and other rotating equipment parts for oil refinery and petrochemical industries",
+      "features": ["High-pressure process gas compressors", "API standard pumps", "Industrial mixers and agitators", "Corrosion-resistant special bearings"]
+    },
+    "shipbuilding": {
+      "title": "Shipbuilding",
+      "description": "Supplying cylinder liners, motors, bearings and other marine parts for the shipbuilding industry",
+      "features": ["Ship engine cylinder liners", "High-efficiency marine motors", "Special bearings for marine environments", "Marine oil purification systems"]
+    }
+  },
+  "products": {
+    "hero": {
+      "title": "Products",
+      "description": "Rotating equipment parts solutions with global partners"
+    },
+    "categories": {
+      "compressor": {
+        "title": "Compressor",
+        "partner": "NEUMAN & ESSER",
+        "description": "Reciprocating compressors and consumables"
+      },
+      "mixer": {
+        "title": "Mixer & Agitator",
+        "partner": "SPX FLOW",
+        "description": "Industrial mixers and agitators"
+      },
+      "motor": {
+        "title": "Motor",
+        "partner": "NIDEC",
+        "description": "High-efficiency industrial motors"
+      },
+      "pump": {
+        "title": "Pump",
+        "partner": "CP Pumpen",
+        "description": "Special industrial pumps"
+      },
+      "bearing": {
+        "title": "Bearing",
+        "partner": "Turbolink",
+        "description": "Tilting pad bearing systems"
+      },
+      "cylinderLiner": {
+        "title": "Cylinder Liner",
+        "partner": "WTQ",
+        "description": "Ship engine cylinder liners"
+      },
+      "oilPurifier": {
+        "title": "Oil Purifier",
+        "partner": "Samyoung Filtech",
+        "description": "Industrial oil purification systems"
+      }
+    }
+  },
+  "partners": {
+    "hero": {
+      "title": "Partners",
+      "description": "Ensuring the highest quality through partnerships with global companies"
+    },
+    "sections": {
+      "globalPartners": "Global Partners",
+      "majorClients": "Major Clients"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "description": "Please fill out the inquiry form below and we will respond as soon as possible"
+    },
+    "form": {
+      "title": "Inquiry",
+      "category": {
+        "label": "Category",
+        "placeholder": "Select inquiry category",
+        "options": {
+          "compressorValve": "Compressor Valve",
+          "compressorRing": "Compressor Ring & Packing",
+          "frameParts": "Frame Parts",
+          "repairService": "Repair Service",
+          "materials": "Materials",
+          "general": "General Inquiry"
+        }
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "John Doe"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "Company Name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "example@company.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+82-10-1234-5678"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Please describe your inquiry in detail"
+      },
+      "file": {
+        "label": "Attachments",
+        "optional": "Optional",
+        "selectButton": "Select Files",
+        "attached": " attached",
+        "help": "PDF, Images (JPG, PNG, GIF, WebP), Word documents allowed (Max 5MB per file, up to 3 files)"
+      },
+      "submit": "Submit",
+      "submitting": "Submitting..."
+    },
+    "success": {
+      "title": "Your inquiry has been submitted successfully",
+      "message": "We will respond as soon as possible. Thank you for your inquiry.",
+      "backHome": "Back to Home"
+    },
+    "error": {
+      "submitFailed": "An error occurred while submitting. Please try again."
+    },
+    "info": {
+      "phone": {
+        "label": "Phone",
+        "value": "+82-2-575-3051"
+      },
+      "email": {
+        "label": "Email",
+        "value": "rts@raontotalsolution.co.kr"
+      }
+    },
+    "validation": {
+      "categoryRequired": "Please select an inquiry category.",
+      "nameMin": "Name must be at least 2 characters.",
+      "companyRequired": "Please enter company name.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phoneInvalid": "Please enter a valid phone number.",
+      "messageMin": "Message must be at least 10 characters."
+    }
+  },
+  "footer": {
+    "companyName": "Raon Total Solution",
+    "description": "Rotating Equipment & Compressor Parts Specialist",
+    "address": "4F Jun Building, 71 Banpo-daero 14-gil, Seocho-gu, Seoul, Korea",
+    "phone": "+82-2-575-3051",
+    "email": "rts@raontotalsolution.co.kr",
+    "copyright": "© 2025 Raon Total Solution. All rights reserved."
   }
 }

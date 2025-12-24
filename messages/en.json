@@ -1,0 +1,54 @@
+{
+  "common": {
+    "contact": "Contact Us",
+    "productInquiry": "Product Inquiry",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "backToList": "Back to List",
+    "home": "Home"
+  },
+  "nav": {
+    "company": "About Us",
+    "industries": "Industries",
+    "products": "Products",
+    "partners": "Partners",
+    "contact": "Contact",
+    "oilRefinery": "Oil Refinery & Petrochemical",
+    "shipbuilding": "Shipbuilding"
+  },
+  "metadata": {
+    "siteName": "Raon Total Solution",
+    "home": {
+      "title": "Raon Total Solution | Rotating Equipment & Compressor Parts Specialist",
+      "description": "30 years of expertise in rotating machinery and reciprocating compressor parts & solutions. Global partnerships for oil refinery, petrochemical, and shipbuilding industries."
+    },
+    "company": {
+      "title": "About Us",
+      "description": "Raon Total Solution is a B2B parts solution company founded by rotating machinery experts with 30 years of experience."
+    },
+    "industries": {
+      "title": "Industries",
+      "description": "Specialized rotating equipment parts solutions for oil refinery, petrochemical, and shipbuilding industries."
+    },
+    "oilRefinery": {
+      "title": "Oil Refinery & Petrochemical",
+      "description": "Compressor, pump, mixer and other rotating equipment parts for oil refinery and petrochemical industries"
+    },
+    "shipbuilding": {
+      "title": "Shipbuilding",
+      "description": "Cylinder liner, motor, bearing and other marine parts for shipbuilding industry"
+    },
+    "products": {
+      "title": "Products",
+      "description": "Wide range of rotating equipment parts including Compressor, Mixer, Motor, Pump, Bearing, Cylinder Liner, Oil Purifier"
+    },
+    "partners": {
+      "title": "Partners",
+      "description": "Global partners including SPXFLOW, NEUMAN & ESSER, NIDEC and major clients like SK Energy, S-OIL"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Rotating equipment parts quotation and technical consultation inquiry"
+    }
+  }
+}

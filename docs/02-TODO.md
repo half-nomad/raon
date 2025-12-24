@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-12-24
-**Total Tasks:** 33
-**Completed:** 33
+**Total Tasks:** 42
+**Completed:** 36
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -12,7 +12,27 @@
 
 *새로 추가된 작업들 (아직 시작 전)*
 
-### Phase 3: 기능 페이지 (Week 5-6)
+### 🌐 다국어 (i18n) 구현 (Week 5-6)
+**URL 구조:** 서브디렉터리 (`/ko/`, `/en/`)
+**루트 처리:** 브라우저 언어 감지 → 자동 리다이렉트
+**기술:** next-intl v4.x
+
+#### Phase 1: 기반 구축 (순차) ✅ 완료
+- [x] [Feature] next-intl 라이브러리 설치 (done:2025-12-24)
+- [x] [Feature] i18n config 파일 생성 (i18n/, middleware.ts) (done:2025-12-24)
+- [x] [Refactor] 디렉터리 구조 변경 - [locale] 동적 라우트 (15개 페이지) (done:2025-12-24)
+
+#### Phase 2: 콘텐츠 & SEO (병렬 가능)
+- [ ] [Feature] 번역 파일 생성 - messages/ko.json (p:High, added:2025-12-24)
+- [ ] [Feature] 번역 파일 생성 - messages/en.json (p:High, added:2025-12-24)
+- [ ] [Feature] sitemap.ts 다국어화 (hreflang 포함) (p:High, added:2025-12-24)
+- [ ] [Feature] 메타데이터 다국어화 (15개 페이지) (p:High, added:2025-12-24)
+
+#### Phase 3: UI & 테스트 (순차)
+- [ ] [Feature] 언어 스위처 컴포넌트 (Header에 추가) (p:High, added:2025-12-24)
+- [ ] [Test] 다국어 라우팅 테스트 (p:Medium, added:2025-12-24)
+
+### 기타 SEO & 디자인
 - [ ] [Design] OG 이미지 13개 제작 (디자이너 협업 필요) (p:Medium, added:2025-12-18)
 - [ ] [Feature] SEO Phase 3 - Naver Search Advisor 등록 (도메인 연결 후) (p:Low, added:2025-12-18)
 - [ ] [Feature] SEO Phase 3 - Google Search Console 등록 (도메인 연결 후) (p:Low, added:2025-12-18)
@@ -47,6 +67,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] i18n Phase 1 - next-intl 설치, config, 디렉터리 구조 변경 ([locale] 동적 라우트) (done:2025-12-24)
 - [x] [Feature] History Timeline 스크롤 인터랙티브 프로그레스 바 (다크테마, 지그재그, IntersectionObserver) (done:2025-12-24)
 - [x] [Feature] Contact 오시는 길 지도 삽입 (구글 iframe + 카카오/네이버 이미지 탭) (done:2025-12-23)
 - [x] [Style] Company 연혁 타임라인 redesign (내림차순, 지그재그, 전파 효과) (done:2025-12-23)

@@ -1,0 +1,54 @@
+{
+  "common": {
+    "contact": "상담 문의",
+    "productInquiry": "제품 문의",
+    "learnMore": "자세히 보기",
+    "viewAll": "전체 보기",
+    "backToList": "목록으로",
+    "home": "홈"
+  },
+  "nav": {
+    "company": "회사 소개",
+    "industries": "산업 분야",
+    "products": "제품",
+    "partners": "파트너",
+    "contact": "문의하기",
+    "oilRefinery": "정유·석유화학",
+    "shipbuilding": "조선"
+  },
+  "metadata": {
+    "siteName": "라온토탈솔루션",
+    "home": {
+      "title": "라온토탈솔루션 | 회전기계 및 압축기 부품 전문 기업",
+      "description": "30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업. 정유·석유화학, 조선 산업 대상 글로벌 파트너십 보유."
+    },
+    "company": {
+      "title": "회사 소개",
+      "description": "라온토탈솔루션은 30년 경력의 회전기계 전문가들이 설립한 B2B 부품 솔루션 기업입니다."
+    },
+    "industries": {
+      "title": "산업 분야",
+      "description": "정유·석유화학, 조선 산업에 특화된 회전기계 부품 솔루션을 제공합니다."
+    },
+    "oilRefinery": {
+      "title": "정유·석유화학",
+      "description": "정유 및 석유화학 산업을 위한 압축기, 펌프, 믹서 등 회전기계 부품 공급"
+    },
+    "shipbuilding": {
+      "title": "조선",
+      "description": "조선 산업을 위한 실린더 라이너, 모터, 베어링 등 선박용 부품 공급"
+    },
+    "products": {
+      "title": "제품",
+      "description": "Compressor, Mixer, Motor, Pump, Bearing, Cylinder Liner, Oil Purifier 등 다양한 회전기계 부품"
+    },
+    "partners": {
+      "title": "파트너",
+      "description": "SPXFLOW, NEUMAN & ESSER, NIDEC 등 글로벌 파트너사와 SK에너지, S-OIL 등 주요 고객사"
+    },
+    "contact": {
+      "title": "문의하기",
+      "description": "회전기계 부품 견적 및 기술 상담 문의"
+    }
+  }
+}

@@ -374,17 +374,95 @@ NEXT_PUBLIC_SITE_URL=https://raontotalsolution.co.kr
 - **Claude Chat:** 아키텍처 결정, 문서 작성
 - **Code Review:** AI 생성 코드 항상 리뷰 후 커밋
 
+## 다국어 (i18n) 구현 명세
+
+### 개요
+**라이브러리:** next-intl v4.x
+**지원 언어:** 한국어 (ko), 영어 (en)
+**URL 구조:** 서브디렉터리 방식 (`/ko/`, `/en/`)
+**기본 언어:** 브라우저 Accept-Language 헤더로 자동 감지
+
+### 디렉터리 구조
+```
+app/
+├── [locale]/             # 언어 동적 라우트 (ko, en)
+│   ├── layout.tsx        # 언어별 레이아웃
+│   ├── page.tsx          # Home
+│   ├── company/
+│   ├── industries/
+│   │   ├── oil-refinery/
+│   │   └── shipbuilding/
+│   ├── products/
+│   │   ├── compressor/
+│   │   ├── mixer/
+│   │   ├── motor/
+│   │   ├── pump/
+│   │   ├── bearing/
+│   │   ├── cylinder-liner/
+│   │   └── oil-purifier/
+│   ├── partners/
+│   └── contact/
+├── sitemap.ts            # 다국어 sitemap (hreflang 포함)
+└── robots.ts
+
+i18n/
+├── config.ts             # 언어 설정, 기본값
+├── request.ts            # 서버 요청 설정
+└── routing.ts            # 라우팅 설정
+
+messages/
+├── ko.json               # 한국어 번역
+└── en.json               # 영어 번역
+
+middleware.ts             # 언어 감지 및 리다이렉트
+```
+
+### URL 매핑
+| 페이지 | 한국어 | 영어 |
+|--------|--------|------|
+| Home | `/ko` | `/en` |
+| Company | `/ko/company` | `/en/company` |
+| Industries | `/ko/industries` | `/en/industries` |
+| 정유·석유화학 | `/ko/industries/oil-refinery` | `/en/industries/oil-refinery` |
+| 조선 | `/ko/industries/shipbuilding` | `/en/industries/shipbuilding` |
+| Products | `/ko/products` | `/en/products` |
+| Compressor | `/ko/products/compressor` | `/en/products/compressor` |
+| Mixer | `/ko/products/mixer` | `/en/products/mixer` |
+| Motor | `/ko/products/motor` | `/en/products/motor` |
+| Pump | `/ko/products/pump` | `/en/products/pump` |
+| Bearing | `/ko/products/bearing` | `/en/products/bearing` |
+| Cylinder Liner | `/ko/products/cylinder-liner` | `/en/products/cylinder-liner` |
+| Oil Purifier | `/ko/products/oil-purifier` | `/en/products/oil-purifier` |
+| Partners | `/ko/partners` | `/en/partners` |
+| Contact | `/ko/contact` | `/en/contact` |
+
+### 미들웨어 로직
+```typescript
+// middleware.ts
+1. Accept-Language 헤더 확인
+2. 쿠키에 저장된 언어 우선 적용
+3. 지원 언어 매칭 (ko, en)
+4. 매칭 없으면 기본값 (ko) 적용
+5. /로 접속 시 감지된 언어로 리다이렉트
+```
+
+### SEO 최적화
+- **hreflang 태그:** 모든 페이지에 자동 삽입
+- **Canonical URL:** 언어별 정규 URL 설정
+- **다국어 Sitemap:** xhtml:link로 언어 연결
+
+---
+
 ## Known Limitations
 
 ### Current Limitations (Phase 1)
-- 다국어 지원 없음 (한국어만)
 - CMS 없음 (콘텐츠 하드코딩)
 - 실시간 채팅 기능 없음
 - 카탈로그 다운로드 기능 없음 (RESOURCES 페이지 제외)
 - 사용자 인증 없음
 
 ### Future Improvements
-- [ ] 영문 버전 추가 (i18n)
+- [x] 영문 버전 추가 (i18n) - 2025-12-24 구현 중
 - [ ] Headless CMS 도입 (Contentful/Sanity)
 - [ ] Analytics 추가 (Google Analytics 4)
 - [ ] 카탈로그 다운로드 기능 (RESOURCES)

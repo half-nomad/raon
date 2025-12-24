@@ -574,4 +574,93 @@ export default function robots(): MetadataRoute.Robots {
 
 ---
 
-**다음 단계**: Phase 1 메타 태그 최적화 시작
+## 🌐 다국어 SEO 전략 (2025-12-24 추가)
+
+### 개요
+**URL 구조:** 서브디렉터리 방식 (Google 권장)
+**지원 언어:** 한국어 (ko), 영어 (en)
+**기술:** next-intl v3.x
+
+### URL 구조
+```
+한국어: raontotalsolution.co.kr/ko/products/compressor
+영어:   raontotalsolution.co.kr/en/products/compressor
+루트:   raontotalsolution.co.kr/ → 브라우저 언어 감지 후 리다이렉트
+```
+
+### 선택 이유
+| 방식 | 장점 | 단점 | 선택 |
+|------|------|------|------|
+| 서브디렉터리 `/ko/`, `/en/` | 도메인 권위 통합, 관리 용이 | URL 길어짐 | ✅ 선택 |
+| 서브도메인 `en.example.com` | 지역 분리 명확 | 도메인 권위 분산 | ❌ |
+| 별도 도메인 `.com`, `.kr` | 지역 타겟팅 | 비용, 관리 복잡 | ❌ |
+
+### hreflang 태그 구현
+```html
+<!-- 모든 페이지에 자동 삽입 -->
+<link rel="alternate" hreflang="ko" href="https://raontotalsolution.co.kr/ko/products/compressor" />
+<link rel="alternate" hreflang="en" href="https://raontotalsolution.co.kr/en/products/compressor" />
+<link rel="alternate" hreflang="x-default" href="https://raontotalsolution.co.kr/ko/products/compressor" />
+```
+
+### 다국어 Sitemap
+```xml
+<urlset xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://raontotalsolution.co.kr/ko/products/compressor</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://raontotalsolution.co.kr/ko/products/compressor"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://raontotalsolution.co.kr/en/products/compressor"/>
+  </url>
+  <url>
+    <loc>https://raontotalsolution.co.kr/en/products/compressor</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://raontotalsolution.co.kr/ko/products/compressor"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://raontotalsolution.co.kr/en/products/compressor"/>
+  </url>
+</urlset>
+```
+
+### 메타 태그 (언어별)
+```typescript
+// 한국어
+metadata: {
+  title: '라온토탈솔루션 | 회전기계 및 압축기 부품 전문',
+  description: '30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업',
+  openGraph: { locale: 'ko_KR' }
+}
+
+// 영어
+metadata: {
+  title: 'Raon Total Solution | Rotating Equipment & Compressor Parts',
+  description: '30 years of expertise in rotating machinery and reciprocating compressor parts & solutions',
+  openGraph: { locale: 'en_US' }
+}
+```
+
+### 글로벌 키워드 전략
+
+| 언어 | 주요 키워드 | 타겟 시장 |
+|------|------------|----------|
+| 한국어 | 회전기계 부품, 압축기 부품, 정유 석유화학 | 네이버 (국내) |
+| 영어 | rotating equipment parts, compressor parts, petrochemical | Google (글로벌) |
+
+### 구현 체크리스트
+
+#### Phase 1: 기반 구축
+- [ ] next-intl 설치
+- [ ] i18n config 파일 생성
+- [ ] 디렉터리 구조 변경 (`[locale]`)
+- [ ] middleware.ts 생성 (언어 감지)
+
+#### Phase 2: SEO 적용
+- [ ] 번역 파일 생성 (ko.json, en.json)
+- [ ] sitemap.ts 다국어화
+- [ ] hreflang 태그 자동 삽입
+- [ ] 메타데이터 다국어화
+
+#### Phase 3: UI
+- [ ] 언어 스위처 컴포넌트
+- [ ] 언어 전환 시 쿠키 저장
+
+---
+
+**다음 단계**: 다국어 i18n Phase 1 구현 시작

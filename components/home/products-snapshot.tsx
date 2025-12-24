@@ -57,37 +57,37 @@ export function ProductsSnapshot() {
       description:
         "왕복동 압축기 및 부품. 정유·석유화학 플랜트의 핵심 설비",
       href: "/products/compressor",
-      image: "/images/products/compressor-parts/piston_1.jpg",
+      image: "/images/category/compressor-parts_cat.jpg",
     },
     {
       name: "Mixer / Agitator",
       description: "산업용 믹서 및 교반기. 화학공정의 필수 장비",
       href: "/products/mixer",
-      image: "/images/products/mixer/Mixer & Agitator_1.jpg",
+      image: "/images/category/Mixer & Agitator_cat.jpg",
     },
     {
       name: "Motor",
       description: "산업용 전동기. 설비 구동의 핵심 동력원",
       href: "/products/motor",
-      image: "/images/products/motor/motor_1.jpg",
+      image: "/images/category/motor_cat.jpg",
     },
     {
       name: "Pump",
       description: "산업용 펌프 솔루션. 다양한 유체 이송 및 순환 시스템",
       href: "/products/pump",
-      image: "/images/products/pump/pump_3.png",
+      image: "/images/category/pump_cat.jpg",
     },
     {
       name: "Bearing",
       description: "고성능 베어링 및 윤활 시스템. 회전기계의 핵심 부품",
       href: "/products/bearing",
-      image: "/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png",
+      image: "/images/category/bearing_cat.jpg",
     },
     {
       name: "Oil Purifier",
       description: "오일 정화 시스템. 윤활유 수명 연장 및 설비 보호",
       href: "/products/oil-purifier",
-      image: "/images/products/oil-purifier/Oil Purifier_1.png",
+      image: "/images/category/Oil Purifier_cat.jpg",
     },
   ];
 

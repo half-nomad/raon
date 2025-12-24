@@ -406,10 +406,10 @@ export default function PartnersPage() {
             <div>
               <div className="text-5xl font-bold text-[#3B82F6] mb-2">30+</div>
               <p className="text-lg font-semibold text-[#0A1628] mb-1">
-                업력 (년)
+                업계 경험 (년)
               </p>
               <p className="text-sm text-slate-600">
-                2020년 설립 이후 30년 경험 보유
+                창업주의 회전기계 분야 30년 노하우 계승
               </p>
             </div>
 

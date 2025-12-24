@@ -18,7 +18,7 @@ export default function ProductsPage() {
         "Valve Assy & Internal Parts",
       ],
       slug: "/products/compressor",
-      image: "/images/products/compressor-parts/piston_1.jpg",
+      image: "/images/category/compressor-parts_cat.jpg",
     },
     {
       id: "mixer",
@@ -32,7 +32,7 @@ export default function ProductsPage() {
         "맞춤형 솔루션 제공",
       ],
       slug: "/products/mixer",
-      image: "/images/products/mixer/Mixer & Agitator_1.jpg",
+      image: "/images/category/Mixer & Agitator_cat.jpg",
     },
     {
       id: "motor",
@@ -46,7 +46,7 @@ export default function ProductsPage() {
         "Anti-explosion motor",
       ],
       slug: "/products/motor",
-      image: "/images/products/motor/motor_1.jpg",
+      image: "/images/category/motor_cat.jpg",
     },
     {
       id: "pump",
@@ -60,7 +60,7 @@ export default function ProductsPage() {
         "PFA-Lined (MKPL), Self-Priming (MKP-S)",
       ],
       slug: "/products/pump",
-      image: "/images/products/pump/pump_3.png",
+      image: "/images/category/pump_cat.jpg",
     },
     {
       id: "bearing",
@@ -74,7 +74,7 @@ export default function ProductsPage() {
         "Journal & Thrust Combined Bearing",
       ],
       slug: "/products/bearing",
-      image: "/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png",
+      image: "/images/category/bearing_cat.jpg",
     },
     {
       id: "cylinder-liner",
@@ -88,7 +88,7 @@ export default function ProductsPage() {
         "고내구성 소재",
       ],
       slug: "/products/cylinder-liner",
-      image: "/images/products/cylinder-liner/cylinder-liner_1.jpg",
+      image: "/images/category/cylinder-liner_cat.jpg",
     },
     {
       id: "oil-purifier",
@@ -102,7 +102,7 @@ export default function ProductsPage() {
         "설비 보호 및 유지비용 절감",
       ],
       slug: "/products/oil-purifier",
-      image: "/images/products/oil-purifier/Oil Purifier_1.png",
+      image: "/images/category/Oil Purifier_cat.jpg",
     },
   ];
 

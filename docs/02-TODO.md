@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-12-24
-**Total Tasks:** 48
-**Completed:** 48
+**Total Tasks:** 49
+**Completed:** 49
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -48,7 +48,7 @@
 ### Phase 4: 테스트 & 배포 (Week 7-8)
 - [ ] [Test] 모바일/태블릿/데스크톱 반응형 테스트 (p:High, added:2025-11-18)
 - [ ] [Test] 브라우저 호환성 테스트 (Chrome, Safari, Firefox, Edge) (p:Medium, added:2025-11-18)
-- [ ] [Deploy] Vercel 프로덕션 배포 (p:Critical, added:2025-11-18)
+- [x] [Deploy] Vercel 프로덕션 배포 (done:2025-12-24)
 
 ### 작업 타입
 - `[Feature]` - 새로운 기능
@@ -75,6 +75,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Deploy] Vercel 프로덕션 배포 (raontotalsolution/raon → raontotalsolution.co.kr) (done:2025-12-24)
 - [x] [Feature] i18n Phase 4 - 전체 페이지 본문 콘텐츠 다국어화 (21개 컴포넌트/페이지) (done:2025-12-24)
 - [x] [Test] i18n 다국어 라우팅 테스트 (라우트, 메타데이터, hreflang 검증) (done:2025-12-24)
 - [x] [Feature] i18n Phase 3 - 언어 스위처 컴포넌트 (Header 데스크톱/모바일) (done:2025-12-24)
@@ -142,18 +143,19 @@
 ## 📊 Statistics
 
 ### This Week (2025-12-23 ~ 2025-12-24)
-**Completed:** 16 tasks
+**Completed:** 17 tasks
 **Added:** 6 tasks
 **Average Completion Time:** ~30분/작업
 
 ### This Month (2025-12)
-**Completed:** 21 tasks
+**Completed:** 22 tasks
 **Bugs Fixed:** 0
 **Features Added:** 14
 **Tests Added:** 1
 **Docs Added:** 1
 **Style Updates:** 2
 **Refactoring:** 3
+**Deploy:** 1
 **Chore:** 1
 
 ## 🗓️ Scheduled Tasks

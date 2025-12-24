@@ -138,8 +138,34 @@ SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크
 ```bash
 npm run dev          # 개발 서버
 npm run build        # 빌드
-git push origin main # 배포 (Vercel 자동)
+git push origin main # 양쪽 레포에 동시 푸시 (아래 참고)
 ```
+
+---
+
+## 📦 Git 레포지토리
+
+### Remote 설정 (Dual Push)
+`git push origin main` 실행 시 양쪽 레포지토리에 동시 푸시됨
+
+| Remote | URL | 용도 |
+|--------|-----|------|
+| origin (fetch) | https://github.com/half-nomad/raon.git | 개발자 레포 |
+| origin (push) | https://github.com/half-nomad/raon.git | 개발자 레포 |
+| origin (push) | https://github.com/raontotalsolution/raon.git | 고객 레포 (Vercel 배포) |
+| client | https://github.com/raontotalsolution/raon.git | 고객 레포 단독 푸시용 |
+
+### 푸시 명령어
+```bash
+git push origin main   # 양쪽 동시 푸시 (기본)
+git push client main   # 고객 레포만 푸시
+```
+
+### Vercel 배포
+- **배포 레포:** raontotalsolution/raon
+- **프로덕션 도메인:** https://raontotalsolution.co.kr
+- **자동 배포:** main 브랜치 푸시 시 자동 배포
+- **DNS:** 가비아 (A 레코드 → 76.76.21.21)
 
 ---
 
@@ -172,4 +198,4 @@ public/images/
 
 ---
 
-**Version:** 1.3 | **Last Updated:** 2025-12-18
+**Version:** 1.4 | **Last Updated:** 2025-12-24

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 interface LogoItem {
   name: string;
@@ -109,6 +110,10 @@ function ClientsGrid({ clients }: { clients: LogoItem[] }) {
 }
 
 export function PartnersClients() {
+  const t = useTranslations("partners.home");
+  const tGlobal = useTranslations("partners.globalPartners");
+  const tClients = useTranslations("partners.majorClients");
+
   const partners: LogoItem[] = [
     { name: "SPXFLOW", type: "Mixer/Heat Exchange", logo: "/images/partners/spx-flow.jpg" },
     { name: "NEUMAN & ESSER", type: "Compressor", logo: "/images/partners/neuman-esser.jpg" },
@@ -142,10 +147,10 @@ export function PartnersClients() {
             Partners & Clients
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4">
-            신뢰할 수 있는 파트너
+            {t("title")}
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            글로벌 파트너와 국내 주요 고객사가 함께합니다
+            {t("description")}
           </p>
         </div>
 
@@ -153,10 +158,10 @@ export function PartnersClients() {
         <div className="mb-16 sm:mb-20">
           <div className="text-center mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] mb-2">
-              글로벌 파트너
+              {tGlobal("title")}
             </h3>
             <p className="text-sm text-gray-600">
-              세계적인 기술력을 보유한 파트너사와 협력합니다
+              {tGlobal("description")}
             </p>
           </div>
           <LogoSlider logos={partners} direction="left" />
@@ -166,10 +171,10 @@ export function PartnersClients() {
         <div>
           <div className="text-center mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] mb-2">
-              주요 고객사
+              {tClients("title")}
             </h3>
             <p className="text-sm text-gray-600">
-              대한민국 주요 산업의 성장을 함께합니다
+              {t("clientsDescription")}
             </p>
           </div>
           <ClientsGrid clients={clients} />

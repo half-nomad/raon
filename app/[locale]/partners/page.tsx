@@ -3,8 +3,10 @@ import Image from "next/image";
 import { CheckCircle2, Globe, Wrench, Package, BadgeDollarSign, Award } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { getTranslations } from "next-intl/server";
 
-export default function PartnersPage() {
+export default async function PartnersPage() {
+  const t = await getTranslations("partners");
   const globalPartners = [
     {
       name: "SPXFLOW",
@@ -167,14 +169,12 @@ export default function PartnersPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Partners & Clients
+              {t("hero.title")}
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-              라온토탈솔루션은 전 세계 최고 수준의 제조사들과 공식 파트너십 및
-              대리점 계약을 맺고,
+              {t("hero.description")}
               <br />
-              국내 유수의 에너지·화학·중공업 기업들에게 검증된 솔루션을
-              제공합니다.
+              {t("hero.descriptionLine2")}
             </p>
           </div>
         </div>
@@ -185,11 +185,10 @@ export default function PartnersPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              글로벌 파트너
+              {t("globalPartners.title")}
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              전 세계 최고 수준의 제조사들과 공식 파트너십 및 대리점 계약을
-              맺고, 안정적이고 검증된 부품만을 공급합니다.
+              {t("globalPartners.description")}
             </p>
           </div>
 
@@ -229,11 +228,11 @@ export default function PartnersPage() {
 
                   <div className="pt-3 border-t border-slate-200">
                     <div className="flex items-center text-sm text-slate-600 mb-2">
-                      <span className="font-semibold mr-2">계약 연도:</span>
+                      <span className="font-semibold mr-2">{t("globalPartners.partnerInfo.contractYear")}</span>
                       <span>{partner.year}</span>
                     </div>
                     <div className="flex items-center text-sm text-slate-600 mb-3">
-                      <span className="font-semibold mr-2">관계:</span>
+                      <span className="font-semibold mr-2">{t("globalPartners.partnerInfo.relationship")}</span>
                       <span>{partner.relationship}</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -258,7 +257,7 @@ export default function PartnersPage() {
       <section className="py-16 md:py-24 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
-            파트너십의 강점
+            {t("whyPartner.title")}
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -267,11 +266,10 @@ export default function PartnersPage() {
                 <CheckCircle2 className="w-10 h-10 text-[#3B82F6]" />
               </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                공식 대리점 계약
+                {t("whyPartner.items.officialContract.title")}
               </h3>
               <p className="text-slate-600 text-sm">
-                모든 파트너사와 공식 대리점 계약을 체결하여 정품 부품만을
-                공급합니다.
+                {t("whyPartner.items.officialContract.description")}
               </p>
             </div>
 
@@ -280,11 +278,10 @@ export default function PartnersPage() {
                 <Globe className="w-10 h-10 text-[#3B82F6]" />
               </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                글로벌 네트워크
+                {t("whyPartner.items.globalNetwork.title")}
               </h3>
               <p className="text-slate-600 text-sm">
-                유럽, 미국, 아시아 등 전 세계 최고 수준의 제조사들과
-                파트너십을 보유하고 있습니다.
+                {t("whyPartner.items.globalNetwork.description")}
               </p>
             </div>
 
@@ -293,11 +290,10 @@ export default function PartnersPage() {
                 <Wrench className="w-10 h-10 text-[#3B82F6]" />
               </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                기술 지원
+                {t("whyPartner.items.techSupport.title")}
               </h3>
               <p className="text-slate-600 text-sm">
-                제조사와의 긴밀한 협력을 통해 신속한 기술 지원과 A/S를
-                제공합니다.
+                {t("whyPartner.items.techSupport.description")}
               </p>
             </div>
 
@@ -306,11 +302,10 @@ export default function PartnersPage() {
                 <Package className="w-10 h-10 text-[#3B82F6]" />
               </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                안정적 공급
+                {t("whyPartner.items.stableSupply.title")}
               </h3>
               <p className="text-slate-600 text-sm">
-                파트너사와의 협력으로 안정적인 재고 확보와 신속한 납기가
-                가능합니다.
+                {t("whyPartner.items.stableSupply.description")}
               </p>
             </div>
 
@@ -319,10 +314,10 @@ export default function PartnersPage() {
                 <BadgeDollarSign className="w-10 h-10 text-[#3B82F6]" />
               </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                경쟁력 있는 가격
+                {t("whyPartner.items.competitivePrice.title")}
               </h3>
               <p className="text-slate-600 text-sm">
-                대리점 계약을 통한 직접 공급으로 합리적인 가격을 제공합니다.
+                {t("whyPartner.items.competitivePrice.description")}
               </p>
             </div>
 
@@ -331,10 +326,10 @@ export default function PartnersPage() {
                 <Award className="w-10 h-10 text-[#3B82F6]" />
               </div>
               <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                품질 보증
+                {t("whyPartner.items.qualityAssurance.title")}
               </h3>
               <p className="text-slate-600 text-sm">
-                제조사 직접 공급으로 품질을 보증하고 위조품 위험이 없습니다.
+                {t("whyPartner.items.qualityAssurance.description")}
               </p>
             </div>
           </div>
@@ -346,11 +341,10 @@ export default function PartnersPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              주요 고객사
+              {t("majorClients.title")}
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              국내 유수의 에너지, 화학, 중공업 기업들이 라온토탈솔루션의
-              기술력과 서비스를 신뢰하고 있습니다.
+              {t("majorClients.description")}
             </p>
           </div>
 
@@ -378,20 +372,14 @@ export default function PartnersPage() {
           <div className="bg-slate-50 rounded-2xl p-8 md:p-12">
             <div className="text-center max-w-3xl mx-auto">
               <h3 className="text-2xl font-bold text-[#0A1628] mb-4">
-                신뢰받는 파트너
+                {t("majorClients.trustSection.title")}
               </h3>
               <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                <span className="font-semibold text-[#3B82F6]">
-                  SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크
-                </span>{" "}
-                등 국내 4대 정유사를 비롯하여, 석유화학 및 종합 산업 기업들이
-                라온토탈솔루션의 전문성을 신뢰합니다.
+                {t("majorClients.trustSection.description")}
               </p>
               <div className="p-6 bg-white rounded-lg border border-slate-200">
                 <p className="text-slate-600 text-sm">
-                  <span className="font-semibold text-[#0A1628]">30년 경험</span>
-                  을 바탕으로 국내 주요 에너지·화학·중공업 기업들에게 최고
-                  수준의 부품과 기술 서비스를 제공하는 신뢰받는 파트너입니다.
+                  {t("majorClients.trustSection.experience")}
                 </p>
               </div>
             </div>
@@ -406,30 +394,30 @@ export default function PartnersPage() {
             <div>
               <div className="text-5xl font-bold text-[#3B82F6] mb-2">30+</div>
               <p className="text-lg font-semibold text-[#0A1628] mb-1">
-                업계 경험 (년)
+                {t("stats.experience")}
               </p>
               <p className="text-sm text-slate-600">
-                창업주의 회전기계 분야 30년 노하우 계승
+                {t("stats.experienceDesc")}
               </p>
             </div>
 
             <div>
               <div className="text-5xl font-bold text-[#3B82F6] mb-2">9+</div>
               <p className="text-lg font-semibold text-[#0A1628] mb-1">
-                글로벌 파트너사
+                {t("stats.partners")}
               </p>
               <p className="text-sm text-slate-600">
-                전 세계 최고 수준의 제조사 협력
+                {t("stats.partnersDesc")}
               </p>
             </div>
 
             <div>
               <div className="text-5xl font-bold text-[#3B82F6] mb-2">6+</div>
               <p className="text-lg font-semibold text-[#0A1628] mb-1">
-                주요 고객사
+                {t("stats.clients")}
               </p>
               <p className="text-sm text-slate-600">
-                국내 4대 정유사 포함 주요 기업
+                {t("stats.clientsDesc")}
               </p>
             </div>
           </div>
@@ -440,23 +428,23 @@ export default function PartnersPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            라온토탈솔루션과 함께하시겠습니까?
+            {t("cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            글로벌 파트너십과 30년 경험을 바탕으로 최고의 솔루션을 제공합니다.
+            {t("cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              파트너십 문의
+              {t("cta.partnershipInquiry")}
             </Link>
             <Link
               href="/products"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              제품 보기
+              {t("cta.viewProducts")}
             </Link>
           </div>
         </div>

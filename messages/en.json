@@ -5,7 +5,14 @@
     "learnMore": "Learn More",
     "viewAll": "View All",
     "backToList": "Back to List",
-    "home": "Home"
+    "home": "Home",
+    "cta": {
+      "title": "We can provide optimal solutions with just drawings,",
+      "titleLine2": "parts photos, or existing specifications",
+      "description": "Experts with 30 years of experience will consult you directly. Contact us now.",
+      "technicalConsulting": "Technical Consulting",
+      "requestQuote": "Request Quote"
+    }
   },
   "nav": {
     "home": "HOME",
@@ -58,13 +65,15 @@
     }
   },
   "hero": {
-    "title": "Rotating Equipment & Compressor Parts",
-    "titleHighlight": "Global Solution Partner",
-    "description": "Delivering optimized parts solutions for oil refinery, petrochemical, and shipbuilding industries with 30 years of expertise",
+    "title": "Technology Connecting",
+    "titleLine2": "Energy's Future",
+    "description": "30 years of expertise in rotating machinery and reciprocating compressor parts & solutions.",
+    "descriptionLine2": "Raon Total Solution enhances customer value with optimal quality and delivery.",
     "cta": {
-      "contact": "Contact Us",
-      "products": "View Products"
-    }
+      "industries": "View Industry Solutions",
+      "contact": "Request Quote"
+    },
+    "scroll": "Scroll"
   },
   "company": {
     "hero": {
@@ -72,27 +81,79 @@
       "description": "Building customer success together with 30 years of expertise and trust"
     },
     "ceo": {
+      "label": "CEO Message",
       "title": "CEO Message",
-      "greeting": "Greetings",
-      "message": "Raon Total Solution is a B2B parts solution company founded by rotating machinery experts with over 30 years of experience. We supply core components such as compressors, pumps, and mixers specialized for the oil refinery, petrochemical, and shipbuilding industries, providing the highest quality and technical expertise through our global partnerships.",
-      "name": "CEO",
-      "company": "Raon Total Solution"
+      "greeting": "Greetings,",
+      "intro": "Raon Total Solution aims to be your premier partner, maximizing customer value through 30 years of accumulated experience and technical expertise in the oil refinery, petrochemical, and shipbuilding industries.",
+      "quote": "All employees of Raon Total Solution\nwill continue to strive\nto provide the highest quality and service\nunder the belief of 'customer first'.",
+      "partnership": "Through close cooperation with global partners, we supply the latest technology and products domestically, and together we create your success through rapid delivery and professional technical support.",
+      "commitment": "We will continue to grow as a trusted business partner that provides the highest value to our customers through unwavering trust and innovation.",
+      "closing": "Thank you.",
+      "signature": "CEO Kim Hye-Kyung",
+      "photoPlaceholder": "CEO Photo (to be added)",
+      "signaturePlaceholder": "Signature Image"
     },
     "history": {
+      "label": "Company History",
       "title": "History",
-      "description": "The Journey of Raon Total Solution",
+      "description": "The Growth Journey of Raon Total Solution from 2020 to Present",
       "years": {
-        "2025": ["Signed domestic agency contract with WTQ and CP Pumpen"],
-        "2024": ["Signed domestic agency contract with NIDEC and Samyoung Filtech", "Started business with HD Hyundai Oilbank and TJG Huchems"],
-        "2023": ["Established Raon Total Solution Co., Ltd.", "Signed exclusive domestic distributor contract with NEA Group NEUMAN & ESSER Compressor", "Signed exclusive domestic distributor contract with SPXFLOW", "Started business with SK Energy, GS Caltex, and S-OIL"]
+        "2025": {
+          "year": "2025",
+          "events": [
+            "Signed Korean agency contract with Chinese Cylinder liner manufacturer (WTQ)",
+            "Signed Ulsan agency contract with CP pump systems (Swiss)",
+            "Signed agency contract with FIMA (Germany) Compressor manufacturer"
+          ]
+        },
+        "2024": {
+          "year": "2024",
+          "events": [
+            "Signed Ulsan agency contract with NEUMAN&ESSER",
+            "Signed agency contract with Turbolink (Oil Refinery/Petrochemical sector)"
+          ]
+        },
+        "2022": {
+          "year": "2022",
+          "events": ["Signed Korean Master Agency contract with SPX Flow Technology"]
+        },
+        "2021": {
+          "year": "2021",
+          "events": [
+            "Changed company name to Raon Total Solution Co., Ltd. (Corporate conversion)",
+            "Signed agency contract with Castanet (France) Wearing Parts",
+            "Signed agency contract with American Valve manufacturer"
+          ]
+        },
+        "2020": {
+          "year": "2020",
+          "events": ["Established HK International (Sole proprietorship)"]
+        }
       }
     },
     "location": {
+      "label": "Location",
       "title": "Location",
-      "address": "4F Jun Building, 71 Banpo-daero 14-gil, Seocho-gu, Seoul, Korea",
-      "phone": "+82-2-575-3051",
-      "email": "rts@raontotalsolution.co.kr",
-      "businessHours": "Mon-Fri 09:00 - 18:00"
+      "contactInfo": "Contact Information",
+      "companyName": "Company",
+      "companyNameValue": "Raon Total Solution Co., Ltd.",
+      "address": "Address",
+      "addressValue": "5F, 16 Mabang-ro, Seocho-gu, Seoul",
+      "addressDetail": "(Yangjae-dong, Jaeyeon Building)",
+      "phone": "Phone",
+      "phoneValue": "02-575-3051",
+      "fax": "Fax",
+      "faxValue": "02-575-3052",
+      "email": "Email",
+      "emailValue": "sales@raontotalsolution.co.kr",
+      "contactButton": "Contact Us",
+      "tabs": {
+        "google": "Google",
+        "kakao": "Kakao",
+        "naver": "Naver",
+        "viewOnMap": "View on Map",
+        "viewLarger": "View Larger on Map"
+      }
     }
   },
   "industries": {
@@ -102,13 +163,106 @@
     },
     "oilRefinery": {
       "title": "Oil Refinery & Petrochemical",
+      "subtitle": "Oil Refinery & Petrochemical",
       "description": "Supplying compressors, pumps, mixers and other rotating equipment parts for oil refinery and petrochemical industries",
+      "heroDescription": "Providing professional solutions for reciprocating compressors and rotating machinery based on 30 years of experience and know-how",
+      "imageCaption": "Industrial compressors and rotating machinery systems operating in oil refinery and petrochemical plants",
+      "introTitle": "Core Introduction",
+      "intro1": "Raon Total Solution is a specialized company providing spare parts and engineering solutions for reciprocating compressors and rotating machinery.",
+      "intro2": "We provide services tailored to the needs of various industries based on approximately 30 years of experience and know-how.",
+      "servicesTitle": "Main Services",
+      "services": [
+        "Industrial Compressor & Blower",
+        "Pump",
+        "Mixer & Agitator",
+        "Bearing",
+        "Compressor Cylinder liner",
+        "All spare parts for valves, piston rings, and related products"
+      ],
+      "featuresTitle": "Key Features",
+      "features30Years": "30 Years Experience",
+      "features30YearsDesc": "Accumulated know-how in oil refinery and petrochemical plant fields",
+      "featuresFastResponse": "Rapid Response",
+      "featuresFastResponseDesc": "24-hour emergency dispatch service",
+      "featuresGlobalPartner": "Global Partners",
+      "featuresGlobalPartnerDesc": "World-class technical expertise",
+      "relatedProductsTitle": "Related Products",
+      "relatedProducts": {
+        "compressor": "Compressor & Parts",
+        "pump": "Pump",
+        "mixer": "Mixer & Agitator",
+        "bearing": "Bearing"
+      },
+      "ctaButton": "Contact Us",
       "features": ["High-pressure process gas compressors", "API standard pumps", "Industrial mixers and agitators", "Corrosion-resistant special bearings"]
     },
     "shipbuilding": {
       "title": "Shipbuilding",
+      "subtitle": "Ship Building",
       "description": "Supplying cylinder liners, motors, bearings and other marine parts for the shipbuilding industry",
+      "heroDescription": "Supplying high-quality marine parts as the Korean agent for Chinese cylinder liner manufacturer (WTQ) located in Yangzhou",
+      "imageCaption": "High-quality cylinder liners and marine equipment used in large-scale shipbuilding sites",
+      "introTitle": "Core Introduction",
+      "intro1": "We are the Korean agent for WTQ, a cylinder liner manufacturer located in Yangzhou, China, supplying cylinder liners with diameters ranging from 480 to 1500mm.",
+      "intro2": "WTQ is one of the major manufacturers in China producing ship main engine cylinder liners, and opened a Korean agency in 2025.",
+      "intro3": "We guarantee stable quality and rapid delivery with globally certified products.",
+      "specificationsTitle": "Product Specifications",
+      "specifications": {
+        "diameter": "Diameter Range",
+        "diameterValue": "480 ~ 1500mm",
+        "application": "Application",
+        "applicationValue": "Ship main engines, marine equipment",
+        "certification": "Certification",
+        "certificationValue": "Globally certified products",
+        "delivery": "Delivery",
+        "deliveryValue": "Rapid delivery response system"
+      },
+      "servicesTitle": "Main Services",
+      "services": [
+        "Cylinder liners for commercial vehicles, construction machinery, and locomotives",
+        "Cylinder liners for ships and marine use",
+        "Liners for sludge pumps and hydraulic cylinders",
+        "Cylinder liners for compressors and generator units"
+      ],
+      "featuresTitle": "Key Features",
+      "featuresQuality": "Quality Assurance",
+      "featuresQualityDesc": "Globally certified products",
+      "featuresFastDelivery": "Rapid Delivery",
+      "featuresFastDeliveryDesc": "Fast response system established",
+      "featuresOfficialAgent": "WTQ Official Agent",
+      "featuresOfficialAgentDesc": "Korean agency opened in 2025",
+      "relatedProductsTitle": "Related Products",
+      "relatedProducts": {
+        "cylinderLiner": "Cylinder Liner",
+        "oilPurifier": "Oil Purifier",
+        "bearing": "Bearing"
+      },
+      "ctaButton": "Contact Us",
       "features": ["Ship engine cylinder liners", "High-efficiency marine motors", "Special bearings for marine environments", "Marine oil purification systems"]
+    },
+    "highlight": {
+      "title": "Industry Solutions",
+      "description": "Providing specialized solutions for oil refinery, petrochemical, and shipbuilding industries with 30 years of expertise",
+      "viewIndustry": "View Industry Details",
+      "keyProducts": "Key Products",
+      "oilRefinery": {
+        "title": "Oil Refinery & Petrochemical",
+        "description": "Compressor, pump, and mixer solutions that deliver stable performance even in extreme environments",
+        "bullets": [
+          "Core equipment for oil refinery and petrochemical plants",
+          "Specialists in rotating machinery and reciprocating compressors",
+          "24-hour emergency dispatch service"
+        ]
+      },
+      "shipbuilding": {
+        "title": "Shipbuilding",
+        "description": "Cylinder liner, motor, and bearing solutions optimized for marine environments",
+        "bullets": [
+          "Marine main engine cylinder liners",
+          "Globally certified products",
+          "Rapid delivery response system"
+        ]
+      }
     }
   },
   "products": {
@@ -152,16 +306,114 @@
         "partner": "Samyoung Filtech",
         "description": "Industrial oil purification systems"
       }
+    },
+    "snapshot": {
+      "title": "Featured Products",
+      "description": "We guarantee the highest quality through global partnerships",
+      "viewAll": "View All Products",
+      "learnMore": "Learn More",
+      "products": {
+        "compressor": {
+          "name": "Reciprocating Compressor",
+          "description": "Reciprocating compressors and parts. Core equipment for oil refinery and petrochemical plants"
+        },
+        "mixer": {
+          "name": "Mixer / Agitator",
+          "description": "Industrial mixers and agitators. Essential equipment for chemical processes"
+        },
+        "motor": {
+          "name": "Motor",
+          "description": "Industrial motors. Core power source for equipment operation"
+        },
+        "pump": {
+          "name": "Pump",
+          "description": "Industrial pump solutions. Various fluid transfer and circulation systems"
+        },
+        "bearing": {
+          "name": "Bearing",
+          "description": "High-performance bearings and lubrication systems. Core components of rotating machinery"
+        },
+        "oilPurifier": {
+          "name": "Oil Purifier",
+          "description": "Oil purification systems. Extending lubricant life and protecting equipment"
+        }
+      }
     }
   },
   "partners": {
     "hero": {
-      "title": "Partners",
-      "description": "Ensuring the highest quality through partnerships with global companies"
+      "title": "Partners & Clients",
+      "description": "Raon Total Solution has official partnerships and agency contracts with world-class manufacturers,",
+      "descriptionLine2": "providing verified solutions to leading energy, chemical, and heavy industry companies in Korea."
     },
     "sections": {
       "globalPartners": "Global Partners",
       "majorClients": "Major Clients"
+    },
+    "home": {
+      "title": "Trusted Partners",
+      "description": "Global partners and major domestic clients working together",
+      "clientsDescription": "Growing together with Korea's key industries"
+    },
+    "globalPartners": {
+      "title": "Global Partners",
+      "description": "We supply only stable and verified parts through official partnerships and agency contracts with world-class manufacturers.",
+      "partnerInfo": {
+        "contractYear": "Contract Year:",
+        "relationship": "Relationship:"
+      }
+    },
+    "whyPartner": {
+      "title": "Partnership Strengths",
+      "items": {
+        "officialContract": {
+          "title": "Official Agency Contract",
+          "description": "We supply only genuine parts by signing official agency contracts with all partners."
+        },
+        "globalNetwork": {
+          "title": "Global Network",
+          "description": "We have partnerships with world-class manufacturers from Europe, America, and Asia."
+        },
+        "techSupport": {
+          "title": "Technical Support",
+          "description": "We provide rapid technical support and after-sales service through close cooperation with manufacturers."
+        },
+        "stableSupply": {
+          "title": "Stable Supply",
+          "description": "Stable inventory and fast delivery are possible through cooperation with partners."
+        },
+        "competitivePrice": {
+          "title": "Competitive Pricing",
+          "description": "We offer reasonable prices through direct supply via agency contracts."
+        },
+        "qualityAssurance": {
+          "title": "Quality Guarantee",
+          "description": "Quality is guaranteed through direct supply from manufacturers, with no risk of counterfeits."
+        }
+      }
+    },
+    "majorClients": {
+      "title": "Major Clients",
+      "description": "Leading energy, chemical, and heavy industry companies in Korea trust Raon Total Solution's technology and service.",
+      "trustSection": {
+        "title": "Trusted Partner",
+        "description": "Major domestic refineries including SK Energy, S-OIL, GS Caltex, HD Hyundai Oilbank, as well as petrochemical and general industry companies, trust Raon Total Solution's expertise.",
+        "experience": "With 30 years of experience, we are a trusted partner providing the highest quality parts and technical services to major energy, chemical, and heavy industry companies in Korea."
+      }
+    },
+    "stats": {
+      "experience": "Years of Industry Experience",
+      "experienceDesc": "Inheriting 30 years of expertise in rotating machinery",
+      "partners": "Global Partners",
+      "partnersDesc": "Collaboration with world-class manufacturers",
+      "clients": "Major Clients",
+      "clientsDesc": "Including the 4 major domestic refineries"
+    },
+    "cta": {
+      "title": "Would you like to work with Raon Total Solution?",
+      "description": "We provide the best solutions based on global partnerships and 30 years of experience.",
+      "partnershipInquiry": "Partnership Inquiry",
+      "viewProducts": "View Products"
     }
   },
   "contact": {

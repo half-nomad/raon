@@ -6,6 +6,7 @@ import { ImageGallery } from "@/components/ui/image-gallery";
 import { Factory, Pill, Coffee, Palette, Droplets, FlaskConical } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Mixer & Agitator | 산업용 믹서 솔루션',
@@ -26,7 +27,9 @@ const mixerImages = [
   { src: "/images/products/mixer/Mixer & Agitator_4.jpg", alt: "Mixer & Agitator 4" },
 ];
 
-export default function MixerPage() {
+export default async function MixerPage() {
+  const t = await getTranslations();
+
   return (
     <div className="min-h-screen bg-white">
       <ProductSchema
@@ -67,10 +70,7 @@ export default function MixerPage() {
               Mixer & Agitator
             </h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              다양한 유체(액체 또는 혼합물)를 효과적으로 섞고, 균질화하며,
-              일정한 상태로 유지하기 위한 장치입니다.
-              <br />
-              SPX FLOW의 검증된 기술력으로 최적의 혼합 솔루션을 제공합니다.
+              {t("products.mixer.hero.description")}
             </p>
           </div>
         </div>
@@ -316,24 +316,23 @@ export default function MixerPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            최적의 혼합 솔루션이 필요하신가요?
+            {t("products.mixer.cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            공정 조건, 유체 특성, 용량에 맞는 맞춤형 믹서 솔루션을 제안해
-            드립니다.
+            {t("products.mixer.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              기술 상담 문의
+              {t("products.mixer.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 문의
+              {t("products.mixer.cta.quote")}
             </Link>
           </div>
         </div>

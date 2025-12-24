@@ -12,6 +12,7 @@ import { ImageGallery } from "@/components/ui/image-gallery";
 import { Zap, Dumbbell, Target, Thermometer, Timer, Flag, Factory, Waves, Cog, Wind, FlaskConical } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Bearing | 산업용 베어링 솔루션',
@@ -32,7 +33,8 @@ const bearingImages = [
   { src: "/images/products/bearing/bearing_FIXED PROFILE BEARING.png", alt: "Fixed Profile Bearing" },
 ];
 
-export default function BearingPage() {
+export default async function BearingPage() {
+  const t = await getTranslations();
   const bearingTypes = [
     {
       id: "tilting-pad-thrust",
@@ -146,15 +148,11 @@ export default function BearingPage() {
             ]} />
 
             <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
-              터보링크
+              {t("products.categories.bearing.brand")}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Bearing</h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              회전하거나 움직이는 기계 부품을 지지하고, 마찰을 줄이며, 안정적으로
-              작동하도록 돕는 장치.
-              <br />
-              터보링크의 베어링은 고속·고하중 환경에서도 안정적인 성능을
-              제공합니다.
+              {t("products.bearing.hero.description")}
             </p>
           </div>
         </div>
@@ -528,24 +526,23 @@ export default function BearingPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            최적의 베어링 솔루션이 필요하신가요?
+            {t("products.bearing.cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            회전속도, 하중, 운전 조건에 맞는 최적의 터보링크 베어링을 선정해
-            드립니다.
+            {t("products.bearing.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              기술 상담 문의
+              {t("products.bearing.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 문의
+              {t("products.bearing.cta.quote")}
             </Link>
           </div>
         </div>

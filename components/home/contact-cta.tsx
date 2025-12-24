@@ -2,8 +2,10 @@
 
 import { CTAButton } from "@/components/ui/cta-button";
 import { FileText, Phone, ChevronRight, Mail, ArrowUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function ContactCTA() {
+  const t = useTranslations("common");
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden bg-gradient-to-br from-[#0A1628] via-[#0A1628] to-[#1A2D47]">
       {/* Background Pattern */}
@@ -23,14 +25,14 @@ export function ContactCTA() {
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-            도면, 부품 사진, 또는 기존 스펙만으로도
+            {t("cta.title")}
             <br className="hidden sm:block" />
-            최적의 솔루션을 제안드립니다
+            {t("cta.titleLine2")}
           </h2>
 
           {/* Description */}
           <p className="text-base sm:text-lg text-white/80 mb-8 sm:mb-10">
-            30년 업력의 전문가가 직접 상담해드립니다. 지금 바로 문의하세요.
+            {t("cta.description")}
           </p>
 
           {/* CTA Buttons */}
@@ -41,7 +43,7 @@ export function ContactCTA() {
               size="large"
               className="bg-white text-[#0A1628] hover:bg-gray-100"
             >
-              기술 상담 문의
+              {t("cta.technicalConsulting")}
               <Phone className="ml-2 w-5 h-5" />
             </CTAButton>
             <CTAButton
@@ -49,7 +51,7 @@ export function ContactCTA() {
               variant="secondary"
               size="large"
             >
-              견적 문의
+              {t("cta.requestQuote")}
               <ChevronRight className="ml-2 w-5 h-5" />
             </CTAButton>
           </div>

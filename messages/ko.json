@@ -5,7 +5,14 @@
     "learnMore": "자세히 보기",
     "viewAll": "전체 보기",
     "backToList": "목록으로",
-    "home": "홈"
+    "home": "홈",
+    "cta": {
+      "title": "도면, 부품 사진, 또는 기존 스펙만으로도",
+      "titleLine2": "최적의 솔루션을 제안드립니다",
+      "description": "30년 업력의 전문가가 직접 상담해드립니다. 지금 바로 문의하세요.",
+      "technicalConsulting": "기술 상담 문의",
+      "requestQuote": "견적 문의"
+    }
   },
   "nav": {
     "home": "HOME",
@@ -56,5 +63,845 @@
       "title": "문의하기",
       "description": "회전기계 부품 견적 및 기술 상담 문의"
     }
+  },
+  "hero": {
+    "title": "Technology Connecting",
+    "titleLine2": "Energy's Future",
+    "description": "30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업.",
+    "descriptionLine2": "라온토탈솔루션이 최적의 품질과 납기로 고객의 가치를 높입니다.",
+    "cta": {
+      "industries": "산업별 솔루션 보기",
+      "contact": "견적 문의하기"
+    },
+    "scroll": "Scroll"
+  },
+  "company": {
+    "hero": {
+      "title": "회사소개",
+      "description": "30년 경험의 전문성과 신뢰로",
+      "descriptionLine2": "고객의 성공을 함께 만들어갑니다"
+    },
+    "ceo": {
+      "label": "CEO Message",
+      "title": "대표이사 인사말",
+      "greeting": "안녕하십니까?",
+      "intro": "저희 (주)라온토탈솔루션은 정유·석유화학 및 조선 산업 분야에서 약 30년간 축적한 경험과 기술력을 바탕으로 고객의 가치를 극대화하는 최고의 파트너가 되고자 합니다.",
+      "quote": "저희 라온토탈솔루션 임직원 모두는\n'고객 최우선'이라는 신념 아래\n최상의 품질과 서비스를 제공하기 위해\n끊임없이 노력하겠습니다.",
+      "partnership": "글로벌 파트너사들과의 긴밀한 협력을 통해 최신 기술과 제품을 국내에 공급하며, 신속한 납기 대응과 전문적인 기술 지원으로 고객 여러분의 성공을 함께 만들어가겠습니다.",
+      "commitment": "앞으로도 변함없는 신뢰와 혁신으로 고객 여러분께 최고의 가치를 제공하는 신뢰받는 비즈니스 파트너로 성장하는 주식회사 라온토탈솔루션이 되겠습니다.",
+      "closing": "감사합니다.",
+      "signature": "대표이사 김혜경 올림",
+      "photoPlaceholder": "CEO 사진 삽입 예정",
+      "signaturePlaceholder": "서명 이미지"
+    },
+    "history": {
+      "label": "Company History",
+      "title": "연혁",
+      "description": "2020년부터 현재까지 라온토탈솔루션의 성장 여정",
+      "years": {
+        "2025": {
+          "year": "2025",
+          "events": [
+            "중국 Cylinder liner 제작사 (WTQ)와 한국 대리점 계약 체결",
+            "CP pump systems (Swiss) 울산 대리점 계약 체결",
+            "FIMA (Germany) Compressor 제작사와 대리점 계약 체결"
+          ]
+        },
+        "2024": {
+          "year": "2024",
+          "events": [
+            "NEUMAN&ESSER 울산 대리점 계약 체결",
+            "(주)터보링크 (정유/석유화학 분야) 대리점 계약 체결"
+          ]
+        },
+        "2022": {
+          "year": "2022",
+          "events": ["SPX Flow Technology 한국 Master 대리점 계약 체결"]
+        },
+        "2021": {
+          "year": "2021",
+          "events": [
+            "(주)라온토탈솔루션 회사명 변경 (법인 전환)",
+            "프랑스 Wearing Parts (Castanet) 대리점 계약 체결",
+            "미국 Valve 제작사와 대리점 계약 체결"
+          ]
+        },
+        "2020": {
+          "year": "2020",
+          "events": ["HK 인터내셔널 설립 (개인)"]
+        }
+      }
+    },
+    "location": {
+      "label": "Location",
+      "title": "오시는 길",
+      "contactInfo": "연락처 정보",
+      "companyName": "회사명",
+      "companyNameValue": "(주)라온토탈솔루션",
+      "address": "주소",
+      "addressValue": "서울시 서초구 마방로 16, 5층",
+      "addressDetail": "(양재동, 재연빌딩)",
+      "phone": "전화",
+      "phoneValue": "02-575-3051",
+      "fax": "팩스",
+      "faxValue": "02-575-3052",
+      "email": "이메일",
+      "emailValue": "sales@raontotalsolution.co.kr",
+      "contactButton": "문의하기",
+      "tabs": {
+        "google": "구글",
+        "kakao": "카카오",
+        "naver": "네이버",
+        "viewOnMap": "지도에서 보기",
+        "viewLarger": "지도에서 크게 보기"
+      }
+    }
+  },
+  "industries": {
+    "hero": {
+      "title": "산업 분야",
+      "description": "정유·석유화학, 조선 산업에 특화된",
+      "descriptionLine2": "회전기계 부품 최적 솔루션을 제공합니다"
+    },
+    "oilRefinery": {
+      "title": "정유·석유화학",
+      "subtitle": "Oil Refinery & Petrochemical",
+      "description": "정유 및 석유화학 산업을 위한 압축기, 펌프, 믹서 등 회전기계 부품을 공급합니다",
+      "heroDescription": "30년 경험과 노하우를 바탕으로 왕복동 압축기와 회전기계에 대한 전문 솔루션을 제공합니다",
+      "imageCaption": "정유·석유화학 플랜트에서 가동되는 산업용 압축기 및 회전기계 시스템",
+      "introTitle": "핵심 소개",
+      "intro1": "(주)라온토탈솔루션은 왕복동 압축기와 회전기계에 대한 Spare parts 및 엔지니어링 솔루션을 제공하는 전문 기업입니다.",
+      "intro2": "약 30년간의 경험과 Know-how를 바탕으로 다양한 사업의 요구에 맞춘 서비스를 제공하고 있습니다.",
+      "servicesTitle": "주요 제공 서비스",
+      "services": [
+        "Industrial Compressor & Blower",
+        "Pump",
+        "Mixer & Agitator",
+        "Bearing",
+        "Compressor Cylinder liner",
+        "Valve, piston ring 외 해당 제품에 대한 모든 Spare parts"
+      ],
+      "featuresTitle": "핵심 특징",
+      "features30Years": "30년 경험",
+      "features30YearsDesc": "정유·석유화학 플랜트 분야의 축적된 노하우",
+      "featuresFastResponse": "신속 대응",
+      "featuresFastResponseDesc": "24시간 긴급 출동 서비스 제공",
+      "featuresGlobalPartner": "글로벌 파트너",
+      "featuresGlobalPartnerDesc": "세계 최고 수준의 기술력 보유",
+      "relatedProductsTitle": "관련 제품 바로가기",
+      "relatedProducts": {
+        "compressor": "Compressor & Parts",
+        "pump": "Pump",
+        "mixer": "Mixer & Agitator",
+        "bearing": "Bearing"
+      },
+      "ctaButton": "상담 문의하기",
+      "features": ["고압 프로세스 가스 압축기", "API 규격 펌프", "산업용 믹서 및 교반기", "내부식성 특수 베어링"],
+      "overview": {
+        "title": "산업 개요",
+        "description": "정유 및 석유화학 산업은 원유를 정제하여 연료, 윤활유, 석유화학 제품을 생산하는 핵심 산업입니다. 이 산업에서는 극한의 온도와 압력, 부식성 환경에서 작동하는 고성능 장비가 필수적입니다."
+      },
+      "challenges": {
+        "title": "산업별 과제",
+        "items": [
+          {
+            "title": "고온·고압 환경",
+            "description": "극한의 운전 조건에서 안정적인 성능 유지 필요"
+          },
+          {
+            "title": "부식성 매체",
+            "description": "산성 가스 및 화학물질에 대한 내성 확보"
+          },
+          {
+            "title": "연속 운전",
+            "description": "24시간 무중단 운전을 위한 높은 신뢰성"
+          },
+          {
+            "title": "환경 규제",
+            "description": "엄격한 환경 기준 충족 및 누출 방지"
+          }
+        ]
+      },
+      "solutions": {
+        "title": "라온토탈솔루션의 솔루션",
+        "items": [
+          {
+            "title": "압축기",
+            "partner": "NEUMAN & ESSER",
+            "description": "프로세스 가스 압축기 및 소모품"
+          },
+          {
+            "title": "믹서 & 교반기",
+            "partner": "SPX FLOW",
+            "description": "고효율 산업용 믹서"
+          },
+          {
+            "title": "펌프",
+            "partner": "CP Pumpen",
+            "description": "API 규격 고압 펌프"
+          },
+          {
+            "title": "베어링",
+            "partner": "터보링크",
+            "description": "틸팅패드 베어링 시스템"
+          }
+        ]
+      },
+      "clients": {
+        "title": "주요 고객사",
+        "description": "국내 주요 정유·석유화학 기업과 함께합니다"
+      },
+      "cta": {
+        "title": "정유·석유화학 산업 솔루션이 필요하신가요?",
+        "description": "전문 엔지니어가 최적의 솔루션을 제안해 드립니다",
+        "button": "상담 문의하기"
+      }
+    },
+    "shipbuilding": {
+      "title": "조선",
+      "subtitle": "Ship Building",
+      "description": "조선 산업을 위한 실린더 라이너, 모터, 베어링 등 선박용 부품을 공급합니다",
+      "heroDescription": "중국 양주 실린더라이너 제조사(WTQ)의 한국 대리점으로 고품질 선박용 부품을 공급합니다",
+      "imageCaption": "대형 선박 건조 현장에서 사용되는 고품질 실린더 라이너 및 해양 설비",
+      "introTitle": "핵심 소개",
+      "intro1": "당사는 중국 양주에 위치한 실린더라이너 제조사(WTQ)의 한국 대리점으로 직경 480~ 1500mm의 실린더라이너를 공급합니다.",
+      "intro2": "WTQ사는 선박용 메인 엔진 실린더라이너를 생산하는 중국 내 주요 제조사 중 하나로, 2025년 한국에 대리점을 개설하게 되었습니다.",
+      "intro3": "글로벌 표준 인증을 받은 제품으로 안정적인 품질과 신속한 납기를 보장합니다.",
+      "specificationsTitle": "제품 사양",
+      "specifications": {
+        "diameter": "직경 범위",
+        "diameterValue": "480 ~ 1500mm",
+        "application": "적용 분야",
+        "applicationValue": "선박 메인 엔진, 해양 설비",
+        "certification": "인증",
+        "certificationValue": "글로벌 표준 인증 제품",
+        "delivery": "납기",
+        "deliveryValue": "신속한 납기 대응 시스템"
+      },
+      "servicesTitle": "주요 제공 서비스",
+      "services": [
+        "상용차량, 건설 기계, 기관차 용 실린더라이너",
+        "선박 및 해양용 실린더라이너",
+        "슬러지 펌프 및 유압 실린더용 라이너",
+        "컴프레셔 및 발전기 유닛 용 실린더라이너"
+      ],
+      "featuresTitle": "핵심 특징",
+      "featuresQuality": "품질 보증",
+      "featuresQualityDesc": "글로벌 표준 인증 제품",
+      "featuresFastDelivery": "신속 납기",
+      "featuresFastDeliveryDesc": "빠른 대응 시스템 구축",
+      "featuresOfficialAgent": "WTQ 공식 대리점",
+      "featuresOfficialAgentDesc": "2025년 한국 대리점 개설",
+      "relatedProductsTitle": "관련 제품 바로가기",
+      "relatedProducts": {
+        "cylinderLiner": "Cylinder Liner",
+        "oilPurifier": "Oil Purifier",
+        "bearing": "Bearing"
+      },
+      "ctaButton": "상담 문의하기",
+      "features": ["선박 엔진용 실린더 라이너", "고효율 선박용 모터", "해양 환경 특수 베어링", "선박용 오일 정화 시스템"],
+      "overview": {
+        "title": "산업 개요",
+        "description": "조선 산업은 대형 선박부터 특수 선박까지 다양한 종류의 선박을 건조하는 산업입니다. 선박은 극한의 해양 환경에서 장기간 운항해야 하므로 내구성과 신뢰성이 뛰어난 부품이 필수적입니다."
+      },
+      "challenges": {
+        "title": "산업별 과제",
+        "items": [
+          {
+            "title": "해양 환경",
+            "description": "염분과 습도에 대한 높은 내식성 요구"
+          },
+          {
+            "title": "장기 운항",
+            "description": "장거리 항해 중 유지보수 최소화"
+          },
+          {
+            "title": "고출력 요구",
+            "description": "대형 선박 추진을 위한 고출력 시스템"
+          },
+          {
+            "title": "환경 규제",
+            "description": "IMO 규제 충족을 위한 친환경 기술"
+          }
+        ]
+      },
+      "solutions": {
+        "title": "라온토탈솔루션의 솔루션",
+        "items": [
+          {
+            "title": "실린더 라이너",
+            "partner": "WTQ",
+            "description": "선박 엔진용 고성능 라이너"
+          },
+          {
+            "title": "모터",
+            "partner": "NIDEC",
+            "description": "고효율 선박용 전동기"
+          },
+          {
+            "title": "베어링",
+            "partner": "터보링크",
+            "description": "해양 환경용 특수 베어링"
+          },
+          {
+            "title": "오일 정화기",
+            "partner": "삼영필텍",
+            "description": "선박용 오일 정화 시스템"
+          }
+        ]
+      },
+      "clients": {
+        "title": "주요 고객사",
+        "description": "국내 주요 조선 기업과 함께합니다"
+      },
+      "cta": {
+        "title": "조선 산업 솔루션이 필요하신가요?",
+        "description": "전문 엔지니어가 최적의 솔루션을 제안해 드립니다",
+        "button": "상담 문의하기"
+      }
+    },
+    "highlight": {
+      "title": "산업별 솔루션",
+      "description": "30년 노하우로 정유·석유화학, 조선 산업에 특화된 솔루션을 제공합니다",
+      "viewIndustry": "세부 산업 보기",
+      "keyProducts": "주력 제품",
+      "oilRefinery": {
+        "title": "정유·석유화학",
+        "description": "극한 환경에서도 안정적인 성능을 발휘하는 압축기, 펌프, 믹서 솔루션",
+        "bullets": [
+          "정유 및 석유화학 플랜트 핵심 설비",
+          "회전기계 및 왕복동 압축기 전문",
+          "24시간 긴급 출동 서비스"
+        ]
+      },
+      "shipbuilding": {
+        "title": "조선",
+        "description": "해양 환경에 최적화된 실린더 라이너, 모터, 베어링 솔루션",
+        "bullets": [
+          "선박용 메인 엔진 실린더 라이너",
+          "글로벌 표준 인증 제품",
+          "신속한 납기 대응 시스템"
+        ]
+      }
+    }
+  },
+  "products": {
+    "hero": {
+      "title": "제품",
+      "description": "글로벌 파트너와 함께하는",
+      "descriptionLine2": "회전기계 부품 솔루션"
+    },
+    "main": {
+      "title": "제품군",
+      "description": "라온토탈솔루션의 주요 제품을 소개합니다"
+    },
+    "categories": {
+      "compressor": {
+        "title": "Compressor",
+        "partner": "NEUMAN & ESSER",
+        "description": "왕복동 압축기 및 소모품"
+      },
+      "mixer": {
+        "title": "Mixer & Agitator",
+        "partner": "SPX FLOW",
+        "description": "산업용 믹서 및 교반기"
+      },
+      "motor": {
+        "title": "Motor",
+        "partner": "NIDEC",
+        "description": "고효율 산업용 모터"
+      },
+      "pump": {
+        "title": "Pump",
+        "partner": "CP Pumpen",
+        "description": "특수 산업용 펌프"
+      },
+      "bearing": {
+        "title": "Bearing",
+        "partner": "터보링크",
+        "description": "틸팅패드 베어링 시스템"
+      },
+      "cylinderLiner": {
+        "title": "Cylinder Liner",
+        "partner": "WTQ",
+        "description": "선박 엔진용 실린더 라이너"
+      },
+      "oilPurifier": {
+        "title": "Oil Purifier",
+        "partner": "삼영필텍",
+        "description": "산업용 오일 정화 시스템"
+      }
+    },
+    "snapshot": {
+      "title": "주요 제품",
+      "description": "글로벌 파트너십을 통해 최고의 품질을 보장합니다",
+      "viewAll": "전체 제품 보기",
+      "learnMore": "자세히 보기",
+      "products": {
+        "compressor": {
+          "name": "Reciprocating Compressor",
+          "description": "왕복동 압축기 및 부품. 정유·석유화학 플랜트의 핵심 설비"
+        },
+        "mixer": {
+          "name": "Mixer / Agitator",
+          "description": "산업용 믹서 및 교반기. 화학공정의 필수 장비"
+        },
+        "motor": {
+          "name": "Motor",
+          "description": "산업용 전동기. 설비 구동의 핵심 동력원"
+        },
+        "pump": {
+          "name": "Pump",
+          "description": "산업용 펌프 솔루션. 다양한 유체 이송 및 순환 시스템"
+        },
+        "bearing": {
+          "name": "Bearing",
+          "description": "고성능 베어링 및 윤활 시스템. 회전기계의 핵심 부품"
+        },
+        "oilPurifier": {
+          "name": "Oil Purifier",
+          "description": "오일 정화 시스템. 윤활유 수명 연장 및 설비 보호"
+        }
+      }
+    },
+    "detail": {
+      "partner": "파트너",
+      "features": "주요 특징",
+      "specifications": "제품 사양",
+      "models": "모델 라인업",
+      "applications": "적용 분야",
+      "backToProducts": "제품 목록으로",
+      "inquiry": "제품 문의"
+    },
+    "compressor": {
+      "hero": {
+        "title": "Compressor",
+        "description": "NEUMAN & ESSER 왕복동 압축기 및 소모품"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "NEA Group의 NEUMAN & ESSER는 1830년 설립 이래 190년 이상의 역사를 가진 왕복동 압축기 전문 기업입니다. 프로세스 가스 압축 분야의 글로벌 리더로서, 정유·석유화학·가스 산업에 최적화된 솔루션을 제공합니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "processCompressor": {
+            "title": "프로세스 가스 압축기",
+            "description": "정유·석유화학 공정용 고압 압축기"
+          },
+          "hydrogenCompressor": {
+            "title": "수소 압축기",
+            "description": "수소 충전소 및 수소 플랜트용"
+          },
+          "cngCompressor": {
+            "title": "CNG 압축기",
+            "description": "천연가스 충전소 및 수송용"
+          }
+        }
+      },
+      "consumables": {
+        "title": "소모품",
+        "description": "압축기 성능 유지를 위한 고품질 소모품을 공급합니다",
+        "items": {
+          "valves": {
+            "title": "밸브",
+            "description": "흡입/토출 밸브, 밸브 시트, 스프링 등"
+          },
+          "rings": {
+            "title": "피스톤 링 & 패킹",
+            "description": "피스톤 링, 라이더 링, 로드 패킹 등"
+          },
+          "gaskets": {
+            "title": "가스켓 & 씰",
+            "description": "실린더 헤드 가스켓, O-링, 오일 씰 등"
+          },
+          "others": {
+            "title": "기타 부품",
+            "description": "크로스헤드, 커넥팅 로드, 베어링 등"
+          }
+        }
+      },
+      "features": [
+        "190년 이상의 기술 노하우",
+        "글로벌 표준 충족 (API, ASME, PED)",
+        "맞춤형 엔지니어링 솔루션",
+        "24/7 글로벌 서비스 네트워크"
+      ]
+    },
+    "mixer": {
+      "hero": {
+        "title": "Mixer & Agitator",
+        "description": "SPX FLOW 산업용 믹서 및 교반기"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "SPX FLOW는 고도로 엔지니어링된 솔루션의 글로벌 리더입니다. Lightnin 브랜드의 산업용 믹서는 정유·석유화학·화학·식품 산업 등 다양한 분야에서 최적의 혼합 성능을 제공합니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "topEntry": {
+            "title": "Top Entry 믹서",
+            "description": "대용량 탱크용 상부 장착형 믹서"
+          },
+          "sideEntry": {
+            "title": "Side Entry 믹서",
+            "description": "저장 탱크용 측면 장착형 믹서"
+          },
+          "portable": {
+            "title": "Portable 믹서",
+            "description": "이동식 소형 믹서"
+          }
+        }
+      },
+      "features": [
+        "A310 임펠러 기술",
+        "에너지 효율 최적화",
+        "내부식성 재질 옵션",
+        "맞춤형 설계 가능"
+      ]
+    },
+    "motor": {
+      "hero": {
+        "title": "Motor",
+        "description": "NIDEC 고효율 산업용 모터"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "NIDEC는 세계 최대의 종합 모터 제조 기업입니다. 정밀 소형 모터부터 대형 산업용 모터까지, 다양한 응용 분야에 최적화된 고효율 모터를 공급합니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "induction": {
+            "title": "유도 전동기",
+            "description": "일반 산업용 표준 모터"
+          },
+          "explosion": {
+            "title": "방폭 모터",
+            "description": "위험 지역용 방폭 인증 모터"
+          },
+          "marine": {
+            "title": "선박용 모터",
+            "description": "해양 환경용 특수 모터"
+          }
+        }
+      },
+      "features": [
+        "IE3/IE4 고효율 등급",
+        "글로벌 인증 (IEC, NEMA)",
+        "다양한 냉각 방식",
+        "맞춤형 사양 가능"
+      ]
+    },
+    "pump": {
+      "hero": {
+        "title": "Pump",
+        "description": "CP Pumpen 특수 산업용 펌프"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "CP Pumpen은 스위스에 본사를 둔 특수 펌프 전문 기업입니다. 고온, 고압, 부식성 매체를 다루는 화학·석유화학·정유 산업에 최적화된 펌프를 제공합니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "centrifugal": {
+            "title": "원심 펌프",
+            "description": "API 610 규격 프로세스 펌프"
+          },
+          "magnetic": {
+            "title": "마그네틱 펌프",
+            "description": "씰리스 펌프"
+          },
+          "highPressure": {
+            "title": "고압 펌프",
+            "description": "보일러 급수용 다단 펌프"
+          }
+        }
+      },
+      "features": [
+        "API 610 규격 충족",
+        "내부식성 특수 재질",
+        "씰리스 설계 옵션",
+        "맞춤형 엔지니어링"
+      ]
+    },
+    "bearing": {
+      "hero": {
+        "title": "Bearing",
+        "description": "터보링크 틸팅패드 베어링 시스템"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "터보링크는 틸팅패드 베어링 전문 기업으로, 터보기계 및 회전 장비에 최적화된 고성능 베어링을 공급합니다. 압축기, 터빈, 펌프 등 다양한 회전기계에 적용됩니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "journal": {
+            "title": "저널 베어링",
+            "description": "축 하중 지지용 틸팅패드 베어링"
+          },
+          "thrust": {
+            "title": "스러스트 베어링",
+            "description": "축방향 하중 지지용 베어링"
+          },
+          "combined": {
+            "title": "복합 베어링",
+            "description": "저널 + 스러스트 일체형"
+          }
+        }
+      },
+      "features": [
+        "고부하 용량",
+        "우수한 안정성",
+        "저마찰 설계",
+        "맞춤형 제작"
+      ]
+    },
+    "cylinderLiner": {
+      "hero": {
+        "title": "Cylinder Liner",
+        "description": "WTQ 선박 엔진용 실린더 라이너"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "WTQ는 선박 엔진용 실린더 라이너 전문 제조 기업입니다. MAN, Wartsila, Hyundai-HiMSEN 등 주요 선박 엔진에 적용되는 고품질 라이너를 공급합니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "twoStroke": {
+            "title": "2행정 엔진용",
+            "description": "대형 선박용 저속 엔진 라이너"
+          },
+          "fourStroke": {
+            "title": "4행정 엔진용",
+            "description": "중·고속 엔진 라이너"
+          }
+        }
+      },
+      "features": [
+        "주요 엔진 호환",
+        "고내마모성 소재",
+        "정밀 가공",
+        "빠른 납기"
+      ],
+      "compatibility": {
+        "title": "호환 엔진",
+        "engines": ["MAN B&W", "Wartsila", "Hyundai-HiMSEN", "Doosan", "STX"]
+      }
+    },
+    "oilPurifier": {
+      "hero": {
+        "title": "Oil Purifier",
+        "description": "삼영필텍 산업용 오일 정화 시스템"
+      },
+      "overview": {
+        "title": "제품 개요",
+        "description": "삼영필텍은 국내 대표적인 오일 정화 시스템 전문 기업입니다. 선박, 발전소, 산업 플랜트에서 사용되는 윤활유 및 연료유의 정화·재생 솔루션을 제공합니다."
+      },
+      "products": {
+        "title": "제품 라인업",
+        "items": {
+          "centrifugal": {
+            "title": "원심분리형",
+            "description": "고속 원심 분리 방식"
+          },
+          "vacuum": {
+            "title": "진공탈수형",
+            "description": "수분 제거 특화"
+          },
+          "combined": {
+            "title": "복합형",
+            "description": "원심 + 진공 일체형"
+          }
+        }
+      },
+      "features": [
+        "고효율 정화",
+        "자동 운전",
+        "소형·경량 설계",
+        "유지보수 용이"
+      ]
+    }
+  },
+  "partners": {
+    "hero": {
+      "title": "Partners & Clients",
+      "description": "라온토탈솔루션은 전 세계 최고 수준의 제조사들과 공식 파트너십 및 대리점 계약을 맺고,",
+      "descriptionLine2": "국내 유수의 에너지·화학·중공업 기업들에게 검증된 솔루션을 제공합니다."
+    },
+    "sections": {
+      "globalPartners": "글로벌 파트너",
+      "majorClients": "주요 고객사"
+    },
+    "home": {
+      "title": "신뢰할 수 있는 파트너",
+      "description": "글로벌 파트너와 국내 주요 고객사가 함께합니다",
+      "clientsDescription": "대한민국 주요 산업의 성장을 함께합니다"
+    },
+    "globalPartners": {
+      "title": "글로벌 파트너",
+      "description": "전 세계 최고 수준의 제조사들과 공식 파트너십 및 대리점 계약을 맺고, 안정적이고 검증된 부품만을 공급합니다.",
+      "partnerInfo": {
+        "contractYear": "계약 연도:",
+        "relationship": "관계:"
+      }
+    },
+    "whyPartner": {
+      "title": "파트너십의 강점",
+      "items": {
+        "officialContract": {
+          "title": "공식 대리점 계약",
+          "description": "모든 파트너사와 공식 대리점 계약을 체결하여 정품 부품만을 공급합니다."
+        },
+        "globalNetwork": {
+          "title": "글로벌 네트워크",
+          "description": "유럽, 미국, 아시아 등 전 세계 최고 수준의 제조사들과 파트너십을 보유하고 있습니다."
+        },
+        "techSupport": {
+          "title": "기술 지원",
+          "description": "제조사와의 긴밀한 협력을 통해 신속한 기술 지원과 A/S를 제공합니다."
+        },
+        "stableSupply": {
+          "title": "안정적 공급",
+          "description": "파트너사와의 협력으로 안정적인 재고 확보와 신속한 납기가 가능합니다."
+        },
+        "competitivePrice": {
+          "title": "경쟁력 있는 가격",
+          "description": "대리점 계약을 통한 직접 공급으로 합리적인 가격을 제공합니다."
+        },
+        "qualityAssurance": {
+          "title": "품질 보증",
+          "description": "제조사 직접 공급으로 품질을 보증하고 위조품 위험이 없습니다."
+        }
+      }
+    },
+    "majorClients": {
+      "title": "주요 고객사",
+      "description": "국내 유수의 에너지, 화학, 중공업 기업들이 라온토탈솔루션의 기술력과 서비스를 신뢰하고 있습니다.",
+      "trustSection": {
+        "title": "신뢰받는 파트너",
+        "description": "SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크 등 국내 4대 정유사를 비롯하여, 석유화학 및 종합 산업 기업들이 라온토탈솔루션의 전문성을 신뢰합니다.",
+        "experience": "30년 경험을 바탕으로 국내 주요 에너지·화학·중공업 기업들에게 최고 수준의 부품과 기술 서비스를 제공하는 신뢰받는 파트너입니다."
+      }
+    },
+    "stats": {
+      "experience": "업계 경험 (년)",
+      "experienceDesc": "창업주의 회전기계 분야 30년 노하우 계승",
+      "partners": "글로벌 파트너사",
+      "partnersDesc": "전 세계 최고 수준의 제조사 협력",
+      "clients": "주요 고객사",
+      "clientsDesc": "국내 4대 정유사 포함 주요 기업"
+    },
+    "cta": {
+      "title": "라온토탈솔루션과 함께하시겠습니까?",
+      "description": "글로벌 파트너십과 30년 경험을 바탕으로 최고의 솔루션을 제공합니다.",
+      "partnershipInquiry": "파트너십 문의",
+      "viewProducts": "제품 보기"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "문의하기",
+      "description": "아래 양식을 작성해 주시면",
+      "descriptionLine2": "빠르게 답변 드리겠습니다"
+    },
+    "form": {
+      "title": "문의 양식",
+      "category": {
+        "label": "문의 분야",
+        "placeholder": "문의 분야를 선택해주세요",
+        "options": {
+          "compressorValve": "압축기 밸브",
+          "compressorRing": "압축기 링 & 패킹",
+          "frameParts": "프레임 부품",
+          "repairService": "수리 서비스",
+          "materials": "소재",
+          "general": "일반 문의"
+        }
+      },
+      "name": {
+        "label": "이름",
+        "placeholder": "홍길동"
+      },
+      "company": {
+        "label": "회사명",
+        "placeholder": "회사명을 입력해주세요"
+      },
+      "email": {
+        "label": "이메일",
+        "placeholder": "example@company.com"
+      },
+      "phone": {
+        "label": "연락처",
+        "placeholder": "010-1234-5678"
+      },
+      "message": {
+        "label": "문의 내용",
+        "placeholder": "문의 내용을 자세히 작성해주세요"
+      },
+      "file": {
+        "label": "첨부파일",
+        "optional": "선택",
+        "selectButton": "파일 선택",
+        "attached": "개 첨부됨",
+        "help": "PDF, 이미지 (JPG, PNG, GIF, WebP), Word 문서 허용 (파일당 최대 5MB, 최대 3개)"
+      },
+      "submit": "문의하기",
+      "submitting": "전송 중..."
+    },
+    "success": {
+      "title": "문의가 성공적으로 접수되었습니다",
+      "message": "빠른 시일 내에 답변 드리겠습니다. 문의해 주셔서 감사합니다.",
+      "backHome": "홈으로 돌아가기"
+    },
+    "error": {
+      "submitFailed": "전송 중 오류가 발생했습니다. 다시 시도해주세요."
+    },
+    "info": {
+      "phone": {
+        "label": "전화",
+        "value": "02-575-3051"
+      },
+      "email": {
+        "label": "이메일",
+        "value": "rts@raontotalsolution.co.kr"
+      }
+    },
+    "validation": {
+      "categoryRequired": "문의 분야를 선택해주세요.",
+      "nameMin": "이름은 2자 이상 입력해주세요.",
+      "companyRequired": "회사명을 입력해주세요.",
+      "emailInvalid": "올바른 이메일 주소를 입력해주세요.",
+      "phoneInvalid": "올바른 연락처를 입력해주세요.",
+      "messageMin": "문의 내용은 10자 이상 입력해주세요."
+    }
+  },
+  "footer": {
+    "companyName": "라온토탈솔루션",
+    "description": "회전기계 및 압축기 부품 전문 기업",
+    "address": "서울시 서초구 마방로 16, 5층 (양재동, 재연빌딩)",
+    "phone": "02-575-3051",
+    "fax": "02-575-3052",
+    "email": "sales@raontotalsolution.co.kr",
+    "copyright": "© {year} 라온토탈솔루션. All rights reserved.",
+    "links": {
+      "company": "회사소개",
+      "industries": "산업별 솔루션",
+      "products": "제품",
+      "partners": "파트너"
+    },
+    "productList": {
+      "compressor": "Compressor & Parts",
+      "mixer": "Mixer / Agitator",
+      "pump": "Pump",
+      "bearing": "Bearing",
+      "oilPurifier": "Oil Purifier"
+    },
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관"
   }
 }

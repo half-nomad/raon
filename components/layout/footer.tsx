@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslations("footer");
 
   return (
     <footer className="bg-[#0A1628] text-white">
@@ -11,7 +15,7 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">RAON</h3>
             <p className="text-sm text-gray-300">
-              30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업
+              {t("description")}
             </p>
           </div>
 
@@ -24,7 +28,7 @@ export function Footer() {
                   href="/company"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  회사소개
+                  {t("links.company")}
                 </Link>
               </li>
               <li>
@@ -32,7 +36,7 @@ export function Footer() {
                   href="/industries"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  산업별 솔루션
+                  {t("links.industries")}
                 </Link>
               </li>
               <li>
@@ -40,7 +44,7 @@ export function Footer() {
                   href="/products"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  제품
+                  {t("links.products")}
                 </Link>
               </li>
               <li>
@@ -48,7 +52,7 @@ export function Footer() {
                   href="/partners"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  파트너
+                  {t("links.partners")}
                 </Link>
               </li>
             </ul>
@@ -58,11 +62,11 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold uppercase">Products</h4>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-300">Compressor & Parts</li>
-              <li className="text-sm text-gray-300">Mixer / Agitator</li>
-              <li className="text-sm text-gray-300">Pump</li>
-              <li className="text-sm text-gray-300">Bearing</li>
-              <li className="text-sm text-gray-300">Oil Purifier</li>
+              <li className="text-sm text-gray-300">{t("productList.compressor")}</li>
+              <li className="text-sm text-gray-300">{t("productList.mixer")}</li>
+              <li className="text-sm text-gray-300">{t("productList.pump")}</li>
+              <li className="text-sm text-gray-300">{t("productList.bearing")}</li>
+              <li className="text-sm text-gray-300">{t("productList.oilPurifier")}</li>
             </ul>
           </div>
 
@@ -70,25 +74,24 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold uppercase">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li>서울시 서초구 마방로 16, 5층</li>
-              <li>(양재동, 재연빌딩)</li>
+              <li>{t("address")}</li>
               <li className="pt-2">
                 <a
                   href="tel:02-575-3051"
                   className="hover:text-[#3B82F6] transition-colors"
                 >
-                  Tel: 02-575-3051
+                  Tel: {t("phone")}
                 </a>
               </li>
               <li>
-                <span>Fax: 02-575-3052</span>
+                <span>Fax: {t("fax")}</span>
               </li>
               <li>
                 <a
                   href="mailto:sales@raontotalsolution.co.kr"
                   className="hover:text-[#3B82F6] transition-colors"
                 >
-                  sales@raontotalsolution.co.kr
+                  {t("email")}
                 </a>
               </li>
             </ul>
@@ -99,20 +102,20 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-400">
-              © {currentYear} 라온토탈솔루션. All rights reserved.
+              {t("copyright", { year: currentYear })}
             </p>
             <div className="flex space-x-6">
               <Link
                 href="/privacy"
                 className="text-sm text-gray-400 hover:text-[#3B82F6] transition-colors"
               >
-                개인정보처리방침
+                {t("privacy")}
               </Link>
               <Link
                 href="/terms"
                 className="text-sm text-gray-400 hover:text-[#3B82F6] transition-colors"
               >
-                이용약관
+                {t("terms")}
               </Link>
             </div>
           </div>

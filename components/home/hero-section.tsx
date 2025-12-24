@@ -2,8 +2,10 @@
 
 import { CTAButton } from "@/components/ui/cta-button";
 import { ArrowDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations("hero");
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Video */}
@@ -34,16 +36,16 @@ export function HeroSection() {
         <div className="max-w-4xl">
           {/* Main Copy */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
-            Technology Connecting
+            {t("title")}
             <br />
-            Energy's Future
+            {t("titleLine2")}
           </h1>
 
           {/* Sub Copy */}
           <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl">
-            30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업.
+            {t("description")}
             <br className="hidden sm:block" />
-            라온토탈솔루션이 최적의 품질과 납기로 고객의 가치를 높입니다.
+            {t("descriptionLine2")}
           </p>
 
           {/* CTA Buttons */}
@@ -53,14 +55,14 @@ export function HeroSection() {
               variant="primary"
               size="large"
             >
-              산업별 솔루션 보기
+              {t("cta.industries")}
             </CTAButton>
             <CTAButton
               href="/contact"
               variant="secondary"
               size="large"
             >
-              견적 문의하기
+              {t("cta.contact")}
             </CTAButton>
           </div>
         </div>
@@ -75,7 +77,7 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2 text-white/60 animate-bounce">
-        <span className="text-xs uppercase tracking-wider">Scroll</span>
+        <span className="text-xs uppercase tracking-wider">{t("scroll")}</span>
         <ArrowDown className="w-5 h-5" />
       </div>
     </section>

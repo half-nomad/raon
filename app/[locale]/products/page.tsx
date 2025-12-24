@@ -3,19 +3,20 @@ import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { getTranslations } from "next-intl/server";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
+  const t = await getTranslations();
   const products = [
     {
       id: "compressor",
       title: "Compressor & Spare parts",
       brand: "WTQ, Castanet SA, KB Delta",
-      description:
-        "왕복동, 로터리 스크류, 원심식 등 다양한 산업용 압축기와 관련 핵심 부품 일체를 공급합니다.",
+      description: t("products.categories.compressor.description"),
       features: [
-        "Cylinder liner, Piston, Piston Rod",
-        "Crosshead, Consumable parts",
-        "Valve Assy & Internal Parts",
+        t("products.categories.compressor.features.0"),
+        t("products.categories.compressor.features.1"),
+        t("products.categories.compressor.features.2"),
       ],
       slug: "/products/compressor",
       image: "/images/category/compressor-parts_cat.jpg",
@@ -24,12 +25,11 @@ export default function ProductsPage() {
       id: "mixer",
       title: "Mixer & Agitator",
       brand: "SPX FLOW (Lightnin, Plenty, Stelzer)",
-      description:
-        "다양한 유체(액체 또는 혼합물)를 효과적으로 섞고, 균질화하며, 일정한 상태로 유지하기 위한 장치입니다.",
+      description: t("products.categories.mixer.description"),
       features: [
-        "산업용 믹서 및 교반기",
-        "고점도 유체 처리",
-        "맞춤형 솔루션 제공",
+        t("products.categories.mixer.features.0"),
+        t("products.categories.mixer.features.1"),
+        t("products.categories.mixer.features.2"),
       ],
       slug: "/products/mixer",
       image: "/images/category/Mixer & Agitator_cat.jpg",
@@ -38,12 +38,11 @@ export default function ProductsPage() {
       id: "motor",
       title: "Motor",
       brand: "NIDEC",
-      description:
-        "전기 에너지를 기계 에너지로 변환하여 기계를 움직이게 하는 장치. Nidec은 고품질의 정밀 모터를 설계 및 제조합니다.",
+      description: t("products.categories.motor.description"),
       features: [
-        "Inverter motor, Vector motor",
-        "Three-phase motor",
-        "Anti-explosion motor",
+        t("products.categories.motor.features.0"),
+        t("products.categories.motor.features.1"),
+        t("products.categories.motor.features.2"),
       ],
       slug: "/products/motor",
       image: "/images/category/motor_cat.jpg",
@@ -52,12 +51,11 @@ export default function ProductsPage() {
       id: "pump",
       title: "Pump",
       brand: "CP Pumpen",
-      description:
-        "액체를 한 장소에서 다른 장소로 이동시키는 장치. 화학, 식품, 제약 등 분야에서 널리 사용됩니다.",
+      description: t("products.categories.pump.description"),
       features: [
-        "15개 모델, 105개 이상 펌프 사이즈",
-        "Magnetic Drive (MKP)",
-        "PFA-Lined (MKPL), Self-Priming (MKP-S)",
+        t("products.categories.pump.features.0"),
+        t("products.categories.pump.features.1"),
+        t("products.categories.pump.features.2"),
       ],
       slug: "/products/pump",
       image: "/images/category/pump_cat.jpg",
@@ -65,13 +63,12 @@ export default function ProductsPage() {
     {
       id: "bearing",
       title: "Bearing",
-      brand: "터보링크 (TURBO LINK)",
-      description:
-        "회전하거나 움직이는 기계 부품을 지지하고, 마찰을 줄이며, 안정적으로 작동하도록 돕는 장치입니다.",
+      brand: t("products.categories.bearing.brand"),
+      description: t("products.categories.bearing.description"),
       features: [
-        "Tilting Pad Thrust Bearing",
-        "Vertical Bearing",
-        "Journal & Thrust Combined Bearing",
+        t("products.categories.bearing.features.0"),
+        t("products.categories.bearing.features.1"),
+        t("products.categories.bearing.features.2"),
       ],
       slug: "/products/bearing",
       image: "/images/category/bearing_cat.jpg",
@@ -80,12 +77,11 @@ export default function ProductsPage() {
       id: "cylinder-liner",
       title: "Cylinder Liner for Ship",
       brand: "WTQ (Yangzhou Wuting Qiao)",
-      description:
-        "선박용 실린더 라이너는 엔진 내부의 피스톤이 움직이는 공간을 감싸는 부품으로, 엔진 실린더를 보호하고 마모를 줄이며 엔진 수명을 연장합니다.",
+      description: t("products.categories.cylinderLiner.description"),
       features: [
-        "선박용 대형 엔진 부품",
-        "직경 480~1500mm 공급",
-        "고내구성 소재",
+        t("products.categories.cylinderLiner.features.0"),
+        t("products.categories.cylinderLiner.features.1"),
+        t("products.categories.cylinderLiner.features.2"),
       ],
       slug: "/products/cylinder-liner",
       image: "/images/category/cylinder-liner_cat.jpg",
@@ -93,13 +89,12 @@ export default function ProductsPage() {
     {
       id: "oil-purifier",
       title: "Oil Purifier",
-      brand: "삼영필텍 (SYT)",
-      description:
-        "오염된 오일(윤활유, 유압유 등)을 정화하여 재사용 가능하도록 만드는 장치. 수분, 불순물, 미세 입자를 제거합니다.",
+      brand: t("products.categories.oilPurifier.brand"),
+      description: t("products.categories.oilPurifier.description"),
       features: [
-        "수분 및 불순물 제거",
-        "오일 수명 연장",
-        "설비 보호 및 유지비용 절감",
+        t("products.categories.oilPurifier.features.0"),
+        t("products.categories.oilPurifier.features.1"),
+        t("products.categories.oilPurifier.features.2"),
       ],
       slug: "/products/oil-purifier",
       image: "/images/category/Oil Purifier_cat.jpg",
@@ -126,13 +121,10 @@ export default function ProductsPage() {
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Products & Solutions
+              {t("products.hero.title")}
             </h1>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-              정유·석유화학, 조선, 발전 산업 전반에 걸쳐 최고 품질의 회전기계
-              부품과 솔루션을 공급합니다.
-              <br />
-              30년 축적된 전문성으로 귀사의 설비 안정성과 효율성을 책임집니다.
+              {t("products.hero.description")}
             </p>
           </div>
         </div>
@@ -192,7 +184,7 @@ export default function ProductsPage() {
                     href={product.slug}
                     className="inline-flex items-center text-[#3B82F6] font-semibold hover:text-[#2563EB] transition-colors group"
                   >
-                    <span>자세히 보기</span>
+                    <span>{t("common.learnMore")}</span>
                     <ChevronRight className="ml-1 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -206,23 +198,23 @@ export default function ProductsPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            필요하신 제품을 찾지 못하셨나요?
+            {t("products.main.ctaTitle")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            부품 도면, 사진만 있어도 최적 솔루션을 제안해 드립니다.
+            {t("products.main.ctaDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              상담 문의
+              {t("common.contact")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              제품 문의
+              {t("common.productInquiry")}
             </Link>
           </div>
         </div>

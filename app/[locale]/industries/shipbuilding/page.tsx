@@ -5,6 +5,7 @@ import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: '조선 산업 | Shipbuilding',
@@ -17,25 +18,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ShipbuildingPage() {
-  const services = [
-    "상용차량, 건설 기계, 기관차 용 실린더라이너",
-    "선박 및 해양용 실린더라이너",
-    "슬러지 펌프 및 유압 실린더용 라이너",
-    "컴프레셔 및 발전기 유닛 용 실린더라이너",
-  ];
+export default async function ShipbuildingPage() {
+  const t = await getTranslations("industries.shipbuilding");
+  const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: "Cylinder Liner", href: "/products#cylinder-liner" },
-    { name: "Oil Purifier", href: "/products#oil-purifier" },
-    { name: "Bearing", href: "/products#bearing" },
+    { name: t("relatedProducts.cylinderLiner"), href: "/products#cylinder-liner" },
+    { name: t("relatedProducts.oilPurifier"), href: "/products#oil-purifier" },
+    { name: t("relatedProducts.bearing"), href: "/products#bearing" },
   ];
 
   const specifications = [
-    { label: "직경 범위", value: "480 ~ 1500mm" },
-    { label: "적용 분야", value: "선박 메인 엔진, 해양 설비" },
-    { label: "인증", value: "글로벌 표준 인증 제품" },
-    { label: "납기", value: "신속한 납기 대응 시스템" },
+    { label: t("specifications.diameter"), value: t("specifications.diameterValue") },
+    { label: t("specifications.application"), value: t("specifications.applicationValue") },
+    { label: t("specifications.certification"), value: t("specifications.certificationValue") },
+    { label: t("specifications.delivery"), value: t("specifications.deliveryValue") },
   ];
 
   return (
@@ -44,15 +41,15 @@ export default function ShipbuildingPage() {
         items={[
           { name: 'Home', url: '/' },
           { name: 'Industries', url: '/industries' },
-          { name: '조선', url: '/industries/shipbuilding' },
+          { name: t("title"), url: '/industries/shipbuilding' },
         ]}
       />
       <Header />
 
       <IndustryHero
-        title="조선"
-        subtitle="Ship Building"
-        description="중국 양주 실린더라이너 제조사(WTQ)의 한국 대리점으로 고품질 선박용 부품을 공급합니다"
+        title={t("title")}
+        subtitle={t("subtitle")}
+        description={t("heroDescription")}
       />
 
       {/* Industry Representative Image */}
@@ -61,7 +58,7 @@ export default function ShipbuildingPage() {
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/images/industries/shipbuilding.PNG"
-              alt="조선소 및 선박 건조 현장"
+              alt={t("title")}
               fill
               className="object-cover"
               sizes="(max-width: 1240px) 100vw, 1240px"
@@ -70,7 +67,7 @@ export default function ShipbuildingPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <p className="text-sm sm:text-base font-medium opacity-90">
-                대형 선박 건조 현장에서 사용되는 고품질 실린더 라이너 및 해양 설비
+                {t("imageCaption")}
               </p>
             </div>
           </div>
@@ -83,20 +80,17 @@ export default function ShipbuildingPage() {
           {/* Introduction */}
           <div className="max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mb-6">
-              핵심 소개
+              {t("introTitle")}
             </h2>
             <div className="prose prose-lg text-gray-700 leading-relaxed space-y-4">
               <p>
-                당사는 중국 양주에 위치한 실린더라이너 제조사(WTQ)의 한국
-                대리점으로 직경 480~ 1500mm의 실린더라이너를 공급합니다.
+                {t("intro1")}
               </p>
               <p>
-                WTQ사는 선박용 메인 엔진 실린더라이너를 생산하는 중국 내 주요
-                제조사 중 하나로, 2025년 한국에 대리점을 개설하게 되었습니다.
+                {t("intro2")}
               </p>
               <p className="text-[#3B82F6] font-semibold">
-                글로벌 표준 인증을 받은 제품으로 안정적인 품질과 신속한 납기를
-                보장합니다.
+                {t("intro3")}
               </p>
             </div>
           </div>
@@ -104,7 +98,7 @@ export default function ShipbuildingPage() {
           {/* Specifications */}
           <div className="mb-16">
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-8 text-center">
-              제품 사양
+              {t("specificationsTitle")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {specifications.map((spec, index) => (
@@ -124,7 +118,7 @@ export default function ShipbuildingPage() {
           {/* Services Grid */}
           <div className="mb-16">
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-8 text-center">
-              주요 제공 서비스
+              {t("servicesTitle")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {services.map((service, index) => (
@@ -175,9 +169,9 @@ export default function ShipbuildingPage() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-2">품질 보증</h4>
+              <h4 className="text-xl font-bold mb-2">{t("featuresQuality")}</h4>
               <p className="text-white/80 text-sm">
-                글로벌 표준 인증 제품
+                {t("featuresQualityDesc")}
               </p>
             </div>
 
@@ -197,9 +191,9 @@ export default function ShipbuildingPage() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-2">신속 납기</h4>
+              <h4 className="text-xl font-bold mb-2">{t("featuresFastDelivery")}</h4>
               <p className="text-white/80 text-sm">
-                빠른 대응 시스템 구축
+                {t("featuresFastDeliveryDesc")}
               </p>
             </div>
 
@@ -219,9 +213,9 @@ export default function ShipbuildingPage() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-2">WTQ 공식 대리점</h4>
+              <h4 className="text-xl font-bold mb-2">{t("featuresOfficialAgent")}</h4>
               <p className="text-white/80 text-sm">
-                2025년 한국 대리점 개설
+                {t("featuresOfficialAgentDesc")}
               </p>
             </div>
           </div>
@@ -229,7 +223,7 @@ export default function ShipbuildingPage() {
           {/* Related Products */}
           <div className="bg-gray-50 rounded-2xl p-8 sm:p-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-6 text-center">
-              관련 제품 바로가기
+              {t("relatedProductsTitle")}
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {relatedProducts.map((product, index) => (
@@ -250,7 +244,7 @@ export default function ShipbuildingPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-[#0A1628] text-white font-semibold text-lg rounded-full hover:bg-[#1A2D47] hover:shadow-xl transition-all"
             >
-              상담 문의하기
+              {t("ctaButton")}
               <svg
                 className="ml-2 w-5 h-5"
                 fill="none"

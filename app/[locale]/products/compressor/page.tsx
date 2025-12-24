@@ -11,6 +11,7 @@ import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { ImageGallery } from "@/components/ui/image-gallery";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Compressor & Spare Parts | 왕복동 압축기 전문',
@@ -84,7 +85,9 @@ const valveImages = [
   { src: "/images/products/compressor-parts/spring_1.PNG", alt: "Valve Spring" },
 ];
 
-export default function CompressorPage() {
+export default async function CompressorPage() {
+  const t = await getTranslations();
+
   return (
     <div className="min-h-screen bg-white">
       <ProductSchema
@@ -124,10 +127,7 @@ export default function CompressorPage() {
               Compressor & Spare parts
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
-              왕복동, 로터리 스크류, 원심식 등 다양한 산업용 압축기와 관련 핵심
-              부품 일체를 공급합니다.
-              <br className="hidden md:block" />
-              30년 축적된 경험으로 최적의 품질과 납기를 보장합니다.
+              {t("products.compressor.hero.description")}
             </p>
           </div>
         </div>
@@ -614,23 +614,23 @@ export default function CompressorPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            필요하신 부품의 도면이나 사진이 있으신가요?
+            {t("products.compressor.cta.title")}
           </h2>
           <p className="text-sm md:text-base lg:text-lg text-slate-200 mb-6 md:mb-8 max-w-2xl mx-auto">
-            기존 부품의 도면, 사진, 또는 모델명만으로도 최적의 대체 솔루션을 제안해 드립니다.
+            {t("products.compressor.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors text-sm md:text-base"
             >
-              기술 상담 문의
+              {t("products.compressor.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors text-sm md:text-base"
             >
-              견적 문의
+              {t("products.compressor.cta.quote")}
             </Link>
           </div>
         </div>

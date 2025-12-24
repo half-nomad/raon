@@ -2,47 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface TimelineItem {
   year: string;
   events: string[];
 }
 
-const TIMELINE_DATA: TimelineItem[] = [
-  {
-    year: "2025",
-    events: [
-      "중국 Cylinder liner 제작사 (WTQ)와 한국 대리점 계약 체결",
-      "CP pump systems (Swiss) 울산 대리점 계약 체결",
-      "FIMA (Germany) Compressor 제작사와 대리점 계약 체결",
-    ],
-  },
-  {
-    year: "2024",
-    events: [
-      "NEUMAN&ESSER 울산 대리점 계약 체결",
-      "(주)터보링크 (정유/석유화학 분야) 대리점 계약 체결",
-    ],
-  },
-  {
-    year: "2022",
-    events: ["SPX Flow Technology 한국 Master 대리점 계약 체결"],
-  },
-  {
-    year: "2021",
-    events: [
-      "(주)라온토탈솔루션 회사명 변경 (법인 전환)",
-      "프랑스 Wearing Parts (Castanet) 대리점 계약 체결",
-      "미국 Valve 제작사와 대리점 계약 체결",
-    ],
-  },
-  {
-    year: "2020",
-    events: ["HK 인터내셔널 설립 (개인)"],
-  },
-];
-
 export function HistoryTimeline() {
+  const t = useTranslations("company.history");
+
+  const TIMELINE_DATA: TimelineItem[] = [
+    t.raw("years.2025"),
+    t.raw("years.2024"),
+    t.raw("years.2022"),
+    t.raw("years.2021"),
+    t.raw("years.2020"),
+  ];
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -102,13 +78,13 @@ export function HistoryTimeline() {
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">
-            Company History
+            {t("label")}
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            연혁
+            {t("title")}
           </h2>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
-            2020년부터 현재까지 라온토탈솔루션의 성장 여정
+            {t("description")}
           </p>
         </motion.div>
 

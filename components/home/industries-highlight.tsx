@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface IndustryCardProps {
   title: string;
@@ -64,7 +67,8 @@ function IndustryCard({
             variant="outline"
             className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-[#0A1628] transition-all"
           >
-            세부 산업 보기
+            <span className="sr-only">{title} - </span>
+            View Details
             <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
@@ -72,7 +76,7 @@ function IndustryCard({
 
       {/* Tags Section */}
       <div className="p-4 sm:p-6 bg-gray-50 border-t border-gray-200">
-        <p className="text-xs text-gray-500 mb-2">주력 제품</p>
+        <p className="text-xs text-gray-500 mb-2">Key Products</p>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
             <span
@@ -89,29 +93,23 @@ function IndustryCard({
 }
 
 export function IndustriesHighlight() {
+  const t = useTranslations("industries.highlight");
+
   const industries = [
     {
-      title: "정유·석유화학",
+      title: t("oilRefinery.title"),
       subtitle: "Oil Refinery & Petrochemical",
-      description: "30년 노하우의 플랜트 솔루션",
-      bullets: [
-        "정유 및 석유화학 플랜트 핵심 설비",
-        "회전기계 및 왕복동 압축기 전문",
-        "24시간 긴급 출동 서비스",
-      ],
+      description: t("oilRefinery.description"),
+      bullets: t.raw("oilRefinery.bullets") as string[],
       tags: ["Compressor & Parts", "Pump", "Bearing"],
       href: "/industries/oil-refinery",
       image: "/images/industries/oil-refinery.PNG",
     },
     {
-      title: "조선",
+      title: t("shipbuilding.title"),
       subtitle: "Ship Building",
-      description: "선박 엔진용 실린더 라이너 전문 공급",
-      bullets: [
-        "선박용 메인 엔진 실린더 라이너",
-        "글로벌 표준 인증 제품",
-        "신속한 납기 대응 시스템",
-      ],
+      description: t("shipbuilding.description"),
+      bullets: t.raw("shipbuilding.bullets") as string[],
       tags: ["Cylinder Liner", "Engine Parts"],
       href: "/industries/shipbuilding",
       image: "/images/industries/shipbuilding.PNG",
@@ -127,10 +125,10 @@ export function IndustriesHighlight() {
             Business Field
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4">
-            핵심 산업 솔루션
+            {t("title")}
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            정유·석유화학 및 조선 산업을 위한 전문 솔루션을 제공합니다
+            {t("description")}
           </p>
         </div>
 

@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface ProductCardProps {
   name: string;
@@ -42,7 +45,7 @@ function ProductCard({
 
         {/* View More Link */}
         <div className="flex items-center text-sm font-semibold text-[#3B82F6] group-hover:gap-2 transition-all">
-          <span>자세히 보기</span>
+          <span>Learn More</span>
           <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
@@ -51,41 +54,42 @@ function ProductCard({
 }
 
 export function ProductsSnapshot() {
+  const t = useTranslations("products.snapshot");
+
   const products = [
     {
-      name: "Reciprocating Compressor",
-      description:
-        "왕복동 압축기 및 부품. 정유·석유화학 플랜트의 핵심 설비",
+      name: t("products.compressor.name"),
+      description: t("products.compressor.description"),
       href: "/products/compressor",
       image: "/images/category/compressor-parts_cat.jpg",
     },
     {
-      name: "Mixer / Agitator",
-      description: "산업용 믹서 및 교반기. 화학공정의 필수 장비",
+      name: t("products.mixer.name"),
+      description: t("products.mixer.description"),
       href: "/products/mixer",
       image: "/images/category/Mixer & Agitator_cat.jpg",
     },
     {
-      name: "Motor",
-      description: "산업용 전동기. 설비 구동의 핵심 동력원",
+      name: t("products.motor.name"),
+      description: t("products.motor.description"),
       href: "/products/motor",
       image: "/images/category/motor_cat.jpg",
     },
     {
-      name: "Pump",
-      description: "산업용 펌프 솔루션. 다양한 유체 이송 및 순환 시스템",
+      name: t("products.pump.name"),
+      description: t("products.pump.description"),
       href: "/products/pump",
       image: "/images/category/pump_cat.jpg",
     },
     {
-      name: "Bearing",
-      description: "고성능 베어링 및 윤활 시스템. 회전기계의 핵심 부품",
+      name: t("products.bearing.name"),
+      description: t("products.bearing.description"),
       href: "/products/bearing",
       image: "/images/category/bearing_cat.jpg",
     },
     {
-      name: "Oil Purifier",
-      description: "오일 정화 시스템. 윤활유 수명 연장 및 설비 보호",
+      name: t("products.oilPurifier.name"),
+      description: t("products.oilPurifier.description"),
       href: "/products/oil-purifier",
       image: "/images/category/Oil Purifier_cat.jpg",
     },
@@ -100,10 +104,10 @@ export function ProductsSnapshot() {
             Business Item
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4">
-            주요 제품
+            {t("title")}
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            산업 현장에서 검증된 고품질 제품과 솔루션을 제공합니다
+            {t("description")}
           </p>
         </div>
 
@@ -123,7 +127,7 @@ export function ProductsSnapshot() {
             className="border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white transition-all"
           >
             <Link href="/products">
-              더 많은 제품 보기
+              {t("viewAll")}
               <ChevronRight className="ml-2 w-5 h-5" />
             </Link>
           </Button>

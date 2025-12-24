@@ -6,6 +6,7 @@ import { ImageGallery } from "@/components/ui/image-gallery";
 import { Shield, Timer, Thermometer, Wrench, Ship, Anchor, Sailboat, CheckCircle, Target, DollarSign } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Cylinder Liner for Ship | 선박용 실린더 라이너',
@@ -25,7 +26,8 @@ const cylinderLinerImages = [
   { src: "/images/products/cylinder-liner/cylinder-liner_3.png", alt: "WTQ Cylinder Liner 3" },
 ];
 
-export default function CylinderLinerPage() {
+export default async function CylinderLinerPage() {
+  const t = await getTranslations();
   const features = [
     {
       icon: <Shield className="w-12 h-12 text-[#3B82F6]" />,
@@ -146,10 +148,7 @@ export default function CylinderLinerPage() {
               Cylinder Liner for Ship
             </h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              선박용 실린더 라이너는 엔진 내부의 피스톤이 움직이는 공간을 감싸는
-              부품입니다.
-              <br />
-              엔진 실린더를 보호하고 마모를 줄이며 엔진 수명을 연장합니다.
+              {t("products.cylinderLiner.hero.description")}
             </p>
           </div>
         </div>
@@ -530,24 +529,23 @@ export default function CylinderLinerPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            선박용 실린더 라이너가 필요하신가요?
+            {t("products.cylinderLiner.cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            엔진 모델, 사이즈, 수량에 맞는 최적의 WTQ 실린더 라이너를 견적해
-            드립니다.
+            {t("products.cylinderLiner.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              기술 상담 문의
+              {t("products.cylinderLiner.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 문의
+              {t("products.cylinderLiner.cta.quote")}
             </Link>
           </div>
         </div>

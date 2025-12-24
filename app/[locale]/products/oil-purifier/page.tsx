@@ -6,6 +6,7 @@ import { ImageGallery } from "@/components/ui/image-gallery";
 import { Droplets, FlaskConical, Timer, Shield, Cog, Settings, Factory, Zap, Ship, DollarSign, Wrench, Flag, Leaf } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Oil Purifier | 오일 정화 시스템',
@@ -26,7 +27,8 @@ const oilPurifierImages = [
   { src: "/images/products/oil-purifier/Oil Purifier_4.png", alt: "삼영필텍 Oil Purifier 4" },
 ];
 
-export default function OilPurifierPage() {
+export default async function OilPurifierPage() {
+  const t = await getTranslations();
   const features = [
     {
       icon: <Droplets className="w-12 h-12 text-[#3B82F6]" />,
@@ -173,17 +175,13 @@ export default function OilPurifierPage() {
             ]} />
 
             <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
-              삼영필텍 (SYT)
+              {t("products.categories.oilPurifier.brand")}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Oil Purifier
             </h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              오염된 오일(윤활유, 유압유 등)을 정화하여 재사용 가능하도록
-              만드는 장치.
-              <br />
-              수분, 불순물, 미세 입자를 제거하여 오일 수명을 연장하고 설비를
-              보호합니다.
+              {t("products.oilPurifier.hero.description")}
             </p>
           </div>
         </div>
@@ -620,24 +618,23 @@ export default function OilPurifierPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            오일 정화 솔루션이 필요하신가요?
+            {t("products.oilPurifier.cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            오일 종류, 유량, 오염도에 맞는 최적의 Oil Purifier 모델을 선정해
-            드립니다.
+            {t("products.oilPurifier.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              기술 상담 문의
+              {t("products.oilPurifier.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 문의
+              {t("products.oilPurifier.cta.quote")}
             </Link>
           </div>
         </div>

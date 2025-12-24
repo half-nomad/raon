@@ -2,8 +2,8 @@
 # Raon Total Solution B2B Website
 
 **Last Updated:** 2025-12-24
-**Total Tasks:** 42
-**Completed:** 42
+**Total Tasks:** 48
+**Completed:** 48
 **In Progress:** 0
 
 **Note:** 전체 프로젝트 계획은 `docs/01-PLAN.md` 참조. 완료된 작업의 릴리스 기록은 `docs/03-CHANGELOG.md` 참조.
@@ -31,6 +31,14 @@
 #### Phase 3: UI & 테스트 (순차) ✅ 완료
 - [x] [Feature] 언어 스위처 컴포넌트 (Header에 추가) (done:2025-12-24)
 - [x] [Test] 다국어 라우팅 테스트 (done:2025-12-24)
+
+#### Phase 4: 페이지 본문 콘텐츠 다국어화 ✅ 완료
+- [x] [Feature] 홈페이지 컴포넌트 6개 다국어화 (hero, industries-highlight, products-snapshot, partners-clients, contact-cta, footer) (done:2025-12-24)
+- [x] [Feature] Company 페이지 및 컴포넌트 다국어화 (ceo-message, history-timeline, location) (done:2025-12-24)
+- [x] [Feature] Industries 페이지 2개 다국어화 (oil-refinery, shipbuilding) (done:2025-12-24)
+- [x] [Feature] Products 페이지 8개 다국어화 (메인 + 7개 제품 상세) (done:2025-12-24)
+- [x] [Feature] Partners 페이지 다국어화 (done:2025-12-24)
+- [x] [Feature] Contact 페이지 및 폼 다국어화 (done:2025-12-24)
 
 ### 기타 SEO & 디자인
 - [ ] [Design] OG 이미지 13개 제작 (디자이너 협업 필요) (p:Medium, added:2025-12-18)
@@ -67,6 +75,7 @@
 
 *완료된 작업들 (최근 완료 순)*
 
+- [x] [Feature] i18n Phase 4 - 전체 페이지 본문 콘텐츠 다국어화 (21개 컴포넌트/페이지) (done:2025-12-24)
 - [x] [Test] i18n 다국어 라우팅 테스트 (라우트, 메타데이터, hreflang 검증) (done:2025-12-24)
 - [x] [Feature] i18n Phase 3 - 언어 스위처 컴포넌트 (Header 데스크톱/모바일) (done:2025-12-24)
 - [x] [Feature] i18n Phase 2 - 번역 파일(ko/en.json), sitemap 다국어화, 메타데이터 다국어화 (done:2025-12-24)
@@ -133,14 +142,14 @@
 ## 📊 Statistics
 
 ### This Week (2025-12-23 ~ 2025-12-24)
-**Completed:** 15 tasks
-**Added:** 4 tasks
-**Average Completion Time:** ~40분/작업
+**Completed:** 16 tasks
+**Added:** 6 tasks
+**Average Completion Time:** ~30분/작업
 
 ### This Month (2025-12)
-**Completed:** 20 tasks
+**Completed:** 21 tasks
 **Bugs Fixed:** 0
-**Features Added:** 13
+**Features Added:** 14
 **Tests Added:** 1
 **Docs Added:** 1
 **Style Updates:** 2

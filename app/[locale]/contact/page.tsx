@@ -26,32 +26,40 @@ import {
 import { Location } from "@/components/company/location";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { useTranslations } from "next-intl";
 
-// Form validation schema
-const contactFormSchema = z.object({
+// Form validation schema - will be created dynamically with translations
+const createContactFormSchema = (t: any) => z.object({
   category: z.string({
-    message: "문의 구분을 선택해주세요.",
+    message: t("validation.categoryRequired"),
   }).min(1, {
-    message: "문의 구분을 선택해주세요.",
+    message: t("validation.categoryRequired"),
   }),
   name: z.string().min(2, {
-    message: "이름은 최소 2자 이상 입력해주세요.",
+    message: t("validation.nameMin"),
   }),
   company: z.string().min(2, {
-    message: "회사명을 입력해주세요.",
+    message: t("validation.companyRequired"),
   }),
   email: z.string().email({
-    message: "올바른 이메일 주소를 입력해주세요.",
+    message: t("validation.emailInvalid"),
   }),
   phone: z.string().min(9, {
-    message: "올바른 전화번호를 입력해주세요.",
+    message: t("validation.phoneInvalid"),
   }),
   message: z.string().min(10, {
-    message: "문의 내용은 최소 10자 이상 입력해주세요.",
+    message: t("validation.messageMin"),
   }),
 });
 
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+type ContactFormValues = {
+  category: string;
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 // 허용 파일 타입
 const ALLOWED_FILE_TYPES = [
@@ -67,6 +75,7 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 const MAX_FILES = 3;
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null;
@@ -133,7 +142,7 @@ export default function ContactPage() {
   };
 
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(createContactFormSchema(t)),
     defaultValues: {
       category: "",
       name: "",
@@ -168,19 +177,19 @@ export default function ContactPage() {
       });
 
       if (!response.ok) {
-        throw new Error("전송에 실패했습니다.");
+        throw new Error(t("error.submitFailed"));
       }
 
       setSubmitStatus({
         type: "success",
-        message: "문의가 성공적으로 전송되었습니다. 빠른 시일 내에 답변드리겠습니다.",
+        message: t("success.message"),
       });
       form.reset();
       setFiles([]);
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "전송 중 오류가 발생했습니다. 다시 시도해주세요.",
+        message: t("error.submitFailed"),
       });
     } finally {
       setIsSubmitting(false);
@@ -207,12 +216,10 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Contact Us
+              {t("hero.title")}
             </h1>
             <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
-              궁금하신 사항이 있으신 경우 문의내용을 작성해 주시면
-              <br className="hidden sm:block" />
-              빠른 시일 안에 답변드리겠습니다.
+              {t("hero.description")}
             </p>
           </div>
         </div>
@@ -228,25 +235,23 @@ export default function ContactPage() {
                 <Check className="w-10 h-10 text-green-600" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-4">
-                문의가 성공적으로 전송되었습니다
+                {t("success.title")}
               </h2>
               <p className="text-base sm:text-lg text-gray-600 mb-8">
-                빠른 시일 내에 답변드리겠습니다.
-                <br />
-                소중한 문의 감사합니다.
+                {t("success.message")}
               </p>
               <a
                 href="/"
                 className="inline-flex items-center justify-center px-8 py-4 bg-[#0A1628] hover:bg-[#1A2D47] text-white font-semibold rounded-full transition-all duration-200 hover:shadow-lg"
               >
                 <Home className="w-5 h-5 mr-2" />
-                메인 홈으로 돌아가기
+                {t("success.backHome")}
               </a>
             </div>
           ) : (
             <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-lg">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-6">
-                문의하기
+                {t("form.title")}
               </h2>
 
               {/* Error Message */}
@@ -265,21 +270,21 @@ export default function ContactPage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-[#0A1628] font-semibold">
-                        구분 <span className="text-red-500">*</span>
+                        {t("form.category.label")} <span className="text-red-500">*</span>
                       </FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger className="h-12 border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6]">
-                            <SelectValue placeholder="문의 구분을 선택해주세요" />
+                            <SelectValue placeholder={t("form.category.placeholder")} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="compressor-valve">압축기밸브</SelectItem>
-                          <SelectItem value="compressor-ring">압축기 링&패킹</SelectItem>
-                          <SelectItem value="frame-parts">프레임부품</SelectItem>
-                          <SelectItem value="repair-service">수리서비스</SelectItem>
-                          <SelectItem value="materials">소재</SelectItem>
-                          <SelectItem value="general">일반문의</SelectItem>
+                          <SelectItem value="compressor-valve">{t("form.category.options.compressorValve")}</SelectItem>
+                          <SelectItem value="compressor-ring">{t("form.category.options.compressorRing")}</SelectItem>
+                          <SelectItem value="frame-parts">{t("form.category.options.frameParts")}</SelectItem>
+                          <SelectItem value="repair-service">{t("form.category.options.repairService")}</SelectItem>
+                          <SelectItem value="materials">{t("form.category.options.materials")}</SelectItem>
+                          <SelectItem value="general">{t("form.category.options.general")}</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -295,11 +300,11 @@ export default function ContactPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-[#0A1628] font-semibold">
-                          이름 <span className="text-red-500">*</span>
+                          {t("form.name.label")} <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="홍길동"
+                            placeholder={t("form.name.placeholder")}
                             className="h-12 border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
                             {...field}
                           />
@@ -315,11 +320,11 @@ export default function ContactPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-[#0A1628] font-semibold">
-                          회사명 <span className="text-red-500">*</span>
+                          {t("form.company.label")} <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="(주)회사명"
+                            placeholder={t("form.company.placeholder")}
                             className="h-12 border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
                             {...field}
                           />
@@ -338,12 +343,12 @@ export default function ContactPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-[#0A1628] font-semibold">
-                          이메일 <span className="text-red-500">*</span>
+                          {t("form.email.label")} <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="example@company.com"
+                            placeholder={t("form.email.placeholder")}
                             className="h-12 border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
                             {...field}
                           />
@@ -359,12 +364,12 @@ export default function ContactPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel className="text-[#0A1628] font-semibold">
-                          전화번호 <span className="text-red-500">*</span>
+                          {t("form.phone.label")} <span className="text-red-500">*</span>
                         </FormLabel>
                         <FormControl>
                           <Input
                             type="tel"
-                            placeholder="010-1234-5678"
+                            placeholder={t("form.phone.placeholder")}
                             className="h-12 border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6]"
                             {...field}
                           />
@@ -382,11 +387,11 @@ export default function ContactPage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-[#0A1628] font-semibold">
-                        문의 내용 <span className="text-red-500">*</span>
+                        {t("form.message.label")} <span className="text-red-500">*</span>
                       </FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="문의하실 내용을 상세히 작성해주세요&#10;&#10;예시:&#10;- 제품명/모델명&#10;- 필요 수량&#10;- 납기 일정&#10;- 기타 요구사항"
+                          placeholder={t("form.message.placeholder")}
                           className="min-h-[200px] border-gray-300 focus:border-[#3B82F6] focus:ring-[#3B82F6] resize-none"
                           {...field}
                         />
@@ -399,7 +404,7 @@ export default function ContactPage() {
                 {/* File Upload */}
                 <div className="space-y-3">
                   <label className="text-[#0A1628] font-semibold block">
-                    파일 첨부 <span className="text-gray-400 font-normal">(선택)</span>
+                    {t("form.file.label")} <span className="text-gray-400 font-normal">({t("form.file.optional")})</span>
                   </label>
 
                   {/* 파일 선택 버튼 */}
@@ -420,10 +425,10 @@ export default function ContactPage() {
                       className="h-12 px-6 border-gray-300 hover:border-[#3B82F6] hover:text-[#3B82F6]"
                     >
                       <Paperclip className="w-4 h-4 mr-2" />
-                      파일 선택
+                      {t("form.file.selectButton")}
                     </Button>
                     <span className="text-sm text-gray-500">
-                      {files.length}/{MAX_FILES}개 첨부됨
+                      {files.length}/{MAX_FILES}{t("form.file.attached")}
                     </span>
                   </div>
 
@@ -467,7 +472,7 @@ export default function ContactPage() {
 
                   {/* 안내 문구 */}
                   <p className="text-xs text-gray-500">
-                    PDF, 이미지(JPG, PNG, GIF, WebP), Word 문서 첨부 가능 (파일당 최대 5MB, 최대 3개)
+                    {t("form.file.help")}
                   </p>
                 </div>
 
@@ -477,7 +482,7 @@ export default function ContactPage() {
                   disabled={isSubmitting}
                   className="w-full h-14 bg-[#EF4444] hover:bg-[#DC2626] text-white font-semibold text-lg rounded-full transition-all duration-200 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "전송 중..." : "문의하기"}
+                  {isSubmitting ? t("form.submitting") : t("form.submit")}
                 </Button>
               </form>
             </Form>
@@ -485,29 +490,29 @@ export default function ContactPage() {
             {/* Contact Info Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
             <a
-              href="tel:02-575-3051"
+              href={`tel:${t("info.phone.value")}`}
               className="flex items-center gap-4 p-6 bg-gradient-to-br from-[#0A1628] to-[#1A2D47] rounded-xl hover:shadow-lg transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <div>
-                <p className="text-sm text-white/70 mb-1">전화 문의</p>
-                <p className="text-white font-semibold">02-575-3051</p>
+                <p className="text-sm text-white/70 mb-1">{t("info.phone.label")}</p>
+                <p className="text-white font-semibold">{t("info.phone.value")}</p>
               </div>
             </a>
 
             <a
-              href="mailto:rts@raontotalsolution.co.kr"
+              href={`mailto:${t("info.email.value")}`}
               className="flex items-center gap-4 p-6 bg-gradient-to-br from-[#3B82F6] to-[#60A5FA] rounded-xl hover:shadow-lg transition-all duration-200"
             >
               <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <div>
-                <p className="text-sm text-white/70 mb-1">이메일 문의</p>
+                <p className="text-sm text-white/70 mb-1">{t("info.email.label")}</p>
                 <p className="text-white font-semibold text-sm sm:text-base break-all">
-                  rts@raontotalsolution.co.kr
+                  {t("info.email.value")}
                 </p>
               </div>
             </a>

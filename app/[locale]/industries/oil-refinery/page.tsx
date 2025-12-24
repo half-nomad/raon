@@ -5,6 +5,7 @@ import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: '정유·석유화학 산업 | Oil Refinery & Petrochemical',
@@ -17,21 +18,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function OilRefineryPage() {
-  const services = [
-    "Industrial Compressor & Blower",
-    "Pump",
-    "Mixer & Agitator",
-    "Bearing",
-    "Compressor Cylinder liner",
-    "Valve, piston ring 외 해당 제품에 대한 모든 Spare parts",
-  ];
+export default async function OilRefineryPage() {
+  const t = await getTranslations("industries.oilRefinery");
+  const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: "Compressor & Parts", href: "/products#compressor" },
-    { name: "Pump", href: "/products#pump" },
-    { name: "Mixer & Agitator", href: "/products#mixer" },
-    { name: "Bearing", href: "/products#bearing" },
+    { name: t("relatedProducts.compressor"), href: "/products#compressor" },
+    { name: t("relatedProducts.pump"), href: "/products#pump" },
+    { name: t("relatedProducts.mixer"), href: "/products#mixer" },
+    { name: t("relatedProducts.bearing"), href: "/products#bearing" },
   ];
 
   return (
@@ -40,15 +35,15 @@ export default function OilRefineryPage() {
         items={[
           { name: 'Home', url: '/' },
           { name: 'Industries', url: '/industries' },
-          { name: '정유·석유화학', url: '/industries/oil-refinery' },
+          { name: t("title"), url: '/industries/oil-refinery' },
         ]}
       />
       <Header />
 
       <IndustryHero
-        title="정유·석유화학"
-        subtitle="Oil Refinery & Petrochemical"
-        description="30년 경험과 노하우를 바탕으로 왕복동 압축기와 회전기계에 대한 전문 솔루션을 제공합니다"
+        title={t("title")}
+        subtitle={t("subtitle")}
+        description={t("heroDescription")}
       />
 
       {/* Industry Representative Image */}
@@ -57,7 +52,7 @@ export default function OilRefineryPage() {
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/images/industries/oil-refinery.PNG"
-              alt="정유·석유화학 플랜트"
+              alt={t("title")}
               fill
               className="object-cover"
               sizes="(max-width: 1240px) 100vw, 1240px"
@@ -66,7 +61,7 @@ export default function OilRefineryPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <p className="text-sm sm:text-base font-medium opacity-90">
-                정유·석유화학 플랜트에서 가동되는 산업용 압축기 및 회전기계 시스템
+                {t("imageCaption")}
               </p>
             </div>
           </div>
@@ -79,16 +74,14 @@ export default function OilRefineryPage() {
           {/* Introduction */}
           <div className="max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mb-6">
-              핵심 소개
+              {t("introTitle")}
             </h2>
             <div className="prose prose-lg text-gray-700 leading-relaxed">
               <p>
-                (주)라온토탈솔루션은 왕복동 압축기와 회전기계에 대한 Spare parts
-                및 엔지니어링 솔루션을 제공하는 전문 기업입니다.
+                {t("intro1")}
               </p>
               <p>
-                약 30년간의 경험과 Know-how를 바탕으로 다양한 사업의 요구에 맞춘
-                서비스를 제공하고 있습니다.
+                {t("intro2")}
               </p>
             </div>
           </div>
@@ -96,7 +89,7 @@ export default function OilRefineryPage() {
           {/* Services Grid */}
           <div className="mb-16">
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-8 text-center">
-              주요 제공 서비스
+              {t("servicesTitle")}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => (
@@ -147,9 +140,9 @@ export default function OilRefineryPage() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-2">30년 경험</h4>
+              <h4 className="text-xl font-bold mb-2">{t("features30Years")}</h4>
               <p className="text-white/80 text-sm">
-                정유·석유화학 플랜트 분야의 축적된 노하우
+                {t("features30YearsDesc")}
               </p>
             </div>
 
@@ -169,9 +162,9 @@ export default function OilRefineryPage() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-2">신속 대응</h4>
+              <h4 className="text-xl font-bold mb-2">{t("featuresFastResponse")}</h4>
               <p className="text-white/80 text-sm">
-                24시간 긴급 출동 서비스 제공
+                {t("featuresFastResponseDesc")}
               </p>
             </div>
 
@@ -191,9 +184,9 @@ export default function OilRefineryPage() {
                   />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold mb-2">글로벌 파트너</h4>
+              <h4 className="text-xl font-bold mb-2">{t("featuresGlobalPartner")}</h4>
               <p className="text-white/80 text-sm">
-                세계 최고 수준의 기술력 보유
+                {t("featuresGlobalPartnerDesc")}
               </p>
             </div>
           </div>
@@ -201,7 +194,7 @@ export default function OilRefineryPage() {
           {/* Related Products */}
           <div className="bg-gray-50 rounded-2xl p-8 sm:p-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-6 text-center">
-              관련 제품 바로가기
+              {t("relatedProductsTitle")}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {relatedProducts.map((product, index) => (
@@ -222,7 +215,7 @@ export default function OilRefineryPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-[#0A1628] text-white font-semibold text-lg rounded-full hover:bg-[#1A2D47] hover:shadow-xl transition-all"
             >
-              상담 문의하기
+              {t("ctaButton")}
               <svg
                 className="ml-2 w-5 h-5"
                 fill="none"

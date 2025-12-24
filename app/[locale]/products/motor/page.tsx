@@ -12,6 +12,7 @@ import { ImageGallery } from "@/components/ui/image-gallery";
 import { Factory, Settings, Wind, Droplets, Tornado, Wrench } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Motor & Electric Motor | 산업용 전동기',
@@ -52,7 +53,8 @@ export default function MotorPage() {
   );
 }
 
-function MotorContent() {
+async function MotorContent() {
+  const t = await getTranslations();
   const motorTypes = [
     {
       id: "inverter",
@@ -171,10 +173,7 @@ function MotorContent() {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Motor</h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              전기 에너지를 기계 에너지로 변환하여 기계를 움직이게 하는 장치.
-              <br />
-              Nidec은 고품질의 정밀 모터를 설계 및 제조하는 세계적인 모터
-              전문 기업입니다.
+              {t("products.motor.hero.description")}
             </p>
           </div>
         </div>
@@ -469,23 +468,23 @@ function MotorContent() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            최적의 모터 솔루션이 필요하신가요?
+            {t("products.motor.cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            용도, 출력, 환경 조건에 맞는 최적의 NIDEC 모터를 선정해 드립니다.
+            {t("products.motor.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              기술 상담 문의
+              {t("products.motor.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 문의
+              {t("products.motor.cta.quote")}
             </Link>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { ImageGallery } from "@/components/ui/image-gallery";
 import { Lock, FlaskConical, Wrench, Ruler, Thermometer, CheckCircle, Factory, Pill, UtensilsCrossed, Droplets, Palette, Waves } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: 'Pump | 산업용 펌프 솔루션',
@@ -31,7 +32,8 @@ const pumpImages = [
   { src: "/images/products/pump/pump_3.png", alt: "CP Pumpen Pump 3" },
 ];
 
-export default function PumpPage() {
+export default async function PumpPage() {
+  const t = await getTranslations();
   const pumpModels = [
     {
       id: "mkp",
@@ -263,10 +265,7 @@ export default function PumpPage() {
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Pump</h1>
             <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              액체를 한 장소에서 다른 장소로 이동시키는 장치.
-              <br />
-              화학, 식품, 제약 등 분야에서 널리 사용되는 CP Pumpen의 15개 모델,
-              105개 이상의 펌프 사이즈를 제공합니다.
+              {t("products.pump.hero.description")}
             </p>
           </div>
         </div>
@@ -667,24 +666,23 @@ export default function PumpPage() {
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            최적의 펌프 솔루션이 필요하신가요?
+            {t("products.pump.cta.title")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            유량, 압력, 화학물질 특성에 맞는 최적의 CP Pumpen 모델을 선정해
-            드립니다.
+            {t("products.pump.cta.description")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              기술 상담 문의
+              {t("products.pump.cta.technical")}
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 문의
+              {t("products.pump.cta.quote")}
             </Link>
           </div>
         </div>

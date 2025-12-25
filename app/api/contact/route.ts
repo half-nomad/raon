@@ -3,6 +3,60 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Rate Limiting 설정
+const RATE_LIMIT = 10; // 시간당 최대 요청 수
+const RATE_WINDOW = 60 * 60 * 1000; // 1시간 (밀리초)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+// 오래된 엔트리 정리 (메모리 관리)
+function cleanupRateLimitMap() {
+  const now = Date.now();
+  for (const [ip, data] of rateLimitMap.entries()) {
+    if (now > data.resetTime) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}
+
+// Rate Limit 체크
+function checkRateLimit(ip: string): { allowed: boolean; remaining: number; resetTime: number } {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  // 주기적으로 오래된 엔트리 정리
+  if (rateLimitMap.size > 1000) {
+    cleanupRateLimitMap();
+  }
+
+  if (!record || now > record.resetTime) {
+    // 새 윈도우 시작
+    const resetTime = now + RATE_WINDOW;
+    rateLimitMap.set(ip, { count: 1, resetTime });
+    return { allowed: true, remaining: RATE_LIMIT - 1, resetTime };
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return { allowed: false, remaining: 0, resetTime: record.resetTime };
+  }
+
+  record.count++;
+  return { allowed: true, remaining: RATE_LIMIT - record.count, resetTime: record.resetTime };
+}
+
+// 클라이언트 IP 추출
+function getClientIP(request: NextRequest): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  const realIP = request.headers.get("x-real-ip");
+
+  if (forwarded) {
+    return forwarded.split(",")[0].trim();
+  }
+  if (realIP) {
+    return realIP;
+  }
+  return "unknown";
+}
+
 // Category mapping for email
 const categoryMap: Record<string, string> = {
   "compressor-valve": "압축기밸브",
@@ -37,6 +91,26 @@ function escapeHtml(text: string): string {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate Limiting 체크
+    const clientIP = getClientIP(request);
+    const rateLimit = checkRateLimit(clientIP);
+
+    if (!rateLimit.allowed) {
+      const retryAfter = Math.ceil((rateLimit.resetTime - Date.now()) / 1000);
+      return NextResponse.json(
+        { error: "요청이 너무 많습니다. 잠시 후 다시 시도해주세요." },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(retryAfter),
+            "X-RateLimit-Limit": String(RATE_LIMIT),
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": String(Math.ceil(rateLimit.resetTime / 1000)),
+          },
+        }
+      );
+    }
+
     const formData = await request.formData();
 
     const category = formData.get("category") as string;
@@ -295,7 +369,14 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { success: true, messageId: data?.id },
-      { status: 200 }
+      {
+        status: 200,
+        headers: {
+          "X-RateLimit-Limit": String(RATE_LIMIT),
+          "X-RateLimit-Remaining": String(rateLimit.remaining),
+          "X-RateLimit-Reset": String(Math.ceil(rateLimit.resetTime / 1000)),
+        },
+      }
     );
   } catch (error) {
     console.error("Contact form error:", error);

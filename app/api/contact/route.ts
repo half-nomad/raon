@@ -89,6 +89,14 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
+// Sanitize filename to prevent path traversal and special characters
+function sanitizeFilename(filename: string): string {
+  return filename
+    .replace(/[^\w\s.\-가-힣]/g, '_')  // 특수문자 제거 (한글 허용)
+    .replace(/\.{2,}/g, '.')           // 연속 점 제거
+    .substring(0, 255);                // 길이 제한
+}
+
 export async function POST(request: NextRequest) {
   try {
     // Rate Limiting 체크
@@ -138,6 +146,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Phone format validation
+    const phoneRegex = /^[\d\-+() ]{9,20}$/;
+    if (!phoneRegex.test(phone)) {
+      return NextResponse.json(
+        { error: "유효한 전화번호를 입력해주세요." },
+        { status: 400 }
+      );
+    }
+
+    // Input length validation
+    const MAX_NAME_LENGTH = 100;
+    const MAX_COMPANY_LENGTH = 200;
+    const MAX_MESSAGE_LENGTH = 5000;
+
+    if (name.length > MAX_NAME_LENGTH) {
+      return NextResponse.json(
+        { error: "이름이 너무 깁니다. (최대 100자)" },
+        { status: 400 }
+      );
+    }
+    if (company.length > MAX_COMPANY_LENGTH) {
+      return NextResponse.json(
+        { error: "회사명이 너무 깁니다. (최대 200자)" },
+        { status: 400 }
+      );
+    }
+    if (message.length > MAX_MESSAGE_LENGTH) {
+      return NextResponse.json(
+        { error: "메시지가 너무 깁니다. (최대 5000자)" },
+        { status: 400 }
+      );
+    }
+
     // 파일 검증 및 처리
     const attachments: { filename: string; content: Buffer }[] = [];
 
@@ -164,7 +205,7 @@ export async function POST(request: NextRequest) {
         const buffer = Buffer.from(arrayBuffer);
 
         attachments.push({
-          filename: file.name,
+          filename: sanitizeFilename(file.name),
           content: buffer,
         });
       }
@@ -379,7 +420,7 @@ export async function POST(request: NextRequest) {
       }
     );
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("Contact form error:", error instanceof Error ? error.message : "Unknown error");
     return NextResponse.json(
       { error: "이메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요." },
       { status: 500 }

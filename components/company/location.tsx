@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { MapPin, Building2, Phone, Printer, Mail, ExternalLink } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -93,10 +94,12 @@ export function Location() {
                   className="block w-full h-full relative group"
                 >
                   {/* Map Screenshot Image */}
-                  <img
+                  <Image
                     src={MAP_CONFIG[activeMap].imageUrl}
                     alt={`${MAP_CONFIG[activeMap].name} - ${t("companyNameValue")} ${t("title")}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-200 flex items-center justify-center">

@@ -877,7 +877,10 @@
       "companyRequired": "회사명을 입력해주세요.",
       "emailInvalid": "올바른 이메일 주소를 입력해주세요.",
       "phoneInvalid": "올바른 연락처를 입력해주세요.",
-      "messageMin": "문의 내용은 10자 이상 입력해주세요."
+      "messageMin": "문의 내용은 10자 이상 입력해주세요.",
+      "fileTypeInvalid": "지원하지 않는 파일 형식입니다. (PDF, 이미지, Word 문서만 가능)",
+      "fileSizeExceeded": "파일 크기가 5MB를 초과합니다.",
+      "fileCountExceeded": "최대 {max}개의 파일만 첨부할 수 있습니다."
     }
   },
   "footer": {

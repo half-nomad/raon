@@ -27,11 +27,17 @@ export function Header() {
   const t = useTranslations("nav");
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -178,7 +184,7 @@ export function Header() {
                   variant="ghost"
                   size="icon"
                   className="lg:hidden"
-                  aria-label="메뉴 열기"
+                  aria-label={t("menu")}
                 >
                   <Menu
                     className={`h-6 w-6 ${

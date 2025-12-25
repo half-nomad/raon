@@ -489,7 +489,10 @@
       "companyRequired": "Please enter company name.",
       "emailInvalid": "Please enter a valid email address.",
       "phoneInvalid": "Please enter a valid phone number.",
-      "messageMin": "Message must be at least 10 characters."
+      "messageMin": "Message must be at least 10 characters.",
+      "fileTypeInvalid": "Unsupported file type. (PDF, images, Word documents only)",
+      "fileSizeExceeded": "File size exceeds 5MB.",
+      "fileCountExceeded": "You can attach up to {max} files."
     }
   },
   "footer": {

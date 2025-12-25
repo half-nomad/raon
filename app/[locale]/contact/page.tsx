@@ -28,8 +28,11 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { useTranslations } from "next-intl";
 
+// Type for translation function
+type TranslationFunction = ReturnType<typeof useTranslations>;
+
 // Form validation schema - will be created dynamically with translations
-const createContactFormSchema = (t: any) => z.object({
+const createContactFormSchema = (t: TranslationFunction) => z.object({
   category: z.string({
     message: t("validation.categoryRequired"),
   }).min(1, {
@@ -88,10 +91,10 @@ export default function ContactPage() {
   // 파일 검증 함수
   const validateFile = (file: File): string | null => {
     if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-      return `${file.name}: 지원하지 않는 파일 형식입니다. (PDF, 이미지, Word 문서만 가능)`;
+      return `${file.name}: ${t("validation.fileTypeInvalid")}`;
     }
     if (file.size > MAX_FILE_SIZE) {
-      return `${file.name}: 파일 크기가 5MB를 초과합니다.`;
+      return `${file.name}: ${t("validation.fileSizeExceeded")}`;
     }
     return null;
   };
@@ -102,7 +105,7 @@ export default function ContactPage() {
     setFileError(null);
 
     if (files.length + selectedFiles.length > MAX_FILES) {
-      setFileError(`최대 ${MAX_FILES}개의 파일만 첨부할 수 있습니다.`);
+      setFileError(t("validation.fileCountExceeded", { max: MAX_FILES }));
       return;
     }
 

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
@@ -145,6 +145,7 @@ export default async function ProductsPage() {
                     src={product.image}
                     alt={product.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>

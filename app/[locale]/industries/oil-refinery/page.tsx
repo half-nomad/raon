@@ -3,20 +3,34 @@ import { Footer } from "@/components/layout/footer";
 import { IndustryHero } from "@/components/industries/industry-hero";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: '정유·석유화학 산업 | Oil Refinery & Petrochemical',
-  description: '30년 경험의 왕복동 압축기 및 회전기계 전문 솔루션. Compressor, Pump, Mixer, Bearing 등 정유·석유화학 플랜트 핵심 부품 공급. SK에너지, S-OIL, GS칼텍스 납품.',
-  keywords: ['정유', '석유화학', 'Oil Refinery', 'Petrochemical', '압축기', 'Compressor', 'Pump', 'Mixer', 'Bearing'],
-  openGraph: {
-    title: '정유·석유화학 산업 | 라온토탈솔루션',
-    description: '30년 경험의 왕복동 압축기 및 회전기계 전문 솔루션',
-    images: ['/images/og/oil-refinery-og.jpg'],
-  },
+type Props = {
+  params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+  const isKorean = locale === 'ko';
+
+  return {
+    title: t('oilRefinery.title'),
+    description: t('oilRefinery.description'),
+    keywords: isKorean
+      ? ['정유', '석유화학', 'Oil Refinery', 'Petrochemical', '압축기', 'Compressor', 'Pump', 'Mixer', 'Bearing']
+      : ['Oil Refinery', 'Petrochemical', 'refining', 'compressor', 'pump', 'mixer', 'bearing', 'industrial equipment'],
+    openGraph: {
+      title: `${t('oilRefinery.title')} | ${t('siteName')}`,
+      description: t('oilRefinery.description'),
+      images: ['/images/og/oil-refinery-og.jpg'],
+      locale: isKorean ? 'ko_KR' : 'en_US',
+      type: 'website',
+    },
+  };
+}
 
 export default async function OilRefineryPage() {
   const t = await getTranslations("industries.oilRefinery");

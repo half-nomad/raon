@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -19,6 +19,8 @@ function ProductCard({
   href,
   image,
 }: ProductCardProps) {
+  const t = useTranslations("products.snapshot");
+
   return (
     <Link
       href={href}
@@ -45,7 +47,7 @@ function ProductCard({
 
         {/* View More Link */}
         <div className="flex items-center text-sm font-semibold text-[#3B82F6] group-hover:gap-2 transition-all">
-          <span>Learn More</span>
+          <span>{t("learnMore")}</span>
           <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
@@ -101,7 +103,7 @@ export function ProductsSnapshot() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">
-            Business Item
+            {t("businessItem")}
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4">
             {t("title")}
@@ -113,8 +115,8 @@ export function ProductsSnapshot() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
-          {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+          {products.map((product) => (
+            <ProductCard key={product.href} {...product} />
           ))}
         </div>
 

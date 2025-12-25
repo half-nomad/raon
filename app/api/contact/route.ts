@@ -25,6 +25,16 @@ const ALLOWED_MIME_TYPES = [
 ];
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
+// HTML escape function to prevent XSS attacks
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
@@ -41,6 +51,15 @@ export async function POST(request: NextRequest) {
     if (!category || !name || !company || !email || !phone || !message) {
       return NextResponse.json(
         { error: "모든 필수 항목을 입력해주세요." },
+        { status: 400 }
+      );
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "유효한 이메일 주소를 입력해주세요." },
         { status: 400 }
       );
     }
@@ -213,39 +232,39 @@ export async function POST(request: NextRequest) {
   <div class="container">
     <div class="header">
       <h1>새로운 문의가 도착했습니다</h1>
-      <span class="badge">${categoryMap[category] || category}</span>
+      <span class="badge">${escapeHtml(categoryMap[category] || category)}</span>
     </div>
 
     <div class="content">
       <table>
         <tr>
           <th>이름</th>
-          <td><strong>${name}</strong></td>
+          <td><strong>${escapeHtml(name)}</strong></td>
         </tr>
         <tr>
           <th>회사명</th>
-          <td>${company}</td>
+          <td>${escapeHtml(company)}</td>
         </tr>
         <tr>
           <th>이메일</th>
-          <td><a href="mailto:${email}">${email}</a></td>
+          <td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td>
         </tr>
         <tr>
           <th>전화번호</th>
-          <td><a href="tel:${phone}">${phone}</a></td>
+          <td><a href="tel:${escapeHtml(phone)}">${escapeHtml(phone)}</a></td>
         </tr>
       </table>
 
       <div class="message-section">
         <div class="message-label">문의 내용</div>
-        <div class="message-box">${message}</div>
+        <div class="message-box">${escapeHtml(message)}</div>
       </div>
 
       ${attachments.length > 0 ? `
       <div class="attachments-section">
         <div class="attachments-label">첨부 파일 (${attachments.length}개)</div>
         <div>
-          ${attachments.map(att => `<span class="attachment-item">📎 ${att.filename}</span>`).join('')}
+          ${attachments.map(att => `<span class="attachment-item">📎 ${escapeHtml(att.filename)}</span>`).join('')}
         </div>
       </div>
       ` : ''}
@@ -265,7 +284,7 @@ export async function POST(request: NextRequest) {
       from: "라온토탈솔루션 문의 <onboarding@resend.dev>", // Resend 기본 발신 주소
       to: ["rts@raontotalsolution.co.kr"],
       replyTo: email, // 고객 이메일로 답장 가능
-      subject: `[${categoryMap[category]}] ${company} - ${name}님의 문의${attachments.length > 0 ? ` (첨부 ${attachments.length}개)` : ''}`,
+      subject: `[${categoryMap[category]}] ${escapeHtml(company)} - ${escapeHtml(name)}님의 문의${attachments.length > 0 ? ` (첨부 ${attachments.length}개)` : ''}`,
       html: emailHtml,
       attachments: attachments.length > 0 ? attachments : undefined,
     });

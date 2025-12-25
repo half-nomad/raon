@@ -1,3 +1,5 @@
+import Script from 'next/script';
+
 interface Manufacturer {
   name: string;
 }
@@ -51,7 +53,8 @@ export function ProductSchema({
   };
 
   return (
-    <script
+    <Script
+      id="product-schema"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />

@@ -6,10 +6,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.9.0] - 2025-12-24
 
-### Note
-다음 릴리스 계획은 `docs/02-TODO.md`를 참조하세요.
+### Added - i18n & Production Deployment
+- **다국어 지원 (i18n) 완전 구현**
+  - next-intl v4.x 라이브러리 적용
+  - URL 구조: 서브디렉터리 (`/ko/`, `/en/`)
+  - 브라우저 언어 감지 자동 리다이렉트
+  - 번역 파일: ko.json (~850개 키), en.json (~470개 키)
+  - 13개 페이지 + 7개 컴포넌트 다국어화
+  - sitemap.xml 다국어 hreflang 태그
+  - 언어 스위처 컴포넌트 (Header 데스크톱/모바일)
+
+- **Vercel 프로덕션 배포**
+  - 배포 레포: raontotalsolution/raon
+  - 프로덕션 도메인: https://raontotalsolution.co.kr
+  - DNS: 가비아 A 레코드 (76.76.21.21)
+  - 자동 배포: main 브랜치 푸시 시
+
+- **Git Dual Push 설정**
+  - origin → half-nomad/raon + raontotalsolution/raon 동시 푸시
+  - `git push origin main` 한 번으로 양쪽 배포
+
+### Changed
+- 디렉터리 구조: `app/` → `app/[locale]/` 동적 라우트
+- middleware.ts 추가 (next-intl 라우팅)
+- 메타데이터 다국어화 (generateMetadata 함수)
+
+### Technical
+- 빌드 성공 (36 routes)
+- Next.js 16.0.7 + Turbopack
+- TypeScript 타입 안전성 유지
 
 ## [0.8.0] - 2025-12-18
 

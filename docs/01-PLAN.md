@@ -40,28 +40,31 @@
 - [x] 성능 최적화 및 이미지 최적화 (완료일: 2025-12-22)
 
 ### Phase 4: 테스트 및 배포 (Week 7-8)
-- [ ] 모바일/태블릿/데스크톱 테스트 (완료일: 2025-12-23)
-- [ ] 브라우저 호환성 테스트 (완료일: 2025-12-24)
-- [ ] 문의 폼 기능 테스트 (완료일: 2025-12-26)
-- [ ] 프로덕션 배포 (완료일: 2025-12-31)
+- [ ] 모바일/태블릿/데스크톱 테스트
+- [ ] 브라우저 호환성 테스트
+- [x] 프로덕션 배포 (완료일: 2025-12-24)
+  - Vercel 연결: raontotalsolution/raon
+  - 도메인: https://raontotalsolution.co.kr
+  - DNS: 가비아 A 레코드 설정
 
 ## Progress Tracking
 
 ### Overall Progress
-**현재 진행률:** 89%
-**완료된 마일스톤:** 17 / 18
+**현재 진행률:** 95%
+**완료된 마일스톤:** 18 / 20
 **예상 완료일:** 2025-12-31
 
 ### Weekly Progress
 
 **Note:** 세부 작업 내역은 `docs/02-TODO.md`와 `docs/03-CHANGELOG.md`를 참조하세요.
 
-#### Week of 2025-12-23
-**마일스톤 진행:** 76% → 89% (17/18 완료)
+#### Week of 2025-12-24
+**마일스톤 진행:** 89% → 95% (18/20 완료)
 - Phase 1: ✅ 완료 (5/5)
 - Phase 2: ✅ 완료 (4/4)
 - Phase 3: ✅ 완료 (5/5)
-- Phase 4: 🔄 0/4 대기중
+- Phase 4: 🔄 1/3 진행중 (배포 완료, 테스트 대기)
+- i18n: ✅ 완료 (다국어 지원 추가)
 
 ## Scope
 
@@ -76,7 +79,7 @@
 ### Out of Scope (Phase 1)
 - RESOURCES 페이지 전체 (카탈로그 다운로드, Case Study, FAQ는 Phase 2)
 - 관리자 페이지
-- 다국어 지원 (영문 버전은 Phase 2)
+- ~~다국어 지원~~ → ✅ **완료** (2025-12-24, next-intl v4)
 - 실시간 채팅 기능
 - 복잡한 애니메이션 (기본 Framer Motion만 사용)
 
@@ -107,11 +110,12 @@
 - **AI Assistant:** Claude (Pair Programming, 문서 관리)
 
 ### Tools and Technologies
-- **Framework:** Next.js 16.0.3 (App Router)
+- **Framework:** Next.js 16.0.7 (App Router, Turbopack)
 - **UI Library:** shadcn/ui + Tailwind CSS v4
+- **i18n:** next-intl v4.x (ko/en)
 - **Database:** 없음 (정적 사이트, 문의 폼은 이메일 전송)
-- **Hosting:** Vercel (예정)
-- **Version Control:** Git + GitHub
+- **Hosting:** Vercel (raontotalsolution.co.kr)
+- **Version Control:** Git + GitHub (dual push)
 - **AI Tools:** Claude Code
 
 ## Notes

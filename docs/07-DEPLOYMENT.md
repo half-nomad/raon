@@ -1,8 +1,8 @@
 # Deployment Guide
 # Raon Total Solution B2B Website
 
-**Last Updated:** 2025-11-18
-**Document Version:** 1.0
+**Last Updated:** 2025-12-24
+**Document Version:** 2.0
 
 ## Overview
 
@@ -20,10 +20,12 @@ Vercel을 통한 자동 배포 및 프로덕션 운영 가이드
 - **Branch:** All branches (PR 생성 시)
 - **Purpose:** PR 리뷰용 미리보기
 
-### 3. Production
-- **URL:** https://raontotalsolution.co.kr (예정)
+### 3. Production ✅ 배포 완료
+- **URL:** https://raontotalsolution.co.kr
 - **Branch:** main
 - **Hosting:** Vercel
+- **Repository:** raontotalsolution/raon
+- **DNS Provider:** 가비아
 
 ## Prerequisites
 
@@ -46,16 +48,23 @@ NEXT_PUBLIC_SITE_URL=https://raontotalsolution.co.kr
 
 ### Production Deployment (Vercel)
 
-**자동 배포:**
-1. `main` 브랜치에 push
-2. Vercel 자동 빌드 트리거
+**자동 배포 (Dual Push):**
+1. `main` 브랜치에 push (양쪽 레포 동시)
+2. raontotalsolution/raon에서 Vercel 자동 빌드 트리거
 3. 빌드 성공 시 자동 배포
 4. 평균 소요 시간: 2~3분
 
 ```bash
 git add .
 git commit -m "feat: add feature"
-git push origin main
+git push origin main   # half-nomad/raon + raontotalsolution/raon 동시 푸시
+```
+
+**Git Remote 설정:**
+```
+origin (fetch) → https://github.com/half-nomad/raon.git
+origin (push)  → https://github.com/half-nomad/raon.git
+origin (push)  → https://github.com/raontotalsolution/raon.git
 ```
 
 **수동 배포 (Vercel CLI):**
@@ -106,9 +115,22 @@ git push origin main
 # Vercel auto-redeploys
 ```
 
+## DNS Configuration (가비아)
+
+### DNS 레코드 설정
+| 타입 | 호스트 | 값 | TTL |
+|------|--------|-----|-----|
+| A | @ | 76.76.21.21 | 3600 |
+| CNAME | www | cname.vercel-dns.com | 3600 |
+
+### 설정 경로
+가비아 → My가비아 → 서비스 관리 → 도메인 → DNS 설정
+
 ## Post-Deployment Checklist
 
-- [ ] 사이트 접속 확인 (https://raontotalsolution.co.kr)
+- [x] 사이트 접속 확인 (https://raontotalsolution.co.kr)
+- [x] Vercel 프로젝트 연결
+- [x] DNS 레코드 설정
 - [ ] 모든 페이지 로딩 확인
 - [ ] Contact Form 제출 테스트
 - [ ] 모바일 반응형 확인
@@ -164,4 +186,5 @@ vercel logs              # View logs
 ```
 
 ## Change Log
-- 2025-11-18: Initial version (Vercel 배포 가이드)
+- 2025-12-24: v2.0 - 프로덕션 배포 완료, DNS 설정, Dual Push 문서화
+- 2025-11-18: v1.0 - Initial version (Vercel 배포 가이드)

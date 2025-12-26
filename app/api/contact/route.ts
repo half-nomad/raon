@@ -211,70 +211,87 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Email template (inline CSS for email client compatibility)
+    // Email template (Naver Mail compatible - using bgcolor attributes)
     const emailHtml = `
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>새로운 문의</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f3f4f6; font-family: Arial, Helvetica, sans-serif;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #f3f4f6;">
+<body bgcolor="#f3f4f6" style="margin:0; padding:0; font-family:Arial, sans-serif; font-size:14px; color:#333333;">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f3f4f6">
     <tr>
-      <td align="center" style="padding: 20px 10px;">
-        <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <td align="center" style="padding:20px 10px;">
+        <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="border:1px solid #dddddd;">
           <!-- Header -->
           <tr>
-            <td style="background-color: #0A1628; padding: 24px 30px;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 20px; font-weight: 600;">새로운 문의가 도착했습니다</h1>
-              <span style="display: inline-block; background-color: #EF4444; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 10px;">${escapeHtml(categoryMap[category] || category)}</span>
+            <td bgcolor="#0A1628" style="padding:24px 30px;">
+              <font color="#ffffff" style="font-size:20px; font-weight:bold;">새로운 문의가 도착했습니다</font>
+              <br/>
+              <table border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+                <tr>
+                  <td bgcolor="#EF4444" style="padding:4px 12px; border-radius:4px;">
+                    <font color="#ffffff" style="font-size:13px; font-weight:bold;">${escapeHtml(categoryMap[category] || category)}</font>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
-          <!-- Content -->
+          <!-- Content Table -->
           <tr>
-            <td style="padding: 0;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <td style="padding:0;">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td style="background-color: #f8fafc; padding: 14px 20px; width: 100px; vertical-align: top; border-bottom: 1px solid #e5e7eb; color: #0A1628; font-weight: 600; font-size: 14px;">이름</td>
-                  <td style="padding: 14px 20px; border-bottom: 1px solid #e5e7eb; color: #374151; font-size: 14px;"><strong>${escapeHtml(name)}</strong></td>
+                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">이름</td>
+                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb; color:#374151;"><strong>${escapeHtml(name)}</strong></td>
                 </tr>
                 <tr>
-                  <td style="background-color: #f8fafc; padding: 14px 20px; width: 100px; vertical-align: top; border-bottom: 1px solid #e5e7eb; color: #0A1628; font-weight: 600; font-size: 14px;">회사명</td>
-                  <td style="padding: 14px 20px; border-bottom: 1px solid #e5e7eb; color: #374151; font-size: 14px;">${escapeHtml(company)}</td>
+                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">회사명</td>
+                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb; color:#374151;">${escapeHtml(company)}</td>
                 </tr>
                 <tr>
-                  <td style="background-color: #f8fafc; padding: 14px 20px; width: 100px; vertical-align: top; border-bottom: 1px solid #e5e7eb; color: #0A1628; font-weight: 600; font-size: 14px;">이메일</td>
-                  <td style="padding: 14px 20px; border-bottom: 1px solid #e5e7eb; color: #374151; font-size: 14px;"><a href="mailto:${escapeHtml(email)}" style="color: #3B82F6; text-decoration: none;">${escapeHtml(email)}</a></td>
+                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">이메일</td>
+                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb;"><a href="mailto:${escapeHtml(email)}" style="color:#3B82F6;">${escapeHtml(email)}</a></td>
                 </tr>
                 <tr>
-                  <td style="background-color: #f8fafc; padding: 14px 20px; width: 100px; vertical-align: top; border-bottom: 1px solid #e5e7eb; color: #0A1628; font-weight: 600; font-size: 14px;">전화번호</td>
-                  <td style="padding: 14px 20px; border-bottom: 1px solid #e5e7eb; color: #374151; font-size: 14px;"><a href="tel:${escapeHtml(phone)}" style="color: #3B82F6; text-decoration: none;">${escapeHtml(phone)}</a></td>
+                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">전화번호</td>
+                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb;"><a href="tel:${escapeHtml(phone)}" style="color:#3B82F6;">${escapeHtml(phone)}</a></td>
                 </tr>
               </table>
             </td>
           </tr>
           <!-- Message -->
           <tr>
-            <td style="padding: 20px;">
-              <div style="font-weight: 600; color: #0A1628; margin-bottom: 10px; font-size: 14px;">문의 내용</div>
-              <div style="background-color: #f8fafc; padding: 16px; border-radius: 8px; border: 1px solid #e5e7eb; white-space: pre-wrap; word-wrap: break-word; color: #374151; font-size: 14px; line-height: 1.7;">${escapeHtml(message)}</div>
+            <td style="padding:20px;">
+              <font style="font-weight:bold; color:#0A1628;">문의 내용</font>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
+                <tr>
+                  <td bgcolor="#f8fafc" style="padding:16px; border:1px solid #e5e7eb;">
+                    <font color="#374151" style="white-space:pre-wrap; line-height:1.7;">${escapeHtml(message)}</font>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
           ${attachments.length > 0 ? `
           <!-- Attachments -->
           <tr>
-            <td style="padding: 16px 20px; background-color: #f8fafc; border-top: 1px solid #e5e7eb;">
-              <div style="font-weight: 600; color: #0A1628; margin-bottom: 10px; font-size: 14px;">첨부 파일 (${attachments.length}개)</div>
-              <div>${attachments.map(att => `<span style="display: inline-block; background-color: #ffffff; border: 1px solid #e5e7eb; padding: 6px 12px; border-radius: 6px; margin: 4px 4px 4px 0; font-size: 13px; color: #374151;">📎 ${escapeHtml(att.filename)}</span>`).join('')}</div>
+            <td bgcolor="#f8fafc" style="padding:16px 20px; border-top:1px solid #e5e7eb;">
+              <font style="font-weight:bold; color:#0A1628;">첨부 파일 (${attachments.length}개)</font>
+              <br/><br/>
+              ${attachments.map(att => `<font color="#374151">📎 ${escapeHtml(att.filename)}</font><br/>`).join('')}
             </td>
           </tr>
           ` : ''}
           <!-- Footer -->
           <tr>
-            <td style="padding: 20px; text-align: center; color: #6b7280; font-size: 12px; border-top: 1px solid #e5e7eb; background-color: #f8fafc;">
-              <p style="margin: 4px 0;">이 메일은 라온토탈솔루션 웹사이트 문의 폼을 통해 자동 발송되었습니다.</p>
-              <p style="margin: 4px 0;"><strong>라온토탈솔루션</strong> | <a href="mailto:rts@raontotalsolution.co.kr" style="color: #3B82F6; text-decoration: none;">rts@raontotalsolution.co.kr</a> | 02-575-3051</p>
+            <td bgcolor="#f8fafc" align="center" style="padding:20px; border-top:1px solid #e5e7eb;">
+              <font color="#6b7280" style="font-size:12px;">
+                이 메일은 라온토탈솔루션 웹사이트 문의 폼을 통해 자동 발송되었습니다.<br/>
+                <strong>라온토탈솔루션</strong> | <a href="mailto:rts@raontotalsolution.co.kr" style="color:#3B82F6;">rts@raontotalsolution.co.kr</a> | 02-575-3051
+              </font>
             </td>
           </tr>
         </table>
@@ -285,13 +302,37 @@ export async function POST(request: NextRequest) {
 </html>
     `;
 
+    // Plain text fallback for email clients that don't support HTML
+    const emailText = `
+새로운 문의가 도착했습니다
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[${categoryMap[category] || category}]
+
+■ 이름: ${name}
+■ 회사명: ${company}
+■ 이메일: ${email}
+■ 전화번호: ${phone}
+
+■ 문의 내용:
+${message}
+${attachments.length > 0 ? `
+■ 첨부 파일 (${attachments.length}개):
+${attachments.map(att => `  - ${att.filename}`).join('\n')}
+` : ''}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+이 메일은 라온토탈솔루션 웹사이트 문의 폼을 통해 자동 발송되었습니다.
+라온토탈솔루션 | rts@raontotalsolution.co.kr | 02-575-3051
+    `.trim();
+
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: "라온토탈솔루션 문의 <onboarding@resend.dev>", // Resend 기본 발신 주소
       to: ["rts@raontotalsolution.co.kr"],
       replyTo: email, // 고객 이메일로 답장 가능
-      subject: `[${categoryMap[category]}] ${escapeHtml(company)} - ${escapeHtml(name)}님의 문의${attachments.length > 0 ? ` (첨부 ${attachments.length}개)` : ''}`,
+      subject: `[${categoryMap[category]}] ${company} - ${name}님의 문의${attachments.length > 0 ? ` (첨부 ${attachments.length}개)` : ''}`,
       html: emailHtml,
+      text: emailText,
       attachments: attachments.length > 0 ? attachments : undefined,
     });
 

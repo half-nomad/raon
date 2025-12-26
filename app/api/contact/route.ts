@@ -211,93 +211,57 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Email template (Naver Mail compatible - using bgcolor attributes)
+    // Email template (Simple HTML with semantic tags for better visibility)
     const emailHtml = `
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>새로운 문의</title>
+  <meta charset="utf-8">
 </head>
-<body bgcolor="#f3f4f6" style="margin:0; padding:0; font-family:Arial, sans-serif; font-size:14px; color:#333333;">
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#f3f4f6">
-    <tr>
-      <td align="center" style="padding:20px 10px;">
-        <table width="600" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff" style="border:1px solid #dddddd;">
-          <!-- Header -->
-          <tr>
-            <td bgcolor="#0A1628" style="padding:24px 30px;">
-              <font color="#ffffff" style="font-size:20px; font-weight:bold;">새로운 문의가 도착했습니다</font>
-              <br/>
-              <table border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
-                <tr>
-                  <td bgcolor="#EF4444" style="padding:4px 12px; border-radius:4px;">
-                    <font color="#ffffff" style="font-size:13px; font-weight:bold;">${escapeHtml(categoryMap[category] || category)}</font>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- Content Table -->
-          <tr>
-            <td style="padding:0;">
-              <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">이름</td>
-                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb; color:#374151;"><strong>${escapeHtml(name)}</strong></td>
-                </tr>
-                <tr>
-                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">회사명</td>
-                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb; color:#374151;">${escapeHtml(company)}</td>
-                </tr>
-                <tr>
-                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">이메일</td>
-                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb;"><a href="mailto:${escapeHtml(email)}" style="color:#3B82F6;">${escapeHtml(email)}</a></td>
-                </tr>
-                <tr>
-                  <td width="100" bgcolor="#f8fafc" style="padding:14px 20px; border-bottom:1px solid #e5e7eb; font-weight:bold; color:#0A1628;">전화번호</td>
-                  <td style="padding:14px 20px; border-bottom:1px solid #e5e7eb;"><a href="tel:${escapeHtml(phone)}" style="color:#3B82F6;">${escapeHtml(phone)}</a></td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          <!-- Message -->
-          <tr>
-            <td style="padding:20px;">
-              <font style="font-weight:bold; color:#0A1628;">문의 내용</font>
-              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;">
-                <tr>
-                  <td bgcolor="#f8fafc" style="padding:16px; border:1px solid #e5e7eb;">
-                    <font color="#374151" style="white-space:pre-wrap; line-height:1.7;">${escapeHtml(message)}</font>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-          ${attachments.length > 0 ? `
-          <!-- Attachments -->
-          <tr>
-            <td bgcolor="#f8fafc" style="padding:16px 20px; border-top:1px solid #e5e7eb;">
-              <font style="font-weight:bold; color:#0A1628;">첨부 파일 (${attachments.length}개)</font>
-              <br/><br/>
-              ${attachments.map(att => `<font color="#374151">📎 ${escapeHtml(att.filename)}</font><br/>`).join('')}
-            </td>
-          </tr>
-          ` : ''}
-          <!-- Footer -->
-          <tr>
-            <td bgcolor="#f8fafc" align="center" style="padding:20px; border-top:1px solid #e5e7eb;">
-              <font color="#6b7280" style="font-size:12px;">
-                이 메일은 라온토탈솔루션 웹사이트 문의 폼을 통해 자동 발송되었습니다.<br/>
-                <strong>라온토탈솔루션</strong> | <a href="mailto:rts@raontotalsolution.co.kr" style="color:#3B82F6;">rts@raontotalsolution.co.kr</a> | 02-575-3051
-              </font>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+
+  <h1 style="color: #0A1628; border-bottom: 3px solid #0A1628; padding-bottom: 10px;">
+    📬 새로운 문의가 도착했습니다
+  </h1>
+
+  <p style="display: inline-block; background-color: #EF4444; color: white; padding: 5px 15px; border-radius: 4px; font-weight: bold;">
+    ${escapeHtml(categoryMap[category] || category)}
+  </p>
+
+  <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+  <h2 style="color: #0A1628; font-size: 16px;">📋 고객 정보</h2>
+
+  <p><strong>이름:</strong> ${escapeHtml(name)}</p>
+  <p><strong>회사명:</strong> ${escapeHtml(company)}</p>
+  <p><strong>이메일:</strong> <a href="mailto:${escapeHtml(email)}" style="color: #3B82F6;">${escapeHtml(email)}</a></p>
+  <p><strong>전화번호:</strong> <a href="tel:${escapeHtml(phone)}" style="color: #3B82F6;">${escapeHtml(phone)}</a></p>
+
+  <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+  <h2 style="color: #0A1628; font-size: 16px;">💬 문의 내용</h2>
+
+  <blockquote style="background-color: #f5f5f5; border-left: 4px solid #0A1628; margin: 0; padding: 15px; white-space: pre-wrap;">
+${escapeHtml(message)}
+  </blockquote>
+
+  ${attachments.length > 0 ? `
+  <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+  <h2 style="color: #0A1628; font-size: 16px;">📎 첨부 파일 (${attachments.length}개)</h2>
+
+  <ul>
+    ${attachments.map(att => `<li>${escapeHtml(att.filename)}</li>`).join('')}
+  </ul>
+  ` : ''}
+
+  <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
+
+  <p style="color: #888; font-size: 12px; text-align: center;">
+    이 메일은 라온토탈솔루션 웹사이트 문의 폼을 통해 자동 발송되었습니다.<br>
+    <strong>라온토탈솔루션</strong> | <a href="mailto:rts@raontotalsolution.co.kr" style="color: #3B82F6;">rts@raontotalsolution.co.kr</a> | 02-575-3051
+  </p>
+
 </body>
 </html>
     `;

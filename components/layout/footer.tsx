@@ -62,11 +62,46 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-sm font-semibold uppercase">Products</h4>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-300">{t("productList.compressor")}</li>
-              <li className="text-sm text-gray-300">{t("productList.mixer")}</li>
-              <li className="text-sm text-gray-300">{t("productList.pump")}</li>
-              <li className="text-sm text-gray-300">{t("productList.bearing")}</li>
-              <li className="text-sm text-gray-300">{t("productList.oilPurifier")}</li>
+              <li>
+                <Link
+                  href="/products/compressor"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("productList.compressor")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/mixer"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("productList.mixer")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/pump"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("productList.pump")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/bearing"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("productList.bearing")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/oil-purifier"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("productList.oilPurifier")}
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -88,7 +123,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:sales@raontotalsolution.co.kr"
+                  href="mailto:rts@raontotalsolution.co.kr"
                   className="hover:text-[#3B82F6] transition-colors"
                 >
                   {t("email")}
@@ -98,8 +133,16 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Business Info */}
         <div className="mt-12 pt-8 border-t border-gray-700">
+          <div className="text-sm text-gray-400 space-y-1">
+            <p>{t("businessInfo.companyName")} | {t("businessInfo.ceo")}</p>
+            <p>{t("businessInfo.businessNumber")} | {t("businessInfo.privacyOfficer")}</p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-6 pt-6 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-400">
               {t("copyright", { year: currentYear })}

@@ -17,8 +17,8 @@
   "nav": {
     "home": "HOME",
     "company": "COMPANY",
-    "industries": "INDUSTRIES",
-    "products": "PRODUCTS",
+    "industries": "BUSINESS FIELD",
+    "products": "BUSINESS ITEM",
     "partners": "PARTNERS",
     "contact": "CONTACT",
     "oilRefinery": "Oil Refinery & Petrochemical",
@@ -101,8 +101,8 @@
         "2025": {
           "year": "2025",
           "events": [
-            "Signed Korean agency contract with Chinese Cylinder liner manufacturer (WTQ)",
-            "Signed Ulsan agency contract with CP pump systems (Swiss)",
+            "Signed Korean agency contract with Chinese Cylinder Liner manufacturer (WTQ)",
+            "Signed Ulsan agency contract with CP Pumpen (Swiss)",
             "Signed agency contract with FIMA (Germany) Compressor manufacturer"
           ]
         },
@@ -145,7 +145,7 @@
       "fax": "Fax",
       "faxValue": "02-575-3052",
       "email": "Email",
-      "emailValue": "sales@raontotalsolution.co.kr",
+      "emailValue": "rts@raontotalsolution.co.kr",
       "contactButton": "Contact Us",
       "tabs": {
         "google": "Google",
@@ -176,7 +176,7 @@
         "Pump",
         "Mixer & Agitator",
         "Bearing",
-        "Compressor Cylinder liner",
+        "Compressor Cylinder Liner",
         "All spare parts for valves, piston rings, and related products"
       ],
       "featuresTitle": "Key Features",
@@ -270,44 +270,88 @@
       "title": "Products",
       "description": "Rotating equipment parts solutions with global partners"
     },
+    "main": {
+      "title": "Product Categories",
+      "description": "Introducing Raon Total Solution's main products",
+      "ctaTitle": "Can't find the parts you need?",
+      "ctaDescription": "Our expert engineers will propose the optimal solution for you"
+    },
     "categories": {
       "compressor": {
         "title": "Compressor",
         "partner": "NEUMAN & ESSER",
-        "description": "Reciprocating compressors and consumables"
+        "description": "Reciprocating compressors and consumables",
+        "features": [
+          "190+ years of technical expertise",
+          "Global standards (API, ASME, PED)",
+          "Custom engineering solutions"
+        ]
       },
       "mixer": {
         "title": "Mixer & Agitator",
         "partner": "SPX FLOW",
-        "description": "Industrial mixers and agitators"
+        "description": "Industrial mixers and agitators",
+        "features": [
+          "A310 impeller technology",
+          "Energy efficiency optimization",
+          "Corrosion-resistant materials"
+        ]
       },
       "motor": {
         "title": "Motor",
         "partner": "NIDEC",
-        "description": "High-efficiency industrial motors"
+        "description": "High-efficiency industrial motors",
+        "features": [
+          "IE3/IE4 high-efficiency rating",
+          "Global certifications (IEC, NEMA)",
+          "Various cooling methods"
+        ]
       },
       "pump": {
         "title": "Pump",
         "partner": "CP Pumpen",
-        "description": "Special industrial pumps"
+        "description": "Special industrial pumps",
+        "features": [
+          "API 610 compliance",
+          "Corrosion-resistant special materials",
+          "Sealless design options"
+        ]
       },
       "bearing": {
         "title": "Bearing",
         "partner": "Turbolink",
-        "description": "Tilting pad bearing systems"
+        "brand": "Turbolink",
+        "description": "Tilting pad bearing systems",
+        "features": [
+          "High load capacity",
+          "Excellent stability",
+          "Low friction design"
+        ]
       },
       "cylinderLiner": {
         "title": "Cylinder Liner",
         "partner": "WTQ",
-        "description": "Ship engine cylinder liners"
+        "description": "Ship engine cylinder liners",
+        "features": [
+          "Major engine compatibility",
+          "High wear-resistant materials",
+          "Precision machining"
+        ]
       },
       "oilPurifier": {
         "title": "Oil Purifier",
         "partner": "Samyoung Filtech",
-        "description": "Industrial oil purification systems"
+        "brand": "Samyoung Filtech",
+        "description": "Industrial oil purification systems",
+        "features": [
+          "High-efficiency purification",
+          "Automatic operation",
+          "Compact design"
+        ]
       }
     },
     "snapshot": {
+      "businessItem": "Business Item",
       "title": "Featured Products",
       "description": "We guarantee the highest quality through global partnerships",
       "viewAll": "View All Products",
@@ -498,9 +542,76 @@
   "footer": {
     "companyName": "Raon Total Solution",
     "description": "Rotating Equipment & Compressor Parts Specialist",
-    "address": "4F Jun Building, 71 Banpo-daero 14-gil, Seocho-gu, Seoul, Korea",
+    "address": "5F, 16 Mabang-ro, Seocho-gu, Seoul (Yangjae-dong, Jaeyeon Building)",
     "phone": "+82-2-575-3051",
+    "fax": "+82-2-575-3052",
     "email": "rts@raontotalsolution.co.kr",
-    "copyright": "© 2025 Raon Total Solution. All rights reserved."
+    "businessInfo": {
+      "label": "Business Information",
+      "companyName": "Company: Raon Total Solution Co., Ltd.",
+      "ceo": "CEO: Kim Hye-Kyung",
+      "businessNumber": "Business Registration No.: 850-81-03393",
+      "privacyOfficer": "Privacy Officer: Kim Hye-Kyung"
+    },
+    "copyright": "© {year} Raon Total Solution. All rights reserved.",
+    "links": {
+      "company": "Company",
+      "industries": "Industries",
+      "products": "Products",
+      "partners": "Partners"
+    },
+    "productList": {
+      "compressor": "Compressor & Parts",
+      "mixer": "Mixer / Agitator",
+      "pump": "Pump",
+      "bearing": "Bearing",
+      "oilPurifier": "Oil Purifier"
+    },
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Privacy Policy of Raon Total Solution",
+    "sections": {
+      "collection": {
+        "title": "1. Information We Collect",
+        "content": "We collect the following personal information for inquiry handling and customer support: name, company name, email address, phone number, and inquiry details. The collected information is used solely for customer inquiry response and service provision."
+      },
+      "usage": {
+        "title": "2. Use of Information",
+        "content": "The collected personal information is used for responding to customer inquiries, providing product and service information, and delivering quotations. We do not use personal information for purposes other than those collected without consent."
+      },
+      "protection": {
+        "title": "3. Information Protection",
+        "content": "We implement technical and administrative security measures to protect personal information. Personal information is encrypted and stored, and only authorized personnel can access it."
+      },
+      "contact": {
+        "title": "4. Contact Information",
+        "content": "For inquiries regarding personal information processing, please contact us at: Email: rts@raontotalsolution.co.kr / Phone: +82-2-575-3051"
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description": "Terms of Service for Raon Total Solution website",
+    "sections": {
+      "general": {
+        "title": "1. General Provisions",
+        "content": "These Terms of Service aim to establish the basic terms and conditions for the use of website services provided by Raon Total Solution (hereinafter referred to as 'Company')."
+      },
+      "service": {
+        "title": "2. Service Usage",
+        "content": "The Company provides services including product information, technical consultation, and quotation inquiries. Services are available 24 hours a day, 365 days a year, unless there are special business or technical circumstances."
+      },
+      "liability": {
+        "title": "3. Limitation of Liability",
+        "content": "The Company is exempt from liability for service provision when services cannot be provided due to force majeure such as natural disasters. The Company is not responsible for service disruptions caused by user negligence."
+      },
+      "copyright": {
+        "title": "4. Copyright",
+        "content": "All content on the website (text, images, logos, etc.) is owned by the Company. Unauthorized reproduction, distribution, or transmission is prohibited under copyright law."
+      }
+    }
   }
 }

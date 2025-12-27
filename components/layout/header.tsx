@@ -23,6 +23,7 @@ import { LanguageSwitcher } from "./language-switcher";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const t = useTranslations("nav");
 
@@ -73,14 +74,58 @@ export function Header() {
             >
               {t("home")}
             </Link>
-            <Link
-              href="/company"
-              className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
-                scrolled ? "text-[#0A1628]" : "text-white"
-              }`}
+            {/* Company Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setCompanyOpen(true)}
+              onMouseLeave={() => setCompanyOpen(false)}
             >
-              {t("company")}
-            </Link>
+              <button
+                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
+                  scrolled ? "text-[#0A1628]" : "text-white"
+                }`}
+              >
+                {t("company")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              {companyOpen && (
+                <div
+                  className="absolute top-full left-0 w-[200px] z-50"
+                  onMouseEnter={() => setCompanyOpen(true)}
+                  onMouseLeave={() => setCompanyOpen(false)}
+                >
+                  <div className="h-2 w-full" />
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 animate-in fade-in duration-200">
+                    <div className="p-2">
+                      <Link
+                        href="/company#greeting"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          {t("greeting")}
+                        </div>
+                      </Link>
+                      <Link
+                        href="/company#history"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          {t("history")}
+                        </div>
+                      </Link>
+                      <Link
+                        href="/company#location"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          {t("location")}
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Industries Dropdown */}
             <div

@@ -1,125 +1,115 @@
-# Project Plan - Raon Total Solution
+# Project Plan - 라온토탈솔루션 웹사이트
 
-## Project Overview
-**Project Name:** 라온토탈솔루션 B2B 웹사이트
-**Start Date:** 2025-11-18
-**Target Release:** 2025-12-31 (Phase 1: MVP)
-**Current Status:** In Development
+> **시작일**: 2025-11-18
+> **1차 배포**: 2025-12-24 ✅
+> **현재 상태**: 2차 개선 진행 중
 
-## Goals and Objectives
+---
 
-### Primary Goal
+## 프로젝트 목표
+
 정유·석유화학 및 조선 산업 B2B 고객에게 라온토탈솔루션의 30년 회전기계 전문성을 전달하고, 견적 문의 및 기술 상담 리드를 극대화하는 전문 기업 웹사이트 구축
 
-### Success Metrics
+### 성공 지표
+
 - [ ] 월 100건 이상의 견적/상담 문의 확보
-- [ ] 모바일 반응형 100% 구현
-- [ ] 핵심 페이지 로딩 속도 3초 이내
-- [ ] 주요 고객사 및 파트너사 신뢰도 시각화
+- [x] 모바일 반응형 100% 구현
+- [x] 핵심 페이지 로딩 속도 3초 이내
+- [x] 주요 고객사 및 파트너사 신뢰도 시각화
 
-## Milestones
+---
 
-### Phase 1: 기본 구조 및 공통 컴포넌트 (Week 1-2)
-- [x] 색상 시스템 구축 및 Tailwind 설정 (완료일: 2025-11-18)
-- [x] Header + Footer 컴포넌트 (완료일: 2025-11-18)
-- [x] CTA 버튼 시스템 (상담/제품 문의) (완료일: 2025-11-18)
-- [x] Placeholder 이미지 컴포넌트 (완료일: 2025-11-18)
-- [x] Logo Carousel 컴포넌트 (완료일: 2025-11-18)
+## 마일스톤
 
-### Phase 2: 핵심 페이지 개발 (Week 3-4) ✅ 완료
-- [x] HOME 페이지 (Hero + Industries + Products + Partners) (완료일: 2025-11-18)
-- [x] COMPANY 페이지 (인사말 + 연혁 타임라인 + 오시는 길) (완료일: 2025-11-18)
-- [x] INDUSTRIES 페이지 (정유·석유화학 / 조선) (완료일: 2025-11-18)
-- [x] PRODUCTS 페이지 (7개 제품군 + Accordion) (완료일: 2025-11-18)
+### Phase 1: 기본 구조 및 공통 컴포넌트 ✅
 
-### Phase 3: 기능 페이지 및 최적화 (Week 5-6)
-- [x] PARTNERS 페이지 (글로벌 파트너 + 고객사) (완료일: 2025-11-18)
-- [x] PARTNERS 페이지 로고 이미지 삽입 (파트너 10개 + 클라이언트 6개) (완료일: 2025-12-23)
-- [x] CONTACT 페이지 (문의 폼 + 이메일 연동) (완료일: 2025-12-15)
-- [x] SEO 최적화 및 메타 태그 설정 (완료일: 2025-12-18)
-- [x] 성능 최적화 및 이미지 최적화 (완료일: 2025-12-22)
+- [x] 색상 시스템 구축 및 Tailwind 설정
+- [x] Header + Footer 컴포넌트
+- [x] CTA 버튼 시스템 (상담/제품 문의)
+- [x] Placeholder 이미지 컴포넌트
+- [x] Logo Carousel 컴포넌트
 
-### Phase 4: 테스트 및 배포 (Week 7-8)
-- [ ] 모바일/태블릿/데스크톱 테스트
-- [ ] 브라우저 호환성 테스트
-- [x] 프로덕션 배포 (완료일: 2025-12-24)
-  - Vercel 연결: raontotalsolution/raon
-  - 도메인: https://raontotalsolution.co.kr
-  - DNS: 가비아 A 레코드 설정
+### Phase 2: 핵심 페이지 개발 ✅
 
-## Progress Tracking
+- [x] HOME 페이지 (Hero + Industries + Products + Partners)
+- [x] COMPANY 페이지 (인사말 + 연혁 + 오시는 길)
+- [x] INDUSTRIES 페이지 (정유·석유화학 / 조선)
+- [x] PRODUCTS 페이지 (7개 제품군 + Accordion)
 
-### Overall Progress
-**현재 진행률:** 95%
-**완료된 마일스톤:** 18 / 20
-**예상 완료일:** 2025-12-31
+### Phase 3: 기능 페이지 및 최적화 ✅
 
-### Weekly Progress
+- [x] PARTNERS 페이지 (글로벌 파트너 + 고객사)
+- [x] PARTNERS 로고 이미지 삽입 (16개)
+- [x] CONTACT 페이지 (문의 폼 + 이메일 연동)
+- [x] SEO 최적화 및 메타 태그 설정
+- [x] 성능 최적화 및 이미지 최적화
 
-**Note:** 세부 작업 내역은 `docs/02-TODO.md`와 `docs/03-CHANGELOG.md`를 참조하세요.
+### Phase 4: 다국어 및 배포 ✅
 
-#### Week of 2025-12-24
-**마일스톤 진행:** 89% → 95% (18/20 완료)
-- Phase 1: ✅ 완료 (5/5)
-- Phase 2: ✅ 완료 (4/4)
-- Phase 3: ✅ 완료 (5/5)
-- Phase 4: 🔄 1/3 진행중 (배포 완료, 테스트 대기)
-- i18n: ✅ 완료 (다국어 지원 추가)
+- [x] next-intl 다국어 지원 (ko/en)
+- [x] 번역 파일 생성 (850+ 키)
+- [x] Vercel 프로덕션 배포
+- [x] 도메인 연결 (raontotalsolution.co.kr)
 
-## Scope
+### Phase 5: 2차 개선 (진행 중) 🔄
 
-### In Scope (Phase 1)
-- 7개 주요 페이지 (HOME, COMPANY, INDUSTRIES, PRODUCTS, PARTNERS, CONTACT, RESOURCES 일부)
+상세 내용: [tasks_2nd.md](./tasks_2nd.md)
+
+- [x] 번역 키 누락 오류 수정
+- [ ] 영문 레이아웃 깨짐 수정
+- [ ] GNB 메뉴 개편
+- [ ] UI/UX 디자인 개선
+- [ ] 이미지 교체 (소스 수급 후)
+
+---
+
+## 진행 현황
+
+| 구분 | 완료 | 전체 | 상태 |
+|------|------|------|------|
+| Phase 1 | 5 | 5 | ✅ 완료 |
+| Phase 2 | 4 | 4 | ✅ 완료 |
+| Phase 3 | 5 | 5 | ✅ 완료 |
+| Phase 4 | 4 | 4 | ✅ 완료 |
+| Phase 5 | 6 | 33 | 🔄 진행 중 |
+| **합계** | **24** | **51** | **47%** |
+
+---
+
+## 기술 스택
+
+- **Framework**: Next.js 16 (App Router, Turbopack)
+- **UI**: shadcn/ui + Tailwind CSS v4
+- **i18n**: next-intl v4.x (ko/en)
+- **Email**: Resend API
+- **Hosting**: Vercel
+- **Domain**: raontotalsolution.co.kr
+
+---
+
+## 범위
+
+### In Scope
+
+- 7개 주요 페이지 (HOME, COMPANY, INDUSTRIES, PRODUCTS, PARTNERS, CONTACT)
 - 모바일 반응형 디자인
 - 문의 폼 (이메일 전송)
 - SEO 기본 최적화
-- shadcn/ui 컴포넌트 활용
-- 라이트 모드 (다크 모드 지원)
+- 다국어 지원 (한국어/영어)
 
-### Out of Scope (Phase 1)
-- RESOURCES 페이지 전체 (카탈로그 다운로드, Case Study, FAQ는 Phase 2)
+### Out of Scope
+
+- RESOURCES 페이지 (카탈로그, Case Study, FAQ)
 - 관리자 페이지
-- ~~다국어 지원~~ → ✅ **완료** (2025-12-24, next-intl v4)
 - 실시간 채팅 기능
-- 복잡한 애니메이션 (기본 Framer Motion만 사용)
+- 회원 시스템
 
-## Risks and Mitigation
+---
 
-### Technical Risks
-**Risk:** 이미지 라이선스 확보 지연
-**Impact:** Medium
-**Mitigation:** Placeholder 이미지 컴포넌트 사용, 파트너사 공식 이미지 우선 확보, 유료 스톡 이미지 준비
+## 참조 문서
 
-**Risk:** 문의 폼 스팸 메일 발생 가능성
-**Impact:** Low
-**Mitigation:** reCAPTCHA 또는 간단한 honeypot 필드 추가
-
-### Schedule Risks
-**Risk:** 제품 상세 콘텐츠 작성 지연
-**Impact:** Medium
-**Mitigation:** 기획서 기반 1차 초안 작성 후 점진적 업데이트
-
-**Risk:** 실제 고객사/파트너사 로고 확보 지연
-**Impact:** Low
-**Mitigation:** 텍스트 기반 리스트로 우선 구현, 로고는 순차적으로 업데이트
-
-## Resources
-
-### Team
-- **Developer:** 1인 개발자 (Full-stack)
-- **AI Assistant:** Claude (Pair Programming, 문서 관리)
-
-### Tools and Technologies
-- **Framework:** Next.js 16.0.7 (App Router, Turbopack)
-- **UI Library:** shadcn/ui + Tailwind CSS v4
-- **i18n:** next-intl v4.x (ko/en)
-- **Database:** 없음 (정적 사이트, 문의 폼은 이메일 전송)
-- **Hosting:** Vercel (raontotalsolution.co.kr)
-- **Version Control:** Git + GitHub (dual push)
-- **AI Tools:** Claude Code
-
-## Notes
-- 모든 콘텐츠는 기획서 및 Design Direction Overview 문서 기반
-- 색상: 짙은 네이비(#0A1628) + 화이트 + 블루 그라디언트(#3B82F6~#60A5FA) + 레드 악센트(#EF4444)
-- 모바일 우선 설계 (Mobile First)
-- CTA는 2종: "상담 문의" / "제품 문의"
+- 작업 목록: [02-TODO.md](./02-TODO.md)
+- 변경 기록: [03-CHANGELOG.md](./03-CHANGELOG.md)
+- 2차 개선: [tasks_2nd.md](./tasks_2nd.md)
+- PRD: [04-PRD.md](./04-PRD.md)
+- 디자인 시스템: [06-DESIGN_SYSTEM.md](./06-DESIGN_SYSTEM.md)

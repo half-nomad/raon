@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -20,51 +20,70 @@ export function HistoryTimeline() {
     t.raw("years.2020"),
   ];
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isDesktop, setIsDesktop] = useState<boolean>(true);
+  const desktopRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const mobileRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const elements = itemRefs.current.filter(Boolean) as HTMLDivElement[];
-
+  // 스크롤 위치 기반으로 가장 중앙에 가까운 요소 찾기
+  const findClosestToCenter = useCallback(() => {
+    const refs = isDesktop ? desktopRefs : mobileRefs;
+    const elements = refs.current.filter(Boolean) as HTMLDivElement[];
     if (!elements.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // 현재 보이는 모든 요소 중에서 가장 viewport 중앙에 가까운 요소 찾기
-        const visibleElements: { index: number; distance: number }[] = [];
+    const viewportCenter = window.innerHeight / 2;
+    let closestIndex = 0;
+    let minDistance = Infinity;
 
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const rect = entry.boundingClientRect;
-            const elementCenter = rect.top + rect.height / 2;
-            const viewportCenter = window.innerHeight / 2;
-            const distance = Math.abs(elementCenter - viewportCenter);
-            const index = Number((entry.target as HTMLDivElement).dataset.index);
+    elements.forEach((el, index) => {
+      const rect = el.getBoundingClientRect();
+      // hidden 요소 건너뛰기
+      if (rect.width === 0 && rect.height === 0) return;
 
-            if (!isNaN(index)) {
-              visibleElements.push({ index, distance });
-            }
-          }
-        });
+      const elementCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(elementCenter - viewportCenter);
 
-        if (visibleElements.length > 0) {
-          // 가장 중앙에 가까운 요소 선택
-          visibleElements.sort((a, b) => a.distance - b.distance);
-          const closestIndex = visibleElements[0].index;
-          setActiveIndex(closestIndex);
-        }
-      },
-      {
-        root: null,
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5],
-        rootMargin: "-10% 0px -10% 0px",
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
       }
-    );
+    });
 
-    elements.forEach((el) => observer.observe(el));
+    setActiveIndex(closestIndex);
+  }, [isDesktop]);
 
-    return () => observer.disconnect();
+  // 화면 크기 감지
+  useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    checkDesktop();
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
   }, []);
+
+  useEffect(() => {
+    // 초기 위치 계산
+    findClosestToCenter();
+
+    // 스크롤 이벤트 (throttled)
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          findClosestToCenter();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [findClosestToCenter]);
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0A1628] to-[#0F1D32]">
@@ -115,7 +134,7 @@ export function HistoryTimeline() {
                 <div
                   key={item.year}
                   ref={(el) => {
-                    itemRefs.current[index] = el;
+                    desktopRefs.current[index] = el;
                   }}
                   data-index={index}
                   className="relative"
@@ -188,9 +207,7 @@ export function HistoryTimeline() {
                 <div
                   key={item.year}
                   ref={(el) => {
-                    if (typeof window !== "undefined" && window.innerWidth < 768) {
-                      itemRefs.current[index] = el;
-                    }
+                    mobileRefs.current[index] = el;
                   }}
                   data-index={index}
                   className="relative"

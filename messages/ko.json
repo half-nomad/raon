@@ -855,12 +855,15 @@
         "label": "문의 분야",
         "placeholder": "문의 분야를 선택해주세요",
         "options": {
-          "compressorValve": "압축기 밸브",
-          "compressorRing": "압축기 링 & 패킹",
-          "frameParts": "프레임 부품",
-          "repairService": "수리 서비스",
-          "materials": "소재",
-          "general": "일반 문의"
+          "visitConsulting": "방문 상담",
+          "compressor": "Compressor & Parts (압축기)",
+          "mixer": "Mixer & Agitator (믹서/교반기)",
+          "motor": "Motor (모터)",
+          "pump": "Pump (펌프)",
+          "bearing": "Bearing (베어링)",
+          "cylinderLiner": "Cylinder Liner (실린더 라이너)",
+          "oilPurifier": "Oil Purifier (오일 정화기)",
+          "general": "기타 문의"
         }
       },
       "name": {

@@ -282,11 +282,14 @@ export default function ContactPage() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="compressor-valve">{t("form.category.options.compressorValve")}</SelectItem>
-                          <SelectItem value="compressor-ring">{t("form.category.options.compressorRing")}</SelectItem>
-                          <SelectItem value="frame-parts">{t("form.category.options.frameParts")}</SelectItem>
-                          <SelectItem value="repair-service">{t("form.category.options.repairService")}</SelectItem>
-                          <SelectItem value="materials">{t("form.category.options.materials")}</SelectItem>
+                          <SelectItem value="visit-consulting">{t("form.category.options.visitConsulting")}</SelectItem>
+                          <SelectItem value="compressor">{t("form.category.options.compressor")}</SelectItem>
+                          <SelectItem value="mixer">{t("form.category.options.mixer")}</SelectItem>
+                          <SelectItem value="motor">{t("form.category.options.motor")}</SelectItem>
+                          <SelectItem value="pump">{t("form.category.options.pump")}</SelectItem>
+                          <SelectItem value="bearing">{t("form.category.options.bearing")}</SelectItem>
+                          <SelectItem value="cylinder-liner">{t("form.category.options.cylinderLiner")}</SelectItem>
+                          <SelectItem value="oil-purifier">{t("form.category.options.oilPurifier")}</SelectItem>
                           <SelectItem value="general">{t("form.category.options.general")}</SelectItem>
                         </SelectContent>
                       </Select>

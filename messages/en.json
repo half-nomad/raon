@@ -471,12 +471,15 @@
         "label": "Category",
         "placeholder": "Select inquiry category",
         "options": {
-          "compressorValve": "Compressor Valve",
-          "compressorRing": "Compressor Ring & Packing",
-          "frameParts": "Frame Parts",
-          "repairService": "Repair Service",
-          "materials": "Materials",
-          "general": "General Inquiry"
+          "visitConsulting": "On-site Consultation",
+          "compressor": "Compressor & Parts",
+          "mixer": "Mixer & Agitator",
+          "motor": "Motor",
+          "pump": "Pump",
+          "bearing": "Bearing",
+          "cylinderLiner": "Cylinder Liner",
+          "oilPurifier": "Oil Purifier",
+          "general": "Other Inquiry"
         }
       },
       "name": {

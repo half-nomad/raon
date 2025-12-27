@@ -64,7 +64,7 @@ function LogoSlider({
         {duplicatedLogos.map((logo, index) => (
           <div
             key={`${logo.name}-${index}`}
-            className="flex-shrink-0 w-[200px] h-24 flex items-center justify-center bg-white rounded-lg border border-gray-200 hover:border-[#3B82F6] hover:shadow-lg transition-all px-6"
+            className="flex-shrink-0 w-[180px] h-20 flex items-center justify-center bg-white rounded-lg border border-gray-200 hover:border-[#3B82F6] hover:shadow-lg transition-all px-4"
           >
             <div className="relative w-full h-full flex items-center justify-center">
               <Image
@@ -80,8 +80,8 @@ function LogoSlider({
       </div>
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
     </div>
   );
 }
@@ -92,7 +92,7 @@ function ClientsGrid({ clients }: { clients: LogoItem[] }) {
       {clients.map((client, index) => (
         <div
           key={index}
-          className="flex items-center justify-center bg-white rounded-lg border border-gray-200 hover:border-[#3B82F6] hover:shadow-lg transition-all p-6 h-28"
+          className="flex items-center justify-center bg-white rounded-lg border border-gray-200 hover:border-[#3B82F6] hover:shadow-lg transition-all p-4 h-24"
         >
           <div className="relative w-full h-full flex items-center justify-center">
             <Image
@@ -139,7 +139,7 @@ export function PartnersClients() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

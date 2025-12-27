@@ -27,8 +27,8 @@ export function HeroSection() {
           style={{ backgroundImage: "url('/images/hero/plant-night.png')" }}
         />
 
-        {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/80 via-[#0A1628]/70 to-[#3B82F6]/60" />
+        {/* Dark Overlay for better text readability - Brighter tone */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/60 via-[#0A1628]/50 to-[#3B82F6]/40" />
       </div>
 
       {/* Content Container */}

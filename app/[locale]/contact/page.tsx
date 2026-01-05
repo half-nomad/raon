@@ -284,12 +284,11 @@ export default function ContactPage() {
                         <SelectContent>
                           <SelectItem value="visit-consulting">{t("form.category.options.visitConsulting")}</SelectItem>
                           <SelectItem value="compressor">{t("form.category.options.compressor")}</SelectItem>
-                          <SelectItem value="mixer">{t("form.category.options.mixer")}</SelectItem>
-                          <SelectItem value="motor">{t("form.category.options.motor")}</SelectItem>
                           <SelectItem value="pump">{t("form.category.options.pump")}</SelectItem>
+                          <SelectItem value="mixer">{t("form.category.options.mixer")}</SelectItem>
                           <SelectItem value="bearing">{t("form.category.options.bearing")}</SelectItem>
-                          <SelectItem value="cylinder-liner">{t("form.category.options.cylinderLiner")}</SelectItem>
-                          <SelectItem value="oil-purifier">{t("form.category.options.oilPurifier")}</SelectItem>
+                          <SelectItem value="motor">{t("form.category.options.motor")}</SelectItem>
+                          <SelectItem value="document-request">{t("form.category.options.documentRequest")}</SelectItem>
                           <SelectItem value="general">{t("form.category.options.general")}</SelectItem>
                         </SelectContent>
                       </Select>

@@ -22,7 +22,13 @@
     "partners": "PARTNERS",
     "contact": "CONTACT",
     "oilRefinery": "Oil Refinery & Petrochemical",
+    "powerPlant": "Power Plant",
     "shipbuilding": "Shipbuilding",
+    "compressor": "COMPRESSOR",
+    "pump": "PUMP",
+    "mixer": "MIXER",
+    "bearing": "BEARING & LUBRICATION",
+    "motor": "MOTOR",
     "menu": "Menu",
     "greeting": "CEO Message",
     "history": "History",
@@ -50,6 +56,10 @@
     "shipbuilding": {
       "title": "Shipbuilding",
       "description": "Cylinder liner, motor, bearing and other marine parts for shipbuilding industry"
+    },
+    "powerPlant": {
+      "title": "Power Plant",
+      "description": "Compressor, motor, bearing and other rotating equipment parts for power plants"
     },
     "products": {
       "title": "Products",
@@ -195,6 +205,40 @@
       },
       "ctaButton": "Contact Us",
       "features": ["High-pressure process gas compressors", "API standard pumps", "Industrial mixers and agitators", "Corrosion-resistant special bearings"]
+    },
+    "powerPlant": {
+      "title": "Power Plant",
+      "subtitle": "Power Plant",
+      "description": "Supplying compressors, motors, bearings and other rotating equipment parts for power plants",
+      "heroDescription": "Providing optimized rotating machinery solutions for thermal, gas, and combined cycle power plants",
+      "imageCaption": "Turbines, compressors, and power generation equipment systems operating in power plants",
+      "introTitle": "Core Introduction",
+      "intro1": "Raon Total Solution provides parts and engineering solutions for key rotating machinery including turbines, compressors, and motors in the power plant sector.",
+      "intro2": "We support stable operation and efficiency improvement of power plants based on 30 years of experience and global partnerships.",
+      "servicesTitle": "Main Services",
+      "services": [
+        "Gas Turbine & Steam Turbine Parts",
+        "Industrial Compressor & Blower",
+        "High-efficiency Industrial Motors",
+        "Tilting Pad Bearing Systems",
+        "Oil Purifier & Lubrication Systems",
+        "Spare Parts & Consumables Supply"
+      ],
+      "featuresTitle": "Key Features",
+      "features30Years": "30 Years Experience",
+      "features30YearsDesc": "Accumulated technical know-how in power plant sector",
+      "featuresFastResponse": "Rapid Response",
+      "featuresFastResponseDesc": "Fast parts supply and technical support in emergencies",
+      "featuresGlobalPartner": "Global Partners",
+      "featuresGlobalPartnerDesc": "Official partnerships with world-class manufacturers",
+      "relatedProductsTitle": "Related Products",
+      "relatedProducts": {
+        "compressor": "Compressor & Parts",
+        "motor": "Motor",
+        "bearing": "Bearing",
+        "oilPurifier": "Oil Purifier"
+      },
+      "ctaButton": "Contact Us"
     },
     "shipbuilding": {
       "title": "Shipbuilding",
@@ -382,6 +426,279 @@
           "description": "Oil purification systems. Extending lubricant life and protecting equipment"
         }
       }
+    },
+    "motor": {
+      "hero": {
+        "title": "Motor Solution",
+        "description": "30 years of compressor supply experience, foreign motor parts supply and explosion-proof certification solutions",
+        "yearsExperience": "Years Experience",
+        "globalPartners": "Global Partners",
+        "sparePartsBtn": "View Motor Parts",
+        "certificationBtn": "View Certification"
+      },
+      "spareParts": {
+        "title": "Foreign Motor Spare Parts Solution",
+        "description": "As the official domestic distributor for LDW (Germany) and NIDEC (Italy), we provide high-quality motor parts and technical services",
+        "ldw": {
+          "country": "Germany",
+          "description": "We supply high-performance motor parts and replacement parts from LDW Germany. Known for precision quality and excellent durability, trusted by industrial sites.",
+          "status": "Official Domestic Distributor"
+        },
+        "nidec": {
+          "country": "Italy",
+          "description": "We supply NIDEC Italy's industrial motors and parts. With high-efficiency design and global quality certification, applicable to various industrial sectors.",
+          "status": "Official Domestic Distributor"
+        },
+        "servicesTitle": "Services Provided",
+        "services": {
+          "technical": {
+            "title": "Technical Support",
+            "description": "Technical consulting from motor selection to installation and operation by professional engineers"
+          },
+          "supervisor": {
+            "title": "Supervisor Dispatch",
+            "description": "Manufacturer expert dispatch service during installation and commissioning"
+          },
+          "parts": {
+            "title": "Parts Supply",
+            "description": "Rapid supply of genuine spare parts and consumables"
+          }
+        }
+      },
+      "certification": {
+        "title": "Domestic Explosion-Proof Certification Solution",
+        "description": "One-stop consulting service for obtaining domestic explosion-proof certification for foreign motors",
+        "kosha": {
+          "description": "Korea Occupational Safety and Health Agency explosion-proof certification support"
+        },
+        "ktl": {
+          "description": "Korea Testing Laboratory explosion-proof testing and certification support"
+        },
+        "kgs": {
+          "description": "Korea Gas Safety Corporation gas equipment explosion-proof certification support"
+        },
+        "consulting": {
+          "title": "Explosion-Proof Certification Consulting",
+          "description": "We support the entire process of obtaining explosion-proof certification for domestic installation of foreign motors. From document preparation to testing and certification acquisition, we handle it one-stop.",
+          "items": {
+            "review": "Product specification review and certification feasibility analysis",
+            "documentation": "Certification application document preparation and translation support",
+            "testing": "Testing agency coordination and schedule arrangement",
+            "support": "Post-certification follow-up management support"
+          },
+          "processTitle": "Certification Process",
+          "process": {
+            "step1": "Pre-consultation and product review",
+            "step2": "Certification document preparation and application",
+            "step3": "Testing progress and result review",
+            "step4": "Certificate issuance and registration"
+          }
+        }
+      },
+      "cta": {
+        "title": "Need motor parts or explosion-proof certification?",
+        "description": "Our experts with 30 years of experience will propose the optimal solution",
+        "technical": "Technical Consultation",
+        "quote": "Request Quote"
+      }
+    },
+    "compressor": {
+      "hero": {
+        "title": "Compressor",
+        "description": "NEUMAN & ESSER reciprocating compressors and consumables"
+      },
+      "overview": {
+        "title": "Product Overview",
+        "description": "NEA Group's NEUMAN & ESSER has been a specialist in reciprocating compressors since 1830 with over 190 years of history. As a global leader in process gas compression, they provide optimized solutions for oil refinery, petrochemical, and gas industries."
+      },
+      "features": [
+        "190+ years of technical expertise",
+        "Global standards (API, ASME, PED)",
+        "Custom engineering solutions",
+        "24/7 global service network"
+      ],
+      "cta": {
+        "title": "Need a Compressor Solution?",
+        "description": "From new compressor installation to parts supply, troubleshooting, and maintenance - we provide one-stop solutions.",
+        "technical": "Technical Consultation",
+        "quote": "Request Quote"
+      }
+    },
+    "compressorPage": {
+      "hero": {
+        "description": "From FIMA turbo compressor solutions and reciprocating compressor parts to troubleshooting and maintenance services - we provide comprehensive compressor solutions."
+      },
+      "nav": {
+        "newCompressor": "NEW COMPRESSOR",
+        "spareParts": "SPARE PARTS",
+        "troubleshooting": "TROUBLE SHOOTING",
+        "maintenance": "MAINTENANCE"
+      },
+      "sections": {
+        "newCompressor": {
+          "tag": "New Equipment",
+          "title": "NEW COMPRESSOR SOLUTION",
+          "description": "FIMA, established in 1946, is a global leader in manufacturing high-efficiency turbo compressors and industrial blowers based on German engineering. We provide optimized solutions for oil refinery, petrochemical, power generation, and environmental industries.",
+          "partnerLabel": "Partner",
+          "partnerDesc": "Founded 1946, Global turbo compressor specialist"
+        },
+        "spareParts": {
+          "tag": "Spare Parts",
+          "title": "SPARE PARTS SOLUTION",
+          "description": "We supply complete core components for reciprocating compressors through our global partners. High-quality parts from verified manufacturers like WTQ, Castanet SA, and KB Delta extend equipment life and maximize operational efficiency.",
+          "partnerLabel": "Partners"
+        },
+        "troubleshooting": {
+          "tag": "Technical Support",
+          "title": "TROUBLE SHOOTING",
+          "description": "Through our global OEM network, we provide professional diagnostics and solutions for various compressor operating issues. Experts with 30 years of experience recommend optimal solutions.",
+          "steps": {
+            "step1": {
+              "title": "Problem Diagnosis",
+              "desc": "Accurate root cause identification through operational data analysis and on-site inspection"
+            },
+            "step2": {
+              "title": "Solution Proposal",
+              "desc": "Optimal solution derivation through OEM technical cooperation"
+            },
+            "step3": {
+              "title": "Rapid Response",
+              "desc": "One-stop service from parts procurement to on-site support"
+            }
+          }
+        },
+        "maintenance": {
+          "tag": "Service",
+          "title": "MAINTENANCE & REPAIR",
+          "description": "Through partnerships with local maintenance contractors, we provide fast and professional services from routine inspections to emergency repairs. Minimize unexpected downtime with preventive maintenance.",
+          "features": {
+            "preventive": {
+              "title": "Preventive Maintenance",
+              "desc": "Regular inspection and parts replacement planning"
+            },
+            "emergency": {
+              "title": "Emergency Response",
+              "desc": "24-hour emergency dispatch service"
+            },
+            "overhaul": {
+              "title": "Overhaul",
+              "desc": "Comprehensive inspection and performance restoration"
+            },
+            "local": {
+              "title": "Local Partners",
+              "desc": "Nationwide service network"
+            }
+          }
+        }
+      }
+    },
+    "pump": {
+      "hero": {
+        "title": "Pump",
+        "description": "CP Pumpen Special Industrial Pumps"
+      },
+      "submenu": {
+        "pumpSolution": "PUMP SOLUTION",
+        "troubleShooting": "TROUBLE SHOOTING"
+      },
+      "pumpSolution": {
+        "title": "PUMP SOLUTION",
+        "subtitle": "CP Pump Magnetic Drive Pump",
+        "description": "CP Pumpen's magnetic drive pumps are the optimal solution for safe, leak-free chemical transfer. With 100% seal-less design, they prevent environmental contamination and safety accidents while dramatically reducing maintenance costs.",
+        "lineup": {
+          "title": "Product Lineup",
+          "items": ["MKP - Standard Magnetic Drive Pump", "MKPL - PFA-Lined Magnetic Pump", "MKP-Bio - Bio/Pharmaceutical Industry", "MSKS - Self-Priming Pump", "MSKP - High-Pressure Magnetic Pump", "MKPD - Horizontal Magnetic Pump", "MKPV - Vertical Magnetic Pump"]
+        },
+        "features": {
+          "title": "Key Features",
+          "items": ["100% Leak Prevention (Seal-less Design)", "Chemical-Resistant Materials (PFA, PTFE, PVDF)", "Minimal Maintenance, Reduced Operating Costs", "ISO 9001, ATEX, FDA Certified"]
+        }
+      },
+      "troubleShooting": {
+        "title": "TROUBLE SHOOTING",
+        "subtitle": "Corrosive Fluids & Slurry Problem Solving",
+        "description": "CP Pump solves corrosive fluid and slurry transfer problems that are difficult to handle with conventional pumps. Special materials and designs enable stable operation even under demanding process conditions.",
+        "highlight": "Magnetic Pump Compatible with Foreign Materials!",
+        "highlightDescription": "With CP Pump's proprietary technology, fluids containing foreign materials can be safely transferred using magnetic pumps.",
+        "problems": {
+          "title": "Solvable Problems",
+          "items": ["Pump damage from corrosive chemicals", "Seal failure from slurry/foreign materials", "Leakage issues in high-temperature/high-pressure environments", "Frequent maintenance of conventional pumps"]
+        },
+        "solutions": {
+          "title": "CP Pump Solutions",
+          "items": ["Chemical-resistant special materials", "Seal-less design eliminates leakage at source", "Special impeller for foreign material handling", "Guaranteed long-term trouble-free operation"]
+        }
+      },
+      "cta": {
+        "title": "Need the Optimal Pump Solution?",
+        "description": "Experts with 30 years of experience will recommend the best pump for your process.",
+        "technical": "Technical Consultation",
+        "quote": "Request Quote"
+      }
+    },
+    "mixer": {
+      "hero": {
+        "title": "Mixer & Agitator",
+        "description": "SPX FLOW Industrial Mixers and Agitators",
+        "intro": "As the domestic Master Agency for SPXFLOW, we support the design and manufacture of various mixing process MIXERs. We provide industrial mixer solutions from world-class brands including Lightnin, Plenty, Philadelphia, Stelzer, and Uutechnic.",
+        "contractLabel": "Contract Status:",
+        "contractInfo": "Signed SPX Flow Technology Korea Master Agency contract in 2022"
+      },
+      "nav": {
+        "mixingSolution": "Mixing Solution",
+        "spxflowBrands": "SPXFlow Mixer Brands"
+      },
+      "mixingSolution": {
+        "title": "Mixing Solution",
+        "description": "We provide solutions optimized for mixing processes in various industrial fields. Through SPX FLOW's global brand portfolio, we design customized mixers that meet customer requirements."
+      },
+      "features": {
+        "efficiency": {
+          "title": "Energy Efficiency Optimization",
+          "description": "Advanced CFD analysis and impeller design minimize energy consumption while delivering optimal mixing performance."
+        },
+        "customization": {
+          "title": "Custom Design",
+          "description": "Custom designs tailored to customer process requirements handle various viscosity and mixing conditions."
+        },
+        "expertise": {
+          "title": "30 Years of Expertise",
+          "description": "We propose optimal mixer solutions based on accumulated experience in oil refinery and petrochemical fields."
+        }
+      },
+      "brands": {
+        "title": "SPXFlow Mixer Brands",
+        "description": "SPX FLOW has various mixer brands specialized for each industry sector. We provide optimal solutions by utilizing the expertise of each brand.",
+        "keyFeatures": "Key Features",
+        "applications": "Applications"
+      },
+      "overview": {
+        "title": "Product Overview",
+        "description": "SPX FLOW is a global leader in highly engineered solutions. Lightnin brand industrial mixers provide optimal mixing performance in various fields including oil refinery, petrochemical, chemical, and food industries."
+      },
+      "products": {
+        "title": "Product Lineup",
+        "items": {
+          "topEntry": {
+            "title": "Top Entry Mixer",
+            "description": "Top-mounted mixer for large tanks"
+          },
+          "sideEntry": {
+            "title": "Side Entry Mixer",
+            "description": "Side-mounted mixer for storage tanks"
+          },
+          "portable": {
+            "title": "Portable Mixer",
+            "description": "Portable small mixer"
+          }
+        }
+      },
+      "cta": {
+        "title": "Need the Optimal Mixer Solution?",
+        "description": "Experts with 30 years of experience will propose the optimal mixer for your process.",
+        "technical": "Technical Consultation",
+        "quote": "Request Quote"
+      }
     }
   },
   "partners": {
@@ -398,6 +715,47 @@
       "title": "Trusted Partners",
       "description": "Global partners and major domestic clients working together",
       "clientsDescription": "Growing together with Korea's key industries"
+    },
+    "categories": {
+      "compressor": {
+        "title": "COMPRESSOR"
+      },
+      "pump": {
+        "title": "PUMP"
+      },
+      "mixer": {
+        "title": "MIXER"
+      },
+      "bearing": {
+        "title": "BEARING & LUBRICATION"
+      },
+      "motor": {
+        "title": "MOTOR"
+      }
+    },
+    "partnerDescriptions": {
+      "fima": "Compressor specialist manufacturer",
+      "neumanEsser": "Specialist in reciprocating compressors and high-pressure gas compression systems",
+      "castanet": "Specialist in compressor consumables including pistons and liners",
+      "wtq": "Specialist in marine cylinder liners",
+      "cpPump": "Industrial pump systems specialist manufacturer",
+      "spxflow": "Global leader in industrial fluid handling equipment including mixers, agitators, and pumps",
+      "turbolink": "High-performance bearing specialist manufacturer",
+      "samyoungFiltech": "Oil purification equipment specialist manufacturer",
+      "ldw": "Specialist in large electric motors and generators (Lloyd Dynamowerke GmbH)",
+      "nidec": "World's largest motor manufacturer"
+    },
+    "relationships": {
+      "fima": "Agency",
+      "neumanEsser": "Ulsan Agency",
+      "castanet": "Wearing Parts Agency",
+      "wtq": "Korea Agency",
+      "cpPump": "Ulsan Agency",
+      "spxflow": "Korea Master Agency",
+      "turbolink": "Oil Refinery & Petrochemical Agency",
+      "samyoungFiltech": "Partner",
+      "ldw": "Partner",
+      "nidec": "Partner"
     },
     "globalPartners": {
       "title": "Global Partners",
@@ -472,13 +830,12 @@
         "placeholder": "Select inquiry category",
         "options": {
           "visitConsulting": "On-site Consultation",
-          "compressor": "Compressor & Parts",
-          "mixer": "Mixer & Agitator",
-          "motor": "Motor",
-          "pump": "Pump",
-          "bearing": "Bearing",
-          "cylinderLiner": "Cylinder Liner",
-          "oilPurifier": "Oil Purifier",
+          "compressor": "COMPRESSOR",
+          "pump": "PUMP",
+          "mixer": "MIXER",
+          "bearing": "BEARING & LUBRICATION",
+          "motor": "MOTOR",
+          "documentRequest": "Document Request",
           "general": "Other Inquiry"
         }
       },
@@ -563,12 +920,17 @@
       "products": "Products",
       "partners": "Partners"
     },
-    "productList": {
-      "compressor": "Compressor & Parts",
-      "mixer": "Mixer / Agitator",
-      "pump": "Pump",
-      "bearing": "Bearing",
-      "oilPurifier": "Oil Purifier"
+    "businessItem": {
+      "compressor": "COMPRESSOR",
+      "pump": "PUMP",
+      "mixer": "MIXER",
+      "bearing": "BEARING & LUBRICATION",
+      "motor": "MOTOR"
+    },
+    "businessField": {
+      "oilRefinery": "Oil Refinery & Petrochemical",
+      "powerPlant": "Power Plant",
+      "shipbuilding": "Shipbuilding"
     },
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"

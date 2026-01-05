@@ -19,63 +19,16 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Business Item */}
           <div className="space-y-4">
-            <h4 className="text-sm font-semibold uppercase">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/company"
-                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
-                >
-                  {t("links.company")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries"
-                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
-                >
-                  {t("links.industries")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products"
-                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
-                >
-                  {t("links.products")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/partners"
-                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
-                >
-                  {t("links.partners")}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Products */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold uppercase">Products</h4>
+            <h4 className="text-sm font-semibold uppercase">Business Item</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/products/compressor"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.compressor")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/mixer"
-                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
-                >
-                  {t("productList.mixer")}
+                  {t("businessItem.compressor")}
                 </Link>
               </li>
               <li>
@@ -83,7 +36,15 @@ export function Footer() {
                   href="/products/pump"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.pump")}
+                  {t("businessItem.pump")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/mixer"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("businessItem.mixer")}
                 </Link>
               </li>
               <li>
@@ -91,15 +52,46 @@ export function Footer() {
                   href="/products/bearing"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.bearing")}
+                  {t("businessItem.bearing")}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products/oil-purifier"
+                  href="/products/motor"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.oilPurifier")}
+                  {t("businessItem.motor")}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Business Field */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-semibold uppercase">Business Field</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/industries/oil-refinery"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("businessField.oilRefinery")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/power-plant"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("businessField.powerPlant")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries/shipbuilding"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  {t("businessField.shipbuilding")}
                 </Link>
               </li>
             </ul>

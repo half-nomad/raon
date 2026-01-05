@@ -1,45 +1,52 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
-import { ImageGallery } from "@/components/ui/image-gallery";
-import { Factory, Settings, Wind, Droplets, Tornado, Wrench } from "lucide-react";
+import {
+  Settings,
+  Wrench,
+  Users,
+  Package,
+  Shield,
+  FileCheck,
+  CheckCircle,
+  Award,
+  Building2,
+  Globe
+} from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: 'Motor & Electric Motor | 산업용 전동기',
-  description: 'NIDEC 산업용 전동기 전문 공급. Inverter, Vector, Servo, Geared, Brake, Explosion-proof, High Efficiency, Special Purpose Motor 등 8개 제품군.',
-  keywords: ['Motor', '전동기', 'NIDEC', 'Inverter Motor', 'Servo Motor', '산업용 모터'],
+  title: 'Motor Spare Parts & Explosion Proof Certification | 모터 부품 및 방폭 인증',
+  description: '30년 왕복동압축기 공급 실적. LDW(독일), NIDEC(이탈리아) 국내 대리점. 외산 모터 부품 공급 및 KOSHA/KTL/KGS 방폭 인증 솔루션.',
+  keywords: ['Motor', '모터 부품', 'LDW', 'NIDEC', '방폭 인증', 'KOSHA', 'KTL', 'KGS', 'Explosion Proof'],
   openGraph: {
-    title: 'Motor & Electric Motor | 라온토탈솔루션',
-    description: 'NIDEC 산업용 전동기 전문 공급. 8개 제품군으로 다양한 산업 현장 대응',
+    title: 'Motor Spare Parts & Explosion Proof Certification | 라온토탈솔루션',
+    description: '30년 왕복동압축기 공급 실적. 외산 모터 부품 공급 및 국내 방폭 인증 솔루션',
     images: ['/images/og/motor-og.jpg'],
   },
 };
 
-// 이미지 데이터 정의
-const motorImages = [
-  { src: "/images/products/motor/motor_1.jpg", alt: "NIDEC Motor 1" },
-  { src: "/images/products/motor/motor_2.png", alt: "NIDEC Motor 2" },
-  { src: "/images/products/motor/motor_3.webp", alt: "NIDEC Motor 3" },
+// Hero 이미지 데이터
+const heroImages = [
+  { src: "/images/products/motor/motor_2.png", alt: "Industrial Motor" },
+  { src: "/images/products/motor/motor_3.webp", alt: "Motor Parts" },
 ];
 
 export default function MotorPage() {
   return (
     <div className="min-h-screen bg-white">
       <ProductSchema
-        name="Motor & Electric Motor (산업용 전동기)"
-        description="NIDEC 산업용 전동기 8개 제품군. Inverter, Vector, Servo, Geared, Brake, Explosion-proof, High Efficiency, Special Purpose Motor 전문 공급."
-        category="전동기"
-        manufacturers={[{ name: 'NIDEC' }]}
+        name="Motor Spare Parts & Explosion Proof Certification"
+        description="30년 왕복동압축기 공급 실적. LDW(독일), NIDEC(이탈리아) 국내 대리점. 외산 모터 부품 공급 및 KOSHA/KTL/KGS 방폭 인증 솔루션."
+        category="모터 부품 및 인증"
+        manufacturers={[
+          { name: 'LDW (Germany)' },
+          { name: 'NIDEC (Italy)' },
+        ]}
       />
       <BreadcrumbSchema
         items={[
@@ -55,409 +62,323 @@ export default function MotorPage() {
 
 async function MotorContent() {
   const t = await getTranslations();
-  const motorTypes = [
-    {
-      id: "inverter",
-      title: "Inverter motor",
-      description:
-        "인버터 제어를 통해 속도 조절이 가능한 모터. 에너지 효율이 높고 다양한 부하 조건에 대응 가능합니다.",
-      features: [
-        "가변 속도 제어 (0~100%)",
-        "에너지 절감 (최대 30%)",
-        "부드러운 기동 및 정지",
-        "정밀한 토크 제어",
-      ],
-    },
-    {
-      id: "vector",
-      title: "Vector motor",
-      description:
-        "벡터 제어 방식으로 높은 정밀도와 빠른 응답 특성을 제공하는 모터. 정밀 제어가 필요한 용도에 적합합니다.",
-      features: [
-        "고정밀 속도 제어",
-        "빠른 응답 속도",
-        "넓은 속도 범위",
-        "우수한 저속 토크 특성",
-      ],
-    },
-    {
-      id: "three-phase",
-      title: "Three-phase motor",
-      description:
-        "3상 교류 전원으로 구동되는 산업용 표준 모터. 높은 효율과 안정성으로 가장 널리 사용됩니다.",
-      features: [
-        "높은 효율 (IE3, IE4 등급)",
-        "안정적인 운전",
-        "간단한 유지보수",
-        "긴 수명",
-      ],
-    },
-    {
-      id: "anti-explosion",
-      title: "Anti-explosion motor",
-      description:
-        "폭발 위험이 있는 환경에서 사용 가능한 방폭 모터. 정유·석유화학·가스 산업에 필수적입니다.",
-      features: [
-        "Ex 등급 인증 (IECEx, ATEX)",
-        "Zone 1, Zone 2 대응",
-        "고온·고압 환경 적용",
-        "특수 밀봉 구조",
-      ],
-    },
-    {
-      id: "high-efficiency",
-      title: "High-efficiency motor",
-      description:
-        "에너지 효율이 극대화된 모터. IE3, IE4 등급으로 전력 소비를 최소화하고 운영비를 절감합니다.",
-      features: [
-        "IE3 / IE4 에너지 등급",
-        "전력 소비 최소화",
-        "발열 저감",
-        "친환경 운전",
-      ],
-    },
-    {
-      id: "servo",
-      title: "Servo motor",
-      description:
-        "정밀한 위치 제어가 가능한 서보 모터. 로봇, 자동화 설비 등 고정밀 제어가 필요한 용도에 사용됩니다.",
-      features: [
-        "고정밀 위치 제어",
-        "빠른 가감속",
-        "높은 응답 속도",
-        "엔코더 피드백",
-      ],
-    },
-    {
-      id: "geared",
-      title: "Geared motor",
-      description:
-        "감속기가 일체형으로 내장된 모터. 높은 토크와 낮은 속도가 필요한 용도에 적합합니다.",
-      features: [
-        "고토크 출력",
-        "컴팩트한 설계",
-        "다양한 감속비",
-        "유지보수 용이",
-      ],
-    },
-    {
-      id: "dc-brushless",
-      title: "DC Brushless motor",
-      description:
-        "브러시가 없는 직류 모터. 긴 수명과 낮은 유지보수 비용으로 산업용 및 정밀 제어 용도에 사용됩니다.",
-      features: [
-        "긴 수명 (브러시 마모 없음)",
-        "낮은 소음",
-        "높은 효율",
-        "정밀 제어 가능",
-      ],
-    },
-  ];
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section with Mosaic */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="max-w-3xl">
-            <BackButton href="/products" variant="dark" />
-
-            <Breadcrumb variant="dark" items={[
-              { label: "HOME", href: "/" },
-              { label: "PRODUCTS", href: "/products" },
-              { label: "Motor" }
-            ]} />
-
-            <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
-              NIDEC
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Motor</h1>
-            <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              {t("products.motor.hero.description")}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            {/* Image */}
-            <ImageGallery images={motorImages} />
-
-            {/* Content */}
-            <div>
-              <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                제품 개요
-              </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                Motor는 전기 에너지를 기계 에너지로 변환하여 기계를 움직이게 하는 장치입니다.
-                펌프, 압축기, 믹서, 컨베이어 등 다양한 산업 설비의 구동원으로 사용되며,
-                정유·석유화학, 조선, 제조업 등 모든 산업 분야에서 필수적인 핵심 장비입니다.
-              </p>
-
-              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
-                주요 특징
-              </h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>고효율 설계:</strong> IE2, IE3, IE4 에너지 효율 등급으로 전력 소비 최소화
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>다양한 제품군:</strong> 인버터, 서보, 방폭, 기어드 등 용도별 최적 솔루션
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>안정적 운전:</strong> 장기간 연속 운전에도 안정적인 성능 유지
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>내구성:</strong> 고온·고압·고부하 환경에서도 뛰어난 내구성
-                  </span>
-                </li>
-              </ul>
-
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <h4 className="font-bold text-[#0A1628] mb-3">
-                  파트너 브랜드
-                </h4>
-                <div className="space-y-2 text-sm text-slate-600">
-                  <p>
-                    <strong>NIDEC:</strong> 세계 최대의 종합 모터 제조업체 (일본)
-                  </p>
-                  <p className="text-xs leading-relaxed">
-                    50년 이상의 기술력으로 산업용, 자동차용, 가전용 등 다양한 분야의 고품질 정밀 모터를 설계 및 제조합니다.
-                    세계 모터 시장 점유율 1위, ISO 9001/14001 인증, 전 세계 네트워크를 통한 신속한 A/S를 제공합니다.
-                  </p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left: Mosaic Images */}
+            <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                    <Image
+                      src={heroImages[0].src}
+                      alt={heroImages[0].alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-[#3B82F6] to-[#1d4ed8] flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <p className="text-3xl md:text-4xl font-bold">30+</p>
+                      <p className="text-sm md:text-base text-white/80">{t("products.motor.hero.yearsExperience")}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-3 md:space-y-4 pt-6 md:pt-8">
+                  <div className="relative aspect-square rounded-xl overflow-hidden bg-slate-700/50 flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <Globe className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-2 text-[#3B82F6]" />
+                      <p className="text-sm md:text-base font-medium">{t("products.motor.hero.globalPartners")}</p>
+                    </div>
+                  </div>
+                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                    <Image
+                      src={heroImages[1].src}
+                      alt={heroImages[1].alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Right: Content */}
+            <div className="order-1 lg:order-2">
+              <BackButton href="/products" variant="dark" />
+
+              <Breadcrumb variant="dark" items={[
+                { label: "HOME", href: "/" },
+                { label: "PRODUCTS", href: "/products" },
+                { label: "Motor" }
+              ]} />
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full">
+                  LDW (Germany)
+                </span>
+                <span className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full">
+                  NIDEC (Italy)
+                </span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Motor Solution
+              </h1>
+
+              <p className="text-lg md:text-xl text-slate-200 leading-relaxed mb-6">
+                {t("products.motor.hero.description")}
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#spare-parts"
+                  className="inline-flex items-center px-5 py-2.5 bg-white text-[#0A1628] rounded-full font-medium hover:bg-slate-100 transition-colors text-sm"
+                >
+                  {t("products.motor.hero.sparePartsBtn")}
+                </a>
+                <a
+                  href="#certification"
+                  className="inline-flex items-center px-5 py-2.5 border border-white/50 text-white rounded-full font-medium hover:bg-white/10 transition-colors text-sm"
+                >
+                  {t("products.motor.hero.certificationBtn")}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Motor Types Accordion */}
-      <section className="py-16 md:py-24">
+      {/* Submenu Bar */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="text-center mb-12">
+          <div className="flex overflow-x-auto scrollbar-hide">
+            <a
+              href="#spare-parts"
+              className="flex-shrink-0 px-6 py-4 text-sm font-medium text-slate-600 hover:text-[#0A1628] border-b-2 border-transparent hover:border-[#3B82F6] transition-colors whitespace-nowrap"
+            >
+              MOTOR SPARE PARTS
+            </a>
+            <a
+              href="#certification"
+              className="flex-shrink-0 px-6 py-4 text-sm font-medium text-slate-600 hover:text-[#0A1628] border-b-2 border-transparent hover:border-[#3B82F6] transition-colors whitespace-nowrap"
+            >
+              Explosion Proof Certification
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Motor Spare Parts Solution Section */}
+      <section id="spare-parts" className="py-16 md:py-24 scroll-mt-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block px-4 py-1.5 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium rounded-full mb-4">
+              MOTOR SPARE PARTS
+            </span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              제품 라인업
+              {t("products.motor.spareParts.title")}
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              다양한 산업 분야와 용도에 맞는 8가지 모터 제품군을 제공합니다.
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              {t("products.motor.spareParts.description")}
             </p>
           </div>
 
-          <Accordion
-            type="single"
-            collapsible
-            className="space-y-4"
-            defaultValue="inverter"
-          >
-            {motorTypes.map((motor) => (
-              <AccordionItem
-                key={motor.id}
-                value={motor.id}
-                className="border border-slate-200 rounded-xl overflow-hidden px-6"
-              >
-                <AccordionTrigger className="text-xl font-bold text-[#0A1628] hover:no-underline py-6">
-                  <div className="text-left">
-                    <h3 className="text-2xl mb-2">{motor.title}</h3>
-                    <p className="text-base font-normal text-slate-600">
-                      {motor.description}
-                    </p>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6">
-                  <div className="pt-4">
-                    <h4 className="text-lg font-bold text-[#0A1628] mb-4">
-                      주요 특징
-                    </h4>
-                    <ul className="grid md:grid-cols-2 gap-3">
-                      {motor.features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start text-slate-700"
-                        >
-                          <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
-
-      {/* Applications */}
-      <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
-            적용 분야
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Factory className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                석유화학 플랜트
-              </h3>
-              <p className="text-slate-600 text-sm">
-                펌프, 압축기, 컨베이어 구동용 모터
+          {/* Partner Brands */}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {/* LDW Germany */}
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center">
+                  <Building2 className="w-7 h-7 text-[#0A1628]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#0A1628]">LDW</h3>
+                  <p className="text-sm text-slate-500">{t("products.motor.spareParts.ldw.country")}</p>
+                </div>
+              </div>
+              <p className="text-slate-600 mb-4">
+                {t("products.motor.spareParts.ldw.description")}
               </p>
+              <div className="flex items-center text-sm text-[#3B82F6] font-medium">
+                <Award className="w-4 h-4 mr-2" />
+                {t("products.motor.spareParts.ldw.status")}
+              </div>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Settings className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                산업 자동화
-              </h3>
-              <p className="text-slate-600 text-sm">
-                로봇, 자동화 설비, 컨베이어 시스템
+            {/* NIDEC Italy */}
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="flex-shrink-0 w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center">
+                  <Building2 className="w-7 h-7 text-[#0A1628]" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#0A1628]">NIDEC</h3>
+                  <p className="text-sm text-slate-500">{t("products.motor.spareParts.nidec.country")}</p>
+                </div>
+              </div>
+              <p className="text-slate-600 mb-4">
+                {t("products.motor.spareParts.nidec.description")}
               </p>
+              <div className="flex items-center text-sm text-[#3B82F6] font-medium">
+                <Award className="w-4 h-4 mr-2" />
+                {t("products.motor.spareParts.nidec.status")}
+              </div>
             </div>
+          </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Wind className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                HVAC 시스템
-              </h3>
-              <p className="text-slate-600 text-sm">
-                공조 설비, 환기 팬, 냉난방 시스템
-              </p>
-            </div>
+          {/* Services Grid */}
+          <div className="bg-slate-50 rounded-2xl p-6 md:p-10">
+            <h3 className="text-2xl font-bold text-[#0A1628] mb-8 text-center">
+              {t("products.motor.spareParts.servicesTitle")}
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Technical Support */}
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <Settings className="w-10 h-10 text-[#3B82F6] mb-4" />
+                <h4 className="text-lg font-bold text-[#0A1628] mb-2">
+                  {t("products.motor.spareParts.services.technical.title")}
+                </h4>
+                <p className="text-slate-600 text-sm">
+                  {t("products.motor.spareParts.services.technical.description")}
+                </p>
+              </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Droplets className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                펌프 시스템
-              </h3>
-              <p className="text-slate-600 text-sm">
-                급수 펌프, 송유 펌프, 화학 펌프 구동
-              </p>
-            </div>
+              {/* Supervisor Dispatch */}
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <Users className="w-10 h-10 text-[#3B82F6] mb-4" />
+                <h4 className="text-lg font-bold text-[#0A1628] mb-2">
+                  {t("products.motor.spareParts.services.supervisor.title")}
+                </h4>
+                <p className="text-slate-600 text-sm">
+                  {t("products.motor.spareParts.services.supervisor.description")}
+                </p>
+              </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Tornado className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                믹서·교반기
-              </h3>
-              <p className="text-slate-600 text-sm">
-                산업용 믹서, 화학 반응기, 혼합 설비
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Wrench className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                기타 산업
-              </h3>
-              <p className="text-slate-600 text-sm">
-                식품, 제약, 광물 처리, 환경 설비
-              </p>
+              {/* Parts Supply */}
+              <div className="bg-white rounded-xl p-6 border border-slate-200">
+                <Package className="w-10 h-10 text-[#3B82F6] mb-4" />
+                <h4 className="text-lg font-bold text-[#0A1628] mb-2">
+                  {t("products.motor.spareParts.services.parts.title")}
+                </h4>
+                <p className="text-slate-600 text-sm">
+                  {t("products.motor.spareParts.services.parts.description")}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technical Specifications */}
-      <section className="py-16 md:py-24">
+      {/* Explosion Proof Certification Section */}
+      <section id="certification" className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white scroll-mt-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-200">
-            <h2 className="text-3xl font-bold text-[#0A1628] mb-8">
-              기술 사양
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <span className="inline-block px-4 py-1.5 bg-[#EF4444]/10 text-[#EF4444] text-sm font-medium rounded-full mb-4">
+              EXPLOSION PROOF CERTIFICATION
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
+              {t("products.motor.certification.title")}
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              {t("products.motor.certification.description")}
+            </p>
+          </div>
+
+          {/* Certification Bodies */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {/* KOSHA */}
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#3B82F6] transition-all">
+              <div className="w-16 h-16 bg-[#0A1628] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0A1628] mb-2">KOSHA</h3>
+              <p className="text-slate-600 text-sm">
+                {t("products.motor.certification.kosha.description")}
+              </p>
+            </div>
+
+            {/* KTL */}
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#3B82F6] transition-all">
+              <div className="w-16 h-16 bg-[#0A1628] rounded-full flex items-center justify-center mx-auto mb-4">
+                <FileCheck className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0A1628] mb-2">KTL</h3>
+              <p className="text-slate-600 text-sm">
+                {t("products.motor.certification.ktl.description")}
+              </p>
+            </div>
+
+            {/* KGS */}
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#3B82F6] transition-all">
+              <div className="w-16 h-16 bg-[#0A1628] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0A1628] mb-2">KGS</h3>
+              <p className="text-slate-600 text-sm">
+                {t("products.motor.certification.kgs.description")}
+              </p>
+            </div>
+          </div>
+
+          {/* Consulting Services */}
+          <div className="bg-[#0A1628] rounded-2xl p-8 md:p-12 text-white">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  출력 범위
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  {t("products.motor.certification.consulting.title")}
                 </h3>
-                <ul className="space-y-2 text-slate-700">
+                <p className="text-slate-300 mb-6">
+                  {t("products.motor.certification.consulting.description")}
+                </p>
+                <ul className="space-y-3">
                   <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>소형: 0.1kW ~ 3.7kW</span>
+                    <CheckCircle className="w-5 h-5 text-[#3B82F6] mr-3 mt-0.5 flex-shrink-0" />
+                    <span>{t("products.motor.certification.consulting.items.review")}</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>중형: 5.5kW ~ 75kW</span>
+                    <CheckCircle className="w-5 h-5 text-[#3B82F6] mr-3 mt-0.5 flex-shrink-0" />
+                    <span>{t("products.motor.certification.consulting.items.documentation")}</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>대형: 90kW ~ 500kW 이상</span>
+                    <CheckCircle className="w-5 h-5 text-[#3B82F6] mr-3 mt-0.5 flex-shrink-0" />
+                    <span>{t("products.motor.certification.consulting.items.testing")}</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-[#3B82F6] mr-3 mt-0.5 flex-shrink-0" />
+                    <span>{t("products.motor.certification.consulting.items.support")}</span>
                   </li>
                 </ul>
               </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  전압
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>단상: 110V, 220V</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>3상: 220V, 380V, 440V</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>특수 전압: 6.6kV, 11kV (대용량)</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  보호 등급
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>IP54, IP55 (표준)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>IP65, IP66 (방진·방수)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Ex 등급 (방폭 환경)</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  에너지 효율
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>IE2 (High Efficiency)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>IE3 (Premium Efficiency)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>IE4 (Super Premium Efficiency)</span>
-                  </li>
-                </ul>
+              <div className="bg-white/10 rounded-xl p-6 md:p-8">
+                <Wrench className="w-12 h-12 text-[#3B82F6] mb-4" />
+                <h4 className="text-xl font-bold mb-3">
+                  {t("products.motor.certification.consulting.processTitle")}
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                    <span className="text-slate-300">{t("products.motor.certification.consulting.process.step1")}</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                    <span className="text-slate-300">{t("products.motor.certification.consulting.process.step2")}</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                    <span className="text-slate-300">{t("products.motor.certification.consulting.process.step3")}</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="flex-shrink-0 w-8 h-8 bg-[#3B82F6] rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                    <span className="text-slate-300">{t("products.motor.certification.consulting.process.step4")}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

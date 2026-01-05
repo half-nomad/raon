@@ -66,22 +66,16 @@ export function ProductsSnapshot() {
       image: "/images/category/compressor-parts_cat.jpg",
     },
     {
-      name: t("products.mixer.name"),
-      description: t("products.mixer.description"),
-      href: "/products/mixer",
-      image: "/images/category/Mixer & Agitator_cat.jpg",
-    },
-    {
-      name: t("products.motor.name"),
-      description: t("products.motor.description"),
-      href: "/products/motor",
-      image: "/images/category/motor_cat.jpg",
-    },
-    {
       name: t("products.pump.name"),
       description: t("products.pump.description"),
       href: "/products/pump",
       image: "/images/category/pump_cat.jpg",
+    },
+    {
+      name: t("products.mixer.name"),
+      description: t("products.mixer.description"),
+      href: "/products/mixer",
+      image: "/images/category/Mixer & Agitator_cat.jpg",
     },
     {
       name: t("products.bearing.name"),
@@ -90,10 +84,10 @@ export function ProductsSnapshot() {
       image: "/images/category/bearing_cat.jpg",
     },
     {
-      name: t("products.oilPurifier.name"),
-      description: t("products.oilPurifier.description"),
-      href: "/products/oil-purifier",
-      image: "/images/category/Oil Purifier_cat.jpg",
+      name: t("products.motor.name"),
+      description: t("products.motor.description"),
+      href: "/products/motor",
+      image: "/images/category/motor_cat.jpg",
     },
   ];
 

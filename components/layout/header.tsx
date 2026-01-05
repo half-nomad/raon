@@ -23,7 +23,6 @@ import { LanguageSwitcher } from "./language-switcher";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [homeOpen, setHomeOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
@@ -68,74 +67,15 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {/* Home Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setHomeOpen(true)}
-              onMouseLeave={() => setHomeOpen(false)}
+            {/* Home Link */}
+            <Link
+              href="/"
+              className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
+                scrolled ? "text-[#0A1628]" : "text-white"
+              }`}
             >
-              <button
-                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
-                  scrolled ? "text-[#0A1628]" : "text-white"
-                }`}
-              >
-                {t("home")}
-                <ChevronDown className="h-4 w-4" />
-              </button>
-              {homeOpen && (
-                <div
-                  className="absolute top-full left-0 w-[280px] z-50"
-                  onMouseEnter={() => setHomeOpen(true)}
-                  onMouseLeave={() => setHomeOpen(false)}
-                >
-                  <div className="h-2 w-full" />
-                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 animate-in fade-in duration-200">
-                    <div className="p-2">
-                      <Link
-                        href="/products/compressor"
-                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="text-sm font-medium text-[#0A1628]">
-                          {t("compressor")}
-                        </div>
-                      </Link>
-                      <Link
-                        href="/products/pump"
-                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="text-sm font-medium text-[#0A1628]">
-                          {t("pump")}
-                        </div>
-                      </Link>
-                      <Link
-                        href="/products/mixer"
-                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="text-sm font-medium text-[#0A1628]">
-                          {t("mixer")}
-                        </div>
-                      </Link>
-                      <Link
-                        href="/products/bearing"
-                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="text-sm font-medium text-[#0A1628]">
-                          {t("bearing")}
-                        </div>
-                      </Link>
-                      <Link
-                        href="/products/motor"
-                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="text-sm font-medium text-[#0A1628]">
-                          {t("motor")}
-                        </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+              {t("home")}
+            </Link>
             {/* Company Dropdown */}
             <div
               className="relative"
@@ -381,48 +321,13 @@ export function Header() {
                 <nav className="mt-8">
                   <Accordion type="single" collapsible className="w-full">
                     <div className="space-y-2">
-                      <AccordionItem value="home" className="border-0">
-                        <AccordionTrigger className="py-3 px-4 hover:bg-gray-100 rounded-lg">
-                          {t("home")}
-                        </AccordionTrigger>
-                        <AccordionContent className="pl-8 space-y-2">
-                          <Link
-                            href="/products/compressor"
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
-                          >
-                            {t("compressor")}
-                          </Link>
-                          <Link
-                            href="/products/pump"
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
-                          >
-                            {t("pump")}
-                          </Link>
-                          <Link
-                            href="/products/mixer"
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
-                          >
-                            {t("mixer")}
-                          </Link>
-                          <Link
-                            href="/products/bearing"
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
-                          >
-                            {t("bearing")}
-                          </Link>
-                          <Link
-                            href="/products/motor"
-                            onClick={() => setOpen(false)}
-                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
-                          >
-                            {t("motor")}
-                          </Link>
-                        </AccordionContent>
-                      </AccordionItem>
+                      <Link
+                        href="/"
+                        onClick={() => setOpen(false)}
+                        className="block py-3 px-4 text-[#0A1628] hover:bg-gray-100 rounded-lg transition-colors"
+                      >
+                        {t("home")}
+                      </Link>
 
                       <AccordionItem value="company" className="border-0">
                         <AccordionTrigger className="py-3 px-4 hover:bg-gray-100 rounded-lg">

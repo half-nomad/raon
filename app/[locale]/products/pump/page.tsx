@@ -1,12 +1,11 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
+import { ImageGallery } from "@/components/ui/image-gallery";
 import { getTranslations } from "next-intl/server";
-import { CheckCircle, AlertTriangle, Wrench, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'Pump | CP Pumpen Magnetic Drive Pump',
@@ -19,9 +18,18 @@ export const metadata: Metadata = {
   },
 };
 
-// 이미지 데이터 정의
-const pumpSolutionImage = "/images/products/pump/pump_2-1.PNG";
-const troubleShootingImage = "/images/products/pump/pump_2-2.PNG";
+// Section navigation items
+const sectionNavItems = [
+  { id: "pump-solution", labelKey: "pumpSolution" },
+  { id: "trouble-shooting", labelKey: "troubleShooting" },
+];
+
+// Pump product gallery images
+const pumpGalleryImages = [
+  { src: "/images/products/pump/pump_2-1.PNG", alt: "CP Pump MKP Series - Magnetic Drive Metal Chemical Process Pump" },
+  { src: "/images/products/pump/pump_2-2.PNG", alt: "CP Pump MKPL Series - Magnetic Drive PFA Lined Chemical Process Pump" },
+  { src: "/images/products/pump/pump_3.png", alt: "CP Pump Product Range - Various Magnetic Drive Pump Models" },
+];
 
 export default async function PumpPage() {
   const t = await getTranslations("products.pump");
@@ -62,87 +70,82 @@ export default async function PumpPage() {
             <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
               CP Pumpen
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Pump</h1>
-            <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Pump
+            </h1>
+            <p className="text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
               {t("hero.description")}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Submenu Bar */}
-      <section className="bg-white border-b border-slate-200 sticky top-0 z-40">
+      {/* Submenu Navigation Bar */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <nav className="flex gap-8 py-4">
-            <a
-              href="#pump-solution"
-              className="text-sm font-semibold text-[#0A1628] hover:text-[#3B82F6] transition-colors pb-2 border-b-2 border-transparent hover:border-[#3B82F6]"
-            >
-              {t("submenu.pumpSolution")}
-            </a>
-            <a
-              href="#trouble-shooting"
-              className="text-sm font-semibold text-[#0A1628] hover:text-[#3B82F6] transition-colors pb-2 border-b-2 border-transparent hover:border-[#3B82F6]"
-            >
-              {t("submenu.troubleShooting")}
-            </a>
-          </nav>
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {sectionNavItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex-shrink-0 px-4 py-4 text-sm md:text-base font-medium text-slate-600 hover:text-[#3B82F6] hover:border-b-2 hover:border-[#3B82F6] transition-colors whitespace-nowrap"
+              >
+                {t(`submenu.${item.labelKey}`)}
+              </a>
+            ))}
+          </div>
         </div>
-      </section>
+      </nav>
 
-      {/* Section 1: PUMP SOLUTION (Image Left) */}
-      <section id="pump-solution" className="py-16 md:py-24 scroll-mt-20">
+      {/* Section 1: PUMP SOLUTION - Image Left */}
+      <section id="pump-solution" className="py-16 md:py-24 scroll-mt-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Image - Left */}
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl order-2 md:order-1">
-              <Image
-                src={pumpSolutionImage}
-                alt="CP Pump Magnetic Drive Pump"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Image Gallery */}
+            <div className="order-2 lg:order-1">
+              <ImageGallery
+                images={pumpGalleryImages}
+                aspectRatio="4/3"
+                brandLabel="CP Pumpen"
+                objectFit="cover"
               />
             </div>
 
-            {/* Content - Right */}
-            <div className="order-1 md:order-2">
-              <div className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-semibold rounded-full mb-4">
-                {t("pumpSolution.title")}
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium rounded-full mb-4">
+                PUMP SOLUTION
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0A1628] mb-6">
                 {t("pumpSolution.subtitle")}
               </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
                 {t("pumpSolution.description")}
               </p>
 
               {/* Product Lineup */}
-              <div className="mb-8">
-                <h3 className="text-xl font-bold text-[#0A1628] mb-4">
-                  {t("pumpSolution.lineup.title")}
-                </h3>
-                <ul className="space-y-2">
-                  {lineupItems.map((item, index) => (
-                    <li key={index} className="flex items-start text-slate-700">
-                      <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="space-y-4 mb-8">
+                {lineupItems.map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
+                      <svg className="w-4 h-4 text-[#3B82F6]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-700">{item}</span>
+                  </div>
+                ))}
               </div>
 
-              {/* Key Features */}
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <h3 className="text-lg font-bold text-[#0A1628] mb-4">
-                  {t("pumpSolution.features.title")}
-                </h3>
-                <ul className="space-y-3">
+              <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p className="text-sm text-slate-600">
+                  <strong className="text-[#0A1628]">{t("pumpSolution.features.title")}:</strong>
+                </p>
+                <ul className="mt-2 space-y-1">
                   {featureItems.map((item, index) => (
-                    <li key={index} className="flex items-start text-slate-700">
-                      <CheckCircle className="w-5 h-5 text-[#3B82F6] mr-3 mt-0.5 flex-shrink-0" />
-                      <span>{item}</span>
+                    <li key={index} className="text-sm text-slate-600 flex items-start">
+                      <span className="text-[#3B82F6] mr-2">-</span>
+                      {item}
                     </li>
                   ))}
                 </ul>
@@ -152,87 +155,63 @@ export default async function PumpPage() {
         </div>
       </section>
 
-      {/* Section 2: TROUBLE SHOOTING (Image Right) */}
-      <section id="trouble-shooting" className="py-16 md:py-24 bg-slate-50 scroll-mt-20">
+      {/* Section 2: TROUBLE SHOOTING - Image Right */}
+      <section id="trouble-shooting" className="py-16 md:py-24 bg-slate-50 scroll-mt-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Content - Left */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Content */}
             <div>
-              <div className="inline-block px-3 py-1 bg-[#EF4444]/10 text-[#EF4444] text-sm font-semibold rounded-full mb-4">
+              <span className="inline-block px-3 py-1 bg-[#EF4444]/10 text-[#EF4444] text-sm font-medium rounded-full mb-4">
                 {t("troubleShooting.title")}
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0A1628] mb-6">
                 {t("troubleShooting.subtitle")}
               </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
                 {t("troubleShooting.description")}
               </p>
 
               {/* Highlight Box */}
-              <div className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-xl p-6 mb-8 text-white">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <AlertTriangle className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">
-                      {t("troubleShooting.highlight")}
-                    </h3>
-                    <p className="text-white/90 text-sm">
-                      {t("troubleShooting.highlightDescription")}
-                    </p>
-                  </div>
-                </div>
+              <div className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] rounded-xl p-5 mb-8 text-white">
+                <h3 className="text-lg font-bold mb-2">
+                  {t("troubleShooting.highlight")}
+                </h3>
+                <p className="text-white/90 text-sm">
+                  {t("troubleShooting.highlightDescription")}
+                </p>
               </div>
 
               {/* Problems & Solutions Grid */}
-              <div className="grid sm:grid-cols-2 gap-6">
-                {/* Problems */}
-                <div className="bg-white rounded-xl p-5 border border-slate-200">
-                  <div className="flex items-center gap-2 mb-4">
-                    <AlertTriangle className="w-5 h-5 text-[#EF4444]" />
-                    <h4 className="font-bold text-[#0A1628]">
-                      {t("troubleShooting.problems.title")}
-                    </h4>
+              <div className="grid grid-cols-2 gap-3">
+                {problemItems.map((item, index) => (
+                  <div key={index} className="bg-white rounded-lg p-3 border border-slate-200">
+                    <span className="text-sm font-medium text-[#0A1628]">{item}</span>
                   </div>
-                  <ul className="space-y-2">
-                    {problemItems.map((item, index) => (
-                      <li key={index} className="flex items-start text-sm text-slate-600">
-                        <span className="text-[#EF4444] mr-2 mt-0.5">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                ))}
+              </div>
 
-                {/* Solutions */}
-                <div className="bg-white rounded-xl p-5 border border-slate-200">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Wrench className="w-5 h-5 text-[#3B82F6]" />
-                    <h4 className="font-bold text-[#0A1628]">
-                      {t("troubleShooting.solutions.title")}
-                    </h4>
-                  </div>
-                  <ul className="space-y-2">
-                    {solutionItems.map((item, index) => (
-                      <li key={index} className="flex items-start text-sm text-slate-600">
-                        <Shield className="w-4 h-4 text-[#3B82F6] mr-2 mt-0.5 flex-shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="mt-6 bg-white rounded-xl p-4 border border-slate-200">
+                <p className="text-sm text-slate-600">
+                  <strong className="text-[#0A1628]">{t("troubleShooting.solutions.title")}:</strong>
+                </p>
+                <ul className="mt-2 space-y-1">
+                  {solutionItems.map((item, index) => (
+                    <li key={index} className="text-sm text-slate-600 flex items-start">
+                      <span className="text-[#3B82F6] mr-2">-</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Image - Right */}
-            <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={troubleShootingImage}
-                alt="CP Pump Trouble Shooting"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+            {/* Image */}
+            <div>
+              <ImageGallery
+                images={[{ src: "/images/products/pump/pump_2-2.PNG", alt: "CP Pump Trouble Shooting" }]}
+                aspectRatio="4/3"
+                brandLabel="Trouble Shooting"
+                objectFit="cover"
               />
             </div>
           </div>
@@ -240,24 +219,24 @@ export default async function PumpPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
+      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             {t("cta.title")}
           </h2>
-          <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-slate-200 mb-6 md:mb-8 max-w-2xl mx-auto">
             {t("cta.description")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors text-sm md:text-base"
             >
               {t("cta.technical")}
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors text-sm md:text-base"
             >
               {t("cta.quote")}
             </Link>

@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { IndustryHero } from "@/components/industries/industry-hero";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
@@ -23,9 +23,11 @@ export default async function ShipbuildingPage() {
   const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: t("relatedProducts.cylinderLiner"), href: "/products#cylinder-liner" },
-    { name: t("relatedProducts.oilPurifier"), href: "/products#oil-purifier" },
-    { name: t("relatedProducts.bearing"), href: "/products#bearing" },
+    { name: t("relatedProducts.compressor"), href: "/products/compressor" },
+    { name: t("relatedProducts.pump"), href: "/products/pump" },
+    { name: t("relatedProducts.mixer"), href: "/products/mixer" },
+    { name: t("relatedProducts.bearing"), href: "/products/bearing" },
+    { name: t("relatedProducts.motor"), href: "/products/motor" },
   ];
 
   const specifications = [
@@ -225,12 +227,12 @@ export default async function ShipbuildingPage() {
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-6 text-center">
               {t("relatedProductsTitle")}
             </h3>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {relatedProducts.map((product, index) => (
                 <Link
                   key={index}
                   href={product.href}
-                  className="flex items-center justify-center px-6 py-3 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:shadow-lg transition-all"
+                  className="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:shadow-lg transition-all"
                 >
                   {product.name}
                 </Link>

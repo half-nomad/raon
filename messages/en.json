@@ -198,10 +198,11 @@
       "featuresGlobalPartnerDesc": "World-class technical expertise",
       "relatedProductsTitle": "Related Products",
       "relatedProducts": {
-        "compressor": "Compressor & Parts",
-        "pump": "Pump",
-        "mixer": "Mixer & Agitator",
-        "bearing": "Bearing"
+        "compressor": "COMPRESSOR",
+        "pump": "PUMP",
+        "mixer": "MIXER",
+        "bearing": "BEARING & LUBRICATION",
+        "motor": "MOTOR"
       },
       "ctaButton": "Contact Us",
       "features": ["High-pressure process gas compressors", "API standard pumps", "Industrial mixers and agitators", "Corrosion-resistant special bearings"]
@@ -233,10 +234,11 @@
       "featuresGlobalPartnerDesc": "Official partnerships with world-class manufacturers",
       "relatedProductsTitle": "Related Products",
       "relatedProducts": {
-        "compressor": "Compressor & Parts",
-        "motor": "Motor",
-        "bearing": "Bearing",
-        "oilPurifier": "Oil Purifier"
+        "compressor": "COMPRESSOR",
+        "pump": "PUMP",
+        "mixer": "MIXER",
+        "bearing": "BEARING & LUBRICATION",
+        "motor": "MOTOR"
       },
       "ctaButton": "Contact Us"
     },
@@ -277,16 +279,18 @@
       "featuresOfficialAgentDesc": "Korean agency opened in 2025",
       "relatedProductsTitle": "Related Products",
       "relatedProducts": {
-        "cylinderLiner": "Cylinder Liner",
-        "oilPurifier": "Oil Purifier",
-        "bearing": "Bearing"
+        "compressor": "COMPRESSOR",
+        "pump": "PUMP",
+        "mixer": "MIXER",
+        "bearing": "BEARING & LUBRICATION",
+        "motor": "MOTOR"
       },
       "ctaButton": "Contact Us",
       "features": ["Ship engine cylinder liners", "High-efficiency marine motors", "Special bearings for marine environments", "Marine oil purification systems"]
     },
     "highlight": {
       "title": "Industry Solutions",
-      "description": "Providing specialized solutions for oil refinery, petrochemical, and shipbuilding industries with 30 years of expertise",
+      "description": "Providing specialized solutions for oil refinery, petrochemical, power plant, and shipbuilding industries with 30 years of expertise",
       "viewIndustry": "View Industry Details",
       "keyProducts": "Key Products",
       "oilRefinery": {
@@ -296,6 +300,15 @@
           "Core equipment for oil refinery and petrochemical plants",
           "Specialists in rotating machinery and reciprocating compressors",
           "24-hour emergency dispatch service"
+        ]
+      },
+      "powerPlant": {
+        "title": "Power Plant",
+        "description": "Turbine, compressor, and motor solutions optimized for thermal, gas, and combined cycle power plants",
+        "bullets": [
+          "Core components for turbines and power generation equipment",
+          "Genuine parts from global partners",
+          "Fast parts supply and technical support"
         ]
       },
       "shipbuilding": {
@@ -311,7 +324,7 @@
   },
   "products": {
     "hero": {
-      "title": "Products",
+      "title": "Business Item",
       "description": "Rotating equipment parts solutions with global partners"
     },
     "main": {

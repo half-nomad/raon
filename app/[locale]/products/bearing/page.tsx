@@ -3,8 +3,6 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { ProductSchema } from "@/components/seo/product-schema";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
-import { ImageGallery } from "@/components/ui/image-gallery";
-import { Zap, Dumbbell, Target, Thermometer, Timer, Flag, Factory, Waves, Cog, Wind, FlaskConical, Droplets, Wrench, Settings, RefreshCw } from "lucide-react";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import { getTranslations } from "next-intl/server";
@@ -20,82 +18,14 @@ export const metadata: Metadata = {
   },
 };
 
-// Bearing 이미지 데이터 정의
-const bearingImages = [
-  { src: "/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png", alt: "Tilting Pad Thrust Bearing" },
-  { src: "/images/products/bearing/bearing_VERTICAL BEARING.png", alt: "Vertical Bearing" },
-  { src: "/images/products/bearing/bearing_JOURNAL & THRUST COMBINED BEARING.png", alt: "Journal & Thrust Combined Bearing" },
-  { src: "/images/products/bearing/bearing_FIXED PROFILE BEARING.png", alt: "Fixed Profile Bearing" },
-];
-
-// Lubrication 이미지 데이터 정의
-const lubricationImages = [
-  { src: "/images/products/oil-purifier/Oil Purifier_1.png", alt: "Oil Purifier 1" },
-  { src: "/images/products/oil-purifier/Oil Purifier_2.png", alt: "Oil Purifier 2" },
-  { src: "/images/products/oil-purifier/Oil Purifier_3.png", alt: "Oil Purifier 3" },
-  { src: "/images/products/oil-purifier/Oil Purifier_4.png", alt: "Oil Purifier 4" },
+// Section navigation items
+const sectionNavItems = [
+  { id: "bearing-solution", labelKey: "bearingSolution" },
+  { id: "lubrication-solution", labelKey: "lubricationSolution" },
 ];
 
 export default async function BearingPage() {
   const t = await getTranslations();
-
-  // Bearing products data
-  const bearingProducts = [
-    {
-      title: "TILTING PAD JOURNAL BEARING",
-      description: t("products.bearingPage.bearing.products.journal.description"),
-    },
-    {
-      title: "TILTING PAD THRUST BEARING",
-      description: t("products.bearingPage.bearing.products.thrust.description"),
-    },
-    {
-      title: "VERTICAL GUIDE BEARING",
-      description: t("products.bearingPage.bearing.products.vertical.description"),
-    },
-    {
-      title: "JOURNAL & THRUST COMBINED",
-      description: t("products.bearingPage.bearing.products.combined.description"),
-    },
-  ];
-
-  // Bearing services data
-  const bearingServices = [
-    {
-      icon: <Wrench className="w-8 h-8 text-[#3B82F6]" />,
-      title: "REPAIR",
-      description: t("products.bearingPage.bearing.services.repair"),
-    },
-    {
-      icon: <RefreshCw className="w-8 h-8 text-[#3B82F6]" />,
-      title: "RETROFIT",
-      description: t("products.bearingPage.bearing.services.retrofit"),
-    },
-    {
-      icon: <Settings className="w-8 h-8 text-[#3B82F6]" />,
-      title: "REPLACEMENT",
-      description: t("products.bearingPage.bearing.services.replacement"),
-    },
-  ];
-
-  // Lubrication products data
-  const lubricationProducts = [
-    {
-      icon: <Droplets className="w-10 h-10 text-[#3B82F6]" />,
-      title: "Oil Purifier",
-      description: t("products.bearingPage.lubrication.products.purifier.description"),
-    },
-    {
-      icon: <Cog className="w-10 h-10 text-[#3B82F6]" />,
-      title: "Rental Service",
-      description: t("products.bearingPage.lubrication.products.rental.description"),
-    },
-    {
-      icon: <Waves className="w-10 h-10 text-[#3B82F6]" />,
-      title: "Flushing Service",
-      description: t("products.bearingPage.lubrication.products.flushing.description"),
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -128,333 +58,331 @@ export default async function BearingPage() {
             <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
               {t("products.bearingPage.hero.partners")}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Bearing & Lubrication
             </h1>
-            <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-slate-200 leading-relaxed">
               {t("products.bearingPage.hero.description")}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Sub Navigation */}
-      <section className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
+      {/* Submenu Navigation Bar */}
+      <nav className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <div className="flex justify-center gap-4 md:gap-8">
-            <a
-              href="#bearing-solution"
-              className="py-4 px-4 md:px-6 text-sm md:text-base font-semibold text-[#0A1628] border-b-2 border-transparent hover:border-[#3B82F6] hover:text-[#3B82F6] transition-colors"
-            >
-              BEARING SOLUTION
-            </a>
-            <a
-              href="#lubrication-solution"
-              className="py-4 px-4 md:px-6 text-sm md:text-base font-semibold text-[#0A1628] border-b-2 border-transparent hover:border-[#3B82F6] hover:text-[#3B82F6] transition-colors"
-            >
-              LUBRICATION SOLUTION
-            </a>
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {sectionNavItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className="flex-shrink-0 px-4 py-4 text-sm md:text-base font-medium text-slate-600 hover:text-[#3B82F6] hover:border-b-2 hover:border-[#3B82F6] transition-colors whitespace-nowrap"
+              >
+                {item.labelKey === "bearingSolution" ? "BEARING SOLUTION" : "LUBRICATION SOLUTION"}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Section 1: BEARING SOLUTION - Image Left */}
+      <section id="bearing-solution" className="py-16 md:py-24 scroll-mt-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Image */}
+            <div className="order-2 lg:order-1">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/products/bearing/bearing_TILTING PAD THRUST BEARING.png"
+                  alt="Tilting Pad Thrust Bearing"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 text-[#0A1628] text-sm font-medium rounded-full">
+                    Turbolink
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium rounded-full mb-4">
+                {t("products.bearingPage.bearing.partner")}
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0A1628] mb-6">
+                BEARING SOLUTION
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                {t("products.bearingPage.bearing.sectionDescription")}
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
+                    <svg className="w-4 h-4 text-[#3B82F6]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700">TILTING PAD JOURNAL BEARING</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
+                    <svg className="w-4 h-4 text-[#3B82F6]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700">TILTING PAD THRUST BEARING</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
+                    <svg className="w-4 h-4 text-[#3B82F6]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700">JOURNAL & THRUST COMBINED BEARING</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
+                    <svg className="w-4 h-4 text-[#3B82F6]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700">VERTICAL GUIDE & THRUST BEARING</span>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+                <p className="text-sm text-slate-600">
+                  <strong className="text-[#0A1628]">{t("products.bearingPage.bearing.partnerBrand")}:</strong> {t("products.bearingPage.bearing.turbolinkName")} - {t("products.bearingPage.bearing.turbolinkDescription")}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* BEARING SOLUTION Section */}
-      <section id="bearing-solution" className="py-16 md:py-24 scroll-mt-16">
+      {/* Section 2: Bearing Services - Image Right */}
+      <section className="py-16 md:py-24 bg-slate-50 scroll-mt-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-semibold rounded-full mb-4">
-              {t("products.bearingPage.bearing.partner")}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              BEARING SOLUTION
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              {t("products.bearingPage.bearing.sectionDescription")}
-            </p>
-          </div>
-
-          {/* Main Content - Image Left */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-            {/* Image Gallery */}
-            <div className="order-1">
-              <ImageGallery images={bearingImages} />
-            </div>
-
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Content */}
-            <div className="order-2">
-              <h3 className="text-2xl font-bold text-[#0A1628] mb-6">
-                {t("products.bearingPage.bearing.overviewTitle")}
-              </h3>
-              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+            <div>
+              <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium rounded-full mb-4">
+                {t("products.bearingPage.bearing.servicesTitle")}
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0A1628] mb-6">
+                {t("products.bearingPage.bearing.servicesTitle")}
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
                 {t("products.bearingPage.bearing.overviewDescription")}
               </p>
 
-              {/* Products Grid */}
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                {bearingProducts.map((product, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-[#3B82F6] transition-colors"
-                  >
-                    <h4 className="font-bold text-[#0A1628] mb-2 text-sm">
-                      {product.title}
-                    </h4>
-                    <p className="text-slate-600 text-xs">
-                      {product.description}
-                    </p>
-                  </div>
-                ))}
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                <div className="bg-white rounded-lg p-3 border border-slate-200">
+                  <span className="text-sm font-medium text-[#0A1628]">REPAIR</span>
+                  <p className="text-xs text-slate-500 mt-1">{t("products.bearingPage.bearing.services.repair")}</p>
+                </div>
+                <div className="bg-white rounded-lg p-3 border border-slate-200">
+                  <span className="text-sm font-medium text-[#0A1628]">RETROFIT</span>
+                  <p className="text-xs text-slate-500 mt-1">{t("products.bearingPage.bearing.services.retrofit")}</p>
+                </div>
+                <div className="bg-white rounded-lg p-3 border border-slate-200 col-span-2">
+                  <span className="text-sm font-medium text-[#0A1628]">REPLACEMENT</span>
+                  <p className="text-xs text-slate-500 mt-1">{t("products.bearingPage.bearing.services.replacement")}</p>
+                </div>
               </div>
 
-              {/* Partner Brand Box */}
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <h4 className="font-bold text-[#0A1628] mb-3">
-                  {t("products.bearingPage.bearing.partnerBrand")}
-                </h4>
-                <div className="space-y-2 text-sm text-slate-600">
-                  <p>
-                    <strong>{t("products.bearingPage.bearing.turbolinkName")}</strong>
-                  </p>
-                  <p className="text-xs leading-relaxed">
-                    {t("products.bearingPage.bearing.turbolinkDescription")}
-                  </p>
-                </div>
+              <div className="bg-white rounded-xl p-4 border border-slate-200">
+                <p className="text-sm text-slate-600">
+                  <strong className="text-[#0A1628]">{t("products.bearingPage.bearing.overviewTitle")}:</strong> {t("products.bearingPage.bearing.overviewDescription")}
+                </p>
               </div>
             </div>
-          </div>
 
-          {/* Services */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-[#0A1628] mb-8 text-center">
-              {t("products.bearingPage.bearing.servicesTitle")}
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {bearingServices.map((service, idx) => (
-                <div
-                  key={idx}
-                  className="text-center p-6 rounded-xl bg-slate-50 border border-slate-200 hover:border-[#3B82F6] hover:shadow-lg transition-all"
-                >
-                  <div className="flex justify-center mb-4">{service.icon}</div>
-                  <h4 className="text-lg font-bold text-[#0A1628] mb-2">
-                    {service.title}
-                  </h4>
-                  <p className="text-slate-600 text-sm">{service.description}</p>
+            {/* Image */}
+            <div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/products/bearing/bearing_VERTICAL BEARING.png"
+                  alt="Bearing Services"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 text-[#0A1628] text-sm font-medium rounded-full">
+                    Vertical Bearing
+                  </span>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="border-t border-slate-200"></div>
-
-      {/* LUBRICATION SOLUTION Section */}
-      <section id="lubrication-solution" className="py-16 md:py-24 bg-slate-50 scroll-mt-16">
+      {/* Section 3: LUBRICATION SOLUTION - Image Left */}
+      <section id="lubrication-solution" className="py-16 md:py-24 scroll-mt-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-semibold rounded-full mb-4">
-              {t("products.bearingPage.lubrication.partner")}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              LUBRICATION SOLUTION
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              {t("products.bearingPage.lubrication.sectionDescription")}
-            </p>
-          </div>
-
-          {/* Main Content - Image Right */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-            {/* Content */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Image */}
             <div className="order-2 lg:order-1">
-              <h3 className="text-2xl font-bold text-[#0A1628] mb-6">
-                {t("products.bearingPage.lubrication.overviewTitle")}
-              </h3>
-              <p className="text-lg text-slate-700 leading-relaxed mb-8">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/products/oil-purifier/Oil Purifier_1.png"
+                  alt="Oil Purifier"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 text-[#0A1628] text-sm font-medium rounded-full">
+                    Samyoung Filtec
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium rounded-full mb-4">
+                {t("products.bearingPage.lubrication.partner")}
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0A1628] mb-6">
+                LUBRICATION SOLUTION
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                {t("products.bearingPage.lubrication.sectionDescription")}
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#0A1628] flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-sm">01</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-[#0A1628] mb-1">Oil Purifier</h4>
+                    <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.products.purifier.description")}</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#3B82F6] flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-sm">02</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-[#0A1628] mb-1">Rental Service</h4>
+                    <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.products.rental.description")}</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#0A1628] flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-sm">03</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-[#0A1628] mb-1">Flushing Service</h4>
+                    <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.products.flushing.description")}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Lubrication Features - Image Right */}
+      <section className="py-16 md:py-24 bg-slate-50 scroll-mt-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Content */}
+            <div>
+              <span className="inline-block px-3 py-1 bg-[#3B82F6]/10 text-[#3B82F6] text-sm font-medium rounded-full mb-4">
+                {t("products.bearingPage.lubrication.featuresTitle")}
+              </span>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0A1628] mb-6">
+                {t("products.bearingPage.lubrication.featuresTitle")}
+              </h2>
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
                 {t("products.bearingPage.lubrication.overviewDescription")}
               </p>
 
-              {/* Products Grid */}
-              <div className="space-y-4 mb-8">
-                {lubricationProducts.map((product, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-xl p-5 border border-slate-200 hover:border-[#3B82F6] transition-colors flex items-start gap-4"
-                  >
-                    <div className="flex-shrink-0">{product.icon}</div>
-                    <div>
-                      <h4 className="font-bold text-[#0A1628] mb-1">
-                        {product.title}
-                      </h4>
-                      <p className="text-slate-600 text-sm">
-                        {product.description}
-                      </p>
-                    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div className="bg-white rounded-xl p-5 border border-slate-200">
+                  <div className="w-8 h-8 rounded-full bg-[#0A1628] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">1</span>
                   </div>
-                ))}
-              </div>
-
-              {/* Partner Brand Box */}
-              <div className="bg-white rounded-xl p-6 border border-slate-200">
-                <h4 className="font-bold text-[#0A1628] mb-3">
-                  {t("products.bearingPage.lubrication.partnerBrand")}
-                </h4>
-                <div className="space-y-2 text-sm text-slate-600">
-                  <p>
-                    <strong>{t("products.bearingPage.lubrication.samyoungName")}</strong>
-                  </p>
-                  <p className="text-xs leading-relaxed">
-                    {t("products.bearingPage.lubrication.samyoungDescription")}
-                  </p>
+                  <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.bearingPage.lubrication.features.moisture.title")}</h4>
+                  <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.features.moisture.description")}</p>
+                </div>
+                <div className="bg-white rounded-xl p-5 border border-slate-200">
+                  <div className="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">2</span>
+                  </div>
+                  <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.bearingPage.lubrication.features.impurity.title")}</h4>
+                  <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.features.impurity.description")}</p>
+                </div>
+                <div className="bg-white rounded-xl p-5 border border-slate-200">
+                  <div className="w-8 h-8 rounded-full bg-[#0A1628] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">3</span>
+                  </div>
+                  <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.bearingPage.lubrication.features.lifeExtension.title")}</h4>
+                  <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.features.lifeExtension.description")}</p>
+                </div>
+                <div className="bg-white rounded-xl p-5 border border-slate-200">
+                  <div className="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">4</span>
+                  </div>
+                  <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.bearingPage.lubrication.features.domestic.title")}</h4>
+                  <p className="text-sm text-slate-600">{t("products.bearingPage.lubrication.features.domestic.description")}</p>
                 </div>
               </div>
             </div>
 
-            {/* Image Gallery */}
-            <div className="order-1 lg:order-2">
-              <ImageGallery images={lubricationImages} />
-            </div>
-          </div>
-
-          {/* Key Features */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 md:p-12">
-            <h3 className="text-2xl font-bold text-[#0A1628] mb-8 text-center">
-              {t("products.bearingPage.lubrication.featuresTitle")}
-            </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <Droplets className="w-12 h-12 text-[#3B82F6] mx-auto mb-4" />
-                <h4 className="font-bold text-[#0A1628] mb-2">
-                  {t("products.bearingPage.lubrication.features.moisture.title")}
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  {t("products.bearingPage.lubrication.features.moisture.description")}
-                </p>
+            {/* Image */}
+            <div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/products/oil-purifier/Oil Purifier_2.png"
+                  alt="Lubrication Features"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 text-[#0A1628] text-sm font-medium rounded-full">
+                    Oil Purifier System
+                  </span>
+                </div>
               </div>
-              <div className="text-center">
-                <FlaskConical className="w-12 h-12 text-[#3B82F6] mx-auto mb-4" />
-                <h4 className="font-bold text-[#0A1628] mb-2">
-                  {t("products.bearingPage.lubrication.features.impurity.title")}
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  {t("products.bearingPage.lubrication.features.impurity.description")}
-                </p>
-              </div>
-              <div className="text-center">
-                <Timer className="w-12 h-12 text-[#3B82F6] mx-auto mb-4" />
-                <h4 className="font-bold text-[#0A1628] mb-2">
-                  {t("products.bearingPage.lubrication.features.lifeExtension.title")}
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  {t("products.bearingPage.lubrication.features.lifeExtension.description")}
-                </p>
-              </div>
-              <div className="text-center">
-                <Flag className="w-12 h-12 text-[#3B82F6] mx-auto mb-4" />
-                <h4 className="font-bold text-[#0A1628] mb-2">
-                  {t("products.bearingPage.lubrication.features.domestic.title")}
-                </h4>
-                <p className="text-slate-600 text-sm">
-                  {t("products.bearingPage.lubrication.features.domestic.description")}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
-            {t("products.bearingPage.industries.title")}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Factory className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {t("products.bearingPage.industries.oilRefinery.title")}
-              </h3>
-              <p className="text-slate-600 text-sm">
-                {t("products.bearingPage.industries.oilRefinery.description")}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Zap className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {t("products.bearingPage.industries.power.title")}
-              </h3>
-              <p className="text-slate-600 text-sm">
-                {t("products.bearingPage.industries.power.description")}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Waves className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {t("products.bearingPage.industries.shipbuilding.title")}
-              </h3>
-              <p className="text-slate-600 text-sm">
-                {t("products.bearingPage.industries.shipbuilding.description")}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Cog className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {t("products.bearingPage.industries.heavyIndustry.title")}
-              </h3>
-              <p className="text-slate-600 text-sm">
-                {t("products.bearingPage.industries.heavyIndustry.description")}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Wind className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {t("products.bearingPage.industries.hvac.title")}
-              </h3>
-              <p className="text-slate-600 text-sm">
-                {t("products.bearingPage.industries.hvac.description")}
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <FlaskConical className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                {t("products.bearingPage.industries.research.title")}
-              </h3>
-              <p className="text-slate-600 text-sm">
-                {t("products.bearingPage.industries.research.description")}
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
+      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             {t("products.bearingPage.cta.title")}
           </h2>
-          <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-slate-200 mb-6 md:mb-8 max-w-2xl mx-auto">
             {t("products.bearingPage.cta.description")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors text-sm md:text-base"
             >
               {t("products.bearingPage.cta.technical")}
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors text-sm md:text-base"
             >
               {t("products.bearingPage.cta.quote")}
             </Link>

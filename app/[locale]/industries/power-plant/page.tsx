@@ -37,10 +37,11 @@ export default async function PowerPlantPage() {
   const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: t("relatedProducts.compressor"), href: "/products#compressor" },
-    { name: t("relatedProducts.motor"), href: "/products#motor" },
-    { name: t("relatedProducts.bearing"), href: "/products#bearing" },
-    { name: t("relatedProducts.oilPurifier"), href: "/products#oilPurifier" },
+    { name: t("relatedProducts.compressor"), href: "/products/compressor" },
+    { name: t("relatedProducts.pump"), href: "/products/pump" },
+    { name: t("relatedProducts.mixer"), href: "/products/mixer" },
+    { name: t("relatedProducts.bearing"), href: "/products/bearing" },
+    { name: t("relatedProducts.motor"), href: "/products/motor" },
   ];
 
   return (
@@ -210,7 +211,7 @@ export default async function PowerPlantPage() {
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0A1628] mb-6 text-center">
               {t("relatedProductsTitle")}
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {relatedProducts.map((product, index) => (
                 <Link
                   key={index}

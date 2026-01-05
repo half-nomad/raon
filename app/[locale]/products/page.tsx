@@ -10,8 +10,8 @@ export default async function ProductsPage() {
   const products = [
     {
       id: "compressor",
-      title: "Compressor & Spare parts",
-      brand: "WTQ, Castanet SA, KB Delta",
+      title: "COMPRESSOR",
+      brand: "FIMA, WTQ, Castanet SA, KB Delta",
       description: t("products.categories.compressor.description"),
       features: [
         t("products.categories.compressor.features.0"),
@@ -22,34 +22,8 @@ export default async function ProductsPage() {
       image: "/images/category/compressor-parts_cat.jpg",
     },
     {
-      id: "mixer",
-      title: "Mixer & Agitator",
-      brand: "SPX FLOW (Lightnin, Plenty, Stelzer)",
-      description: t("products.categories.mixer.description"),
-      features: [
-        t("products.categories.mixer.features.0"),
-        t("products.categories.mixer.features.1"),
-        t("products.categories.mixer.features.2"),
-      ],
-      slug: "/products/mixer",
-      image: "/images/category/Mixer & Agitator_cat.jpg",
-    },
-    {
-      id: "motor",
-      title: "Motor",
-      brand: "NIDEC",
-      description: t("products.categories.motor.description"),
-      features: [
-        t("products.categories.motor.features.0"),
-        t("products.categories.motor.features.1"),
-        t("products.categories.motor.features.2"),
-      ],
-      slug: "/products/motor",
-      image: "/images/category/motor_cat.jpg",
-    },
-    {
       id: "pump",
-      title: "Pump",
+      title: "PUMP",
       brand: "CP Pumpen",
       description: t("products.categories.pump.description"),
       features: [
@@ -61,8 +35,21 @@ export default async function ProductsPage() {
       image: "/images/category/pump_cat.jpg",
     },
     {
+      id: "mixer",
+      title: "MIXER",
+      brand: "SPX FLOW (Lightnin, Plenty, Stelzer)",
+      description: t("products.categories.mixer.description"),
+      features: [
+        t("products.categories.mixer.features.0"),
+        t("products.categories.mixer.features.1"),
+        t("products.categories.mixer.features.2"),
+      ],
+      slug: "/products/mixer",
+      image: "/images/category/Mixer & Agitator_cat.jpg",
+    },
+    {
       id: "bearing",
-      title: "Bearing",
+      title: "BEARING & LUBRICATION",
       brand: t("products.categories.bearing.brand"),
       description: t("products.categories.bearing.description"),
       features: [
@@ -74,30 +61,17 @@ export default async function ProductsPage() {
       image: "/images/category/bearing_cat.jpg",
     },
     {
-      id: "cylinder-liner",
-      title: "Cylinder Liner for Ship",
-      brand: "WTQ (Yangzhou Wuting Qiao)",
-      description: t("products.categories.cylinderLiner.description"),
+      id: "motor",
+      title: "MOTOR",
+      brand: "LDW, NIDEC",
+      description: t("products.categories.motor.description"),
       features: [
-        t("products.categories.cylinderLiner.features.0"),
-        t("products.categories.cylinderLiner.features.1"),
-        t("products.categories.cylinderLiner.features.2"),
+        t("products.categories.motor.features.0"),
+        t("products.categories.motor.features.1"),
+        t("products.categories.motor.features.2"),
       ],
-      slug: "/products/cylinder-liner",
-      image: "/images/category/cylinder-liner_cat.jpg",
-    },
-    {
-      id: "oil-purifier",
-      title: "Oil Purifier",
-      brand: t("products.categories.oilPurifier.brand"),
-      description: t("products.categories.oilPurifier.description"),
-      features: [
-        t("products.categories.oilPurifier.features.0"),
-        t("products.categories.oilPurifier.features.1"),
-        t("products.categories.oilPurifier.features.2"),
-      ],
-      slug: "/products/oil-purifier",
-      image: "/images/category/Oil Purifier_cat.jpg",
+      slug: "/products/motor",
+      image: "/images/category/motor_cat.jpg",
     },
   ];
 

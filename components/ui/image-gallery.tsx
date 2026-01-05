@@ -12,9 +12,18 @@ interface ImageItem {
 interface ImageGalleryProps {
   images: ImageItem[];
   className?: string;
+  aspectRatio?: "square" | "4/3" | "16/9";
+  brandLabel?: string;
+  objectFit?: "contain" | "cover";
 }
 
-export function ImageGallery({ images, className = "" }: ImageGalleryProps) {
+export function ImageGallery({
+  images,
+  className = "",
+  aspectRatio = "square",
+  brandLabel,
+  objectFit = "contain"
+}: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = useCallback(() => {
@@ -29,12 +38,20 @@ export function ImageGallery({ images, className = "" }: ImageGalleryProps) {
     setCurrentIndex(index);
   }, []);
 
+  const aspectRatioClass = {
+    "square": "aspect-square",
+    "4/3": "aspect-[4/3]",
+    "16/9": "aspect-[16/9]"
+  }[aspectRatio];
+
+  const objectFitClass = objectFit === "cover" ? "object-cover" : "object-contain";
+
   if (images.length === 0) {
     return (
-      <div className={`aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center ${className}`}>
+      <div className={`${aspectRatioClass} bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl flex items-center justify-center ${className}`}>
         <div className="text-center text-slate-400">
-          <div className="text-6xl mb-2">📦</div>
-          <p className="text-sm">이미지 삽입 예정</p>
+          <div className="text-6xl mb-2">&#128230;</div>
+          <p className="text-sm">Image placeholder</p>
         </div>
       </div>
     );
@@ -42,65 +59,87 @@ export function ImageGallery({ images, className = "" }: ImageGalleryProps) {
 
   if (images.length === 1) {
     return (
-      <div className={`aspect-square relative rounded-xl overflow-hidden bg-slate-100 ${className}`}>
+      <div className={`${aspectRatioClass} relative rounded-2xl overflow-hidden bg-slate-100 shadow-xl ${className}`}>
         <Image
           src={images[0].src}
           alt={images[0].alt}
           fill
-          className="object-contain"
+          className={objectFitClass}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+        {/* Brand Label */}
+        {brandLabel && (
+          <div className="absolute bottom-4 left-4">
+            <span className="px-3 py-1 bg-white/90 text-[#0A1628] text-sm font-medium rounded-full">
+              {brandLabel}
+            </span>
+          </div>
+        )}
       </div>
     );
   }
 
   return (
-    <div className={`space-y-3 ${className}`}>
+    <div className={`space-y-4 ${className}`}>
       {/* Main Image */}
-      <div className="relative aspect-square rounded-xl overflow-hidden bg-slate-100 group">
+      <div className={`relative ${aspectRatioClass} rounded-2xl overflow-hidden bg-slate-100 shadow-xl group`}>
         <Image
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
           fill
-          className="object-contain"
+          className={`${objectFitClass} transition-opacity duration-300`}
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
         />
 
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+
+        {/* Brand Label */}
+        {brandLabel && (
+          <div className="absolute bottom-4 left-4">
+            <span className="px-3 py-1 bg-white/90 text-[#0A1628] text-sm font-medium rounded-full">
+              {brandLabel}
+            </span>
+          </div>
+        )}
+
         {/* Navigation Arrows */}
         <button
           onClick={goToPrevious}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
-          aria-label="이전 이미지"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity"
+          aria-label="Previous image"
         >
-          <ChevronLeft className="w-5 h-5 text-slate-700" />
+          <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity"
-          aria-label="다음 이미지"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity"
+          aria-label="Next image"
         >
-          <ChevronRight className="w-5 h-5 text-slate-700" />
+          <ChevronRight className="w-5 h-5 text-[#0A1628]" />
         </button>
 
         {/* Image Counter */}
-        <div className="absolute bottom-3 right-3 bg-black/60 text-white text-sm px-3 py-1 rounded-full">
+        <div className="absolute top-4 right-4 bg-black/50 text-white text-sm px-3 py-1 rounded-full">
           {currentIndex + 1} / {images.length}
         </div>
       </div>
 
       {/* Thumbnail Navigation */}
-      <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex gap-2 justify-center overflow-x-auto pb-2 scrollbar-hide">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => goToImage(index)}
-            className={`relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all ${
+            className={`relative flex-shrink-0 w-16 h-12 md:w-20 md:h-14 rounded-lg overflow-hidden transition-all ${
               currentIndex === index
-                ? "border-[#3B82F6] ring-2 ring-[#3B82F6]/30"
-                : "border-transparent hover:border-slate-300"
+                ? "ring-2 ring-[#3B82F6] ring-offset-2"
+                : "opacity-60 hover:opacity-100"
             }`}
-            aria-label={`${index + 1}번째 이미지 보기`}
+            aria-label={`View image ${index + 1}`}
           >
             <Image
               src={image.src}
@@ -124,7 +163,7 @@ export function ImageGallery({ images, className = "" }: ImageGalleryProps) {
                 ? "bg-[#3B82F6] w-4"
                 : "bg-slate-300 hover:bg-slate-400"
             }`}
-            aria-label={`${index + 1}번째 이미지로 이동`}
+            aria-label={`Go to image ${index + 1}`}
           />
         ))}
       </div>

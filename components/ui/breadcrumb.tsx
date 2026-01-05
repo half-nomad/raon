@@ -26,14 +26,14 @@ export default function Breadcrumb({ items, variant = "light" }: BreadcrumbProps
 
   return (
     <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex items-center space-x-2 text-sm">
+      <ol className="flex items-center space-x-2 text-base md:text-lg">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
 
           return (
             <li key={index} className="flex items-center">
               {index > 0 && (
-                <ChevronRight className={`w-4 h-4 mx-2 ${separatorClasses}`} />
+                <ChevronRight className={`w-5 h-5 mx-2 ${separatorClasses}`} />
               )}
               {item.href && !isLast ? (
                 <Link

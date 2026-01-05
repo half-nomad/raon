@@ -135,7 +135,7 @@ export default async function CompressorPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-slate-700">TURBO COMPRESSORS (Single & Multi-stage)</span>
+                  <span className="text-slate-700">TURBO COMPRESSORS</span>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
@@ -151,7 +151,7 @@ export default async function CompressorPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-slate-700">PROCESS GAS COMPRESSORS</span>
+                  <span className="text-slate-700">EXPLOSION PROOF BLOWERS</span>
                 </div>
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mt-0.5 mr-3">
@@ -159,7 +159,7 @@ export default async function CompressorPage() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <span className="text-slate-700">VACUUM PUMPS</span>
+                  <span className="text-slate-700">HERMETICALLY ENCAPSULATED BLOWERS AND COMPRESSOR</span>
                 </div>
               </div>
 
@@ -200,19 +200,16 @@ export default async function CompressorPage() {
                   <span className="text-sm font-medium text-[#0A1628]">PISTON ROD</span>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-slate-200">
-                  <span className="text-sm font-medium text-[#0A1628]">CROSSHEAD</span>
+                  <span className="text-sm font-medium text-[#0A1628]">PISTON RING & RIDER RING</span>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-slate-200">
-                  <span className="text-sm font-medium text-[#0A1628]">PISTON RING</span>
+                  <span className="text-sm font-medium text-[#0A1628]">STUFFING BOX & INTERNAL PARTS</span>
                 </div>
                 <div className="bg-white rounded-lg p-3 border border-slate-200">
-                  <span className="text-sm font-medium text-[#0A1628]">RIDER RING</span>
+                  <span className="text-sm font-medium text-[#0A1628]">OIL SCRAPER & INTERNAL PARTS</span>
                 </div>
-                <div className="bg-white rounded-lg p-3 border border-slate-200">
-                  <span className="text-sm font-medium text-[#0A1628]">PACKING</span>
-                </div>
-                <div className="bg-white rounded-lg p-3 border border-slate-200">
-                  <span className="text-sm font-medium text-[#0A1628]">VALVE ASSY</span>
+                <div className="bg-white rounded-lg p-3 border border-slate-200 col-span-2">
+                  <span className="text-sm font-medium text-[#0A1628]">VALVE ASSY & INTERNAL PARTS (VALVE PLATE, SPRING, ETC)</span>
                 </div>
               </div>
 
@@ -332,39 +329,29 @@ export default async function CompressorPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div className="bg-white rounded-xl p-5 border border-slate-200">
-                  <div className="w-10 h-10 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                  <div className="w-8 h-8 rounded-full bg-[#0A1628] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">1</span>
                   </div>
                   <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.compressorPage.sections.maintenance.features.preventive.title")}</h4>
                   <p className="text-sm text-slate-600">{t("products.compressorPage.sections.maintenance.features.preventive.desc")}</p>
                 </div>
                 <div className="bg-white rounded-xl p-5 border border-slate-200">
-                  <div className="w-10 h-10 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+                  <div className="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">2</span>
                   </div>
                   <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.compressorPage.sections.maintenance.features.emergency.title")}</h4>
                   <p className="text-sm text-slate-600">{t("products.compressorPage.sections.maintenance.features.emergency.desc")}</p>
                 </div>
                 <div className="bg-white rounded-xl p-5 border border-slate-200">
-                  <div className="w-10 h-10 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
+                  <div className="w-8 h-8 rounded-full bg-[#0A1628] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">3</span>
                   </div>
                   <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.compressorPage.sections.maintenance.features.overhaul.title")}</h4>
                   <p className="text-sm text-slate-600">{t("products.compressorPage.sections.maintenance.features.overhaul.desc")}</p>
                 </div>
                 <div className="bg-white rounded-xl p-5 border border-slate-200">
-                  <div className="w-10 h-10 rounded-full bg-[#3B82F6]/10 flex items-center justify-center mb-3">
-                    <svg className="w-5 h-5 text-[#3B82F6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                  <div className="w-8 h-8 rounded-full bg-[#3B82F6] flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-sm">4</span>
                   </div>
                   <h4 className="font-semibold text-[#0A1628] mb-1">{t("products.compressorPage.sections.maintenance.features.local.title")}</h4>
                   <p className="text-sm text-slate-600">{t("products.compressorPage.sections.maintenance.features.local.desc")}</p>

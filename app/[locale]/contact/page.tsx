@@ -216,7 +216,7 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 section-container">
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
               {t("hero.title")}

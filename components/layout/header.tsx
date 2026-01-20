@@ -51,7 +51,7 @@ export function Header() {
       }`}
       style={{ height: "72px" }}
     >
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div className="section-container h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link href="/" className="flex items-center">

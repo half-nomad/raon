@@ -140,7 +140,7 @@ export function PartnersClients() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gray-50">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">

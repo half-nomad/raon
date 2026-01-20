@@ -110,7 +110,7 @@ export default async function CompressorPage() {
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="max-w-3xl">
             <BackButton href="/products" variant="dark" />
 
@@ -135,7 +135,7 @@ export default async function CompressorPage() {
 
       {/* Products Accordion */}
       <section className="py-12 md:py-16 lg:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <Accordion
             type="single"
             collapsible
@@ -612,7 +612,7 @@ export default async function CompressorPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
+        <div className="section-container text-center">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             {t("products.compressor.cta.title")}
           </h2>

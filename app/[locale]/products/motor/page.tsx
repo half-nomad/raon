@@ -158,7 +158,7 @@ async function MotorContent() {
     <>
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="max-w-3xl">
             <BackButton href="/products" variant="dark" />
 
@@ -181,7 +181,7 @@ async function MotorContent() {
 
       {/* Main Content */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
             <ImageGallery images={motorImages} />
@@ -248,7 +248,7 @@ async function MotorContent() {
 
       {/* Motor Types Accordion */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
               제품 라인업
@@ -304,7 +304,7 @@ async function MotorContent() {
 
       {/* Applications */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             적용 분야
           </h2>
@@ -374,7 +374,7 @@ async function MotorContent() {
 
       {/* Technical Specifications */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold text-[#0A1628] mb-8">
               기술 사양
@@ -466,7 +466,7 @@ async function MotorContent() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
+        <div className="section-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("products.motor.cta.title")}
           </h2>

@@ -62,7 +62,7 @@ export default async function OilRefineryPage() {
 
       {/* Industry Representative Image */}
       <section className="py-12 bg-slate-50">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
             <Image
               src="/images/industries/oil-refinery.PNG"
@@ -84,7 +84,7 @@ export default async function OilRefineryPage() {
 
       {/* Main Content */}
       <section className="py-16 sm:py-24 lg:py-32 bg-white">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-container">
           {/* Introduction */}
           <div className="max-w-4xl mx-auto mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0A1628] mb-6">

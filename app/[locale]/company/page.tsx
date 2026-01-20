@@ -14,7 +14,7 @@ export default async function CompanyPage() {
 
       {/* Page Hero */}
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-[#0A1628] to-[#1A2D47]">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="section-container text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
             {t("title")}
           </h1>

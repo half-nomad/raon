@@ -137,7 +137,7 @@ export default async function BearingPage() {
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="max-w-3xl">
             <BackButton href="/products" variant="dark" />
 
@@ -160,7 +160,7 @@ export default async function BearingPage() {
 
       {/* Main Content */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
             <ImageGallery images={bearingImages} />
@@ -229,7 +229,7 @@ export default async function BearingPage() {
 
       {/* Bearing Types Accordion */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
               제품 라인업
@@ -327,7 +327,7 @@ export default async function BearingPage() {
 
       {/* Key Features */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             터보링크 베어링의 강점
           </h2>
@@ -402,7 +402,7 @@ export default async function BearingPage() {
 
       {/* Industries */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             적용 산업
           </h2>
@@ -468,7 +468,7 @@ export default async function BearingPage() {
 
       {/* Advantages */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="bg-white rounded-2xl p-8 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold text-[#0A1628] mb-8">
               왜 터보링크 베어링을 선택해야 할까요?
@@ -524,7 +524,7 @@ export default async function BearingPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
+        <div className="section-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("products.bearing.cta.title")}
           </h2>

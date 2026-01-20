@@ -22,7 +22,7 @@ export function IndustryHero({
         />
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 section-container">
         <div className="text-center max-w-4xl mx-auto">
           <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-4">
             {subtitle}

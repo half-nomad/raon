@@ -99,7 +99,7 @@ export function ProductsSnapshot() {
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">

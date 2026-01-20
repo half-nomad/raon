@@ -166,7 +166,7 @@ export default async function PartnersPage() {
           />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="relative z-10 section-container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               {t("hero.title")}
@@ -182,7 +182,7 @@ export default async function PartnersPage() {
 
       {/* Global Partners */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
               {t("globalPartners.title")}
@@ -255,7 +255,7 @@ export default async function PartnersPage() {
 
       {/* Partnership Benefits */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             {t("whyPartner.title")}
           </h2>
@@ -338,7 +338,7 @@ export default async function PartnersPage() {
 
       {/* Major Clients */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
               {t("majorClients.title")}
@@ -389,7 +389,7 @@ export default async function PartnersPage() {
 
       {/* Trust Indicators */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold text-[#3B82F6] mb-2">30+</div>
@@ -426,7 +426,7 @@ export default async function PartnersPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
+        <div className="section-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("cta.title")}
           </h2>

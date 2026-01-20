@@ -16,7 +16,7 @@ export function ContactCTA() {
         }} />
       </div>
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 section-container">
         <div className="text-center max-w-4xl mx-auto">
           {/* Icon */}
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#3B82F6]/20 mb-6">

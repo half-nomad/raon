@@ -164,7 +164,7 @@ export default async function OilPurifierPage() {
 
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="max-w-3xl">
             <BackButton href="/products" variant="dark" />
 
@@ -189,7 +189,7 @@ export default async function OilPurifierPage() {
 
       {/* Main Content */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             {/* Image */}
             <ImageGallery images={oilPurifierImages} />
@@ -257,7 +257,7 @@ export default async function OilPurifierPage() {
 
       {/* Key Features */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
               Oil Purifier의 주요 기능
@@ -286,7 +286,7 @@ export default async function OilPurifierPage() {
 
       {/* Model Specifications Table */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
               모델 사양
@@ -344,7 +344,7 @@ export default async function OilPurifierPage() {
 
       {/* How It Works */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             오일 정화 원리
           </h2>
@@ -417,7 +417,7 @@ export default async function OilPurifierPage() {
 
       {/* Applications */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             적용 분야
           </h2>
@@ -441,7 +441,7 @@ export default async function OilPurifierPage() {
 
       {/* Advantages */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
             삼영필텍 Oil Purifier의 장점
           </h2>
@@ -516,7 +516,7 @@ export default async function OilPurifierPage() {
 
       {/* Technical Specifications */}
       <section className="py-16 md:py-24 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="bg-white rounded-2xl p-8 md:p-12 border border-slate-200">
             <h2 className="text-3xl font-bold text-[#0A1628] mb-8">
               기술 사양
@@ -616,7 +616,7 @@ export default async function OilPurifierPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
+        <div className="section-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("products.oilPurifier.cta.title")}
           </h2>

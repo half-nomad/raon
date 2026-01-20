@@ -118,7 +118,7 @@ export default async function ProductsPage() {
           />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="relative z-10 section-container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               {t("products.hero.title")}
@@ -132,7 +132,7 @@ export default async function ProductsPage() {
 
       {/* Products Grid */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px]">
+        <div className="section-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {products.map((product) => (
               <div
@@ -197,7 +197,7 @@ export default async function ProductsPage() {
 
       {/* CTA Section */}
       <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1240px] text-center">
+        <div className="section-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("products.main.ctaTitle")}
           </h2>

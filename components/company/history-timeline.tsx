@@ -87,7 +87,7 @@ export function HistoryTimeline() {
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0A1628] to-[#0F1D32]">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-container">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}

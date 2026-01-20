@@ -20,18 +20,24 @@
 
 의존성 없이 바로 진행 가능한 작업:
 
-### 1. 모바일 가독성 재점검 (P2)
-- [ ] 모바일 메뉴 UI 검수
-- [ ] 폰트 크기 / 터치 영역 확인
-- [ ] 테스트: iOS Safari, Android Chrome
+### 1. 모바일 가독성 재점검 (P2) ✅ 코드 검증 완료
+- [x] 모바일 메뉴 UI 검수 (코드 기반)
+- [x] 폰트 크기 / 터치 영역 확인 → **P0 이슈 발견 (아래 참조)**
+- [ ] 테스트: iOS Safari, Android Chrome (실기 테스트 필요)
 
-### 2. SEO 등록 (P3)
+### 2. 터치 영역 수정 (P0) ✅ 완료
+- [x] 모바일 메뉴 버튼: `size-9` → `size-11` (44px)
+- [x] CTA 버튼: `py-3` → `py-4 min-h-11` (44px)
+- [x] 상세: [QA_REPORT.md](./QA_REPORT.md) 참조
+
+### 3. SEO 등록 (P3)
 - [ ] Naver Search Advisor 등록
 - [ ] Google Search Console 등록
 
-### 3. 브라우저 호환성 테스트
-- [ ] Chrome, Safari, Firefox, Edge 테스트
-- [ ] 모바일/태블릿/데스크톱 반응형 테스트
+### 4. 브라우저 호환성 테스트 ✅ 코드 검증 완료
+- [x] Chrome, Safari, Firefox, Edge 호환성 (코드 기반)
+- [x] 모바일/태블릿/데스크톱 반응형 (코드 기반)
+- [ ] 실제 브라우저 수동 테스트 (실기 필요)
 
 ---
 
@@ -42,8 +48,8 @@
 ### B2 대기 (부품 사진 + 텍스트)
 - [ ] 파트너사 로고 화질 개선 (P1)
 - [ ] 부품 사진 누끼 작업 (P3)
-- [ ] 파트너사별 소개 내용 삽입 (P3)
-- [ ] 아이템별 상세 설명 텍스트 (P3)
+- [ ] 파트너사별 소개 내용 삽입 (P3) → [UI 가이드 참조](./UI_guide_2nd_organized.md#7-business-partners)
+- [ ] 아이템별 상세 설명 텍스트 (P3) → [UI 가이드 참조](./UI_guide_2nd_organized.md)
 
 ### B6 대기 (공식 CI 로고)
 - [ ] 스크롤 시 로고 노출 방식 최적화 (P2)
@@ -52,9 +58,10 @@
 ### 기타 대기
 - [ ] AI 생성 이미지 교체 (P3)
 - [ ] 기계 도면 고감도 컨셉 (P3)
-- [ ] 산업별 개별 페이지 생성 (P3)
+- [ ] 산업별 개별 페이지 생성 (P3) → [UI 가이드 #6](./UI_guide_2nd_organized.md#6-business-area)
+  - Power plant(발전소) 섹션 추가 포함
 - [ ] 라온 회사 소개서 다운로드 버튼 (P3)
-- [ ] 글로벌 파트너사 카탈로그 링크 (P3)
+- [ ] 글로벌 파트너사 카탈로그 링크 (P3) → [파트너 목록](./UI_guide_2nd_organized.md#7-business-partners)
 
 ---
 
@@ -125,4 +132,5 @@
 ## 참조
 
 - 변경 기록: [03-CHANGELOG.md](./03-CHANGELOG.md)
-- 상세 작업 내역: [tasks_2nd.md](./tasks_2nd.md) (보관용)
+- **콘텐츠 가이드**: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md) - Products 페이지 메뉴 구조 및 콘텐츠
+- **QA 리포트**: [QA_REPORT.md](./QA_REPORT.md) - 브라우저 호환성 및 모바일 UX 테스트 결과

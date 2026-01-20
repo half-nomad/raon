@@ -118,7 +118,7 @@ export function Location() {
                 href={MAP_CONFIG[activeMap].linkUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-4 min-h-11 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
                 {MAP_CONFIG[activeMap].name} {t("tabs.viewLarger")}
@@ -210,7 +210,7 @@ export function Location() {
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <a
                   href="/contact"
-                  className="block w-full text-center px-6 py-3 bg-[#0A1628] text-white font-semibold rounded-full hover:bg-[#1A2D47] hover:shadow-lg transition-all"
+                  className="block w-full text-center px-6 py-4 min-h-11 bg-[#0A1628] text-white font-semibold rounded-full hover:bg-[#1A2D47] hover:shadow-lg transition-all"
                 >
                   {t("contactButton")}
                 </a>

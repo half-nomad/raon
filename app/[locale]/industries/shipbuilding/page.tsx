@@ -230,7 +230,7 @@ export default async function ShipbuildingPage() {
                 <Link
                   key={index}
                   href={product.href}
-                  className="flex items-center justify-center px-6 py-3 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:shadow-lg transition-all"
+                  className="flex items-center justify-center px-6 py-4 min-h-11 bg-white border-2 border-gray-200 rounded-full text-sm font-semibold text-gray-700 hover:border-[#3B82F6] hover:text-[#3B82F6] hover:shadow-lg transition-all"
                 >
                   {product.name}
                 </Link>

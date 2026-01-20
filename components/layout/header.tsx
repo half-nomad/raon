@@ -217,7 +217,7 @@ export function Header() {
             {/* Desktop CTA */}
             <Button
               asChild
-              className="hidden lg:flex bg-[#0A1628] hover:bg-[#1A2D47] text-white rounded-full px-6"
+              className="hidden lg:flex min-h-11 bg-[#0A1628] hover:bg-[#1A2D47] text-white rounded-full px-6"
             >
               <Link href="/contact">{t("cta")}</Link>
             </Button>
@@ -339,7 +339,7 @@ export function Header() {
                   <div className="mt-6">
                     <Button
                       asChild
-                      className="w-full bg-[#0A1628] hover:bg-[#1A2D47] text-white rounded-full"
+                      className="w-full min-h-11 bg-[#0A1628] hover:bg-[#1A2D47] text-white rounded-full"
                     >
                       <Link href="/contact" onClick={() => setOpen(false)}>
                         {t("cta")}

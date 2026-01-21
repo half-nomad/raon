@@ -1,7 +1,7 @@
 # TODO - 라온토탈솔루션 웹사이트
 
 > **최종 수정**: 2026-01-21
-> **진행률**: 25/33 완료 (76%) - Phase 5.2 완료
+> **진행률**: 29/44 완료 (66%) - Phase 5.3 P1 진행 중
 
 ---
 
@@ -10,9 +10,42 @@
 | 구분 | 완료 | 전체 | 진행률 |
 |------|------|------|--------|
 | P0 Critical | 9 | 9 | 100% |
-| P1 High | 6 | 7 | 86% |
+| P1 High | 10 | 12 | 83% |
 | P2 Medium | 6 | 8 | 75% |
 | P3 Low | 0 | 9 | 0% |
+
+---
+
+## 🆕 Phase 5.3: Products 페이지 재설계
+
+> **가이드 문서**: [PRODUCTS-REDESIGN-GUIDE.md](./PRODUCTS-REDESIGN-GUIDE.md)
+> **목표**: UI_guide 기준 페이지 구조 통일
+
+### P1 - 높은 우선순위 (5개)
+
+| ID | 작업 | 상태 | 의존성 |
+|----|------|------|--------|
+| P5.3-01 | Products 페이지 공통 레이아웃 (상단 2컬럼: 갤러리+설명) | ✅ done | - |
+| P5.3-02 | COMPRESSOR 서브메뉴 탭 (NEW/SPARE PARTS/TROUBLE SHOOTING/M&R) | ✅ done | P5.3-01 |
+| P5.3-03 | PUMP 서브메뉴 탭 (PUMP SOLUTION/TROUBLE SHOOTING) | ✅ done | P5.3-01 |
+| P5.3-04 | MIXER SPXFlow 5개 브랜드 상세 (Lightnin/Plenty/Philadelphia/Stelzer/Uutechnic) | ✅ done | P5.3-01 |
+| P5.3-05 | bearing + oil-purifier → bearing-lubrication 통합 | pending | - |
+
+### P2 - 중간 우선순위 (3개)
+
+| ID | 작업 | 상태 | 의존성 |
+|----|------|------|--------|
+| P5.3-06 | MOTOR 서브메뉴 탭 (SPARE PARTS/방폭인증서비스) | ✅ done | P5.3-01 |
+| P5.3-07 | 각 페이지 메인 설명문 반영 (30년 경력 + 카테고리 소개) | pending | P5.3-02~06 |
+| P5.3-08 | cylinder-liner 페이지 삭제 → compressor 포함 | pending | P5.3-02 |
+
+### P3 - 낮은 우선순위 (3개)
+
+| ID | 작업 | 상태 | 의존성 |
+|----|------|------|--------|
+| P5.3-09 | 누락 이미지 추가 (motor_1.jpg) | pending | - |
+| P5.3-10 | 누락 이미지 추가 (pump_1.jpg) | pending | - |
+| P5.3-11 | en.json industries 섹션 번역 키 보완 | pending | - |
 
 ---
 
@@ -137,5 +170,6 @@
 - **프로젝트 계획**: [01-PLAN.md](./01-PLAN.md) - Phase 5에 2차 리뉴얼 계획 포함
 - **변경 기록**: [03-CHANGELOG.md](./03-CHANGELOG.md)
 - **콘텐츠 가이드**: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md) - Products 메뉴 구조 및 콘텐츠
+- **🆕 Products 재설계**: [PRODUCTS-REDESIGN-GUIDE.md](./PRODUCTS-REDESIGN-GUIDE.md) - 페이지 레이아웃 및 서브메뉴 구조
 - **QA 리포트**: [QA_REPORT.md](./QA_REPORT.md) - 브라우저 호환성 및 모바일 UX 테스트 결과
 - **SEO 등록 가이드**: [SEO-REGISTRATION-GUIDE.md](./SEO-REGISTRATION-GUIDE.md) - Naver/Google 등록 방법

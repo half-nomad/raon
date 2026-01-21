@@ -1,338 +1,264 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Metadata } from "next";
-import { ProductSchema } from "@/components/seo/product-schema";
-import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
-import { ImageGallery } from "@/components/ui/image-gallery";
-import { Factory, Pill, Coffee, Palette, Droplets, FlaskConical } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Tabs, TabPanel } from "@/components/ui/tabs";
+import { ProductIntro } from "@/components/products/product-intro";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import { getTranslations } from "next-intl/server";
+import {
+  Beaker,
+  Factory,
+  Droplets,
+  FlaskConical,
+  Pill,
+  ArrowRight,
+  ChevronRight,
+} from "lucide-react";
 
-export const metadata: Metadata = {
-  title: 'Mixer & Agitator | 산업용 믹서 솔루션',
-  description: 'SPX FLOW 믹서 및 교반기 전문 공급. Lightnin, Plenty, Stelzer 브랜드로 다양한 유체 혼합, 균질화 솔루션 제공. 정유·석유화학 산업 최적화.',
-  keywords: ['Mixer', 'Agitator', '믹서', '교반기', 'SPX FLOW', 'Lightnin', 'Plenty', 'Stelzer'],
-  openGraph: {
-    title: 'Mixer & Agitator | 라온토탈솔루션',
-    description: 'SPX FLOW 믹서 및 교반기 전문 공급. 다양한 유체 혼합, 균질화 솔루션 제공',
-    images: ['/images/og/mixer-og.jpg'],
-  },
-};
-
-// 이미지 데이터 정의
-const mixerImages = [
-  { src: "/images/products/mixer/Mixer & Agitator_1.jpg", alt: "Mixer & Agitator 1" },
-  { src: "/images/products/mixer/Mixer & Agitator_2.jpg", alt: "Mixer & Agitator 2" },
-  { src: "/images/products/mixer/Mixer & Agitator_3.jpg", alt: "Mixer & Agitator 3" },
-  { src: "/images/products/mixer/Mixer & Agitator_4.jpg", alt: "Mixer & Agitator 4" },
+// 대표 이미지
+const heroImages = [
+  { src: "/images/products/mixer/Mixer & Agitator_1.jpg", alt: "Mixer 1" },
+  { src: "/images/products/mixer/Mixer & Agitator_2.jpg", alt: "Mixer 2" },
+  { src: "/images/products/mixer/Mixer & Agitator_3.jpg", alt: "Mixer 3" },
+  { src: "/images/products/mixer/Mixer & Agitator_4.jpg", alt: "Mixer 4" },
 ];
 
-export default async function MixerPage() {
-  const t = await getTranslations();
+// 탭 정의
+const tabs = [
+  { id: "solution", label: "Mixing Solution" },
+  { id: "brands", label: "SPXFlow Mixer Brands" },
+];
+
+// Mixing Solution 분야
+const mixingSolutions = [
+  { icon: Beaker, title: "화학 공정", desc: "화학 반응, 용해, 분산 등 혼합 솔루션" },
+  { icon: Droplets, title: "수처리/폐수처리", desc: "응집, 침전, 소독 등 수처리 믹서" },
+  { icon: Factory, title: "석유화학", desc: "정유 및 석유화학 플랜트 혼합" },
+  { icon: FlaskConical, title: "바이오/제약", desc: "무균 환경 정밀 혼합" },
+  { icon: Pill, title: "식품/유제품", desc: "위생 설계 CIP 호환 믹서" },
+];
+
+// SPXFlow 5개 브랜드
+const spxflowBrands = [
+  {
+    name: "LIGHTNIN",
+    tagline: "첨단 기술 기반의 고효율 혼합 솔루션",
+    desc: "산업용 믹서 분야의 글로벌 리더로, 100년 이상의 혁신 역사를 보유. 첨단 유체역학 기술을 기반으로 에너지 효율적인 혼합 솔루션을 제공합니다.",
+    applications: ["폐수/수처리", "화학", "바이오 연료", "제약 공정"],
+    features: ["독자적 기어박스와 임펠러 기술", "Anti-fouling 메커니즘", "전력 효율 극대화"],
+  },
+  {
+    name: "PLENTY",
+    tagline: "70년 전통의 유체 역학 전문가",
+    desc: "Side-Entry 믹서를 전문으로 제조해온 브랜드입니다. 탱크를 비우지 않고도 유지보수가 가능한 혁신적인 설계로 정유 및 석유화학 산업에서 높은 신뢰를 받고 있습니다.",
+    applications: ["저장 탱크 혼합/균질화", "슬러지 침전 방지", "원유 블렌딩"],
+    features: ["Fixed/Swivel Side-Entry 설계", "탱크 미배출 수리 가능", "낮은 유지보수 비용"],
+  },
+  {
+    name: "PHILADELPHIA",
+    tagline: "혁신적인 R&D와 고객 맞춤형 설계",
+    desc: "2021년 SPX FLOW에 합류했으며, 65년 경력과 Philadelphia Gear Corporation 기술을 계승. 화학 공정 및 일반 산업 전반의 특수 혼합 공정을 담당합니다.",
+    applications: ["화학 공정", "일반 산업", "특수 혼합 공정"],
+    features: ["65년 경력", "전 세계 거점(미국, 영국, 인도)", "신속한 현장 지원"],
+  },
+  {
+    name: "STELZER",
+    tagline: "엄격한 위생과 정밀한 공정 노하우 (독일)",
+    desc: "독일에서 제조되며 위생 설계(Hygienic Design)의 대명사입니다. 유제품, 제약, 식품 산업에서 요구하는 엄격한 위생 기준을 충족합니다.",
+    applications: ["유제품 공정", "제약", "식품 제조", "고도의 세척/연마 공정"],
+    features: ["DIN EN ISO 9001:2015 준수", "CFD 시뮬레이션 역량", "1946년부터 축적된 위생 설계 기술"],
+  },
+  {
+    name: "UUTECHNIC",
+    tagline: "특수 공정용 맞춤 솔루션",
+    desc: "특수 공정에 최적화된 맞춤형 믹서 솔루션을 제공합니다. 고객의 특정 요구사항에 맞춘 엔지니어링 설계로 까다로운 혼합 과제를 해결합니다.",
+    applications: ["특수 화학", "폴리머", "코팅/접착제", "배터리 소재"],
+    features: ["맞춤형 설계", "고점도 대응", "파일럿 테스트 지원"],
+  },
+];
+
+export default function MixerPage() {
+  const t = useTranslations();
+  const [activeTab, setActiveTab] = useState("solution");
 
   return (
     <div className="min-h-screen bg-white">
-      <ProductSchema
-        name="Mixer & Agitator (산업용 믹서)"
-        description="SPX FLOW의 검증된 기술력으로 다양한 유체를 효과적으로 섞고, 균질화하며, 일정한 상태로 유지하는 장치. Lightnin, Plenty, Stelzer 브랜드."
-        category="믹서 및 교반기"
-        manufacturers={[
-          { name: 'SPX FLOW' },
-          { name: 'Lightnin' },
-          { name: 'Plenty' },
-          { name: 'Stelzer' },
-        ]}
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: 'Home', url: '/' },
-          { name: 'Products', url: '/products' },
-          { name: 'Mixer', url: '/products/mixer' },
-        ]}
-      />
-
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
+      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
         <div className="section-container">
-          <div className="max-w-3xl">
-            <BackButton href="/products" variant="dark" />
-
-            <Breadcrumb variant="dark" items={[
+          <BackButton href="/products" variant="dark" />
+          <Breadcrumb
+            variant="dark"
+            items={[
               { label: "HOME", href: "/" },
               { label: "PRODUCTS", href: "/products" },
-              { label: "Mixer" }
-            ]} />
-
-            <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
-              SPX FLOW · Lightnin · Plenty · Stelzer
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Mixer & Agitator
-            </h1>
-            <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              {t("products.mixer.hero.description")}
-            </p>
-          </div>
+              { label: "MIXER" },
+            ]}
+          />
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
+            MIXER
+          </h1>
+          <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
+            산업용 믹서 & 교반기 솔루션
+          </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16 md:py-24">
+      {/* Product Intro */}
+      <ProductIntro
+        title="고객 맞춤형 MIXING SOLUTION"
+        description="SPXFLOW의 국내 마스터 대리점으로써 현대 산업 전반에 걸쳐 중요한 제조 라인인 다양한 혼합 공정에 필요한 MIXER를 설계 제작하여 공급하고 있으며 생산성 향상, 에너지 절감 및 비용 절감을 위한 고객 맞춤형 MIXING SOLUTION을 제공하고 있습니다."
+        images={heroImages}
+        partners={[{ name: "SPXFLOW", country: "글로벌" }]}
+        highlights={[
+          "SPXFLOW 국내 마스터 대리점",
+          "5개 글로벌 브랜드 공급",
+          "생산성 향상 및 에너지 절감",
+          "맞춤형 설계 지원",
+        ]}
+      />
+
+      {/* Tabs Section */}
+      <section className="border-t border-slate-200">
         <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            {/* Image */}
-            <ImageGallery images={mixerImages} />
+          <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
-            {/* Content */}
-            <div>
-              <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                제품 개요
-              </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                Mixer와 Agitator는 화학, 제약, 식품, 석유화학 등 다양한
-                산업에서 액체 또는 혼합물을 효과적으로 혼합하고 균질화하는 데
-                필수적인 장비입니다. SPX FLOW의 Lightnin, Plenty, Stelzer 브랜드는
-                전 세계적으로 검증된 고품질 믹서 솔루션을 제공합니다.
-              </p>
-
-              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
-                주요 특징
-              </h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>다양한 점도 대응:</strong> 저점도부터 고점도
-                    유체까지 폭넓은 범위의 혼합 가능
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>균질화 성능:</strong> 일정하고 균일한 혼합 상태 유지
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>에너지 효율:</strong> 최적화된 임펠러 설계로 에너지
-                    소비 최소화
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>내구성:</strong> 부식 방지 소재 및 견고한 구조로
-                    장기간 안정적 운전
-                  </span>
-                </li>
-              </ul>
-
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <h4 className="font-bold text-[#0A1628] mb-3">
-                  파트너 브랜드
-                </h4>
-                <div className="space-y-2 text-sm text-slate-600">
-                  <p>
-                    <strong>SPX FLOW:</strong> 글로벌 유체 처리 솔루션 선도 기업
-                  </p>
-                  <p>
-                    <strong>Lightnin:</strong> 산업용 믹서 및 임펠러 전문
-                  </p>
-                  <p>
-                    <strong>Plenty:</strong> 고점도 유체 혼합 솔루션
-                  </p>
-                  <p>
-                    <strong>Stelzer:</strong> 정밀 교반 시스템
-                  </p>
-                  <p className="mt-4 pt-4 border-t border-slate-200">
-                    <strong className="text-[#0A1628]">계약:</strong> 2022년
-                    한국 Master 대리점
+          {/* Mixing Solution 탭 */}
+          {activeTab === "solution" && (
+            <TabPanel>
+              <div className="space-y-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-2">
+                    다양한 산업 분야의 혼합 솔루션
+                  </h3>
+                  <p className="text-slate-600">
+                    각 산업의 특성에 맞는 최적의 믹서 솔루션을 제공합니다
                   </p>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Applications */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-[#0A1628] mb-8">
-              적용 분야
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <Factory className="w-12 h-12 mb-4 text-[#3B82F6]" />
-                <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                  석유화학
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  원유 정제, 화학 반응 촉진, 첨가제 혼합
-                </p>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {mixingSolutions.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 rounded-xl border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-md transition-all"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center mb-4">
+                        <item.icon className="w-6 h-6 text-[#3B82F6]" />
+                      </div>
+                      <h4 className="font-semibold text-[#0A1628] mb-2">{item.title}</h4>
+                      <p className="text-sm text-slate-600">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
+            </TabPanel>
+          )}
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <Pill className="w-12 h-12 mb-4 text-[#3B82F6]" />
-                <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                  제약·화학
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  의약품 제조, 화학 물질 합성, 용액 혼합
-                </p>
-              </div>
+          {/* SPXFlow Mixer Brands 탭 */}
+          {activeTab === "brands" && (
+            <TabPanel>
+              <div className="space-y-6">
+                <div className="text-center mb-8">
+                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-2">
+                    SPXFlow Mixer Brands
+                  </h3>
+                  <p className="text-slate-600">
+                    세계적인 믹서 브랜드를 국내에 공급합니다
+                  </p>
+                </div>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <Coffee className="w-12 h-12 mb-4 text-[#3B82F6]" />
-                <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                  식품·음료
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  식품 가공, 음료 제조, 유화 및 분산
-                </p>
-              </div>
+                {spxflowBrands.map((brand, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 md:p-8 rounded-2xl border border-slate-200 hover:shadow-lg transition-shadow"
+                  >
+                    {/* 브랜드 헤더 */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 bg-[#0A1628] rounded-xl flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold text-xl">
+                          {brand.name.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="text-xl md:text-2xl font-bold text-[#0A1628]">
+                          {brand.name}
+                        </h4>
+                        <p className="text-[#3B82F6] text-sm font-medium">
+                          {brand.tagline}
+                        </p>
+                      </div>
+                    </div>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <Palette className="w-12 h-12 mb-4 text-[#3B82F6]" />
-                <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                  도료·코팅
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  페인트 제조, 안료 분산, 코팅제 혼합
-                </p>
-              </div>
+                    {/* 설명 */}
+                    <p className="text-slate-600 mb-6">{brand.desc}</p>
 
-              <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <Droplets className="w-12 h-12 mb-4 text-[#3B82F6]" />
-                <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                  수처리
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  응집제 혼합, 폐수 처리, 화학 약품 분산
-                </p>
+                    {/* 적용 분야 & 특징 */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="text-sm font-semibold text-[#0A1628] mb-3 uppercase tracking-wider">
+                          주요 적용 분야
+                        </h5>
+                        <div className="flex flex-wrap gap-2">
+                          {brand.applications.map((app, i) => (
+                            <span
+                              key={i}
+                              className="px-3 py-1.5 bg-slate-100 text-slate-700 text-sm rounded-md"
+                            >
+                              {app}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <h5 className="text-sm font-semibold text-[#0A1628] mb-3 uppercase tracking-wider">
+                          주요 특징
+                        </h5>
+                        <ul className="space-y-1.5">
+                          {brand.features.map((feature, i) => (
+                            <li
+                              key={i}
+                              className="flex items-center gap-2 text-sm text-slate-600"
+                            >
+                              <ChevronRight className="w-4 h-4 text-[#3B82F6]" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-                <FlaskConical className="w-12 h-12 mb-4 text-[#3B82F6]" />
-                <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                  기타 산업
-                </h3>
-                <p className="text-slate-600 text-sm">
-                  펄프·제지, 광물 처리, 바이오 연료
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Technical Specifications */}
-          <div className="bg-slate-50 rounded-2xl p-8 md:p-12 border border-slate-200">
-            <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-              기술 사양
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  혼합 용량
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>소형: 10L ~ 1,000L</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>중형: 1,000L ~ 10,000L</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>대형: 10,000L 이상</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  구동 방식
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>전기 모터 구동</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>기어 감속기 타입</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>가변 속도 제어 (VFD)</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  임펠러 타입
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Axial Flow (축류형)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Radial Flow (원심형)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>High Shear (고전단)</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  재질
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Stainless Steel (316, 316L)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Hastelloy, Titanium (고부식 환경)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>PTFE 코팅 (특수 용도)</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </TabPanel>
+          )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
+      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16 mt-12">
         <div className="section-container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t("products.mixer.cta.title")}
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            최적의 Mixing Solution이 필요하신가요?
           </h2>
-          <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            {t("products.mixer.cta.description")}
+          <p className="text-slate-300 mb-8 max-w-xl mx-auto">
+            30년 이상의 경험을 바탕으로 고객의 공정에 최적화된 믹서 솔루션을 제안해 드립니다.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              {t("products.mixer.cta.technical")}
+              기술 상담 신청
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              {t("products.mixer.cta.quote")}
+              견적 요청
             </Link>
           </div>
         </div>

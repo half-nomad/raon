@@ -1,688 +1,276 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Metadata } from "next";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { ProductSchema } from "@/components/seo/product-schema";
-import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
-import { ImageGallery } from "@/components/ui/image-gallery";
-import { Lock, FlaskConical, Wrench, Ruler, Thermometer, CheckCircle, Factory, Pill, UtensilsCrossed, Droplets, Palette, Waves } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Tabs, TabPanel } from "@/components/ui/tabs";
+import { ProductIntro } from "@/components/products/product-intro";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import { getTranslations } from "next-intl/server";
+import {
+  Droplets,
+  Shield,
+  Zap,
+  AlertTriangle,
+  ArrowRight,
+  CheckCircle,
+  Wrench,
+} from "lucide-react";
 
-export const metadata: Metadata = {
-  title: 'Pump | 산업용 펌프 솔루션',
-  description: 'CP Pumpen 산업용 펌프 전문 공급. MKP, MKPL, MCP, MCPL, VCP 등 15개 모델로 화학약품 이송, 정유·석유화학 산업 최적화.',
-  keywords: ['Pump', '펌프', 'CP Pumpen', 'Magnetic Drive Pump', 'Chemical Pump'],
-  openGraph: {
-    title: 'Pump | 라온토탈솔루션',
-    description: 'CP Pumpen 산업용 펌프 전문 공급. 15개 모델로 다양한 화학 공정 대응',
-    images: ['/images/og/pump-og.jpg'],
-  },
-};
-
-// 이미지 데이터 정의
-const pumpImages = [
-  { src: "/images/products/pump/pump_2-1.PNG", alt: "CP Pumpen Pump 1" },
-  { src: "/images/products/pump/pump_2-2.PNG", alt: "CP Pumpen Pump 2" },
-  { src: "/images/products/pump/pump_3.png", alt: "CP Pumpen Pump 3" },
+// 대표 이미지
+const heroImages = [
+  { src: "/images/products/pump/pump_2-1.PNG", alt: "CP Pump MKP" },
+  { src: "/images/products/pump/pump_2-2.PNG", alt: "CP Pump MKPL" },
+  { src: "/images/products/pump/pump_3.png", alt: "CP Pump System" },
 ];
 
-export default async function PumpPage() {
-  const t = await getTranslations();
-  const pumpModels = [
-    {
-      id: "mkp",
-      title: "MKP (Magnetic Drive Pump)",
-      description:
-        "자기 구동 방식의 누출 없는 펌프. 위험한 화학물질을 안전하게 이송할 수 있습니다.",
-      features: [
-        "100% 누출 방지 (Seal-less design)",
-        "화학약품 안전 이송",
-        "유지보수 최소화",
-        "긴 수명",
-      ],
-      applications: ["화학약품 이송", "석유화학 플랜트", "제약 산업"],
-    },
-    {
-      id: "mkpl",
-      title: "MKPL (PFA-Lined Magnetic Drive Pump)",
-      description:
-        "PFA 라이닝 처리된 자기 구동 펌프. 고순도 화학물질 및 부식성 액체 이송에 최적화되어 있습니다.",
-      features: [
-        "PFA 라이닝 (고내식성)",
-        "고순도 액체 이송",
-        "오염 방지",
-        "내화학성 우수",
-      ],
-      applications: ["반도체 산업", "고순도 화학약품", "식품·제약"],
-    },
-    {
-      id: "mkp-s",
-      title: "MKP-S (Self-Priming Magnetic Drive Pump)",
-      description:
-        "자체 프라이밍 기능이 있는 자기 구동 펌프. 별도 준비 없이 자동으로 액체를 흡입합니다.",
-      features: [
-        "자체 프라이밍 (Self-priming)",
-        "설치 간편",
-        "드라이런 보호",
-        "자동 공기 배출",
-      ],
-      applications: ["탱크 이송", "배치 공정", "CIP 시스템"],
-    },
-    {
-      id: "mkpd",
-      title: "MKPD (Horizontal Magnetic Drive Pump)",
-      description:
-        "수평형 자기 구동 펌프. 설치 공간이 제한적인 환경에서도 효율적으로 사용 가능합니다.",
-      features: [
-        "수평 설치 (공간 절약)",
-        "높은 유량",
-        "안정적인 운전",
-        "다양한 재질 선택",
-      ],
-      applications: ["석유화학", "화학 공정", "냉각수 순환"],
-    },
-    {
-      id: "mkpv",
-      title: "MKPV (Vertical Magnetic Drive Pump)",
-      description:
-        "수직형 자기 구동 펌프. 탱크 하부에 직접 설치하여 공간을 효율적으로 활용합니다.",
-      features: [
-        "수직 설치 (탱크 직결)",
-        "공간 효율 극대화",
-        "NPSH 문제 해결",
-        "드럼 펌프 대체",
-      ],
-      applications: ["탱크 이송", "도금액 순환", "폐수 처리"],
-    },
-    {
-      id: "cpp",
-      title: "CPP (Centrifugal Process Pump)",
-      description:
-        "원심식 공정 펌프. 대유량·고압력이 필요한 산업 공정에 적합합니다.",
-      features: [
-        "고효율 원심 설계",
-        "대유량 처리",
-        "고압 대응",
-        "API 610 기준 준수",
-      ],
-      applications: ["정유 공정", "석유화학", "발전소"],
-    },
-    {
-      id: "msp",
-      title: "MSP (Multistage Pump)",
-      description:
-        "다단 펌프. 여러 단계의 임펠러로 고압력을 생성하여 높은 양정이 필요한 곳에 사용됩니다.",
-      features: [
-        "다단 구조 (고압 생성)",
-        "높은 양정",
-        "안정적인 압력",
-        "에너지 효율",
-      ],
-      applications: ["보일러 급수", "고압 세척", "역삼투 시스템"],
-    },
-    {
-      id: "asp",
-      title: "ASP (Air-Operated Double Diaphragm Pump)",
-      description:
-        "공기 구동식 더블 다이어프램 펌프. 전기 없이 압축공기로 작동하며 고형물 이송에 적합합니다.",
-      features: [
-        "공기 구동 (방폭 지역 안전)",
-        "고형물 이송 가능",
-        "자체 프라이밍",
-        "드라이런 허용",
-      ],
-      applications: ["슬러리 이송", "방폭 지역", "도료·페인트"],
-    },
-    {
-      id: "pgp",
-      title: "PGP (Progressive Cavity Pump)",
-      description:
-        "프로그레시브 캐비티 펌프. 점도가 높은 액체나 고형물 포함 유체를 부드럽게 이송합니다.",
-      features: [
-        "고점도 액체 이송",
-        "맥동 없는 연속 흐름",
-        "고형물 포함 가능",
-        "전단력 최소화",
-      ],
-      applications: ["슬러지", "식품 (잼, 크림)", "화장품"],
-    },
-    {
-      id: "gp",
-      title: "GP (Gear Pump)",
-      description:
-        "기어 펌프. 정밀한 유량 제어가 필요한 고점도 액체 이송에 사용됩니다.",
-      features: [
-        "정밀 유량 제어",
-        "고점도 액체 적합",
-        "자체 프라이밍",
-        "안정적인 토출압",
-      ],
-      applications: ["오일 이송", "접착제", "폴리머"],
-    },
-    {
-      id: "lp",
-      title: "LP (Lobe Pump)",
-      description:
-        "로브 펌프. 전단력이 적어 민감한 제품의 이송에 적합하며 CIP/SIP 가능합니다.",
-      features: [
-        "낮은 전단력",
-        "CIP/SIP 가능",
-        "위생적 설계",
-        "역류 방지",
-      ],
-      applications: ["식품 산업", "제약", "바이오 제품"],
-    },
-    {
-      id: "pp",
-      title: "PP (Peristaltic Pump)",
-      description:
-        "연동 펌프. 튜브를 압착하여 액체를 이송하므로 오염이 없고 정밀 투입에 적합합니다.",
-      features: [
-        "오염 제로 (튜브 방식)",
-        "정밀 투입",
-        "고형물 이송 가능",
-        "역류 방지",
-      ],
-      applications: ["실험실", "투약 시스템", "폐수 처리"],
-    },
-    {
-      id: "sp",
-      title: "SP (Submersible Pump)",
-      description:
-        "수중 펌프. 액체 속에 잠겨서 작동하며 배수, 이송, 순환에 사용됩니다.",
-      features: [
-        "수중 설치",
-        "자동 프라이밍",
-        "소음 최소화",
-        "공간 절약",
-      ],
-      applications: ["배수", "폐수 처리", "탱크 비우기"],
-    },
-    {
-      id: "dp",
-      title: "DP (Dosing Pump)",
-      description:
-        "정량 펌프. 정확한 양의 화학약품을 주입할 수 있는 펌프로, 수처리 및 투약 시스템에 사용됩니다.",
-      features: [
-        "정밀 투입 (±1% 이내)",
-        "유량 조절 가능",
-        "내화학성",
-        "자동화 연동",
-      ],
-      applications: ["수처리", "화학 투입", "보일러 처리"],
-    },
-    {
-      id: "vp",
-      title: "VP (Vacuum Pump)",
-      description:
-        "진공 펌프. 기체를 제거하여 진공 상태를 만들며, 증류, 건조, 탈기 공정에 사용됩니다.",
-      features: [
-        "진공 생성",
-        "탈기 효과",
-        "다양한 진공도",
-        "내구성",
-      ],
-      applications: ["증류", "건조", "포장"],
-    },
-  ];
+// 탭 정의
+const tabs = [
+  { id: "solution", label: "PUMP SOLUTION" },
+  { id: "troubleshooting", label: "TROUBLE SHOOTING" },
+];
+
+// Magnetic Driven Pump (Sealless)
+const magneticPumps = [
+  { model: "MKP", desc: "Metal(SS, Hastelloy) Chemical Process Pump" },
+  { model: "MKPL", desc: "PFA Lined Chemical Process Pump" },
+  { model: "MKP-Bio", desc: "Stainless Steel Biotech Process Pump" },
+  { model: "MSKS", desc: "Self Priming Solid PTFE Chemical Process Pump" },
+  { model: "MSKP", desc: "Solid PTFE Chemical Process Pump" },
+  { model: "MSKPP", desc: "Solid PTFE Chemical Process Peripheral Pump" },
+];
+
+// Double Mechanical Seal Pump
+const mechanicalPumps = [
+  { model: "ZMP", desc: "Stainless Steel Chemical Process Crushing Pump" },
+  { model: "ET", desc: "Ceramic-Lined Chemical Process Pump" },
+  { model: "EB", desc: "PFA-Lined Chemical Process Pump" },
+];
+
+export default function PumpPage() {
+  const t = useTranslations();
+  const [activeTab, setActiveTab] = useState("solution");
 
   return (
     <div className="min-h-screen bg-white">
-      <ProductSchema
-        name="Pump (산업용 펌프)"
-        description="CP Pumpen 산업용 펌프 15개 모델. MKP, MKPL, MCP, MCPL, VCP 등 화학약품 이송 및 정유·석유화학 산업 전문."
-        category="펌프"
-        manufacturers={[{ name: 'CP Pumpen' }]}
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: 'Home', url: '/' },
-          { name: 'Products', url: '/products' },
-          { name: 'Pump', url: '/products/pump' },
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
+        <div className="section-container">
+          <BackButton href="/products" variant="dark" />
+          <Breadcrumb
+            variant="dark"
+            items={[
+              { label: "HOME", href: "/" },
+              { label: "PRODUCTS", href: "/products" },
+              { label: "PUMP" },
+            ]}
+          />
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
+            PUMP
+          </h1>
+          <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
+            Magnetic Driven (Sealless) Pump 전문 솔루션
+          </p>
+        </div>
+      </section>
+
+      {/* Product Intro */}
+      <ProductIntro
+        title="펌프 전문 솔루션"
+        description="스위스에 소재한 CP Pump의 국내대리점으로써 Magnetic Driven(Sealless) Pump 전문 업체로 Metal 및 PFA Lined PUMP SOLUTION을 제공하고 있습니다."
+        images={heroImages}
+        partners={[{ name: "CP Pump", country: "스위스" }]}
+        highlights={[
+          "Magnetic Driven (Sealless) 전문",
+          "Metal & PFA Lined 제품군",
+          "이물질 30% 함유 유체 이송 가능",
+          "50년+ 스위스 기술력",
         ]}
       />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16 md:py-24">
+      {/* Tabs Section */}
+      <section className="border-t border-slate-200">
         <div className="section-container">
-          <div className="max-w-3xl">
-            <BackButton href="/products" variant="dark" />
+          <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
-            <Breadcrumb variant="dark" items={[
-              { label: "HOME", href: "/" },
-              { label: "PRODUCTS", href: "/products" },
-              { label: "Pump" }
-            ]} />
-
-            <div className="inline-block px-3 py-1 bg-white/10 text-white text-sm rounded-full mb-4">
-              CP Pumpen
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Pump</h1>
-            <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-              {t("products.pump.hero.description")}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-16 md:py-24">
-        <div className="section-container">
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            {/* Image */}
-            <ImageGallery images={pumpImages} />
-
-            {/* Content */}
-            <div>
-              <h2 className="text-3xl font-bold text-[#0A1628] mb-6">
-                제품 개요
-              </h2>
-              <p className="text-lg text-slate-700 leading-relaxed mb-8">
-                Pump는 액체를 한 장소에서 다른 장소로 이동시키는 장치입니다.
-                화학, 석유화학, 제약, 식품 산업에서 필수적인 장비로,
-                CP Pumpen은 누출 방지 설계와 내화학성을 갖춘 고품질 펌프를
-                15개 모델, 105개 이상의 사이즈로 제공합니다.
-              </p>
-
-              <h3 className="text-xl font-bold text-[#0A1628] mb-4">
-                주요 특징
-              </h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>누출 방지:</strong> 자기 구동 방식(Magnetic Drive)으로 100% 안전
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>내화학성:</strong> PFA 라이닝 등 다양한 재질로 강산·강알칼리 대응
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>다양한 용량:</strong> 105개 이상의 사이즈로 모든 산업 요구사항 충족
-                  </span>
-                </li>
-                <li className="flex items-start text-slate-700">
-                  <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                  <span>
-                    <strong>유지보수 최소화:</strong> 씰 교체 불필요, 운영비 절감
-                  </span>
-                </li>
-              </ul>
-
-              <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                <h4 className="font-bold text-[#0A1628] mb-3">
-                  파트너 브랜드
-                </h4>
-                <div className="space-y-2 text-sm text-slate-600">
-                  <p>
-                    <strong>CP Pumpen:</strong> 스위스 산업용 펌프 전문 제조업체
-                  </p>
-                  <p className="text-xs leading-relaxed">
-                    화학, 석유화학, 제약, 식품 산업을 위한 자기 구동 펌프(Magnetic Drive Pump) 기술 전문.
-                    15개 모델, 105개 이상의 사이즈로 다양한 화학 공정에 최적화된 솔루션 제공.
-                    ISO 9001, ATEX, FDA 인증 보유.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pump Models Accordion */}
-      <section className="py-16 md:py-24">
-        <div className="section-container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              제품 라인업
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              화학, 석유화학, 식품, 제약 산업을 위한 15가지 펌프 모델을
-              제공합니다.
-            </p>
-          </div>
-
-          <Accordion
-            type="single"
-            collapsible
-            className="space-y-4"
-            defaultValue="mkp"
-          >
-            {pumpModels.map((pump) => (
-              <AccordionItem
-                key={pump.id}
-                value={pump.id}
-                className="border border-slate-200 rounded-xl overflow-hidden px-6"
-              >
-                <AccordionTrigger className="text-xl font-bold text-[#0A1628] hover:no-underline py-6">
-                  <div className="text-left">
-                    <h3 className="text-2xl mb-2">{pump.title}</h3>
-                    <p className="text-base font-normal text-slate-600">
-                      {pump.description}
-                    </p>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6">
-                  <div className="pt-4">
-                    <h4 className="text-lg font-bold text-[#0A1628] mb-4">
-                      주요 특징
-                    </h4>
-                    <ul className="grid md:grid-cols-2 gap-3 mb-6">
-                      {pump.features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start text-slate-700"
-                        >
-                          <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <h4 className="text-lg font-bold text-[#0A1628] mb-3">
-                      적용 분야
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {pump.applications.map((app, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm"
-                        >
-                          {app}
-                        </span>
-                      ))}
+          {/* PUMP SOLUTION 탭 */}
+          {activeTab === "solution" && (
+            <TabPanel>
+              <div className="space-y-10">
+                {/* 특허 기술 */}
+                <div className="bg-gradient-to-r from-blue-50 to-slate-50 rounded-2xl p-6 md:p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
+                      <Shield className="w-6 h-6 text-[#3B82F6]" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#0A1628] mb-2">
+                        특허 기술
+                      </h3>
+                      <p className="text-slate-600">
+                        이물질(1mm 이내) 함유량 <strong className="text-[#3B82F6]">30%까지</strong> Magnetic Driven Pump로 이송 가능
+                      </p>
                     </div>
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </section>
+                </div>
 
-      {/* Key Features */}
-      <section className="py-16 md:py-24 bg-slate-50">
-        <div className="section-container">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
-            CP Pumpen 핵심 특징
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Lock className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                누출 방지 (Seal-less)
-              </h3>
-              <p className="text-slate-600 text-sm">
-                자기 구동 방식으로 기계적 씰이 없어 100% 누출 방지. 위험한
-                화학물질도 안전하게 이송합니다.
-              </p>
-            </div>
+                {/* Magnetic Driven Pump */}
+                <div>
+                  <h3 className="text-lg font-bold text-[#0A1628] mb-4 flex items-center gap-2">
+                    <Droplets className="w-5 h-5 text-[#3B82F6]" />
+                    Magnetic Driven Pump (Sealless)
+                  </h3>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {magneticPumps.map((pump, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl border border-slate-200 hover:border-[#3B82F6]/50 transition-colors"
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="px-2 py-0.5 bg-[#3B82F6] text-white text-xs font-bold rounded">
+                            {pump.model}
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-600">{pump.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <FlaskConical className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                내화학성
-              </h3>
-              <p className="text-slate-600 text-sm">
-                PFA, PTFE, PVDF 등 다양한 내화학성 재질로 제작. 강산, 강알칼리,
-                유기용매 모두 대응 가능합니다.
-              </p>
-            </div>
+                {/* Double Mechanical Seal Pump */}
+                <div>
+                  <h3 className="text-lg font-bold text-[#0A1628] mb-4 flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-[#3B82F6]" />
+                    Double Mechanical Seal Pump
+                  </h3>
+                  <div className="grid sm:grid-cols-3 gap-3">
+                    {mechanicalPumps.map((pump, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl border border-slate-200 hover:border-[#3B82F6]/50 transition-colors"
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="px-2 py-0.5 bg-slate-700 text-white text-xs font-bold rounded">
+                            {pump.model}
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-600">{pump.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Wrench className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                유지보수 최소화
-              </h3>
-              <p className="text-slate-600 text-sm">
-                씰 교체 불필요, 마모 부품 최소화로 유지보수 비용과 다운타임을
-                획기적으로 절감합니다.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Ruler className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                다양한 사이즈
-              </h3>
-              <p className="text-slate-600 text-sm">
-                105개 이상의 펌프 사이즈로 소규모 실험실부터 대형 플랜트까지
-                모든 요구사항을 충족합니다.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Thermometer className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                고온·고압 대응
-              </h3>
-              <p className="text-slate-600 text-sm">
-                -40°C ~ +200°C 온도 범위, 최대 16bar 압력까지 안정적으로 작동.
-                까다로운 공정 조건에도 적용 가능합니다.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <CheckCircle className="w-12 h-12 mb-4 text-[#3B82F6]" />
-              <h3 className="text-xl font-bold text-[#0A1628] mb-3">
-                인증 및 규격
-              </h3>
-              <p className="text-slate-600 text-sm">
-                ISO 9001, ATEX, FDA 등 국제 인증 보유. 제약, 식품 산업의 위생
-                기준도 충족합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries */}
-      <section className="py-16 md:py-24">
-        <div className="section-container">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-12 text-center">
-            적용 산업
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Factory className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                석유화학
-              </h3>
-              <p className="text-slate-600 text-sm">
-                정유, 석유화학 플랜트 화학약품 이송
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <FlaskConical className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">화학</h3>
-              <p className="text-slate-600 text-sm">
-                화학 공정, 반응기, 배치 시스템
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Pill className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">제약</h3>
-              <p className="text-slate-600 text-sm">
-                제약 공정, 고순도 액체 이송
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <UtensilsCrossed className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">식품</h3>
-              <p className="text-slate-600 text-sm">
-                식품 제조, 위생 공정, CIP 시스템
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Droplets className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                수처리
-              </h3>
-              <p className="text-slate-600 text-sm">
-                폐수 처리, 투약 시스템, 정수
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <FlaskConical className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                반도체
-              </h3>
-              <p className="text-slate-600 text-sm">
-                초고순도 화학약품, 특수 공정
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Palette className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                도료·페인트
-              </h3>
-              <p className="text-slate-600 text-sm">
-                고점도 액체, 안료, 코팅제
-              </p>
-            </div>
-
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center hover:border-[#3B82F6] hover:shadow-lg transition-all">
-              <Waves className="w-12 h-12 mb-3 text-[#3B82F6] mx-auto" />
-              <h3 className="text-lg font-bold text-[#0A1628] mb-2">
-                환경·에너지
-              </h3>
-              <p className="text-slate-600 text-sm">
-                폐수 처리, 재활용, 바이오 가스
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technical Specifications */}
-      <section className="py-16 md:py-24 bg-slate-50">
-        <div className="section-container">
-          <div className="bg-white rounded-2xl p-8 md:p-12 border border-slate-200">
-            <h2 className="text-3xl font-bold text-[#0A1628] mb-8">
-              기술 사양
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  유량 범위
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>최소: 0.1 L/min (실험실용)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>최대: 500 m³/h (대형 플랜트용)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>105개 이상의 사이즈 옵션</span>
-                  </li>
-                </ul>
+                {/* 핵심 장점 */}
+                <div className="grid md:grid-cols-3 gap-4">
+                  {[
+                    { icon: Shield, title: "완전 밀폐", desc: "Sealless 설계로 누설 제로" },
+                    { icon: Droplets, title: "내화학성", desc: "부식성 유체 안전 이송" },
+                    { icon: Zap, title: "고효율", desc: "에너지 비용 절감" },
+                  ].map((item, idx) => (
+                    <div key={idx} className="text-center p-6 rounded-xl border border-slate-200">
+                      <item.icon className="w-8 h-8 text-[#3B82F6] mx-auto mb-3" />
+                      <h4 className="font-semibold text-[#0A1628]">{item.title}</h4>
+                      <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
+            </TabPanel>
+          )}
 
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  압력 범위
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>최대 토출압: 16 bar</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>최대 흡입압: -0.9 bar (진공)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>안정적인 압력 제어</span>
-                  </li>
-                </ul>
-              </div>
+          {/* TROUBLE SHOOTING 탭 */}
+          {activeTab === "troubleshooting" && (
+            <TabPanel>
+              <div className="max-w-3xl">
+                <div className="flex items-start gap-4 mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-[#0A1628]">
+                      펌프 문제해결 솔루션
+                    </h3>
+                    <p className="text-slate-600 mt-2">
+                      기존 펌프의 일반적인 문제들과 CP Pump 솔루션을 확인하세요.
+                    </p>
+                  </div>
+                </div>
 
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  온도 범위
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>표준: -20°C ~ +120°C</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>고온형: -40°C ~ +200°C</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>열 관리 시스템 내장</span>
-                  </li>
-                </ul>
+                {/* 문제-해결 카드 */}
+                <div className="space-y-4">
+                  {[
+                    {
+                      problem: "펌프 누설",
+                      causes: "씰 마모, 개스킷 손상, 케이싱 균열",
+                      solution: "Magnetic Drive 방식으로 완전 밀폐, 누설 원천 차단",
+                    },
+                    {
+                      problem: "과도한 진동/소음",
+                      causes: "캐비테이션, 베어링 마모, 임펠러 불균형",
+                      solution: "정밀 밸런싱 임펠러와 고품질 베어링으로 진동 최소화",
+                    },
+                    {
+                      problem: "유량/압력 저하",
+                      causes: "임펠러 마모, 배관 막힘, 에어 유입",
+                      solution: "내마모성 소재와 최적화된 임펠러 설계로 성능 유지",
+                    },
+                    {
+                      problem: "잦은 유지보수",
+                      causes: "씰 교체, 베어링 교체, 부품 마모",
+                      solution: "Sealless 설계로 씰 관련 유지보수 불필요, TCO 절감",
+                    },
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="p-5 rounded-xl border border-slate-200 hover:shadow-md transition-shadow"
+                    >
+                      <div className="flex items-start gap-4">
+                        <span className="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-semibold text-sm flex-shrink-0">
+                          {idx + 1}
+                        </span>
+                        <div className="flex-1">
+                          <h4 className="font-semibold text-[#0A1628] mb-2">{item.problem}</h4>
+                          <p className="text-sm text-slate-500 mb-3">
+                            <span className="text-red-500">원인:</span> {item.causes}
+                          </p>
+                          <div className="flex items-start gap-2 p-3 bg-emerald-50 rounded-lg">
+                            <CheckCircle className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                            <p className="text-sm text-emerald-800">{item.solution}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#0A1628] mb-4">
-                  재질
-                </h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>PFA, PTFE, PVDF (고내식성)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Stainless Steel (SUS316, SUS316L)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#3B82F6] mr-2 mt-0.5">•</span>
-                    <span>Hastelloy, Titanium (특수 용도)</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+            </TabPanel>
+          )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-16">
+      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16 mt-12">
         <div className="section-container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t("products.pump.cta.title")}
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
+            펌프 솔루션이 필요하신가요?
           </h2>
-          <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
-            {t("products.pump.cta.description")}
+          <p className="text-slate-300 mb-8 max-w-xl mx-auto">
+            30년 이상의 경험을 바탕으로 최적의 펌프 솔루션을 제안해 드립니다.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0A1628] rounded-full font-semibold hover:bg-slate-100 transition-colors"
             >
-              {t("products.pump.cta.technical")}
+              기술 상담 신청
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              {t("products.pump.cta.quote")}
+              견적 요청
             </Link>
           </div>
         </div>

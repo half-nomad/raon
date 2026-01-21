@@ -6,6 +6,47 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2026-01-21
+
+### Added - Phase 5.3 Products 페이지 재설계
+- **Products 공통 레이아웃 구현**
+  - 상단 2컬럼 구조 (갤러리 + 설명)
+  - shadcn/ui Tabs 컴포넌트 서브메뉴 탭 구조
+  - `components/products/ProductPageLayout.tsx` 공통 레이아웃
+  - `components/products/ProductGallery.tsx` 이미지 갤러리
+  - `components/ui/tabs.tsx` 탭 컴포넌트 추가
+
+- **Compressor 페이지 재구성**
+  - 서브메뉴 탭: NEW / SPARE PARTS / TROUBLE SHOOTING / M&R
+  - 기존 Accordion → 탭 기반 구조로 변경
+
+- **Pump 페이지 재구성**
+  - 서브메뉴 탭: PUMP SOLUTION / TROUBLE SHOOTING
+  - CP Pumpen 브랜드 콘텐츠 구조화
+
+- **Mixer 페이지 재구성**
+  - SPXFlow 5개 브랜드: Lightnin, Plenty, Philadelphia, Stelzer, Uutechnic
+  - 브랜드별 탭 기반 콘텐츠
+
+- **Motor 페이지 재구성**
+  - 서브메뉴 탭: SPARE PARTS / 방폭인증서비스
+  - NIDEC 브랜드 콘텐츠 구조화
+
+- **가이드 문서 추가**
+  - `docs/PRODUCTS-REDESIGN-GUIDE.md` - 페이지 레이아웃 및 서브메뉴 구조
+
+### Changed
+- 4개 Products 페이지 코드 대폭 간소화 (총 -930 라인)
+- next.config.ts 이미지 도메인 설정 업데이트
+
+### Technical
+- 빌드 성공 (42 pages generated)
+- shadcn/ui Tabs 컴포넌트 활용
+- 일관된 UI 패턴 적용
+- Phase 5.3 P1 83% 완료
+
+---
+
 ## [0.9.0] - 2025-12-24
 
 ### Added - i18n & Production Deployment

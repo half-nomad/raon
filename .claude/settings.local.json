@@ -1,22 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx shadcn@latest init -y)",
-      "Bash(netstat:*)",
-      "Bash(findstr:*)",
-      "Bash(find:*)",
+      "Bash",
+      "Read",
+      "Edit",
+      "WebFetch",
+      "WebSearch",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
       "mcp__playwright__browser_resize",
       "mcp__chrome-devtools__list_pages",
       "mcp__chrome-devtools__navigate_page",
       "mcp__hyperbrowser__scrape_webpage",
       "mcp__hyperbrowser__browser_use_agent",
-      "mcp__hyperbrowser__claude_computer_use_agent",
-      "Bash(git add:*)",
-      "Bash(gh api:*)",
-      "WebFetch(domain:raontotalsolution.co.kr)",
-      "WebFetch(domain:raon-raontotalsolution.vercel.app)",
-      "Bash(nslookup:*)",
-      "WebFetch(domain:raontotalsolution.com)"
+      "mcp__hyperbrowser__claude_computer_use_agent"
     ]
   },
   "enableAllProjectMcpServers": true,

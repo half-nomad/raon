@@ -67,12 +67,13 @@
 - [x] Header 네비게이션 수정 (Products 5개 드롭다운, Industries 3개)
 - [x] Products 메인 페이지 수정 (7개 → 5개 카테고리)
 
-#### 5.3 핵심 콘텐츠 (P1)
-- [ ] Compressor 페이지 4섹션 재구성 (Cylinder Liner 통합)
-- [ ] Bearing & Lubrication 통합 페이지 생성 (Oil Purifier 통합)
-- [ ] Mixer 페이지 SPXFlow 브랜드별 콘텐츠
-- [ ] Pump 페이지 2섹션 구성
-- [ ] Motor 페이지 방폭인증서비스 섹션 추가
+#### 5.3 핵심 콘텐츠 (P1) 🔄
+- [x] Products 페이지 공통 레이아웃 구현 (상단 2컬럼: 갤러리+설명)
+- [x] Compressor 페이지 재구성 (서브메뉴 탭 구조)
+- [x] Pump 페이지 재구성 (서브메뉴 탭 구조)
+- [x] Mixer 페이지 재구성 (SPXFlow 5개 브랜드)
+- [x] Motor 페이지 재구성 (서브메뉴 탭 구조)
+- [ ] Bearing & Lubrication 통합 페이지 완성 (Oil Purifier 통합)
 
 #### 5.4 확장 기능 (P2)
 - [ ] Power Plant 페이지 신규 생성
@@ -102,8 +103,8 @@
 | Phase 2 | 4 | 4 | ✅ 완료 |
 | Phase 3 | 5 | 5 | ✅ 완료 |
 | Phase 4 | 4 | 4 | ✅ 완료 |
-| Phase 5 | 24 | 33 | 🔄 진행 중 (73%) |
-| **합계** | **42** | **51** | **82%** |
+| Phase 5 | 28 | 34 | 🔄 진행 중 (82%) |
+| **합계** | **46** | **52** | **88%** |
 
 ---
 

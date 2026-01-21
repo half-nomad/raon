@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://raontotalsolution.co.kr/sitemap.xml',
+    sitemap: 'https://raontotalsolution.com/sitemap.xml',
   }
 }

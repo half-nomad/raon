@@ -23,11 +23,17 @@
     "contact": "CONTACT",
     "oilRefinery": "Oil Refinery & Petrochemical",
     "shipbuilding": "Shipbuilding",
+    "powerPlant": "Power Plant",
     "menu": "Menu",
     "greeting": "CEO Message",
     "history": "History",
     "location": "Location",
-    "cta": "Contact Us"
+    "cta": "Contact Us",
+    "compressor": "COMPRESSOR",
+    "pump": "PUMP",
+    "mixer": "MIXER",
+    "bearingLubrication": "BEARING & LUBRICATION",
+    "motor": "MOTOR"
   },
   "metadata": {
     "siteName": "Raon Total Solution",
@@ -240,6 +246,92 @@
       "ctaButton": "Contact Us",
       "features": ["Ship engine cylinder liners", "High-efficiency marine motors", "Special bearings for marine environments", "Marine oil purification systems"]
     },
+    "powerPlant": {
+      "title": "Power Plant",
+      "subtitle": "Power Plant",
+      "description": "Supplying turbine, compressor, bearing and other rotating equipment parts for power plant facilities",
+      "heroDescription": "Providing optimized rotating machinery solutions for thermal, combined cycle, and renewable energy power plants",
+      "imageCaption": "Power plant turbine and compressor systems",
+      "introTitle": "Core Introduction",
+      "intro1": "Raon Total Solution provides spare parts and engineering solutions for power plant rotating machinery.",
+      "intro2": "We provide services tailored to the needs of the power generation industry based on approximately 30 years of experience and know-how.",
+      "servicesTitle": "Main Services",
+      "services": [
+        "Turbine bearing systems",
+        "Compressor parts",
+        "Lubricant purification solutions",
+        "Rotating machinery maintenance services"
+      ],
+      "featuresTitle": "Key Features",
+      "features30Years": "30 Years Experience",
+      "features30YearsDesc": "Accumulated know-how in power plant fields",
+      "featuresFastResponse": "Rapid Response",
+      "featuresFastResponseDesc": "24-hour emergency dispatch service",
+      "featuresGlobalPartner": "Global Partners",
+      "featuresGlobalPartnerDesc": "World-class technical expertise",
+      "relatedProductsTitle": "Related Products",
+      "relatedProducts": {
+        "compressor": "Compressor & Parts",
+        "bearing": "Bearing",
+        "oilPurifier": "Oil Purifier"
+      },
+      "ctaButton": "Contact Us",
+      "features": ["Turbine tilting pad bearings", "Compressor parts solutions", "Lubricant purification systems", "Rotating machinery maintenance services"],
+      "overview": {
+        "title": "Industry Overview",
+        "description": "The power generation industry is a core industry that produces electricity through various generation methods including thermal, combined cycle, and renewable energy. Power plants require high-performance rotating machinery such as turbines and compressors that operate continuously in high-temperature, high-pressure environments."
+      },
+      "challenges": {
+        "title": "Industry Challenges",
+        "items": [
+          {
+            "title": "Continuous Operation",
+            "description": "High reliability needed for 24-hour uninterrupted operation"
+          },
+          {
+            "title": "High Temperature & Pressure",
+            "description": "Stable performance under extreme operating conditions"
+          },
+          {
+            "title": "Maintenance Efficiency",
+            "description": "Minimizing planned maintenance periods and preventing unplanned shutdowns"
+          },
+          {
+            "title": "Life Extension",
+            "description": "Need to extend component life due to equipment aging"
+          }
+        ]
+      },
+      "solutions": {
+        "title": "Raon Total Solution's Solutions",
+        "items": [
+          {
+            "title": "Bearing",
+            "partner": "Turbolink",
+            "description": "Turbine tilting pad bearing systems"
+          },
+          {
+            "title": "Compressor",
+            "partner": "NEUMAN & ESSER",
+            "description": "Process gas compressors and consumables"
+          },
+          {
+            "title": "Oil Purification",
+            "partner": "Samyoung Filtech",
+            "description": "Lubricant purification and flushing services"
+          }
+        ]
+      },
+      "clients": {
+        "title": "Major Clients",
+        "description": "Working with major power generation companies in Korea"
+      },
+      "cta": {
+        "title": "Need power plant industry solutions?",
+        "description": "Our expert engineers will propose the optimal solution for you",
+        "button": "Contact Us"
+      }
+    },
     "highlight": {
       "title": "Industry Solutions",
       "description": "Providing specialized solutions for oil refinery, petrochemical, and shipbuilding industries with 30 years of expertise",
@@ -278,76 +370,75 @@
     },
     "categories": {
       "compressor": {
-        "title": "Compressor",
-        "partner": "NEUMAN & ESSER",
-        "description": "Reciprocating compressors and consumables",
+        "title": "COMPRESSOR",
+        "partner": "FIMA, NEUMAN & ESSER, CASTANET, KB DELTA, WTQ",
+        "description": "Reciprocating compressor parts and new turbo compressor solutions",
         "features": [
-          "190+ years of technical expertise",
-          "Global standards (API, ASME, PED)",
-          "Custom engineering solutions"
-        ]
-      },
-      "mixer": {
-        "title": "Mixer & Agitator",
-        "partner": "SPX FLOW",
-        "description": "Industrial mixers and agitators",
-        "features": [
-          "A310 impeller technology",
-          "Energy efficiency optimization",
-          "Corrosion-resistant materials"
-        ]
-      },
-      "motor": {
-        "title": "Motor",
-        "partner": "NIDEC",
-        "description": "High-efficiency industrial motors",
-        "features": [
-          "IE3/IE4 high-efficiency rating",
-          "Global certifications (IEC, NEMA)",
-          "Various cooling methods"
-        ]
+          "New turbo compressor & blower supply",
+          "All manufacturer reciprocating compressor parts",
+          "Troubleshooting and maintenance solutions"
+        ],
+        "subMenus": {
+          "newCompressor": "NEW COMPRESSOR",
+          "reciprocatingSpareParts": "RECIPROCATING SPARE PARTS",
+          "troubleShooting": "TROUBLE SHOOTING",
+          "maintenance": "M&R"
+        }
       },
       "pump": {
-        "title": "Pump",
-        "partner": "CP Pumpen",
-        "description": "Special industrial pumps",
+        "title": "PUMP",
+        "partner": "CP PUMP",
+        "description": "Magnetic Driven Pump specialist solutions",
         "features": [
-          "API 610 compliance",
-          "Corrosion-resistant special materials",
-          "Sealless design options"
-        ]
+          "Sealless magnetic driven pumps",
+          "CP Pump patented bearing design",
+          "Corrosive fluid and slurry transfer expertise"
+        ],
+        "subMenus": {
+          "pumpSolution": "PUMP SOLUTION",
+          "troubleShooting": "TROUBLE SHOOTING"
+        }
       },
-      "bearing": {
-        "title": "Bearing",
-        "partner": "Turbolink",
-        "brand": "Turbolink",
-        "description": "Tilting pad bearing systems",
+      "mixer": {
+        "title": "MIXER",
+        "partner": "SPXFLOW (Lightnin, Plenty, Philadelphia, Stelzer)",
+        "description": "Industrial Mixing Solution specialist",
         "features": [
-          "High load capacity",
-          "Excellent stability",
-          "Low friction design"
-        ]
+          "Lightnin high-efficiency mixing solutions",
+          "Plenty fluid dynamics expertise",
+          "Stelzer hygienic design technology"
+        ],
+        "subMenus": {
+          "mixingSolution": "MIXING SOLUTION"
+        }
       },
-      "cylinderLiner": {
-        "title": "Cylinder Liner",
-        "partner": "WTQ",
-        "description": "Ship engine cylinder liners",
+      "bearingLubrication": {
+        "title": "BEARING & LUBRICATION",
+        "partner": "Turbolink, Samyoung Filtech",
+        "description": "Fluid film bearing and lubrication purification solutions",
         "features": [
-          "Major engine compatibility",
-          "High wear-resistant materials",
-          "Precision machining"
-        ]
+          "Ultra-high speed to heavy load tilting pad bearings",
+          "Dual vacuum system oil purification",
+          "Bearing repair and reverse engineering"
+        ],
+        "subMenus": {
+          "bearingSolution": "BEARING SOLUTION",
+          "lubricationSolution": "LUBRICATION SOLUTION"
+        }
       },
-      "oilPurifier": {
-        "title": "Oil Purifier",
-        "partner": "Samyoung Filtech",
-        "brand": "Samyoung Filtech",
-        "description": "Industrial oil purification systems",
+      "motor": {
+        "title": "MOTOR",
+        "partner": "LDW, NIDEC",
+        "description": "Large motor parts and explosion-proof certification services",
         "features": [
-          "High-efficiency purification",
-          "Automatic operation",
-          "Compact design"
-        ]
+          "LDW/NIDEC large motor parts supply",
+          "Explosion-proof certification consulting",
+          "Technical support and supervisor dispatch"
+        ],
+        "subMenus": {
+          "motorSpareParts": "MOTOR SPARE PARTS",
+          "explosionProofCertification": "EXPLOSION PROOF CERTIFICATION"
+        }
       }
     },
     "snapshot": {

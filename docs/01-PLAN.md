@@ -51,15 +51,46 @@
 - [x] Vercel 프로덕션 배포
 - [x] 도메인 연결 (raontotalsolution.co.kr)
 
-### Phase 5: 2차 개선 (진행 중) 🔄
+### Phase 5: 2차 리뉴얼 (진행 중) 🔄
 
-상세 내용: [tasks_2nd.md](./tasks_2nd.md)
+콘텐츠 가이드: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md)
 
+#### 5.1 완료된 작업
 - [x] 번역 키 누락 오류 수정
-- [ ] 영문 레이아웃 깨짐 수정
-- [ ] GNB 메뉴 개편
-- [ ] UI/UX 디자인 개선
-- [ ] 이미지 교체 (소스 수급 후)
+- [x] 영문 레이아웃 깨짐 수정
+- [x] GNB 메뉴 개편
+- [x] UI/UX 디자인 개선
+- [x] SEO 기반 작업 (도메인 수정, verification 태그, 등록 가이드)
+
+#### 5.2 구조 변경 (P0) ✅
+- [x] 번역 키 추가 (messages/ko.json, en.json) - ~50개
+- [x] Header 네비게이션 수정 (Products 5개 드롭다운, Industries 3개)
+- [x] Products 메인 페이지 수정 (7개 → 5개 카테고리)
+
+#### 5.3 핵심 콘텐츠 (P1)
+- [ ] Compressor 페이지 4섹션 재구성 (Cylinder Liner 통합)
+- [ ] Bearing & Lubrication 통합 페이지 생성 (Oil Purifier 통합)
+- [ ] Mixer 페이지 SPXFlow 브랜드별 콘텐츠
+- [ ] Pump 페이지 2섹션 구성
+- [ ] Motor 페이지 방폭인증서비스 섹션 추가
+
+#### 5.4 확장 기능 (P2)
+- [ ] Power Plant 페이지 신규 생성
+- [ ] Industries 메인 페이지 3영역 확장
+- [ ] Partners 페이지 카테고리별 그룹핑
+- [ ] URL 리다이렉트 설정 (기존 URL 호환)
+
+#### 5.5 외부 자료 반영 (P3) - 자료 수급 후
+- [ ] 파트너사별 상세 설명 삽입
+- [ ] 제품 이미지 교체
+- [ ] 파트너사 로고 고화질 교체
+
+#### 파일 변경 요약
+| 구분 | 개수 | 상세 |
+|------|------|------|
+| 수정 | 12개 | header, products/*, industries/*, partners, messages, config |
+| 신규 | 2개 | bearing-lubrication, power-plant |
+| 삭제 | 3개 | bearing, cylinder-liner, oil-purifier → 통합
 
 ---
 
@@ -71,8 +102,8 @@
 | Phase 2 | 4 | 4 | ✅ 완료 |
 | Phase 3 | 5 | 5 | ✅ 완료 |
 | Phase 4 | 4 | 4 | ✅ 완료 |
-| Phase 5 | 6 | 33 | 🔄 진행 중 |
-| **합계** | **24** | **51** | **47%** |
+| Phase 5 | 24 | 33 | 🔄 진행 중 (73%) |
+| **합계** | **42** | **51** | **82%** |
 
 ---
 
@@ -108,8 +139,10 @@
 
 ## 참조 문서
 
-- 작업 목록: [02-TODO.md](./02-TODO.md)
-- 변경 기록: [03-CHANGELOG.md](./03-CHANGELOG.md)
-- 2차 개선: [tasks_2nd.md](./tasks_2nd.md)
-- PRD: [04-PRD.md](./04-PRD.md)
-- 디자인 시스템: [06-DESIGN_SYSTEM.md](./06-DESIGN_SYSTEM.md)
+| 문서 | 용도 |
+|------|------|
+| [02-TODO.md](./02-TODO.md) | 작업 목록 |
+| [03-CHANGELOG.md](./03-CHANGELOG.md) | 변경 기록 |
+| [04-PRD.md](./04-PRD.md) | 제품 요구사항 |
+| [06-DESIGN_SYSTEM.md](./06-DESIGN_SYSTEM.md) | 디자인 시스템 |
+| [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md) | Products 메뉴 구조/콘텐츠 가이드 |

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const isKorean = locale === 'ko';
 
   return {
-    metadataBase: new URL('https://raontotalsolution.co.kr'),
+    metadataBase: new URL('https://raontotalsolution.com'),
     title: {
       default: t('home.title'),
       template: `%s | ${t('siteName')}`
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: 'website',
       locale: isKorean ? 'ko_KR' : 'en_US',
-      url: `https://raontotalsolution.co.kr/${locale}`,
+      url: `https://raontotalsolution.com/${locale}`,
       siteName: t('siteName'),
       title: t('home.title'),
       description: t('home.description'),
@@ -68,11 +68,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: `https://raontotalsolution.co.kr/${locale}`,
+      canonical: `https://raontotalsolution.com/${locale}`,
       languages: {
-        'ko': 'https://raontotalsolution.co.kr/ko',
-        'en': 'https://raontotalsolution.co.kr/en',
-        'x-default': 'https://raontotalsolution.co.kr/ko',
+        'ko': 'https://raontotalsolution.com/ko',
+        'en': 'https://raontotalsolution.com/en',
+        'x-default': 'https://raontotalsolution.com/ko',
+      },
+    },
+    // Search Console 인증 태그 (등록 후 실제 값으로 교체)
+    verification: {
+      google: 'GOOGLE_VERIFICATION_CODE', // Google Search Console에서 발급
+      other: {
+        'naver-site-verification': 'NAVER_VERIFICATION_CODE', // 네이버 서치어드바이저에서 발급
       },
     },
   };
@@ -103,9 +110,9 @@ export default async function LocaleLayout({ children, params }: Props) {
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
         {/* hreflang 태그 */}
-        <link rel="alternate" hrefLang="ko" href="https://raontotalsolution.co.kr/ko" />
-        <link rel="alternate" hrefLang="en" href="https://raontotalsolution.co.kr/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://raontotalsolution.co.kr/ko" />
+        <link rel="alternate" hrefLang="ko" href="https://raontotalsolution.com/ko" />
+        <link rel="alternate" hrefLang="en" href="https://raontotalsolution.com/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://raontotalsolution.com/ko" />
       </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>

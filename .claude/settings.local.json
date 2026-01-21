@@ -3,11 +3,28 @@
     "allow": [
       "Bash(npx shadcn@latest init -y)",
       "Bash(netstat:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(find:*)",
+      "mcp__playwright__browser_resize",
+      "mcp__chrome-devtools__list_pages",
+      "mcp__chrome-devtools__navigate_page",
+      "mcp__hyperbrowser__scrape_webpage",
+      "mcp__hyperbrowser__browser_use_agent",
+      "mcp__hyperbrowser__claude_computer_use_agent",
+      "Bash(git add:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:raontotalsolution.co.kr)",
+      "WebFetch(domain:raon-raontotalsolution.vercel.app)",
+      "Bash(nslookup:*)",
+      "WebFetch(domain:raontotalsolution.com)"
     ]
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
-    "context7"
+    "context7",
+    "grep-app",
+    "chrome-devtools",
+    "playwright",
+    "hyperbrowser"
   ]
 }

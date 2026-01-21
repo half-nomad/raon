@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend client is instantiated inside the handler to avoid build-time errors
+// when RESEND_API_KEY is not available
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY is not configured");
+  }
+  return new Resend(apiKey);
+}
 
 // Rate Limiting 설정
 const RATE_LIMIT = 10; // 시간당 최대 요청 수
@@ -290,6 +298,7 @@ ${attachments.map(att => `  - ${att.filename}`).join('\n')}
     `.trim();
 
     // Send email using Resend
+    const resend = getResendClient();
     const { data, error } = await resend.emails.send({
       from: "라온토탈솔루션 문의 <onboarding@resend.dev>", // Resend 기본 발신 주소
       to: ["rts@raontotalsolution.co.kr"],

@@ -25,6 +25,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const t = useTranslations("nav");
 
   useEffect(() => {
@@ -165,6 +166,17 @@ export function Header() {
                         </p>
                       </Link>
                       <Link
+                        href="/industries/power-plant"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          {t("powerPlant")}
+                        </div>
+                        <p className="text-xs text-gray-500 mt-1">
+                          Power Plant
+                        </p>
+                      </Link>
+                      <Link
                         href="/industries/shipbuilding"
                         className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
                       >
@@ -181,14 +193,74 @@ export function Header() {
               )}
             </div>
 
-            <Link
-              href="/products"
-              className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
-                scrolled ? "text-[#0A1628]" : "text-white"
-              }`}
+            {/* Products Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setProductsOpen(true)}
+              onMouseLeave={() => setProductsOpen(false)}
             >
-              {t("products")}
-            </Link>
+              <button
+                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
+                  scrolled ? "text-[#0A1628]" : "text-white"
+                }`}
+              >
+                {t("products")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+              {productsOpen && (
+                <div
+                  className="absolute top-full left-0 w-[280px] z-50"
+                  onMouseEnter={() => setProductsOpen(true)}
+                  onMouseLeave={() => setProductsOpen(false)}
+                >
+                  <div className="h-2 w-full" />
+                  <div className="bg-white rounded-lg shadow-lg border border-gray-200 animate-in fade-in duration-200">
+                    <div className="p-2">
+                      <Link
+                        href="/products/compressor"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          COMPRESSOR
+                        </div>
+                      </Link>
+                      <Link
+                        href="/products/pump"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          PUMP
+                        </div>
+                      </Link>
+                      <Link
+                        href="/products/mixer"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          MIXER
+                        </div>
+                      </Link>
+                      <Link
+                        href="/products/bearing-lubrication"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          BEARING & LUBRICATION
+                        </div>
+                      </Link>
+                      <Link
+                        href="/products/motor"
+                        className="block px-4 py-3 rounded-md hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="text-sm font-medium text-[#0A1628]">
+                          MOTOR
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
             <Link
               href="/partners"
               className={`text-sm font-medium transition-colors hover:text-[#3B82F6] ${
@@ -295,6 +367,13 @@ export function Header() {
                             {t("oilRefinery")}
                           </Link>
                           <Link
+                            href="/industries/power-plant"
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
+                          >
+                            {t("powerPlant")}
+                          </Link>
+                          <Link
                             href="/industries/shipbuilding"
                             onClick={() => setOpen(false)}
                             className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
@@ -304,13 +383,48 @@ export function Header() {
                         </AccordionContent>
                       </AccordionItem>
 
-                      <Link
-                        href="/products"
-                        onClick={() => setOpen(false)}
-                        className="block py-3 px-4 text-[#0A1628] hover:bg-gray-100 rounded-lg transition-colors"
-                      >
-                        {t("products")}
-                      </Link>
+                      <AccordionItem value="products" className="border-0">
+                        <AccordionTrigger className="py-3 px-4 hover:bg-gray-100 rounded-lg">
+                          {t("products")}
+                        </AccordionTrigger>
+                        <AccordionContent className="pl-8 space-y-2">
+                          <Link
+                            href="/products/compressor"
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
+                          >
+                            COMPRESSOR
+                          </Link>
+                          <Link
+                            href="/products/pump"
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
+                          >
+                            PUMP
+                          </Link>
+                          <Link
+                            href="/products/mixer"
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
+                          >
+                            MIXER
+                          </Link>
+                          <Link
+                            href="/products/bearing-lubrication"
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
+                          >
+                            BEARING & LUBRICATION
+                          </Link>
+                          <Link
+                            href="/products/motor"
+                            onClick={() => setOpen(false)}
+                            className="block py-2 text-sm text-gray-600 hover:text-[#3B82F6]"
+                          >
+                            MOTOR
+                          </Link>
+                        </AccordionContent>
+                      </AccordionItem>
 
                       <Link
                         href="/partners"

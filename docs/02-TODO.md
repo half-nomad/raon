@@ -1,7 +1,7 @@
 # TODO - 라온토탈솔루션 웹사이트
 
-> **최종 수정**: 2026-01-20
-> **진행률**: 21/33 완료 (64%) - 외부 의존성 대기 중
+> **최종 수정**: 2026-01-21
+> **진행률**: 25/33 완료 (76%) - Phase 5.2 완료
 
 ---
 
@@ -30,9 +30,12 @@
 - [x] CTA 버튼: `py-3` → `py-4 min-h-11` (44px)
 - [x] 상세: [QA_REPORT.md](./QA_REPORT.md) 참조
 
-### 3. SEO 등록 (P3)
-- [ ] Naver Search Advisor 등록
-- [ ] Google Search Console 등록
+### 3. SEO 등록 (P3) ✅ 코드 준비 완료
+- [x] 도메인 .co.kr → .com 수정 (sitemap, robots, layout)
+- [x] Verification 메타태그 placeholder 추가
+- [x] 등록 가이드 작성 → [SEO-REGISTRATION-GUIDE.md](./SEO-REGISTRATION-GUIDE.md)
+- [ ] Naver Search Advisor 등록 (고객 계정 필요)
+- [ ] Google Search Console 등록 (고객 계정 필요)
 
 ### 4. 브라우저 호환성 테스트 ✅ 코드 검증 완료
 - [x] Chrome, Safari, Firefox, Edge 호환성 (코드 기반)
@@ -91,7 +94,7 @@
 - [x] 회사 소개 하위 메뉴 추가 (인사말, 연혁, 찾아오시는 길)
 - [x] 푸터에 사업자 정보, 대표자, 정보관리책임자 기재
 - [x] 전문 용어 번역 오타 수정
-- [x] 수신 메일 주소 통일 (rts@raontotalsolution.com)
+- [x] 수신 메일 주소 통일 (rts@raontotalsolution.co.kr)
 
 ### P2 - Medium (75%)
 - [x] 대화면 여백 문제 해결 (section-container 반응형 클래스)
@@ -107,7 +110,7 @@
 - [x] HOME/COMPANY/INDUSTRIES/PRODUCTS 페이지
 - [x] PARTNERS/CONTACT 페이지 + 이메일 연동
 - [x] next-intl 다국어 지원 (ko/en)
-- [x] Vercel 프로덕션 배포 (raontotalsolution.com)
+- [x] Vercel 프로덕션 배포 (raontotalsolution.co.kr)
 
 ---
 
@@ -131,6 +134,8 @@
 
 ## 참조
 
-- 변경 기록: [03-CHANGELOG.md](./03-CHANGELOG.md)
-- **콘텐츠 가이드**: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md) - Products 페이지 메뉴 구조 및 콘텐츠
+- **프로젝트 계획**: [01-PLAN.md](./01-PLAN.md) - Phase 5에 2차 리뉴얼 계획 포함
+- **변경 기록**: [03-CHANGELOG.md](./03-CHANGELOG.md)
+- **콘텐츠 가이드**: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md) - Products 메뉴 구조 및 콘텐츠
 - **QA 리포트**: [QA_REPORT.md](./QA_REPORT.md) - 브라우저 호환성 및 모바일 UX 테스트 결과
+- **SEO 등록 가이드**: [SEO-REGISTRATION-GUIDE.md](./SEO-REGISTRATION-GUIDE.md) - Naver/Google 등록 방법

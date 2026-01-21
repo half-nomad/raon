@@ -23,11 +23,17 @@
     "contact": "CONTACT",
     "oilRefinery": "정유·석유화학",
     "shipbuilding": "조선",
+    "powerPlant": "발전소",
     "menu": "메뉴",
     "greeting": "인사말",
     "history": "연혁",
     "location": "오시는 길",
-    "cta": "상담 문의"
+    "cta": "상담 문의",
+    "compressor": "COMPRESSOR",
+    "pump": "PUMP",
+    "mixer": "MIXER",
+    "bearingLubrication": "BEARING & LUBRICATION",
+    "motor": "MOTOR"
   },
   "metadata": {
     "siteName": "라온토탈솔루션",
@@ -360,6 +366,92 @@
         "button": "상담 문의하기"
       }
     },
+    "powerPlant": {
+      "title": "발전소",
+      "subtitle": "Power Plant",
+      "description": "발전소 설비를 위한 터빈, 압축기, 베어링 등 회전기계 부품을 공급합니다",
+      "heroDescription": "화력, 복합화력, 신재생에너지 발전소에 최적화된 회전기계 솔루션을 제공합니다",
+      "imageCaption": "발전소 터빈 및 압축기 시스템",
+      "introTitle": "핵심 소개",
+      "intro1": "(주)라온토탈솔루션은 발전소 회전기계에 대한 Spare parts 및 엔지니어링 솔루션을 제공합니다.",
+      "intro2": "약 30년간의 경험과 Know-how를 바탕으로 발전 산업의 요구에 맞춘 서비스를 제공합니다.",
+      "servicesTitle": "주요 제공 서비스",
+      "services": [
+        "터빈용 베어링 시스템",
+        "압축기 부품",
+        "윤활유 정제 솔루션",
+        "회전기계 정비 서비스"
+      ],
+      "featuresTitle": "핵심 특징",
+      "features30Years": "30년 경험",
+      "features30YearsDesc": "발전 플랜트 분야의 축적된 노하우",
+      "featuresFastResponse": "신속 대응",
+      "featuresFastResponseDesc": "24시간 긴급 출동 서비스 제공",
+      "featuresGlobalPartner": "글로벌 파트너",
+      "featuresGlobalPartnerDesc": "세계 최고 수준의 기술력 보유",
+      "relatedProductsTitle": "관련 제품 바로가기",
+      "relatedProducts": {
+        "compressor": "Compressor & Parts",
+        "bearing": "Bearing",
+        "oilPurifier": "Oil Purifier"
+      },
+      "ctaButton": "상담 문의하기",
+      "features": ["터빈용 틸팅패드 베어링", "압축기 부품 솔루션", "윤활유 정제 시스템", "회전기계 정비 서비스"],
+      "overview": {
+        "title": "산업 개요",
+        "description": "발전 산업은 화력, 복합화력, 신재생에너지 등 다양한 발전 방식을 통해 전력을 생산하는 핵심 산업입니다. 발전소에서는 고온·고압 환경에서 연속 운전되는 터빈, 압축기 등 고성능 회전기계가 필수적입니다."
+      },
+      "challenges": {
+        "title": "산업별 과제",
+        "items": [
+          {
+            "title": "연속 운전",
+            "description": "24시간 무중단 운전을 위한 높은 신뢰성 필요"
+          },
+          {
+            "title": "고온·고압 환경",
+            "description": "극한의 운전 조건에서 안정적인 성능 유지"
+          },
+          {
+            "title": "정비 효율",
+            "description": "계획 정비 기간 최소화 및 비계획 정지 방지"
+          },
+          {
+            "title": "수명 연장",
+            "description": "설비 노후화에 따른 부품 수명 연장 필요"
+          }
+        ]
+      },
+      "solutions": {
+        "title": "라온토탈솔루션의 솔루션",
+        "items": [
+          {
+            "title": "베어링",
+            "partner": "터보링크",
+            "description": "터빈용 틸팅패드 베어링 시스템"
+          },
+          {
+            "title": "압축기",
+            "partner": "NEUMAN & ESSER",
+            "description": "프로세스 가스 압축기 및 소모품"
+          },
+          {
+            "title": "윤활유 정제",
+            "partner": "삼영필텍",
+            "description": "윤활유 정제 및 플러싱 서비스"
+          }
+        ]
+      },
+      "clients": {
+        "title": "주요 고객사",
+        "description": "국내 주요 발전 기업과 함께합니다"
+      },
+      "cta": {
+        "title": "발전소 산업 솔루션이 필요하신가요?",
+        "description": "전문 엔지니어가 최적의 솔루션을 제안해 드립니다",
+        "button": "상담 문의하기"
+      }
+    },
     "highlight": {
       "title": "산업별 솔루션",
       "description": "30년 노하우로 정유·석유화학, 조선 산업에 특화된 솔루션을 제공합니다",
@@ -399,76 +491,75 @@
     },
     "categories": {
       "compressor": {
-        "title": "Compressor",
-        "partner": "NEUMAN & ESSER",
-        "description": "왕복동 압축기 및 소모품",
+        "title": "COMPRESSOR",
+        "partner": "FIMA, NEUMAN & ESSER, CASTANET, KB DELTA, WTQ",
+        "description": "왕복동 압축기 부품 및 신규 터보 컴프레서 솔루션",
         "features": [
-          "190년 이상의 기술 노하우",
-          "글로벌 표준 충족 (API, ASME, PED)",
-          "맞춤형 엔지니어링 솔루션"
-        ]
-      },
-      "mixer": {
-        "title": "Mixer & Agitator",
-        "partner": "SPX FLOW",
-        "description": "산업용 믹서 및 교반기",
-        "features": [
-          "A310 임펠러 기술",
-          "에너지 효율 최적화",
-          "내부식성 재질 옵션"
-        ]
-      },
-      "motor": {
-        "title": "Motor",
-        "partner": "NIDEC",
-        "description": "고효율 산업용 모터",
-        "features": [
-          "IE3/IE4 고효율 등급",
-          "글로벌 인증 (IEC, NEMA)",
-          "다양한 냉각 방식"
-        ]
+          "신규 터보 컴프레서 및 블로워 공급",
+          "모든 제작사 왕복동 압축기 부품",
+          "트러블슈팅 및 정비 솔루션"
+        ],
+        "subMenus": {
+          "newCompressor": "NEW COMPRESSOR",
+          "reciprocatingSpareParts": "RECIPROCATING SPARE PARTS",
+          "troubleShooting": "TROUBLE SHOOTING",
+          "maintenance": "M&R"
+        }
       },
       "pump": {
-        "title": "Pump",
-        "partner": "CP Pumpen",
-        "description": "특수 산업용 펌프",
+        "title": "PUMP",
+        "partner": "CP PUMP",
+        "description": "Magnetic Driven Pump 전문 솔루션",
         "features": [
-          "API 610 규격 충족",
-          "내부식성 특수 재질",
-          "씰리스 설계 옵션"
-        ]
+          "Sealless 마그네틱 드리븐 펌프",
+          "CP Pump 특허 베어링 디자인",
+          "부식성 유체 및 슬러리 이송 전문"
+        ],
+        "subMenus": {
+          "pumpSolution": "PUMP SOLUTION",
+          "troubleShooting": "TROUBLE SHOOTING"
+        }
       },
-      "bearing": {
-        "title": "Bearing",
-        "partner": "터보링크",
-        "brand": "터보링크",
-        "description": "틸팅패드 베어링 시스템",
+      "mixer": {
+        "title": "MIXER",
+        "partner": "SPXFLOW (Lightnin, Plenty, Philadelphia, Stelzer)",
+        "description": "산업용 Mixing Solution 전문",
         "features": [
-          "고부하 용량",
-          "우수한 안정성",
-          "저마찰 설계"
-        ]
+          "Lightnin 고효율 혼합 솔루션",
+          "Plenty 유체 역학 전문",
+          "Stelzer 위생 설계 기술"
+        ],
+        "subMenus": {
+          "mixingSolution": "MIXING SOLUTION"
+        }
       },
-      "cylinderLiner": {
-        "title": "Cylinder Liner",
-        "partner": "WTQ",
-        "description": "선박 엔진용 실린더 라이너",
+      "bearingLubrication": {
+        "title": "BEARING & LUBRICATION",
+        "partner": "터보링크, 삼영필텍",
+        "description": "유체윤활베어링 및 윤활유 정제 솔루션",
         "features": [
-          "주요 엔진 호환",
-          "고내마모성 소재",
-          "정밀 가공"
-        ]
+          "초고속~고하중 틸팅패드 베어링",
+          "이중 진공 시스템 윤활유 정제",
+          "베어링 수리 및 역설계"
+        ],
+        "subMenus": {
+          "bearingSolution": "BEARING SOLUTION",
+          "lubricationSolution": "LUBRICATION SOLUTION"
+        }
       },
-      "oilPurifier": {
-        "title": "Oil Purifier",
-        "partner": "삼영필텍",
-        "brand": "삼영필텍",
-        "description": "산업용 오일 정화 시스템",
+      "motor": {
+        "title": "MOTOR",
+        "partner": "LDW, NIDEC",
+        "description": "대형 Motor 부품 및 방폭인증서비스",
         "features": [
-          "고효율 정화",
-          "자동 운전",
-          "소형·경량 설계"
-        ]
+          "LDW/NIDEC 대형 모터 부품 공급",
+          "방폭인증 컨설팅 서비스",
+          "기술지원 및 Supervisor 파견"
+        ],
+        "subMenus": {
+          "motorSpareParts": "MOTOR SPARE PARTS",
+          "explosionProofCertification": "방폭인증서비스"
+        }
       }
     },
     "snapshot": {

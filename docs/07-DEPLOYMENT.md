@@ -21,7 +21,7 @@ Vercel을 통한 자동 배포 및 프로덕션 운영 가이드
 - **Purpose:** PR 리뷰용 미리보기
 
 ### 3. Production ✅ 배포 완료
-- **URL:** https://raontotalsolution.co.kr
+- **URL:** https://raontotalsolution.com
 - **Branch:** main
 - **Hosting:** Vercel
 - **Repository:** raontotalsolution/raon
@@ -40,8 +40,8 @@ Vercel을 통한 자동 배포 및 프로덕션 운영 가이드
 ```env
 # .env.local
 RESEND_API_KEY=re_xxxxxxxxxxxxx
-CONTACT_EMAIL=sales@raontotalsolution.co.kr
-NEXT_PUBLIC_SITE_URL=https://raontotalsolution.co.kr
+CONTACT_EMAIL=sales@raontotalsolution.com
+NEXT_PUBLIC_SITE_URL=https://raontotalsolution.com
 ```
 
 ## Deployment Process
@@ -128,7 +128,7 @@ git push origin main
 
 ## Post-Deployment Checklist
 
-- [x] 사이트 접속 확인 (https://raontotalsolution.co.kr)
+- [x] 사이트 접속 확인 (https://raontotalsolution.com)
 - [x] Vercel 프로젝트 연결
 - [x] DNS 레코드 설정
 - [ ] 모든 페이지 로딩 확인

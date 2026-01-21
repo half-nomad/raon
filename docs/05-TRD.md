@@ -47,7 +47,7 @@
 - **Hosting:** Vercel (추천) 또는 Netlify
 - **CI/CD:** Vercel Auto Deploy (GitHub integration)
 - **CDN:** Vercel Edge Network (자동 제공)
-- **Domain:** raontotalsolution.co.kr (예정)
+- **Domain:** raontotalsolution.com (예정)
 - **SSL:** Automatic (Vercel 제공)
 
 #### Development Tools
@@ -86,7 +86,7 @@
 1. 사용자 폼 입력 (이름, 회사명, 이메일, 전화, 내용, 파일 첨부)
 2. Zod 스키마 유효성 검사
 3. API Route (`/api/contact`) 호출
-4. Resend API로 이메일 전송 (`sales@raontotalsolution.co.kr`)
+4. Resend API로 이메일 전송 (`sales@raontotalsolution.com`)
 5. 성공/실패 응답 → 사용자 피드백
 
 ### Component 3: Logo Carousel
@@ -177,8 +177,8 @@
 ```bash
 # .env.local (Git에 커밋하지 않음)
 RESEND_API_KEY=re_xxxxxxxxxxxxx
-CONTACT_EMAIL=sales@raontotalsolution.co.kr
-NEXT_PUBLIC_SITE_URL=https://raontotalsolution.co.kr
+CONTACT_EMAIL=sales@raontotalsolution.com
+NEXT_PUBLIC_SITE_URL=https://raontotalsolution.com
 ```
 
 ## Performance Requirements
@@ -233,7 +233,7 @@ NEXT_PUBLIC_SITE_URL=https://raontotalsolution.co.kr
 ### Environments
 1. **Development:** `localhost:3000`
 2. **Preview:** Vercel Preview Deployment (PR별)
-3. **Production:** `https://raontotalsolution.co.kr`
+3. **Production:** `https://raontotalsolution.com`
 
 ### Deployment Process (Vercel)
 1. GitHub에 `main` 브랜치 푸시

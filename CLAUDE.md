@@ -128,7 +128,7 @@ SPXFLOW, NEUMAN & ESSER, CASTANET, WTQ, CP pump
 SK에너지, S-OIL, GS칼텍스, HD현대오일뱅크
 
 ### 연락처
-- Email: rts@raontotalsolution.co.kr
+- Email: rts@raontotalsolution.com
 - Tel: 02-575-3051
 
 ---
@@ -163,7 +163,7 @@ git push client main   # 고객 레포만 푸시
 
 ### Vercel 배포
 - **배포 레포:** raontotalsolution/raon
-- **프로덕션 도메인:** https://raontotalsolution.co.kr
+- **프로덕션 도메인:** https://raontotalsolution.com
 - **자동 배포:** main 브랜치 푸시 시 자동 배포
 - **DNS:** 가비아 (A 레코드 → 76.76.21.21)
 

@@ -91,7 +91,7 @@
 - [x] 회사 소개 하위 메뉴 추가 (인사말, 연혁, 찾아오시는 길)
 - [x] 푸터에 사업자 정보, 대표자, 정보관리책임자 기재
 - [x] 전문 용어 번역 오타 수정
-- [x] 수신 메일 주소 통일 (rts@raontotalsolution.co.kr)
+- [x] 수신 메일 주소 통일 (rts@raontotalsolution.com)
 
 ### P2 - Medium (75%)
 - [x] 대화면 여백 문제 해결 (section-container 반응형 클래스)
@@ -107,7 +107,7 @@
 - [x] HOME/COMPANY/INDUSTRIES/PRODUCTS 페이지
 - [x] PARTNERS/CONTACT 페이지 + 이메일 연동
 - [x] next-intl 다국어 지원 (ko/en)
-- [x] Vercel 프로덕션 배포 (raontotalsolution.co.kr)
+- [x] Vercel 프로덕션 배포 (raontotalsolution.com)
 
 ---
 

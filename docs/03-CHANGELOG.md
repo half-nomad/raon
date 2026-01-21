@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Vercel 프로덕션 배포**
   - 배포 레포: raontotalsolution/raon
-  - 프로덕션 도메인: https://raontotalsolution.co.kr
+  - 프로덕션 도메인: https://raontotalsolution.com
   - DNS: 가비아 A 레코드 (76.76.21.21)
   - 자동 배포: main 브랜치 푸시 시
 
@@ -82,7 +82,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added - SEO Optimization Phase 1
 - Enhanced metadata in `app/layout.tsx`
-  - `metadataBase` URL 설정 (https://raontotalsolution.co.kr)
+  - `metadataBase` URL 설정 (https://raontotalsolution.com)
   - Template-based title system (`'%s | 라온토탈솔루션'`)
   - Comprehensive `description` and `keywords` for B2B industrial target
   - Full OpenGraph metadata (type, locale, siteName, images)

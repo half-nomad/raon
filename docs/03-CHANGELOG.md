@@ -6,6 +6,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-01-21
+
+### Changed - Phase 5.3b 태산 스타일 전체 적용
+
+**5개 Products 페이지 태산 스타일 (Full-page + Anchor scroll) 완료**
+
+- **COMPRESSOR**: Hero Section 일관성 수정 (pt-[172px], via gradient 추가)
+- **PUMP**: 탭 방식 → Full-page + Anchor scroll 변환
+- **MIXER**: 탭 방식 → Full-page + Anchor scroll 변환 (5개 브랜드 섹션)
+- **MOTOR**: 탭 방식 → Full-page + Anchor scroll 변환 (2개 섹션)
+- **BEARING-LUBRICATION**: 탭 방식 → Full-page + Anchor scroll 변환 (2개 섹션)
+
+**공통 디자인 패턴 적용:**
+- Fixed Sub-Nav: `fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10`
+- Hero Section: `pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942]`
+- 페이지별 액센트 색상: COMPRESSOR(#EF4444), PUMP(#3B82F6), MIXER(#10B981), MOTOR(#F59E0B), BEARING(#8B5CF6)
+
+### Technical
+- 빌드 성공 (42 pages generated)
+- 5개 페이지 디자인 일관성 검증 완료
+- Phase 5.3 P1 100% 완료
+
+---
+
 ## [1.0.0] - 2026-01-21
 
 ### Added - Phase 5.3 Products 페이지 재설계

@@ -1,7 +1,7 @@
 # TODO - 라온토탈솔루션 웹사이트
 
 > **최종 수정**: 2026-01-21
-> **진행률**: 29/44 완료 (66%) - Phase 5.3 P1 진행 중
+> **진행률**: 33/44 완료 (75%) - Phase 5.3 완료
 
 ---
 
@@ -10,42 +10,52 @@
 | 구분 | 완료 | 전체 | 진행률 |
 |------|------|------|--------|
 | P0 Critical | 9 | 9 | 100% |
-| P1 High | 10 | 12 | 83% |
+| P1 High | 14 | 14 | 100% |
 | P2 Medium | 6 | 8 | 75% |
 | P3 Low | 0 | 9 | 0% |
 
 ---
 
-## 🆕 Phase 5.3: Products 페이지 재설계
+## 🆕 Phase 5.3: Products 페이지 재설계 (✅ 완료)
 
 > **가이드 문서**: [PRODUCTS-REDESIGN-GUIDE.md](./PRODUCTS-REDESIGN-GUIDE.md)
-> **목표**: UI_guide 기준 페이지 구조 통일
+> **목표**: 태산 스타일 (Full-page + Anchor scroll) 적용
 
-### P1 - 높은 우선순위 (5개)
+### 5.3a - 콘텐츠 구현 (✅ 완료)
+
+| ID | 작업 | 상태 | 비고 |
+|----|------|------|------|
+| P5.3-01 | Products 페이지 공통 레이아웃 (상단 2컬럼: 갤러리+설명) | ✅ done | ProductIntro 컴포넌트 |
+| P5.3-02 | COMPRESSOR 콘텐츠 + 태산 스타일 | ✅ done | Full-page + Anchor 완료 |
+| P5.3-03 | PUMP 콘텐츠 구현 | ✅ done | 탭 방식 |
+| P5.3-04 | MIXER 콘텐츠 구현 (5개 브랜드) | ✅ done | 탭 방식 |
+| P5.3-05 | bearing-lubrication 통합 페이지 생성 | ✅ done | 탭 방식 |
+| P5.3-06 | MOTOR 콘텐츠 구현 | ✅ done | 탭 방식 |
+
+### 5.3b - 태산 스타일 적용 (✅ 완료)
+
+| ID | 작업 | 상태 | 비고 |
+|----|------|------|------|
+| P5.3-07 | PUMP 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
+| P5.3-08 | MIXER 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
+| P5.3-09 | MOTOR 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
+| P5.3-10 | BEARING-LUBRICATION 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
+
+### P2 - 정리 작업
 
 | ID | 작업 | 상태 | 의존성 |
 |----|------|------|--------|
-| P5.3-01 | Products 페이지 공통 레이아웃 (상단 2컬럼: 갤러리+설명) | ✅ done | - |
-| P5.3-02 | COMPRESSOR 서브메뉴 탭 (NEW/SPARE PARTS/TROUBLE SHOOTING/M&R) | ✅ done | P5.3-01 |
-| P5.3-03 | PUMP 서브메뉴 탭 (PUMP SOLUTION/TROUBLE SHOOTING) | ✅ done | P5.3-01 |
-| P5.3-04 | MIXER SPXFlow 5개 브랜드 상세 (Lightnin/Plenty/Philadelphia/Stelzer/Uutechnic) | ✅ done | P5.3-01 |
-| P5.3-05 | bearing + oil-purifier → bearing-lubrication 통합 | pending | - |
+| P5.3-11 | cylinder-liner 페이지 삭제 + redirect 설정 | pending | P5.3-02 |
+| P5.3-12 | bearing, oil-purifier 페이지 삭제 + redirect 설정 | pending | P5.3-05 |
+| P5.3-13 | 각 페이지 메인 설명문 반영 (30년 경력 + 카테고리 소개) | pending | 5.3b 완료 후 |
 
-### P2 - 중간 우선순위 (3개)
+### P3 - 낮은 우선순위
 
 | ID | 작업 | 상태 | 의존성 |
 |----|------|------|--------|
-| P5.3-06 | MOTOR 서브메뉴 탭 (SPARE PARTS/방폭인증서비스) | ✅ done | P5.3-01 |
-| P5.3-07 | 각 페이지 메인 설명문 반영 (30년 경력 + 카테고리 소개) | pending | P5.3-02~06 |
-| P5.3-08 | cylinder-liner 페이지 삭제 → compressor 포함 | pending | P5.3-02 |
-
-### P3 - 낮은 우선순위 (3개)
-
-| ID | 작업 | 상태 | 의존성 |
-|----|------|------|--------|
-| P5.3-09 | 누락 이미지 추가 (motor_1.jpg) | pending | - |
-| P5.3-10 | 누락 이미지 추가 (pump_1.jpg) | pending | - |
-| P5.3-11 | en.json industries 섹션 번역 키 보완 | pending | - |
+| P5.3-14 | 누락 이미지 추가 (motor_1.jpg) | pending | - |
+| P5.3-15 | 누락 이미지 추가 (pump_1.jpg) | pending | - |
+| P5.3-16 | en.json industries 섹션 번역 키 보완 | pending | - |
 
 ---
 

@@ -9,16 +9,7 @@ import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import {
-  Wrench,
-  Settings,
-  AlertTriangle,
-  RotateCcw,
-  ArrowRight,
-  Factory,
-  Gauge,
-  Shield,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 // 대표 이미지 (상단 갤러리용)
 const heroImages = [
@@ -197,95 +188,96 @@ export default function CompressorPage() {
         ]}
       />
 
-      {/* ========== 모든 섹션 세로 나열 ========== */}
+      {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white → navy) ========== */}
 
-      {/* Section 1: NEW COMPRESSOR */}
-      <section id="new" className="py-16 md:py-20 border-b border-slate-200">
+      {/* Section 1: NEW COMPRESSOR - 흰색 배경 */}
+      <section id="new" className="py-16 md:py-24 bg-white">
         <div className="section-container">
-          {/* 섹션 제목 */}
-          <div className="flex items-center gap-3 mb-8">
-            <span className="text-[#EF4444] font-bold text-sm">01</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628]">
+          {/* 섹션 헤더 */}
+          <div className="mb-12">
+            <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
               NEW COMPRESSOR
             </h2>
+            <div className="w-16 h-1 bg-[#EF4444] mt-4" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* 왼쪽: 텍스트 */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* 왼쪽: 파트너 정보 */}
             <div>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-[#3B82F6]/10 flex items-center justify-center flex-shrink-0">
-                  <Factory className="w-6 h-6 text-[#3B82F6]" />
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628]">
-                    FIMA <span className="text-slate-400 font-normal text-base">Germany</span>
-                  </h3>
-                  <p className="text-slate-600 mt-2">
-                    독일 소재 Turbo Compressor 및 Blower 전문 제조사로,
-                    고효율 원심 압축기 및 특수 목적 블로워를 공급합니다.
-                  </p>
-                </div>
+              <div className="mb-8">
+                <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
+                  FIMA
+                </h3>
+                <p className="text-[#3B82F6] font-medium">Germany</p>
+                <p className="text-slate-600 mt-4 leading-relaxed">
+                  독일 소재 Turbo Compressor 및 Blower 전문 제조사로,
+                  고효율 원심 압축기 및 특수 목적 블로워를 공급합니다.
+                </p>
               </div>
 
-              {/* 제품군 리스트 */}
-              <div className="space-y-2 mb-8">
+              {/* 제품군 - 인포그래픽 스타일 */}
+              <div className="space-y-3">
                 {fimaProducts.map((product, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 bg-slate-50 rounded-lg px-4 py-3"
+                    className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
                   >
-                    <span className="w-2 h-2 rounded-full bg-[#EF4444]" />
-                    <span className="text-sm md:text-base text-slate-700 font-medium">
-                      {product}
-                    </span>
+                    <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-slate-700 font-medium">{product}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* 오른쪽: 핵심 특징 카드 */}
-            <div className="grid sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-4">
-              {[
-                { icon: Gauge, title: "고효율", desc: "최적화된 에너지 효율로 운영비 절감" },
-                { icon: Shield, title: "방폭 인증", desc: "위험지역 설치 가능한 방폭 사양" },
-                { icon: Settings, title: "맞춤 설계", desc: "공정 요구사항에 맞춘 설계" },
-              ].map((item, idx) => (
-                <div key={idx} className="text-center p-6 rounded-xl border border-slate-200 hover:border-[#3B82F6]/30 hover:shadow-md transition-all">
-                  <item.icon className="w-8 h-8 text-[#3B82F6] mx-auto mb-3" />
-                  <h4 className="font-semibold text-[#0A1628]">{item.title}</h4>
-                  <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
-                </div>
-              ))}
+            {/* 오른쪽: 핵심 특징 - 인포그래픽 */}
+            <div className="bg-slate-50 rounded-2xl p-8">
+              <h4 className="text-lg font-bold text-[#0A1628] mb-6">핵심 특징</h4>
+              <div className="space-y-6">
+                {[
+                  { num: "01", title: "고효율", desc: "최적화된 에너지 효율로 운영비 절감" },
+                  { num: "02", title: "방폭 인증", desc: "위험지역 설치 가능한 방폭 사양" },
+                  { num: "03", title: "맞춤 설계", desc: "공정 요구사항에 맞춘 설계" },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex gap-4">
+                    <span className="text-3xl font-bold text-[#3B82F6]/20">{item.num}</span>
+                    <div>
+                      <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
+                      <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: SPARE PARTS */}
-      <section id="spares" className="py-16 md:py-20 bg-slate-50 border-b border-slate-200">
+      {/* Section 2: SPARE PARTS - 네이비 배경 (반전) */}
+      <section id="spares" className="py-16 md:py-24 bg-[#0A1628]">
         <div className="section-container">
-          {/* 섹션 제목 */}
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-[#EF4444] font-bold text-sm">02</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628]">
+          {/* 섹션 헤더 */}
+          <div className="mb-12">
+            <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
               SPARE PARTS
             </h2>
+            <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+            <p className="text-slate-300 mt-4 max-w-2xl">
+              모든 브랜드의 왕복동 압축기 부품을 공급합니다.
+              Modification과 Upgrade, Reverse Engineering을 통한 부품 제작도 가능합니다.
+            </p>
           </div>
-          <p className="text-slate-600 mb-8 max-w-2xl">
-            모든 브랜드의 왕복동 압축기 부품을 공급합니다.
-            Modification과 Upgrade, Reverse Engineering을 통한 부품 제작도 가능합니다.
-          </p>
 
-          {/* 부품 그리드 */}
+          {/* 부품 그리드 - 클린한 카드 */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {sparePartsCategories.map((part, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
+                className="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
               >
                 {/* 이미지 */}
-                <div className="aspect-square relative bg-slate-100">
+                <div className="aspect-square relative bg-white/5">
                   <Image
                     src={part.image}
                     alt={part.name}
@@ -297,12 +289,12 @@ export default function CompressorPage() {
                 {/* 정보 */}
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-semibold text-[#0A1628]">{part.name}</h4>
+                    <h4 className="font-semibold text-white">{part.name}</h4>
                     {part.partner !== "-" && (
                       <span className="text-xs text-[#EF4444] font-medium">{part.partner}</span>
                     )}
                   </div>
-                  <p className="text-sm text-slate-500">{part.description}</p>
+                  <p className="text-sm text-slate-400">{part.description}</p>
                 </div>
               </div>
             ))}
@@ -310,104 +302,116 @@ export default function CompressorPage() {
         </div>
       </section>
 
-      {/* Section 3: TROUBLE SHOOTING */}
-      <section id="troubleshooting" className="py-16 md:py-20 border-b border-slate-200">
+      {/* Section 3: TROUBLE SHOOTING - 흰색 배경 */}
+      <section id="troubleshooting" className="py-16 md:py-24 bg-white">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* 왼쪽: 이미지 placeholder */}
-            <div className="order-2 lg:order-1">
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
-                <AlertTriangle className="w-24 h-24 text-amber-300" />
-              </div>
-            </div>
+          {/* 섹션 헤더 */}
+          <div className="mb-12">
+            <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              TROUBLE SHOOTING
+            </h2>
+            <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+            <p className="text-slate-600 mt-4 max-w-2xl">
+              30년간 축적된 현장 경험을 바탕으로 압축기 운전 중 발생하는
+              다양한 문제에 대한 <span className="text-[#EF4444] font-semibold">체계적인 진단 및 해결 방안</span>을 제공합니다.
+            </p>
+          </div>
 
-            {/* 오른쪽: 텍스트 */}
-            <div className="order-1 lg:order-2">
-              {/* 섹션 제목 */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-[#EF4444] font-bold text-sm">03</span>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628]">
-                  TROUBLE SHOOTING
-                </h2>
+          {/* 문제 유형 - 인포그래픽 테이블 스타일 */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { title: "진동 및 소음 문제", desc: "베어링 마모, 정렬 불량, 임펠러 손상 등 진단" },
+              { title: "온도 이상", desc: "냉각 시스템, 윤활유, 씰 상태 점검" },
+              { title: "압력 불균형", desc: "밸브 누설, 씰링 불량, 가스켓 손상 확인" },
+              { title: "효율 저하", desc: "내부 마모, 밸브 타이밍, 제어 시스템 최적화" },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="flex gap-5 p-6 bg-slate-50 rounded-xl"
+              >
+                <span className="text-4xl font-bold text-[#0A1628]/10">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h4 className="font-semibold text-[#0A1628] mb-1">{item.title}</h4>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
               </div>
-              <p className="text-slate-600 mb-8">
-                30년간 축적된 현장 경험을 바탕으로 압축기 운전 중 발생하는
-                다양한 문제에 대한 <span className="text-[#EF4444] font-semibold">체계적인 진단 및 해결 방안</span>을 제공합니다.
-              </p>
+            ))}
+          </div>
 
-              {/* 문제 유형 */}
-              <div className="space-y-3">
-                {[
-                  { title: "진동 및 소음 문제", desc: "베어링 마모, 정렬 불량, 임펠러 손상 등 진단" },
-                  { title: "온도 이상", desc: "냉각 시스템, 윤활유, 씰 상태 점검" },
-                  { title: "압력 불균형", desc: "밸브 누설, 씰링 불량, 가스켓 손상 확인" },
-                  { title: "효율 저하", desc: "내부 마모, 밸브 타이밍, 제어 시스템 최적화" },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-4 p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
-                  >
-                    <span className="w-8 h-8 rounded-full bg-[#EF4444]/10 text-[#EF4444] flex items-center justify-center font-bold text-sm">
+          {/* 해결 프로세스 */}
+          <div className="mt-12 p-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
+            <h4 className="text-lg font-bold text-[#0A1628] mb-6">해결 프로세스</h4>
+            <div className="flex flex-col md:flex-row gap-4 md:gap-0">
+              {["문제 접수", "현장 진단", "솔루션 제안", "부품 수배", "작업 완료"].map((step, idx) => (
+                <div key={idx} className="flex-1 flex items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
                       {idx + 1}
                     </span>
-                    <div>
-                      <h4 className="font-medium text-[#0A1628]">{item.title}</h4>
-                      <p className="text-sm text-slate-500">{item.desc}</p>
-                    </div>
+                    <span className="text-sm font-medium text-[#0A1628]">{step}</span>
                   </div>
-                ))}
-              </div>
+                  {idx < 4 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 4: M&R (Maintenance & Repair) */}
-      <section id="maintenance" className="py-16 md:py-20 bg-slate-50">
+      {/* Section 4: M&R (Maintenance & Repair) - 네이비 배경 */}
+      <section id="maintenance" className="py-16 md:py-24 bg-[#0A1628]">
         <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* 왼쪽: 텍스트 */}
-            <div>
-              {/* 섹션 제목 */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-[#EF4444] font-bold text-sm">04</span>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628]">
-                  M&R (유지보수 & 정비)
-                </h2>
-              </div>
-              <p className="text-slate-600 mb-8">
-                예방 정비부터 긴급 수리까지, 압축기 수명 연장과
-                <span className="text-[#EF4444] font-semibold"> 안정적인 운전</span>을 위한 종합 서비스를 제공합니다.
-              </p>
+          {/* 섹션 헤더 */}
+          <div className="mb-12">
+            <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              M&R (유지보수 & 정비)
+            </h2>
+            <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+            <p className="text-slate-300 mt-4 max-w-2xl">
+              예방 정비부터 긴급 수리까지, 압축기 수명 연장과
+              <span className="text-white font-semibold"> 안정적인 운전</span>을 위한 종합 서비스를 제공합니다.
+            </p>
+          </div>
 
-              {/* 서비스 목록 */}
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  { title: "정기 점검", desc: "계획된 예방 정비 프로그램" },
-                  { title: "긴급 수리", desc: "24시간 긴급 대응 체계" },
-                  { title: "오버홀", desc: "분해 점검 및 전면 정비" },
-                  { title: "부품 교체", desc: "순정 부품 공급 및 설치" },
-                  { title: "성능 진단", desc: "효율 측정 및 최적화 제안" },
-                  { title: "기술 교육", desc: "운전자 대상 교육 프로그램" },
-                ].map((service, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3 p-4 rounded-lg bg-white border border-slate-200"
-                  >
-                    <Wrench className="w-5 h-5 text-[#3B82F6] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-medium text-[#0A1628]">{service.title}</h4>
-                      <p className="text-sm text-slate-500">{service.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          {/* 서비스 그리드 - 인포그래픽 스타일 */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "정기 점검", desc: "계획된 예방 정비 프로그램" },
+              { title: "긴급 수리", desc: "24시간 긴급 대응 체계" },
+              { title: "오버홀", desc: "분해 점검 및 전면 정비" },
+              { title: "부품 교체", desc: "순정 부품 공급 및 설치" },
+              { title: "성능 진단", desc: "효율 측정 및 최적화 제안" },
+              { title: "기술 교육", desc: "운전자 대상 교육 프로그램" },
+            ].map((service, idx) => (
+              <div
+                key={idx}
+                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+              >
+                <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                <h4 className="font-semibold text-white mt-2">{service.title}</h4>
+                <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
               </div>
-            </div>
+            ))}
+          </div>
 
-            {/* 오른쪽: 이미지 placeholder */}
-            <div>
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center">
-                <RotateCcw className="w-24 h-24 text-emerald-300" />
+          {/* 파트너 네트워크 강조 */}
+          <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 border border-[#3B82F6]/20">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <span className="text-4xl font-bold text-white">30+</span>
+                <p className="text-slate-400 mt-1">년 현장 경험</p>
+              </div>
+              <div>
+                <span className="text-4xl font-bold text-white">24/7</span>
+                <p className="text-slate-400 mt-1">긴급 대응</p>
+              </div>
+              <div>
+                <span className="text-4xl font-bold text-white">Global</span>
+                <p className="text-slate-400 mt-1">파트너 네트워크</p>
               </div>
             </div>
           </div>

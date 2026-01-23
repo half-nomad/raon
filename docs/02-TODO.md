@@ -1,7 +1,7 @@
 # TODO - 라온토탈솔루션 웹사이트
 
 > **최종 수정**: 2026-01-23
-> **진행률**: 32/44 완료 (73%) - Phase 5.3b 진행 중
+> **진행률**: 34/44 완료 (77%) - Phase 5.3b 완료
 
 ---
 
@@ -11,7 +11,7 @@
 |------|------|------|--------|
 | P0 Critical | 9 | 9 | 100% |
 | P1 High | 14 | 14 | 100% |
-| P2 Medium | 7 | 8 | 88% |
+| P2 Medium | 9 | 10 | 90% |
 | P3 Low | 0 | 9 | 0% |
 
 ---
@@ -32,14 +32,14 @@
 | P5.3-05 | bearing-lubrication 통합 페이지 생성 | ✅ done | 탭 방식 |
 | P5.3-06 | MOTOR 콘텐츠 구현 | ✅ done | 탭 방식 |
 
-### 5.3b - 태산 스타일 적용 (🔄 진행 중)
+### 5.3b - 태산 스타일 적용 (✅ 완료)
 
 | ID | 작업 | 상태 | 비고 |
 |----|------|------|------|
 | P5.3-07 | PUMP 태산 스타일 변환 | ✅ done | Full-page + Anchor + ProductIntro 완료 (2026-01-23) |
 | P5.3-08 | MIXER 태산 스타일 변환 | ✅ done | Full-page + Anchor + ProductIntro 완료 (2026-01-23) |
-| P5.3-09 | MOTOR 태산 스타일 변환 | ⏳ pending | ProductIntro 미적용, 어두운 배경 유지 |
-| P5.3-10 | BEARING-LUBRICATION 태산 스타일 변환 | ⏳ pending | ProductIntro 미적용, 어두운 배경 유지 |
+| P5.3-09 | MOTOR 태산 스타일 변환 | ✅ done | Full-page + Anchor + ProductIntro 완료 (2026-01-23) |
+| P5.3-10 | BEARING-LUBRICATION 태산 스타일 변환 | ✅ done | Full-page + Anchor + ProductIntro 완료 (2026-01-23) |
 
 **기준 패턴:** COMPRESSOR/MIXER (ProductIntro + Header/Footer + 밝은 배경 교대)
 

@@ -1,488 +1,435 @@
-// ============================================================
-// MOTOR 제품 페이지 - 모터 부품 및 방폭 인증 솔루션
-// Phase 5.3: Products 재설계 (PRODUCTS-REDESIGN-GUIDE.md 적용)
-// ============================================================
+"use client";
 
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import {
-  Zap,
-  Shield,
-  Award,
-  FileCheck,
-  ArrowRight,
-  Phone,
-  CheckCircle,
-  Building2,
-  ChevronRight,
-  Settings,
-  Clock,
-  Users,
-  AlertTriangle,
-  FileText,
-  ClipboardCheck,
-  BadgeCheck,
-} from 'lucide-react';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { ProductIntro } from "@/components/products/product-intro";
+import BackButton from "@/components/ui/back-button";
+import Breadcrumb from "@/components/ui/breadcrumb";
+import { ArrowRight } from "lucide-react";
 
-// ============================================================
-// 메타데이터
-// ============================================================
-export const metadata: Metadata = {
-  title: 'Motor | 모터 부품 및 방폭 인증 - RAON',
-  description: '정유, 석유화학에 30년의 왕복동압축기 공급 실적으로 외산 모터 부품 공급 및 방폭 인증(KOSHA/KGS/KTL) 솔루션을 제공합니다.',
-};
-
-// ============================================================
-// Products 공통 서브 네비게이션
-// ============================================================
-const productCategories = [
-  { id: 'compressor', label: 'COMPRESSOR', href: '/products/compressor' },
-  { id: 'pump', label: 'PUMP', href: '/products/pump' },
-  { id: 'mixer', label: 'MIXER', href: '/products/mixer' },
-  { id: 'motor', label: 'MOTOR', href: '/products/motor' },
-  { id: 'bearing-lubrication', label: 'BEARING & LUBRICATION', href: '/products/bearing-lubrication' },
+// 대표 이미지 (상단 갤러리용) - Motor 관련 이미지 필요 시 교체
+const heroImages = [
+  { src: "/images/products/motor/motor-main.jpg", alt: "Industrial Motor" },
+  { src: "/images/products/motor/ldw-motor.jpg", alt: "LDW Motor" },
+  { src: "/images/products/motor/nidec-motor.jpg", alt: "NIDEC Motor" },
 ];
 
-// ============================================================
+// 서브 네비게이션 정의
+const subNavItems = [
+  { id: "spare-parts", label: "SPARE PARTS" },
+  { id: "certification", label: "방폭인증서비스" },
+  { id: "process", label: "인증 프로세스" },
+  { id: "support", label: "기술 지원" },
+];
+
 // 파트너사 (원고 기반)
-// ============================================================
 const partners = [
   {
-    name: 'LDW',
-    fullName: 'Lloyd Dynamowerke GmbH',
-    country: '독일',
-    desc: '대형 Synchronous 및 Induction Motor 제작사',
-    details: '국내 정유/석유화학 공장 설치, 기술지원/Supervisor/부품 공급',
-    color: 'from-blue-500/20 to-blue-600/10',
-    borderColor: 'border-blue-500/30',
-    accentColor: 'text-blue-400',
-    bgAccent: 'bg-blue-500/20',
+    name: "LDW",
+    fullName: "Lloyd Dynamowerke GmbH",
+    country: "Germany",
+    description: "대형 Synchronous 및 Induction Motor 제작사",
   },
   {
-    name: 'NIDEC',
-    fullName: '舊 Ansaldo',
-    country: '이탈리아',
-    desc: '대형 Synchronous 및 Induction Motor 제작사',
-    details: '국내 정유/석유화학 공장 설치, 기술지원/Supervisor/부품 공급',
-    color: 'from-green-500/20 to-green-600/10',
-    borderColor: 'border-green-500/30',
-    accentColor: 'text-green-400',
-    bgAccent: 'bg-green-500/20',
+    name: "NIDEC",
+    fullName: "舊 Ansaldo",
+    country: "Italy",
+    description: "대형 Synchronous 및 Induction Motor 제작사",
   },
 ];
 
-// ============================================================
+// 서비스 특징
+const sparePartsServices = [
+  "LDW/NIDEC Motor 기술지원",
+  "Supervisor 파견 서비스",
+  "정품 Spare Parts 공급",
+  "현장 기술 인력 파견",
+];
+
 // 방폭 인증 기관 (원고 기반)
-// ============================================================
 const certificationAgencies = [
   {
-    code: 'KOSHA',
-    name: '한국산업안전보건공단',
-    desc: '산업안전 및 방폭 인증 총괄 기관',
-    color: '#1E40AF',
-    bgColor: 'bg-blue-500/20',
-    borderColor: 'border-blue-500/30',
+    code: "KOSHA",
+    name: "한국산업안전보건공단",
+    desc: "산업안전 및 방폭 인증 총괄 기관",
   },
   {
-    code: 'KTL',
-    name: '한국산업기술시험원',
-    desc: '산업기술 시험 및 인증 전문 기관',
-    color: '#059669',
-    bgColor: 'bg-green-500/20',
-    borderColor: 'border-green-500/30',
+    code: "KTL",
+    name: "한국산업기술시험원",
+    desc: "산업기술 시험 및 인증 전문 기관",
   },
   {
-    code: 'KGS',
-    name: '한국가스안전공사',
-    desc: '가스 관련 방폭 설비 인증 기관',
-    color: '#DC2626',
-    bgColor: 'bg-red-500/20',
-    borderColor: 'border-red-500/30',
+    code: "KGS",
+    name: "한국가스안전공사",
+    desc: "가스 관련 방폭 설비 인증 기관",
   },
 ];
 
-// ============================================================
+// 인증 서비스 내용
+const certificationServices = [
+  "방폭 인증 필요 유무 판단",
+  "인증 절차 컨설팅",
+  "기술 문서 작성 지원",
+  "인증 기관 대응",
+];
+
 // 인증 프로세스
-// ============================================================
 const certificationProcess = [
-  { step: 1, title: '사전 검토', desc: '기존 장비 현황 및 요구사항 분석', icon: FileText },
-  { step: 2, title: '인증 계획', desc: '적합한 인증 기관 및 절차 수립', icon: ClipboardCheck },
-  { step: 3, title: '서류 준비', desc: '기술 문서 및 시험 자료 준비', icon: FileCheck },
-  { step: 4, title: '인증 취득', desc: '심사 대응 및 인증서 발급', icon: BadgeCheck },
+  { step: 1, title: "사전 검토", desc: "기존 장비 현황 및 요구사항 분석" },
+  { step: 2, title: "인증 계획", desc: "적합한 인증 기관 및 절차 수립" },
+  { step: 3, title: "서류 준비", desc: "기술 문서 및 시험 자료 준비" },
+  { step: 4, title: "인증 취득", desc: "심사 대응 및 인증서 발급" },
 ];
 
-// ============================================================
-// 서비스 특징
-// ============================================================
-const sparePartsServices = [
-  { icon: Settings, title: 'LDW/NIDEC Motor 기술지원', desc: '국내 설치 모터 전문 지원' },
-  { icon: Users, title: 'Supervisor 파견', desc: '현장 기술 인력 파견 서비스' },
-  { icon: Award, title: 'Spare Parts 공급', desc: '정품 부품 신속 수배' },
-];
-
-// ============================================================
-// 통계 데이터
-// ============================================================
-const stats = [
-  { value: '30+', label: '년 경험', icon: Clock },
-  { value: '2', label: '글로벌 파트너', icon: Building2 },
-  { value: '3', label: '인증 기관', icon: Shield },
-  { value: '24/7', label: '기술 지원', icon: Award },
-];
-
-// ============================================================
-// 메인 컴포넌트
-// ============================================================
 export default function MotorPage() {
+  const t = useTranslations();
+  const [activeSection, setActiveSection] = useState("spare-parts");
+
+  // 스크롤 위치에 따라 활성 섹션 업데이트
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = subNavItems.map(item => document.getElementById(item.id));
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(subNavItems[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 부드러운 스크롤 이동
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 140;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#0A1628]">
-      {/* Sub Navigation - Fixed below header */}
-      <div className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <nav className="flex items-center gap-1 h-14 overflow-x-auto scrollbar-hide">
-            {productCategories.map((category) => (
-              <Link
-                key={category.id}
-                href={category.href}
-                className={`
-                  relative px-5 h-full flex items-center text-sm font-medium whitespace-nowrap
-                  transition-colors duration-200
-                  ${category.id === 'motor'
-                    ? 'text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-[#EF4444]'
-                    : 'text-gray-400 hover:text-white'
-                  }
-                `}
-              >
-                {category.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      {/* Hero Section */}
-      <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942]">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A1628]/50" />
-
-        <div className="relative max-w-7xl mx-auto px-6">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/products" className="hover:text-white transition-colors">Products</Link>
-            <ChevronRight className="w-4 h-4" />
-            <span className="text-white">Motor</span>
+    <>
+      <Header />
+      <main className="min-h-screen bg-white">
+        {/* Fixed Sub Navigation - 태산 스타일 (Header 바로 아래 고정) */}
+        <nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
+          <div className="section-container">
+            <div className="flex overflow-x-auto scrollbar-hide">
+              {subNavItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`
+                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
+                    ${activeSection === item.id
+                      ? "text-white"
+                      : "text-slate-400 hover:text-slate-200"
+                    }
+                  `}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
+        </nav>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-6">
-                <Zap className="w-4 h-4 text-[#F59E0B]" />
-                <span>Motor Spare Parts & Certification</span>
-              </div>
+        {/* Hero Section */}
+        <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942] text-white">
+          <div className="section-container">
+            <BackButton href="/products" variant="dark" />
+            <Breadcrumb
+              variant="dark"
+              items={[
+                { label: "HOME", href: "/" },
+                { label: "PRODUCTS", href: "/products" },
+                { label: "MOTOR" },
+              ]}
+            />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
+              MOTOR
+            </h1>
+            <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
+              외산 모터 부품 공급 및 방폭 인증 솔루션
+            </p>
+          </div>
+        </section>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                MOTOR
-                <span className="block text-[#F59E0B] mt-2">전문 솔루션</span>
-              </h1>
+        {/* Product Intro - 2컬럼 레이아웃 */}
+        <ProductIntro
+          title="모터 전문 솔루션"
+          description="RTS는 정유, 석유화학에 30년의 왕복동압축기 공급 실적으로 현장에 설치된 외산 모터에 대한 부품 공급 및 방폭 인증(KOSHA/KGS/KTL)에 대한 SOLUTION을 제공하고 있습니다."
+          images={heroImages}
+          partners={[
+            { name: "LDW", country: "독일" },
+            { name: "NIDEC", country: "이탈리아" },
+          ]}
+          highlights={[
+            "대형 Synchronous/Induction Motor",
+            "방폭 인증 컨설팅",
+            "정유/석유화학 30년 실적",
+            "글로벌 파트너 네트워크",
+          ]}
+        />
 
-              <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
-                정유, 석유화학에 <span className="text-white font-semibold">30년의 왕복동압축기 공급 실적</span>으로
-                현장에 설치된 외산 모터에 대한 <span className="text-white font-semibold">부품 공급</span> 및
-                <span className="text-white font-semibold"> 방폭 인증(KOSHA/KGS/KTL)</span>에 대한 SOLUTION을 제공하고 있습니다.
+        {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white → navy) ========== */}
+
+        {/* Section 1: SPARE PARTS - 흰색 배경 */}
+        <section id="spare-parts" className="py-16 md:py-24 bg-white">
+          <div className="section-container">
+            {/* 섹션 헤더 */}
+            <div className="mb-12">
+              <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+                MOTOR SPARE PARTS
+              </h2>
+              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+              <p className="text-slate-600 mt-4 max-w-2xl">
+                해외 OEM 왕복동압축기에 동력원으로 공급되는 외산 Motor의 Aftermarket 국내대리점
               </p>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center p-4 rounded-lg bg-white/5 border border-white/10">
-                    <stat.icon className="w-6 h-6 text-[#F59E0B] mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold rounded-lg transition-colors"
-                >
-                  <Phone className="w-5 h-5" />
-                  문의하기
-                </Link>
-                <a
-                  href="#spare-parts"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold rounded-lg transition-all"
-                >
-                  서비스 보기
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
             </div>
 
-            {/* Right - Service Preview */}
-            <div className="hidden lg:block">
-              <div className="relative">
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                  {/* Two Main Services */}
-                  <div className="space-y-4">
-                    <a
-                      href="#spare-parts"
-                      className="block p-5 rounded-xl bg-gradient-to-r from-blue-500/20 to-blue-600/10 border border-blue-500/30 hover:scale-[1.02] transition-transform"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
-                          <Settings className="w-6 h-6 text-blue-400" />
-                        </div>
-                        <div>
-                          <div className="text-white font-bold">MOTOR SPARE PARTS</div>
-                          <div className="text-gray-400 text-sm">LDW / NIDEC 정품 부품 공급</div>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-gray-500 ml-auto" />
-                      </div>
-                    </a>
-
-                    <a
-                      href="#certification"
-                      className="block p-5 rounded-xl bg-gradient-to-r from-amber-500/20 to-amber-600/10 border border-amber-500/30 hover:scale-[1.02] transition-transform"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                          <Shield className="w-6 h-6 text-amber-400" />
-                        </div>
-                        <div>
-                          <div className="text-white font-bold">방폭인증서비스</div>
-                          <div className="text-gray-400 text-sm">KOSHA / KTL / KGS 인증 대응</div>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-gray-500 ml-auto" />
-                      </div>
-                    </a>
-                  </div>
-
-                  {/* Highlight */}
-                  <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-red-500/10 to-red-600/5 border border-red-500/20">
-                    <div className="flex items-start gap-3">
-                      <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <div className="text-white font-semibold text-sm">★ 방폭 인증 경험</div>
-                        <div className="text-gray-400 text-xs mt-1">
-                          국내 정유/석유화학 신설 프로젝트 다수 방폭 기계 설치 경험 보유
-                        </div>
-                      </div>
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              {/* 왼쪽: 파트너 정보 */}
+              <div>
+                <div className="space-y-6">
+                  {partners.map((partner, idx) => (
+                    <div key={idx} className="mb-8 p-6 bg-slate-50 rounded-xl">
+                      <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
+                        {partner.name}
+                      </h3>
+                      <p className="text-slate-500 text-sm mb-1">{partner.fullName}</p>
+                      <p className="text-[#3B82F6] font-medium">{partner.country}</p>
+                      <p className="text-slate-600 mt-4 leading-relaxed">
+                        {partner.description}
+                      </p>
+                      <p className="text-sm text-slate-500 mt-2">
+                        국내 정유/석유화학 공장 설치, 기술지원/Supervisor/부품 공급
+                      </p>
                     </div>
-                  </div>
+                  ))}
                 </div>
+              </div>
 
-                {/* Decorative */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-[#F59E0B]/20 rounded-full blur-xl" />
-                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-amber-500/20 rounded-full blur-xl" />
+              {/* 오른쪽: 서비스 특징 - 인포그래픽 스타일 */}
+              <div>
+                <h4 className="text-lg font-bold text-[#0A1628] mb-6">서비스 내용</h4>
+                <div className="space-y-3">
+                  {sparePartsServices.map((service, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                    >
+                      <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
+                      <span className="text-slate-700 font-medium">{service}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* MOTOR SPARE PARTS Section */}
-      <section id="spare-parts" className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-4">
-              MOTOR SPARE PARTS SOLUTION
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              외산 모터 부품 공급
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              해외 OEM 왕복동압축기에 동력원으로 공급되는 외산 Motor의 Aftermarket 국내대리점
-            </p>
-          </div>
+        {/* Section 2: 방폭인증서비스 - 네이비 배경 (반전) */}
+        <section id="certification" className="py-16 md:py-24 bg-[#0A1628]">
+          <div className="section-container">
+            {/* 섹션 헤더 */}
+            <div className="mb-12">
+              <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                방폭인증서비스
+              </h2>
+              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+              <p className="text-slate-300 mt-4 max-w-2xl">
+                국내 방폭 지역 설치 외산 수입 모터 → 국내 인증 필수.
+                <span className="text-white font-semibold"> KOSHA/KTL/KGS</span> 인증 대응 서비스를 제공합니다.
+              </p>
+            </div>
 
-          {/* Services */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {sparePartsServices.map((service, index) => (
-              <div
-                key={index}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-colors"
-              >
-                <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
-                  <service.icon className="w-7 h-7 text-blue-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-gray-400">{service.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Partners */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {partners.map((partner, index) => (
-              <div
-                key={index}
-                className={`p-8 rounded-2xl bg-gradient-to-br ${partner.color} border ${partner.borderColor}`}
-              >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className={`w-16 h-16 rounded-xl ${partner.bgAccent} flex items-center justify-center`}>
-                    <span className="text-white font-bold text-2xl">{partner.name.charAt(0)}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">{partner.name}</h3>
-                    <p className="text-gray-400 text-sm">{partner.fullName}</p>
-                    <p className={`${partner.accentColor} font-medium text-sm mt-1`}>{partner.country}</p>
-                  </div>
-                </div>
-                <p className="text-gray-300 mb-4">{partner.desc}</p>
-                <div className="flex items-start gap-2 p-3 bg-white/5 rounded-lg">
-                  <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-gray-400">{partner.details}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 방폭인증서비스 Section */}
-      <section id="certification" className="py-24 bg-gradient-to-b from-[#0A1628] to-[#0f1d32]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium mb-4">
-              방폭인증서비스 SOLUTION
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Explosion Proof Certification
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              국내 방폭 지역 설치 외산 수입 모터 → 국내 인증 필수
-            </p>
-          </div>
-
-          {/* Certification Agencies */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            {certificationAgencies.map((agency, index) => (
-              <div
-                key={index}
-                className={`relative p-6 rounded-2xl bg-white/5 border ${agency.borderColor} overflow-hidden`}
-              >
+            {/* 인증 기관 그리드 */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-12">
+              {certificationAgencies.map((agency, idx) => (
                 <div
-                  className="absolute top-0 left-0 right-0 h-1"
-                  style={{ backgroundColor: agency.color }}
-                />
-                <div
-                  className={`w-16 h-16 rounded-full ${agency.bgColor} flex items-center justify-center mx-auto mb-4`}
+                  key={idx}
+                  className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
                 >
-                  <span
-                    className="text-xl font-bold"
-                    style={{ color: agency.color }}
-                  >
-                    {agency.code.charAt(0)}
-                  </span>
+                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <h4 className="font-bold text-[#3B82F6] text-xl mt-2">{agency.code}</h4>
+                  <p className="text-white font-medium mt-1">{agency.name}</p>
+                  <p className="text-sm text-slate-400 mt-2">{agency.desc}</p>
                 </div>
-                <h3
-                  className="text-2xl font-bold text-center mb-2"
-                  style={{ color: agency.color }}
-                >
-                  {agency.code}
-                </h3>
-                <p className="text-white font-medium text-center mb-1">{agency.name}</p>
-                <p className="text-gray-400 text-sm text-center">{agency.desc}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Certification Process */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 mb-12">
-            <h3 className="text-xl font-bold text-white mb-8 text-center">인증 진행 프로세스</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {certificationProcess.map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-[#F59E0B] rounded-full flex items-center justify-center mx-auto mb-4">
-                      <item.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <span className="absolute -top-2 -right-2 w-7 h-7 bg-white rounded-full flex items-center justify-center text-[#0A1628] font-bold text-sm">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+            {/* 서비스 내용 */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {certificationServices.map((service, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                >
+                  <span className="text-2xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <p className="text-white font-medium mt-2">{service}</p>
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Services Info */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-xl bg-gradient-to-br from-amber-500/10 to-amber-600/5 border border-amber-500/20">
-              <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-                <FileCheck className="w-5 h-5 text-amber-400" />
-                서비스 내용
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  '방폭 인증 필요 유무 판단',
-                  '인증 절차 컨설팅',
-                  '기술 문서 작성 지원',
-                  '인증 기관 대응',
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3 text-gray-300">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Section 3: 인증 프로세스 - 흰색 배경 */}
+        <section id="process" className="py-16 md:py-24 bg-white">
+          <div className="section-container">
+            {/* 섹션 헤더 */}
+            <div className="mb-12">
+              <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+                인증 프로세스
+              </h2>
+              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+              <p className="text-slate-600 mt-4 max-w-2xl">
+                30년간 축적된 현장 경험을 바탕으로 <span className="text-[#EF4444] font-semibold">체계적인 인증 절차</span>를 제공합니다.
+              </p>
             </div>
 
-            <div className="p-6 rounded-xl bg-gradient-to-br from-red-500/10 to-red-600/5 border border-red-500/20">
-              <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-red-400" />
-                ★ 핵심 경험
-              </h4>
-              <p className="text-gray-300 leading-relaxed">
+            {/* 프로세스 - 인포그래픽 테이블 스타일 */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {certificationProcess.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex gap-5 p-6 bg-slate-50 rounded-xl"
+                >
+                  <span className="text-4xl font-bold text-[#0A1628]/10">
+                    {String(item.step).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h4 className="font-semibold text-[#0A1628] mb-1">{item.title}</h4>
+                    <p className="text-sm text-slate-600">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* 프로세스 플로우 */}
+            <div className="p-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
+              <h4 className="text-lg font-bold text-[#0A1628] mb-6">진행 순서</h4>
+              <div className="flex flex-col md:flex-row gap-4 md:gap-0">
+                {certificationProcess.map((item, idx) => (
+                  <div key={idx} className="flex-1 flex items-center">
+                    <div className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
+                        {idx + 1}
+                      </span>
+                      <span className="text-sm font-medium text-[#0A1628]">{item.title}</span>
+                    </div>
+                    {idx < certificationProcess.length - 1 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 4: 기술 지원 - 네이비 배경 */}
+        <section id="support" className="py-16 md:py-24 bg-[#0A1628]">
+          <div className="section-container">
+            {/* 섹션 헤더 */}
+            <div className="mb-12">
+              <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+                기술 지원
+              </h2>
+              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+              <p className="text-slate-300 mt-4 max-w-2xl">
                 국내 정유/석유화학 신설 프로젝트 다수 <span className="text-white font-semibold">방폭 기계 설치 경험</span> 보유.
                 복잡한 인증 절차를 원활하게 진행하여 고객의 프로젝트 일정을 준수합니다.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-[#0f1d32] to-[#0A1628]">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            모터 부품 및 인증 서비스 문의
-          </h2>
-          <p className="text-gray-400 text-lg mb-8">
-            외산 모터 부품 공급, 방폭 인증 관련 문의사항이 있으시면 연락해 주세요
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold rounded-lg transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              상담 문의하기
-            </Link>
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold rounded-lg transition-all"
-            >
-              다른 제품 보기
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            {/* 지원 서비스 그리드 */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { title: "기술 문서 지원", desc: "방폭 인증용 기술 문서 작성 지원" },
+                { title: "현장 기술 지원", desc: "설치 및 시운전 기술 지원" },
+                { title: "Supervisor 파견", desc: "해외 전문가 파견 서비스" },
+                { title: "부품 수배", desc: "정품 부품 신속 수배" },
+                { title: "정기 점검", desc: "예방 정비 프로그램" },
+                { title: "긴급 대응", desc: "24시간 긴급 대응 체계" },
+              ].map((service, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                >
+                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <h4 className="font-semibold text-white mt-2">{service.title}</h4>
+                  <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* 핵심 강점 강조 */}
+            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 border border-[#3B82F6]/20">
+              <div className="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <span className="text-4xl font-bold text-white">30+</span>
+                  <p className="text-slate-400 mt-1">년 현장 경험</p>
+                </div>
+                <div>
+                  <span className="text-4xl font-bold text-white">2</span>
+                  <p className="text-slate-400 mt-1">글로벌 파트너</p>
+                </div>
+                <div>
+                  <span className="text-4xl font-bold text-white">3</span>
+                  <p className="text-slate-400 mt-1">인증 기관 대응</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
+          <div className="section-container text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              모터 솔루션이 필요하신가요?
+            </h2>
+            <p className="text-slate-300 mb-8 max-w-xl mx-auto">
+              30년 경력의 전문가가 최적의 솔루션을 제안해 드립니다.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#EF4444] text-white rounded-full font-semibold hover:bg-[#DC2626] transition-colors"
+              >
+                기술 상담 신청
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
+              >
+                견적 요청
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

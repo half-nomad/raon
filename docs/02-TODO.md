@@ -1,7 +1,7 @@
 # TODO - 라온토탈솔루션 웹사이트
 
-> **최종 수정**: 2026-01-21
-> **진행률**: 33/44 완료 (75%) - Phase 5.3 완료
+> **최종 수정**: 2026-01-23
+> **진행률**: 32/44 완료 (73%) - Phase 5.3b 진행 중
 
 ---
 
@@ -11,14 +11,14 @@
 |------|------|------|--------|
 | P0 Critical | 9 | 9 | 100% |
 | P1 High | 14 | 14 | 100% |
-| P2 Medium | 6 | 8 | 75% |
+| P2 Medium | 7 | 8 | 88% |
 | P3 Low | 0 | 9 | 0% |
 
 ---
 
 ## 🆕 Phase 5.3: Products 페이지 재설계 (✅ 완료)
 
-> **가이드 문서**: [PRODUCTS-REDESIGN-GUIDE.md](./PRODUCTS-REDESIGN-GUIDE.md)
+> **가이드 문서**: [06-DESIGN_SYSTEM.md](./06-DESIGN_SYSTEM.md) 섹션 7-8 참조
 > **목표**: 태산 스타일 (Full-page + Anchor scroll) 적용
 
 ### 5.3a - 콘텐츠 구현 (✅ 완료)
@@ -32,14 +32,16 @@
 | P5.3-05 | bearing-lubrication 통합 페이지 생성 | ✅ done | 탭 방식 |
 | P5.3-06 | MOTOR 콘텐츠 구현 | ✅ done | 탭 방식 |
 
-### 5.3b - 태산 스타일 적용 (✅ 완료)
+### 5.3b - 태산 스타일 적용 (🔄 진행 중)
 
 | ID | 작업 | 상태 | 비고 |
 |----|------|------|------|
-| P5.3-07 | PUMP 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
-| P5.3-08 | MIXER 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
-| P5.3-09 | MOTOR 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
-| P5.3-10 | BEARING-LUBRICATION 태산 스타일 변환 | ✅ done | Full-page + Anchor 완료 |
+| P5.3-07 | PUMP 태산 스타일 변환 | ✅ done | Full-page + Anchor + ProductIntro 완료 (2026-01-23) |
+| P5.3-08 | MIXER 태산 스타일 변환 | ✅ done | Full-page + Anchor + ProductIntro 완료 (2026-01-23) |
+| P5.3-09 | MOTOR 태산 스타일 변환 | ⏳ pending | ProductIntro 미적용, 어두운 배경 유지 |
+| P5.3-10 | BEARING-LUBRICATION 태산 스타일 변환 | ⏳ pending | ProductIntro 미적용, 어두운 배경 유지 |
+
+**기준 패턴:** COMPRESSOR/MIXER (ProductIntro + Header/Footer + 밝은 배경 교대)
 
 ### P2 - 정리 작업
 
@@ -94,8 +96,8 @@
 ### B2 대기 (부품 사진 + 텍스트)
 - [ ] 파트너사 로고 화질 개선 (P1)
 - [ ] 부품 사진 누끼 작업 (P3)
-- [ ] 파트너사별 소개 내용 삽입 (P3) → [UI 가이드 참조](./UI_guide_2nd_organized.md#7-business-partners)
-- [ ] 아이템별 상세 설명 텍스트 (P3) → [UI 가이드 참조](./UI_guide_2nd_organized.md)
+- [ ] 파트너사별 소개 내용 삽입 (P3) → [디자인 시스템 #9 참조](./06-DESIGN_SYSTEM.md#9-business-partners-요약)
+- [ ] 아이템별 상세 설명 텍스트 (P3) → [디자인 시스템 #8 참조](./06-DESIGN_SYSTEM.md#8-products-콘텐츠-가이드)
 
 ### B6 대기 (공식 CI 로고)
 - [ ] 스크롤 시 로고 노출 방식 최적화 (P2)
@@ -104,10 +106,10 @@
 ### 기타 대기
 - [ ] AI 생성 이미지 교체 (P3)
 - [ ] 기계 도면 고감도 컨셉 (P3)
-- [ ] 산업별 개별 페이지 생성 (P3) → [UI 가이드 #6](./UI_guide_2nd_organized.md#6-business-area)
+- [ ] 산업별 개별 페이지 생성 (P3) → [디자인 시스템 #10 참조](./06-DESIGN_SYSTEM.md#10-business-area)
   - Power plant(발전소) 섹션 추가 포함
 - [ ] 라온 회사 소개서 다운로드 버튼 (P3)
-- [ ] 글로벌 파트너사 카탈로그 링크 (P3) → [파트너 목록](./UI_guide_2nd_organized.md#7-business-partners)
+- [ ] 글로벌 파트너사 카탈로그 링크 (P3) → [디자인 시스템 #9 참조](./06-DESIGN_SYSTEM.md#9-business-partners-요약)
 
 ---
 
@@ -179,7 +181,7 @@
 
 - **프로젝트 계획**: [01-PLAN.md](./01-PLAN.md) - Phase 5에 2차 리뉴얼 계획 포함
 - **변경 기록**: [03-CHANGELOG.md](./03-CHANGELOG.md)
-- **콘텐츠 가이드**: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md) - Products 메뉴 구조 및 콘텐츠
-- **🆕 Products 재설계**: [PRODUCTS-REDESIGN-GUIDE.md](./PRODUCTS-REDESIGN-GUIDE.md) - 페이지 레이아웃 및 서브메뉴 구조
+- **🆕 디자인 시스템 (통합)**: [06-DESIGN_SYSTEM.md](./06-DESIGN_SYSTEM.md) - 색상/레이아웃/콘텐츠 통합 가이드 v2.0
 - **QA 리포트**: [QA_REPORT.md](./QA_REPORT.md) - 브라우저 호환성 및 모바일 UX 테스트 결과
 - **SEO 등록 가이드**: [SEO-REGISTRATION-GUIDE.md](./SEO-REGISTRATION-GUIDE.md) - Naver/Google 등록 방법
+- **Archive**: [archive/](./archive/) - 이전 문서 (UI_guide, PRODUCTS-REDESIGN-GUIDE)

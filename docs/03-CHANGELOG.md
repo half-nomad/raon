@@ -6,27 +6,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2026-01-21
+## [1.1.3] - 2026-01-23
 
-### Changed - Phase 5.3b 태산 스타일 전체 적용
+### Changed
+- **디자인 시스템 문서 통합** (`docs/06-DESIGN_SYSTEM.md` v2.0)
+  - UI_guide_2nd_organized.md 콘텐츠 통합 (Products 콘텐츠 가이드)
+  - PRODUCTS-REDESIGN-GUIDE.md 레이아웃 패턴 통합 (태산 스타일)
+  - 색상 정책 통일: 모든 페이지 브랜드 색상 적용 (Blue/Red)
+  - 아이콘 사용 최소화 정책 추가
+  - 기존 문서 → `docs/archive/`로 이동
 
-**5개 Products 페이지 태산 스타일 (Full-page + Anchor scroll) 완료**
+---
 
-- **COMPRESSOR**: Hero Section 일관성 수정 (pt-[172px], via gradient 추가)
-- **PUMP**: 탭 방식 → Full-page + Anchor scroll 변환
-- **MIXER**: 탭 방식 → Full-page + Anchor scroll 변환 (5개 브랜드 섹션)
-- **MOTOR**: 탭 방식 → Full-page + Anchor scroll 변환 (2개 섹션)
-- **BEARING-LUBRICATION**: 탭 방식 → Full-page + Anchor scroll 변환 (2개 섹션)
+## [1.1.2] - 2026-01-23
 
-**공통 디자인 패턴 적용:**
-- Fixed Sub-Nav: `fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10`
-- Hero Section: `pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942]`
-- 페이지별 액센트 색상: COMPRESSOR(#EF4444), PUMP(#3B82F6), MIXER(#10B981), MOTOR(#F59E0B), BEARING(#8B5CF6)
+### Changed
+- **PUMP 페이지 태산 스타일 적용** (`app/[locale]/products/pump/page.tsx`)
+  - "use client" 추가 (SSR → CSR 변환)
+  - Header/Footer 컴포넌트 추가
+  - ProductIntro 컴포넌트 추가
+  - Fixed Sub-Nav (PUMP SOLUTION / TROUBLE SHOOTING / 파트너 / 문의하기)
+  - 배경색 패턴 변경: 전체 다크 → white/slate-50 교대
+  - 녹색(green) 완전 제거 → 브랜드 컬러 적용 (아이콘: #3B82F6, 액센트: #EF4444)
+  - CTA 섹션 Red 그래디언트 (#EF4444 → #DC2626)
 
-### Technical
-- 빌드 성공 (42 pages generated)
-- 5개 페이지 디자인 일관성 검증 완료
-- Phase 5.3 P1 100% 완료
+---
+
+## [1.1.1] - 2026-01-23
+
+### Changed
+- **MIXER 페이지 태산 스타일 적용** (`app/[locale]/products/mixer/page.tsx`)
+  - ProductIntro 컴포넌트 추가
+  - Header/Footer 컴포넌트 추가
+  - Fixed Sub-Nav (섹션 내 앵커 스크롤) 구현
+  - 배경색 패턴 변경: 어두운 배경 → white/slate-50 교대
+  - 5개 브랜드 카드 accent color 적용
 
 ---
 

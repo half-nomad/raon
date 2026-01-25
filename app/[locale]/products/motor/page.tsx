@@ -124,32 +124,6 @@ export default function MotorPage() {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* Fixed Sub Navigation - 태산 스타일 (Header 바로 아래 고정) */}
-        <nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
-          <div className="section-container">
-            <div className="flex overflow-x-auto scrollbar-hide">
-              {subNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
-                    ${activeSection === item.id
-                      ? "text-white"
-                      : "text-slate-400 hover:text-slate-200"
-                    }
-                  `}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942] text-white">
           <div className="section-container">
@@ -188,19 +162,45 @@ export default function MotorPage() {
           ]}
         />
 
-        {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white → navy) ========== */}
+        {/* Sub Navigation - ProductIntro와 콘텐츠 섹션 사이, 스크롤 시 상단 고정 */}
+        <nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+          <div className="section-container">
+            <div className="flex overflow-x-auto scrollbar-hide">
+              {subNavItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`
+                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
+                    ${activeSection === item.id
+                      ? "text-[#0A1628]"
+                      : "text-slate-500 hover:text-[#0A1628]"
+                    }
+                  `}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </nav>
 
-        {/* Section 1: SPARE PARTS - 흰색 배경 */}
-        <section id="spare-parts" className="py-16 md:py-24 bg-white">
+        {/* ========== 모든 섹션 세로 나열 (배경 교차: navy → white → navy → white) ========== */}
+
+        {/* Section 1: SPARE PARTS - 네이비 배경 */}
+        <section id="spare-parts" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 MOTOR SPARE PARTS
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
+              <p className="text-slate-300 mt-4 max-w-2xl">
                 해외 OEM 왕복동압축기에 동력원으로 공급되는 외산 Motor의 Aftermarket 국내대리점
               </p>
             </div>
@@ -210,16 +210,16 @@ export default function MotorPage() {
               <div>
                 <div className="space-y-6">
                   {partners.map((partner, idx) => (
-                    <div key={idx} className="mb-8 p-6 bg-slate-50 rounded-xl">
-                      <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
+                    <div key={idx} className="mb-8 p-6 bg-white/10 border border-white/20 rounded-xl hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                         {partner.name}
                       </h3>
-                      <p className="text-slate-500 text-sm mb-1">{partner.fullName}</p>
+                      <p className="text-slate-400 text-sm mb-1">{partner.fullName}</p>
                       <p className="text-[#3B82F6] font-medium">{partner.country}</p>
-                      <p className="text-slate-600 mt-4 leading-relaxed">
+                      <p className="text-slate-300 mt-4 leading-relaxed">
                         {partner.description}
                       </p>
-                      <p className="text-sm text-slate-500 mt-2">
+                      <p className="text-sm text-slate-400 mt-2">
                         국내 정유/석유화학 공장 설치, 기술지원/Supervisor/부품 공급
                       </p>
                     </div>
@@ -229,15 +229,15 @@ export default function MotorPage() {
 
               {/* 오른쪽: 서비스 특징 - 인포그래픽 스타일 */}
               <div>
-                <h4 className="text-lg font-bold text-[#0A1628] mb-6">서비스 내용</h4>
+                <h4 className="text-lg font-bold text-white mb-6">서비스 내용</h4>
                 <div className="space-y-3">
                   {sparePartsServices.map((service, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/5 pl-4 py-3 pr-4"
                     >
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="text-slate-700 font-medium">{service}</span>
+                      <span className="text-white font-medium">{service}</span>
                     </div>
                   ))}
                 </div>
@@ -246,19 +246,19 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* Section 2: 방폭인증서비스 - 네이비 배경 (반전) */}
-        <section id="certification" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 2: 방폭인증서비스 - 흰색 배경 (반전) */}
+        <section id="certification" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 방폭인증서비스
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
+              <p className="text-slate-600 mt-4 max-w-2xl">
                 국내 방폭 지역 설치 외산 수입 모터 → 국내 인증 필수.
-                <span className="text-white font-semibold"> KOSHA/KTL/KGS</span> 인증 대응 서비스를 제공합니다.
+                <span className="text-[#0A1628] font-semibold"> KOSHA/KTL/KGS</span> 인증 대응 서비스를 제공합니다.
               </p>
             </div>
 
@@ -267,11 +267,11 @@ export default function MotorPage() {
               {certificationAgencies.map((agency, idx) => (
                 <div
                   key={idx}
-                  className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
+                  className="group p-6 rounded-xl bg-[#0A1628] border border-slate-700 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
-                  <h4 className="font-bold text-[#3B82F6] text-xl mt-2">{agency.code}</h4>
-                  <p className="text-white font-medium mt-1">{agency.name}</p>
+                  <span className="text-3xl font-bold text-white/20">{String(idx + 1).padStart(2, '0')}</span>
+                  <h4 className="font-bold text-white text-xl mt-2">{agency.code}</h4>
+                  <p className="text-slate-300 font-medium mt-1">{agency.name}</p>
                   <p className="text-sm text-slate-400 mt-2">{agency.desc}</p>
                 </div>
               ))}
@@ -282,9 +282,9 @@ export default function MotorPage() {
               {certificationServices.map((service, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="p-5 rounded-xl bg-[#0A1628] border border-slate-700 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-2xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="text-2xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
                   <p className="text-white font-medium mt-2">{service}</p>
                 </div>
               ))}
@@ -292,17 +292,17 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* Section 3: 인증 프로세스 - 흰색 배경 */}
-        <section id="process" className="py-16 md:py-24 bg-white">
+        {/* Section 3: 인증 프로세스 - 네이비 배경 */}
+        <section id="process" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 인증 프로세스
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
+              <p className="text-slate-300 mt-4 max-w-2xl">
                 30년간 축적된 현장 경험을 바탕으로 <span className="text-[#EF4444] font-semibold">체계적인 인증 절차</span>를 제공합니다.
               </p>
             </div>
@@ -312,22 +312,22 @@ export default function MotorPage() {
               {certificationProcess.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex gap-5 p-6 bg-slate-50 rounded-xl"
+                  className="flex gap-5 p-6 bg-white/10 border border-white/20 rounded-xl hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-4xl font-bold text-[#0A1628]/10">
+                  <span className="text-4xl font-bold text-white/20">
                     {String(item.step).padStart(2, '0')}
                   </span>
                   <div>
-                    <h4 className="font-semibold text-[#0A1628] mb-1">{item.title}</h4>
-                    <p className="text-sm text-slate-600">{item.desc}</p>
+                    <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                    <p className="text-sm text-slate-300">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* 프로세스 플로우 */}
-            <div className="p-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
-              <h4 className="text-lg font-bold text-[#0A1628] mb-6">진행 순서</h4>
+            <div className="p-8 bg-white/10 border border-white/20 rounded-2xl">
+              <h4 className="text-lg font-bold text-white mb-6">진행 순서</h4>
               <div className="flex flex-col md:flex-row gap-4 md:gap-0">
                 {certificationProcess.map((item, idx) => (
                   <div key={idx} className="flex-1 flex items-center">
@@ -335,7 +335,7 @@ export default function MotorPage() {
                       <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
                         {idx + 1}
                       </span>
-                      <span className="text-sm font-medium text-[#0A1628]">{item.title}</span>
+                      <span className="text-sm font-medium text-white">{item.title}</span>
                     </div>
                     {idx < certificationProcess.length - 1 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
                   </div>
@@ -345,18 +345,18 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* Section 4: 기술 지원 - 네이비 배경 */}
-        <section id="support" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 4: 기술 지원 - 흰색 배경 */}
+        <section id="support" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 기술 지원
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
-                국내 정유/석유화학 신설 프로젝트 다수 <span className="text-white font-semibold">방폭 기계 설치 경험</span> 보유.
+              <p className="text-slate-600 mt-4 max-w-2xl">
+                국내 정유/석유화학 신설 프로젝트 다수 <span className="text-[#0A1628] font-semibold">방폭 기계 설치 경험</span> 보유.
                 복잡한 인증 절차를 원활하게 진행하여 고객의 프로젝트 일정을 준수합니다.
               </p>
             </div>
@@ -373,9 +373,9 @@ export default function MotorPage() {
               ].map((service, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="p-6 rounded-xl bg-[#0A1628] border border-slate-700 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="text-3xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
                   <h4 className="font-semibold text-white mt-2">{service.title}</h4>
                   <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
                 </div>
@@ -383,7 +383,7 @@ export default function MotorPage() {
             </div>
 
             {/* 핵심 강점 강조 */}
-            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 border border-[#3B82F6]/20">
+            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#0A1628] to-[#1a2942] border border-[#3B82F6]/20">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
                   <span className="text-4xl font-bold text-white">30+</span>

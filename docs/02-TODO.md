@@ -1,7 +1,7 @@
 # TODO - 라온토탈솔루션 웹사이트
 
-> **최종 수정**: 2026-01-23
-> **진행률**: 34/44 완료 (77%) - Phase 5.3b 완료
+> **최종 수정**: 2026-01-25
+> **진행률**: 42/52 완료 (81%) - 전체 제품 페이지 디자인 통일 완료
 
 ---
 
@@ -11,7 +11,7 @@
 |------|------|------|--------|
 | P0 Critical | 9 | 9 | 100% |
 | P1 High | 14 | 14 | 100% |
-| P2 Medium | 9 | 10 | 90% |
+| P2 Medium | 17 | 18 | 94% |
 | P3 Low | 0 | 9 | 0% |
 
 ---
@@ -43,21 +43,41 @@
 
 **기준 패턴:** COMPRESSOR/MIXER (ProductIntro + Header/Footer + 밝은 배경 교대)
 
-### P2 - 정리 작업
+### 5.3c - P2 정리 작업 (✅ 완료)
 
-| ID | 작업 | 상태 | 의존성 |
-|----|------|------|--------|
-| P5.3-11 | cylinder-liner 페이지 삭제 + redirect 설정 | pending | P5.3-02 |
-| P5.3-12 | bearing, oil-purifier 페이지 삭제 + redirect 설정 | pending | P5.3-05 |
-| P5.3-13 | 각 페이지 메인 설명문 반영 (30년 경력 + 카테고리 소개) | pending | 5.3b 완료 후 |
+| ID | 작업 | 상태 | 비고 |
+|----|------|------|------|
+| P5.3-11 | cylinder-liner 페이지 삭제 + redirect 설정 | ✅ done | 삭제 완료, redirect는 기존 설정 (2026-01-23) |
+| P5.3-12 | bearing, oil-purifier 페이지 삭제 + redirect 설정 | ✅ done | 삭제 완료, redirect는 기존 설정 (2026-01-23) |
+| P5.3-13 | 각 페이지 메인 설명문 반영 (30년 경력 + 카테고리 소개) | ✅ done | pump, mixer, bearing-lubrication 반영 (2026-01-23) |
+
+### 5.3d - Compressor 스타일 통합 (✅ 완료)
+
+**목표**: Compressor 페이지 디자인 패턴을 나머지 제품 페이지에 적용
+
+**적용 패턴**:
+1. Sub Nav sticky 위치 조정
+2. 섹션 색상 반전 (홀수 Navy, 짝수 White)
+3. 강조 카드 Navy 배경 유지
+4. ProductIntro 갤러리 균등 카드 스타일
+5. 서비스 카드 이미지 구조 추가
+6. CTA 배경 무늬 적용
+
+| ID | 작업 | 상태 | 비고 |
+|----|------|------|------|
+| P5.3-14 | Compressor 페이지 디자인 수정 | ✅ done | Sub Nav sticky, 섹션 반전, 갤러리, M&R 이미지, CTA 배경 (2026-01-25) |
+| P5.3-15 | Pump 페이지 Compressor 스타일 적용 | ✅ done | Sub Nav sticky, 섹션 Navy-White 교차, 카드 Navy, 호버 효과 (2026-01-25) |
+| P5.3-16 | Mixer 페이지 Compressor 스타일 적용 | ✅ done | Sub Nav sticky, 섹션 Navy-White 교차, 카드 Navy, 호버 효과 (2026-01-25) |
+| P5.3-17 | Motor 페이지 Compressor 스타일 적용 | ✅ done | Sub Nav sticky, 섹션 Navy-White 교차, 카드 Navy, 호버 효과 (2026-01-25) |
+| P5.3-18 | Bearing-Lubrication 페이지 Compressor 스타일 적용 | ✅ done | Sub Nav sticky, 섹션 Navy-White 교차, 카드 Navy, 호버 효과 (2026-01-25) |
 
 ### P3 - 낮은 우선순위
 
 | ID | 작업 | 상태 | 의존성 |
 |----|------|------|--------|
-| P5.3-14 | 누락 이미지 추가 (motor_1.jpg) | pending | - |
-| P5.3-15 | 누락 이미지 추가 (pump_1.jpg) | pending | - |
-| P5.3-16 | en.json industries 섹션 번역 키 보완 | pending | - |
+| P5.3-19 | 누락 이미지 추가 (motor_1.jpg) | pending | - |
+| P5.3-20 | 누락 이미지 추가 (pump_1.jpg) | pending | - |
+| P5.3-21 | en.json industries 섹션 번역 키 보완 | pending | - |
 
 ---
 

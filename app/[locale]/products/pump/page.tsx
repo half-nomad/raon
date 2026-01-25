@@ -99,32 +99,6 @@ export default function PumpPage() {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* Fixed Sub Navigation */}
-        <nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
-          <div className="section-container">
-            <div className="flex overflow-x-auto scrollbar-hide">
-              {subNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
-                    ${activeSection === item.id
-                      ? "text-white"
-                      : "text-slate-400 hover:text-slate-200"
-                    }
-                  `}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942] text-white">
           <div className="section-container">
@@ -149,7 +123,7 @@ export default function PumpPage() {
         {/* Product Intro - 2컬럼 레이아웃 */}
         <ProductIntro
           title="펌프 전문 솔루션"
-          description="스위스에 소재한 CP Pump의 국내대리점으로써 Magnetic Driven(Sealless) Pump 전문 업체로 Metal 및 PFA Lined PUMP SOLUTION을 제공하고 있습니다. 정유, 석유화학, 바이오, F&B 등 모든 산업 분야에 최적의 PUMP를 공급합니다."
+          description="RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, 스위스 CP Pump의 국내대리점으로써 Magnetic Driven(Sealless) Pump 전문 솔루션을 제공합니다. Metal 및 PFA Lined PUMP를 통해 정유, 석유화학, 바이오, F&B 등 모든 산업 분야에 최적의 PUMP를 공급합니다."
           images={heroImages}
           partners={[
             { name: "CP PUMP", country: "스위스" },
@@ -162,15 +136,41 @@ export default function PumpPage() {
           ]}
         />
 
+        {/* Sticky Sub Navigation */}
+        <nav className="sticky top-[72px] left-0 right-0 z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+          <div className="section-container">
+            <div className="flex overflow-x-auto scrollbar-hide">
+              {subNavItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`
+                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
+                    ${activeSection === item.id
+                      ? "text-[#0A1628]"
+                      : "text-slate-500 hover:text-[#0A1628]"
+                    }
+                  `}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </nav>
+
         {/* ========== 섹션 교차: white → navy → white → navy ========== */}
 
-        {/* Section 1: PUMP SOLUTION - 흰색 배경 */}
-        <section id="solution" className="py-16 md:py-24 bg-white">
+        {/* Section 1: PUMP SOLUTION - 네이비 배경 */}
+        <section id="solution" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 PUMP SOLUTION
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
@@ -179,7 +179,7 @@ export default function PumpPage() {
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
               {/* 왼쪽: 핵심 장점 */}
               <div>
-                <h3 className="text-xl font-bold text-[#0A1628] mb-6">
+                <h3 className="text-xl font-bold text-white mb-6">
                   Magnetic Driven Pump 핵심 장점
                 </h3>
                 <div className="space-y-4">
@@ -189,11 +189,11 @@ export default function PumpPage() {
                     { num: "03", title: "고효율", desc: "에너지 비용 절감" },
                     { num: "04", title: "저유지보수", desc: "씰 교체 불필요, TCO 절감" },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4">
+                    <div key={idx} className="flex gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4">
                       <span className="text-[#3B82F6] font-bold text-lg">{item.num}</span>
                       <div>
-                        <h4 className="font-semibold text-[#0A1628]">{item.title}</h4>
-                        <p className="text-sm text-slate-500">{item.desc}</p>
+                        <h4 className="font-semibold text-white">{item.title}</h4>
+                        <p className="text-sm text-slate-400">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -201,13 +201,13 @@ export default function PumpPage() {
               </div>
 
               {/* 오른쪽: 적용 분야 */}
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <h4 className="text-lg font-bold text-[#0A1628] mb-6">적용 분야</h4>
+              <div className="bg-white/10 rounded-2xl p-8">
+                <h4 className="text-lg font-bold text-white mb-6">적용 분야</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {["정유/석유화학", "바이오/제약", "F&B (식품)", "수처리"].map((app, idx) => (
-                    <div key={idx} className="p-4 bg-white rounded-lg border border-slate-200">
-                      <span className="text-3xl font-bold text-[#3B82F6]/20">{String(idx + 1).padStart(2, '0')}</span>
-                      <p className="font-medium text-[#0A1628] mt-2">{app}</p>
+                    <div key={idx} className="p-4 bg-white/10 rounded-lg border border-white/10 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                      <span className="text-3xl font-bold text-[#3B82F6]/50">{String(idx + 1).padStart(2, '0')}</span>
+                      <p className="font-medium text-white mt-2">{app}</p>
                     </div>
                   ))}
                 </div>
@@ -216,13 +216,13 @@ export default function PumpPage() {
           </div>
         </section>
 
-        {/* Section 2: 제품 라인업 - 네이비 배경 */}
-        <section id="products" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 2: 제품 라인업 - 흰색 배경 */}
+        <section id="products" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 제품 라인업
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
@@ -230,22 +230,22 @@ export default function PumpPage() {
 
             {/* Magnetic Driven Pump */}
             <div className="mb-12">
-              <h3 className="text-xl font-bold text-white mb-6">
+              <h3 className="text-xl font-bold text-[#0A1628] mb-6">
                 Magnetic Driven Pump (Sealless)
               </h3>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {magneticPumps.map((pump, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                    className="p-5 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <span className="px-3 py-1 bg-[#3B82F6] text-white text-xs font-bold rounded">
                         {pump.model}
                       </span>
-                      <span className="text-xs text-slate-500">{pump.type}</span>
+                      <span className="text-xs text-slate-400">{pump.type}</span>
                     </div>
-                    <p className="text-sm text-slate-400">{pump.desc}</p>
+                    <p className="text-sm text-slate-300">{pump.desc}</p>
                   </div>
                 ))}
               </div>
@@ -253,19 +253,19 @@ export default function PumpPage() {
 
             {/* Double Mechanical Seal Pump */}
             <div>
-              <h3 className="text-xl font-bold text-white mb-6">
+              <h3 className="text-xl font-bold text-[#0A1628] mb-6">
                 Double Mechanical Seal Pump
               </h3>
               <div className="grid sm:grid-cols-3 gap-4">
                 {mechanicalPumps.map((pump, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                    className="p-5 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                   >
                     <span className="px-3 py-1 bg-slate-600 text-white text-xs font-bold rounded">
                       {pump.model}
                     </span>
-                    <p className="text-sm text-slate-400 mt-3">{pump.desc}</p>
+                    <p className="text-sm text-slate-300 mt-3">{pump.desc}</p>
                   </div>
                 ))}
               </div>
@@ -273,17 +273,17 @@ export default function PumpPage() {
           </div>
         </section>
 
-        {/* Section 3: TROUBLE SHOOTING - 흰색 배경 */}
-        <section id="troubleshooting" className="py-16 md:py-24 bg-white">
+        {/* Section 3: TROUBLE SHOOTING - 네이비 배경 */}
+        <section id="troubleshooting" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 TROUBLE SHOOTING
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
+              <p className="text-slate-300 mt-4 max-w-2xl">
                 혹독한 부식성 유체와 Slurry로 인한 부품 손상 문제를 해결합니다
               </p>
             </div>
@@ -293,20 +293,20 @@ export default function PumpPage() {
               {troubleShootingItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-xl bg-slate-50 ${item.highlight ? 'ring-2 ring-[#3B82F6]' : ''}`}
+                  className={`p-6 rounded-xl bg-white/10 border border-white/10 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all ${item.highlight ? 'ring-2 ring-[#3B82F6]' : ''}`}
                 >
                   {item.highlight && (
                     <span className="inline-block px-2 py-1 bg-[#3B82F6] text-white text-xs font-bold rounded mb-4">
                       특허 기술
                     </span>
                   )}
-                  <span className="text-4xl font-bold text-[#0A1628]/10">
+                  <span className="text-4xl font-bold text-white/30">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                   <div className="mt-4">
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">문제</p>
-                    <h4 className="font-semibold text-[#0A1628] mb-4">{item.problem}</h4>
-                    <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">해결</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">문제</p>
+                    <h4 className="font-semibold text-white mb-4">{item.problem}</h4>
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">해결</p>
                     <p className="text-sm text-[#3B82F6] font-medium">{item.solution}</p>
                   </div>
                 </div>
@@ -314,8 +314,8 @@ export default function PumpPage() {
             </div>
 
             {/* 일반 펌프 문제 */}
-            <div className="bg-slate-50 rounded-2xl p-8">
-              <h4 className="text-lg font-bold text-[#0A1628] mb-6">일반적인 펌프 문제 & CP Pump 솔루션</h4>
+            <div className="bg-white/10 rounded-2xl p-8">
+              <h4 className="text-lg font-bold text-white mb-6">일반적인 펌프 문제 & CP Pump 솔루션</h4>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
                   { problem: "펌프 누설", solution: "Magnetic Drive 방식으로 완전 밀폐" },
@@ -323,11 +323,11 @@ export default function PumpPage() {
                   { problem: "유량/압력 저하", solution: "내마모성 소재와 최적화된 임펠러 설계" },
                   { problem: "잦은 유지보수", solution: "Sealless 설계로 씰 관련 유지보수 불필요" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4 p-4 bg-white rounded-lg">
-                    <span className="text-2xl font-bold text-slate-200">{String(idx + 1).padStart(2, '0')}</span>
+                  <div key={idx} className="flex gap-4 p-4 bg-white/10 rounded-lg border border-white/10 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                    <span className="text-2xl font-bold text-white/30">{String(idx + 1).padStart(2, '0')}</span>
                     <div>
-                      <h5 className="font-semibold text-[#0A1628] mb-1">{item.problem}</h5>
-                      <p className="text-sm text-slate-600">{item.solution}</p>
+                      <h5 className="font-semibold text-white mb-1">{item.problem}</h5>
+                      <p className="text-sm text-slate-300">{item.solution}</p>
                     </div>
                   </div>
                 ))}
@@ -336,13 +336,13 @@ export default function PumpPage() {
           </div>
         </section>
 
-        {/* Section 4: CP PUMP 파트너 - 네이비 배경 */}
-        <section id="partner" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 4: CP PUMP 파트너 - 흰색 배경 */}
+        <section id="partner" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 CP PUMP
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
@@ -351,11 +351,11 @@ export default function PumpPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* 왼쪽: 파트너 정보 */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-[#0A1628] mb-2">
                   CP PUMP
                 </h3>
                 <p className="text-[#3B82F6] font-medium mb-6">Switzerland</p>
-                <p className="text-slate-300 leading-relaxed mb-8">
+                <p className="text-slate-600 leading-relaxed mb-8">
                   스위스에 소재한 CP Pump는 50년 이상의 역사를 가진 Magnetic Driven Pump 전문 제조사입니다.
                   고객 만족을 최우선으로 Trouble Shooting을 통한 최적의 PUMP를 공급합니다.
                 </p>
@@ -370,7 +370,7 @@ export default function PumpPage() {
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <span className="w-2 h-2 rounded-full bg-[#3B82F6]" />
-                      <span className="text-slate-300">{item}</span>
+                      <span className="text-slate-600">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -384,7 +384,7 @@ export default function PumpPage() {
                   { value: "100%", label: "누설 방지" },
                   { value: "24/7", label: "기술 지원" },
                 ].map((stat, idx) => (
-                  <div key={idx} className="p-6 bg-white/5 rounded-xl border border-white/10 text-center">
+                  <div key={idx} className="p-6 bg-[#0A1628] rounded-xl border border-slate-200 text-center hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
                     <span className="text-3xl font-bold text-white">{stat.value}</span>
                     <p className="text-sm text-slate-400 mt-2">{stat.label}</p>
                   </div>

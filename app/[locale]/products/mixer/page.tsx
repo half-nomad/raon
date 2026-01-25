@@ -110,32 +110,6 @@ export default function MixerPage() {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* Fixed Sub Navigation */}
-        <nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
-          <div className="section-container">
-            <div className="flex overflow-x-auto scrollbar-hide">
-              {subNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
-                    ${activeSection === item.id
-                      ? "text-white"
-                      : "text-slate-400 hover:text-slate-200"
-                    }
-                  `}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942] text-white">
           <div className="section-container">
@@ -160,7 +134,7 @@ export default function MixerPage() {
         {/* Product Intro - 2컬럼 레이아웃 */}
         <ProductIntro
           title="Mixing Solution 전문"
-          description="RTS는 SPXFLOW의 국내 마스터 대리점으로써 현대 산업 전반에 걸쳐 중요한 제조 라인인 다양한 혼합 공정에 필요한 MIXER를 설계 제작하여 공급하고 있으며 생산성 향상, 에너지 절감 및 비용 절감을 위한 고객 맞춤형 MIXING SOLUTION을 제공하고 있습니다."
+          description="RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, SPXFLOW의 국내 마스터 대리점으로써 다양한 혼합 공정에 필요한 MIXER를 설계 제작하여 공급합니다. 생산성 향상, 에너지 절감 및 비용 절감을 위한 고객 맞춤형 MIXING SOLUTION을 제공합니다."
           images={heroImages}
           partners={[
             { name: "LIGHTNIN", country: "미국" },
@@ -177,15 +151,41 @@ export default function MixerPage() {
           ]}
         />
 
+        {/* Sub Navigation - ProductIntro와 콘텐츠 섹션 사이, 스크롤 시 상단 고정 */}
+        <nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+          <div className="section-container">
+            <div className="flex overflow-x-auto scrollbar-hide">
+              {subNavItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`
+                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
+                    ${activeSection === item.id
+                      ? "text-[#0A1628]"
+                      : "text-slate-500 hover:text-[#0A1628]"
+                    }
+                  `}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </nav>
+
         {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white → navy) ========== */}
 
-        {/* Section 1: OVERVIEW - 흰색 배경 */}
-        <section id="overview" className="py-16 md:py-24 bg-white">
+        {/* Section 1: OVERVIEW - 네이비 배경 */}
+        <section id="overview" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 MIXING SOLUTION
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
@@ -195,11 +195,11 @@ export default function MixerPage() {
               {/* 왼쪽: 파트너 정보 */}
               <div>
                 <div className="mb-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                     SPXFLOW
                   </h3>
                   <p className="text-[#3B82F6] font-medium">Global Master Partner</p>
-                  <p className="text-slate-600 mt-4 leading-relaxed">
+                  <p className="text-slate-300 mt-4 leading-relaxed">
                     SPXFLOW는 세계적인 믹서 제조사로, 5개 글로벌 브랜드를 통해
                     다양한 산업 분야에 최적화된 Mixing Solution을 제공합니다.
                     RTS는 국내 마스터 대리점으로서 설계, 공급, A/S를 담당합니다.
@@ -211,12 +211,12 @@ export default function MixerPage() {
                   {applicationAreas.map((area, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4 hover:shadow-md transition-all"
                     >
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
                       <div>
-                        <span className="text-slate-700 font-medium">{area.title}</span>
-                        <span className="text-slate-500 text-sm ml-2">{area.desc}</span>
+                        <span className="text-white font-medium">{area.title}</span>
+                        <span className="text-slate-400 text-sm ml-2">{area.desc}</span>
                       </div>
                     </div>
                   ))}
@@ -224,8 +224,8 @@ export default function MixerPage() {
               </div>
 
               {/* 오른쪽: 핵심 특징 - 인포그래픽 */}
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <h4 className="text-lg font-bold text-[#0A1628] mb-6">핵심 특징</h4>
+              <div className="bg-white/10 rounded-2xl p-8 border border-white/10 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                <h4 className="text-lg font-bold text-white mb-6">핵심 특징</h4>
                 <div className="space-y-6">
                   {[
                     { num: "01", title: "생산성 향상", desc: "Process 속도 향상 및 생산량 증가" },
@@ -234,10 +234,10 @@ export default function MixerPage() {
                     { num: "04", title: "글로벌 품질", desc: "5개 브랜드의 검증된 기술력" },
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-4">
-                      <span className="text-3xl font-bold text-[#3B82F6]/20">{item.num}</span>
+                      <span className="text-3xl font-bold text-[#3B82F6]/50">{item.num}</span>
                       <div>
-                        <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
-                        <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                        <h5 className="font-semibold text-white">{item.title}</h5>
+                        <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -247,17 +247,17 @@ export default function MixerPage() {
           </div>
         </section>
 
-        {/* Section 2: BRANDS - 네이비 배경 */}
-        <section id="brands" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 2: BRANDS - 흰색 배경 */}
+        <section id="brands" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 5개 글로벌 브랜드
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
+              <p className="text-slate-600 mt-4 max-w-2xl">
                 세계적인 믹서 브랜드를 국내에 공급합니다.
                 각 브랜드의 전문 분야에 맞춰 최적의 솔루션을 제안합니다.
               </p>
@@ -268,7 +268,7 @@ export default function MixerPage() {
               {spxflowBrands.map((brand, idx) => (
                 <div
                   key={idx}
-                  className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
+                  className="group p-6 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <h4 className="text-xl font-bold text-white">{brand.name}</h4>
@@ -291,17 +291,17 @@ export default function MixerPage() {
           </div>
         </section>
 
-        {/* Section 3: APPLICATIONS - 흰색 배경 */}
-        <section id="applications" className="py-16 md:py-24 bg-white">
+        {/* Section 3: APPLICATIONS - 네이비 배경 */}
+        <section id="applications" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 주요 적용 분야
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
+              <p className="text-slate-300 mt-4 max-w-2xl">
                 다양한 산업 분야에서 <span className="text-[#EF4444] font-semibold">최적화된 Mixing Solution</span>을 제공합니다.
               </p>
             </div>
@@ -316,22 +316,22 @@ export default function MixerPage() {
               ].map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex gap-5 p-6 bg-slate-50 rounded-xl"
+                  className="flex gap-5 p-6 bg-white/10 rounded-xl border border-white/10 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-4xl font-bold text-[#0A1628]/10">
+                  <span className="text-4xl font-bold text-white/50">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                   <div>
-                    <h4 className="font-semibold text-[#0A1628] mb-1">{item.title}</h4>
-                    <p className="text-sm text-slate-600">{item.desc}</p>
+                    <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                    <p className="text-sm text-slate-400">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* 선정 프로세스 */}
-            <div className="mt-12 p-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
-              <h4 className="text-lg font-bold text-[#0A1628] mb-6">솔루션 선정 프로세스</h4>
+            <div className="mt-12 p-8 bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 rounded-2xl border border-[#3B82F6]/20">
+              <h4 className="text-lg font-bold text-white mb-6">솔루션 선정 프로세스</h4>
               <div className="flex flex-col md:flex-row gap-4 md:gap-0">
                 {["요구사항 분석", "브랜드 선정", "설계 검토", "제작/납품", "A/S 지원"].map((step, idx) => (
                   <div key={idx} className="flex-1 flex items-center">
@@ -339,7 +339,7 @@ export default function MixerPage() {
                       <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
                         {idx + 1}
                       </span>
-                      <span className="text-sm font-medium text-[#0A1628]">{step}</span>
+                      <span className="text-sm font-medium text-white">{step}</span>
                     </div>
                     {idx < 4 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
                   </div>
@@ -349,18 +349,18 @@ export default function MixerPage() {
           </div>
         </section>
 
-        {/* Section 4: SERVICE - 네이비 배경 */}
-        <section id="service" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 4: SERVICE - 흰색 배경 */}
+        <section id="service" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 SERVICE & SUPPORT
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
-                설계부터 A/S까지, <span className="text-white font-semibold">One-Stop 서비스</span>를 제공합니다.
+              <p className="text-slate-600 mt-4 max-w-2xl">
+                설계부터 A/S까지, <span className="text-[#0A1628] font-semibold">One-Stop 서비스</span>를 제공합니다.
               </p>
             </div>
 
@@ -376,9 +376,9 @@ export default function MixerPage() {
               ].map((service, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="p-6 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="text-3xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
                   <h4 className="font-semibold text-white mt-2">{service.title}</h4>
                   <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
                 </div>
@@ -386,23 +386,23 @@ export default function MixerPage() {
             </div>
 
             {/* 파트너 네트워크 강조 */}
-            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 border border-[#3B82F6]/20">
+            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200">
               <div className="grid md:grid-cols-4 gap-8 text-center">
                 <div>
-                  <span className="text-4xl font-bold text-white">5</span>
-                  <p className="text-slate-400 mt-1">글로벌 브랜드</p>
+                  <span className="text-4xl font-bold text-[#0A1628]">5</span>
+                  <p className="text-slate-500 mt-1">글로벌 브랜드</p>
                 </div>
                 <div>
-                  <span className="text-4xl font-bold text-white">100+</span>
-                  <p className="text-slate-400 mt-1">년 역사</p>
+                  <span className="text-4xl font-bold text-[#0A1628]">100+</span>
+                  <p className="text-slate-500 mt-1">년 역사</p>
                 </div>
                 <div>
-                  <span className="text-4xl font-bold text-white">30+</span>
-                  <p className="text-slate-400 mt-1">년 국내 경험</p>
+                  <span className="text-4xl font-bold text-[#0A1628]">30+</span>
+                  <p className="text-slate-500 mt-1">년 국내 경험</p>
                 </div>
                 <div>
-                  <span className="text-4xl font-bold text-white">24/7</span>
-                  <p className="text-slate-400 mt-1">기술 지원</p>
+                  <span className="text-4xl font-bold text-[#0A1628]">24/7</span>
+                  <p className="text-slate-500 mt-1">기술 지원</p>
                 </div>
               </div>
             </div>

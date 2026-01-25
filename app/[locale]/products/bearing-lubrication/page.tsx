@@ -124,32 +124,6 @@ export default function BearingLubricationPage() {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* Fixed Sub Navigation */}
-        <nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
-          <div className="section-container">
-            <div className="flex overflow-x-auto scrollbar-hide">
-              {subNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
-                    ${activeSection === item.id
-                      ? "text-white"
-                      : "text-slate-400 hover:text-slate-200"
-                    }
-                  `}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942] text-white">
           <div className="section-container">
@@ -174,7 +148,7 @@ export default function BearingLubricationPage() {
         {/* Product Intro - 2컬럼 레이아웃 */}
         <ProductIntro
           title="베어링 & 윤활 전문 솔루션"
-          description="RTS는 국내 BEARING 제작사 터보링크와 윤활 정제기 제작사 삼영필텍의 영업대리점으로써 BEARING과 LUBRICATION에 대한 SOLUTION을 제공하고 있습니다. 65,000rpm급 초고속 터보압축기 베어링부터 수백톤 고하중 터빈 발전기 베어링까지 폭넓은 제품군을 보유하고 있습니다."
+          description="RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, 국내 BEARING 제작사 터보링크와 윤활 정제기 제작사 삼영필텍의 영업대리점으로써 BEARING과 LUBRICATION에 대한 SOLUTION을 제공합니다. 65,000rpm급 초고속 터보압축기 베어링부터 수백톤 고하중 터빈 발전기 베어링까지 폭넓은 제품군을 보유하고 있습니다."
           images={heroImages}
           partners={[
             { name: "터보링크 (TURBOLINK)", country: "한국" },
@@ -188,15 +162,41 @@ export default function BearingLubricationPage() {
           ]}
         />
 
+        {/* Sticky Sub Navigation */}
+        <nav className="sticky top-[72px] left-0 right-0 z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+          <div className="section-container">
+            <div className="flex overflow-x-auto scrollbar-hide">
+              {subNavItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`
+                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
+                    ${activeSection === item.id
+                      ? "text-[#0A1628]"
+                      : "text-slate-500 hover:text-[#0A1628]"
+                    }
+                  `}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </nav>
+
         {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white) ========== */}
 
-        {/* Section 1: BEARING SOLUTION - 흰색 배경 */}
-        <section id="bearing" className="py-16 md:py-24 bg-white">
+        {/* Section 1: BEARING SOLUTION - 네이비 배경 */}
+        <section id="bearing" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 BEARING SOLUTION
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
@@ -206,11 +206,11 @@ export default function BearingLubricationPage() {
               {/* 왼쪽: 파트너 정보 */}
               <div>
                 <div className="mb-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                     터보링크 (TURBOLINK)
                   </h3>
                   <p className="text-[#3B82F6] font-medium">Korea</p>
-                  <p className="text-slate-600 mt-4 leading-relaxed">
+                  <p className="text-slate-300 mt-4 leading-relaxed">
                     고속 고하중 회전기계의 유체윤활베어링 설계 및 제조 전문 기업으로,
                     65,000rpm급 초고속 터보압축기 베어링부터 축 하중 수백톤 고하중 터빈 발전기 베어링까지 공급합니다.
                   </p>
@@ -221,18 +221,18 @@ export default function BearingLubricationPage() {
                   {bearingServiceList.map((service, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4"
                     >
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="text-slate-700 font-medium">{service}</span>
+                      <span className="text-white font-medium">{service}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* 오른쪽: 핵심 특징 - 인포그래픽 */}
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <h4 className="text-lg font-bold text-[#0A1628] mb-6">핵심 특징</h4>
+              <div className="bg-white/10 rounded-2xl p-8">
+                <h4 className="text-lg font-bold text-white mb-6">핵심 특징</h4>
                 <div className="space-y-6">
                   {[
                     { num: "01", title: "초고속 대응", desc: "65,000rpm급 고속 회전에 최적화된 설계" },
@@ -240,10 +240,10 @@ export default function BearingLubricationPage() {
                     { num: "03", title: "맞춤 설계", desc: "고객 요구사항에 맞춘 커스텀 베어링 설계" },
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-4">
-                      <span className="text-3xl font-bold text-[#3B82F6]/20">{item.num}</span>
+                      <span className="text-3xl font-bold text-[#3B82F6]/50">{item.num}</span>
                       <div>
-                        <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
-                        <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                        <h5 className="font-semibold text-white">{item.title}</h5>
+                        <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -253,17 +253,17 @@ export default function BearingLubricationPage() {
           </div>
         </section>
 
-        {/* Section 2: BEARING PRODUCTS - 네이비 배경 */}
-        <section className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 2: BEARING PRODUCTS - 흰색 배경 */}
+        <section className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 BEARING PRODUCTS
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
+              <p className="text-slate-600 mt-4 max-w-2xl">
                 다양한 유체윤활베어링 제품군을 공급합니다.
                 고객의 요구사항에 맞춘 맞춤 설계 및 역설계를 통한 신규 제작도 가능합니다.
               </p>
@@ -274,10 +274,10 @@ export default function BearingLubricationPage() {
               {bearingProducts.map((product, idx) => (
                 <div
                   key={idx}
-                  className="group p-6 rounded-xl bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
+                  className="group p-6 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[#3B82F6] font-bold">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-[#3B82F6]/50 font-bold">{String(idx + 1).padStart(2, '0')}</span>
                     <h4 className="font-semibold text-white">{product.name}</h4>
                   </div>
                   <p className="text-sm text-slate-400 mb-4">{product.description}</p>
@@ -294,17 +294,17 @@ export default function BearingLubricationPage() {
           </div>
         </section>
 
-        {/* Section 3: LUBRICATION SOLUTION - 흰색 배경 */}
-        <section id="lubrication" className="py-16 md:py-24 bg-white">
+        {/* Section 3: LUBRICATION SOLUTION - 네이비 배경 */}
+        <section id="lubrication" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 LUBRICATION SOLUTION
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
+              <p className="text-slate-300 mt-4 max-w-2xl">
                 <span className="text-[#EF4444] font-semibold">삼영필텍</span>의 특허 기술인 이중 진공 시스템과 전기 필터를 통해
                 수분 제거 및 바니쉬 신속 제거가 가능합니다.
               </p>
@@ -314,11 +314,11 @@ export default function BearingLubricationPage() {
               {/* 왼쪽: 파트너 정보 */}
               <div>
                 <div className="mb-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                     삼영필텍 (SAMYOUNG FILTECH)
                   </h3>
                   <p className="text-[#3B82F6] font-medium">Korea</p>
-                  <p className="text-slate-600 mt-4 leading-relaxed">
+                  <p className="text-slate-300 mt-4 leading-relaxed">
                     윤활유 청정도 유지 전문 기업으로, 국내 특허 기술인 이중 진공 시스템과 전기 필터를 통해
                     수분 제거 및 바니쉬 신속 제거가 가능합니다.
                   </p>
@@ -334,18 +334,18 @@ export default function BearingLubricationPage() {
                   ].map((tech, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4"
                     >
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="text-slate-700 font-medium">{tech}</span>
+                      <span className="text-white font-medium">{tech}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* 오른쪽: 핵심 혜택 */}
-              <div className="bg-slate-50 rounded-2xl p-8">
-                <h4 className="text-lg font-bold text-[#0A1628] mb-6">도입 효과</h4>
+              <div className="bg-white/10 rounded-2xl p-8">
+                <h4 className="text-lg font-bold text-white mb-6">도입 효과</h4>
                 <div className="space-y-6">
                   {[
                     { num: "01", title: "윤활유 수명 연장", desc: "오염물질 제거로 오일 교체 주기 연장" },
@@ -353,10 +353,10 @@ export default function BearingLubricationPage() {
                     { num: "03", title: "비용 절감", desc: "오일 비용 및 정비 비용 절감" },
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-4">
-                      <span className="text-3xl font-bold text-[#3B82F6]/20">{item.num}</span>
+                      <span className="text-3xl font-bold text-[#3B82F6]/50">{item.num}</span>
                       <div>
-                        <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
-                        <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                        <h5 className="font-semibold text-white">{item.title}</h5>
+                        <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -366,19 +366,19 @@ export default function BearingLubricationPage() {
           </div>
         </section>
 
-        {/* Section 4: SERVICES - 네이비 배경 */}
-        <section id="services" className="py-16 md:py-24 bg-[#0A1628]">
+        {/* Section 4: SERVICES - 흰색 배경 */}
+        <section id="services" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
                 SERVICES
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
+              <p className="text-slate-600 mt-4 max-w-2xl">
                 Oil Purifier 판매부터 임대 서비스, Oil Flushing 서비스까지
-                <span className="text-white font-semibold"> 윤활 시스템 전반에 대한 종합 서비스</span>를 제공합니다.
+                <span className="text-[#0A1628] font-semibold"> 윤활 시스템 전반에 대한 종합 서비스</span>를 제공합니다.
               </p>
             </div>
 
@@ -387,9 +387,9 @@ export default function BearingLubricationPage() {
               {lubricationServices.map((service, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  className="p-6 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
                 >
-                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <span className="text-3xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
                   <h4 className="font-semibold text-white mt-2">{service.name}</h4>
                   <p className="text-sm text-slate-400 mt-1 mb-4">{service.description}</p>
                   <div className="flex flex-wrap gap-1.5">
@@ -404,7 +404,7 @@ export default function BearingLubricationPage() {
             </div>
 
             {/* 파트너 네트워크 강조 */}
-            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 border border-[#3B82F6]/20">
+            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#0A1628] to-[#1a2942] border border-slate-200">
               <div className="grid md:grid-cols-4 gap-8 text-center">
                 <div>
                   <span className="text-4xl font-bold text-white">65K</span>

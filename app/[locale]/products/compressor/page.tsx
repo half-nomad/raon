@@ -389,7 +389,7 @@ export default function CompressorPage() {
           </div>
 
           {/* 서비스 그리드 - 가로 레이아웃 카드 (Navy 배경 유지) */}
-          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { title: "정기 점검", desc: "계획된 예방 정비 프로그램", image: "/images/services/compressor-mr/01-inspection.jpg" },
               { title: "긴급 수리", desc: "24시간 긴급 대응 체계", image: "/images/services/compressor-mr/02-emergency-repair.png" },

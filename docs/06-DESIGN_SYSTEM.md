@@ -400,11 +400,44 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 ```
 
 **스타일 요소:**
-- 2열 그리드 (`lg:grid-cols-2`)
+- 3열 그리드 (`md:grid-cols-2 lg:grid-cols-3`)
 - Navy 배경 (`bg-[#0A1628]`)
 - 이미지 50% 너비 (`w-1/2`), 패딩 없음
-- 번호: 연한 흰색 (`text-white/10`), 텍스트: 흰색 + slate-400
+- 번호: 연한 흰색 (`text-white/50`), 텍스트: 흰색 + slate-400
 - 호버 효과: 그림자 + 파란 테두리 (`hover:border-[#3B82F6]/50`)
+
+### 7.9 제품 페이지 디자인 통일 패턴 (v2.1)
+
+**모든 제품 페이지(Compressor, Pump, Mixer, Motor, Bearing-Lubrication)에 적용된 공통 패턴:**
+
+#### Sub Navigation
+```tsx
+<nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+  // 활성 탭: text-[#0A1628] + 빨간 언더라인 bg-[#EF4444]
+  // 비활성 탭: text-slate-500 hover:text-[#0A1628]
+</nav>
+```
+
+#### 섹션 배경색 교차 패턴
+| 섹션 | 배경색 | 텍스트 |
+|------|--------|--------|
+| Section 01 (홀수) | Navy `bg-[#0A1628]` | `text-white`, `text-slate-300` |
+| Section 02 (짝수) | White `bg-white` | `text-[#0A1628]`, `text-slate-600` |
+| Section 03 (홀수) | Navy `bg-[#0A1628]` | `text-white`, `text-slate-300` |
+| Section 04 (짝수) | White `bg-white` | `text-[#0A1628]`, `text-slate-600` |
+
+#### White 배경 섹션의 강조 카드
+```tsx
+// White 배경에서 카드는 Navy 배경 유지 (대비)
+<div className="bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+  <h4 className="text-white">제목</h4>
+  <p className="text-slate-400">설명</p>
+</div>
+```
+
+#### 번호 가시성
+- Navy 배경: `text-white/50` (50% 투명도)
+- White 배경: `text-[#0A1628]/30` 또는 `text-[#3B82F6]/50`
 
 ### 7.7 CTA 섹션 배경 패턴 (SVG 무늬)
 

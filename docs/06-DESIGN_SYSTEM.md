@@ -1,8 +1,8 @@
 # Design System
 # Raon Total Solution B2B Website
 
-**Version:** 2.0
-**Last Updated:** 2026-01-23
+**Version:** 2.1
+**Last Updated:** 2026-01-25
 **Status:** Active
 
 ---
@@ -249,57 +249,244 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 | 숨겨진 콘텐츠 | 스크롤로 전체 탐색 |
 | 동적 탭 전환 | 앵커 네비게이션 + 스크롤 추적 |
 
-### 7.2 레이아웃 구조
+### 7.2 레이아웃 구조 (v2.0 업데이트)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  Header (z-50)                                   height: 72px │
 ├─────────────────────────────────────────────────────────────┤
-│  Sub-Nav (z-40, fixed, top: 72px)               height: 56px │
+│  [ProductIntro] - 갤러리 (그리드 2/3열) + 설명                │
+├─────────────────────────────────────────────────────────────┤
+│  Sub-Nav (z-40, sticky, top: 72px)              height: 56px │
 │  ┌──────────┬──────────┬──────────┬──────────┐              │
 │  │ 섹션 1   │  섹션 2  │  섹션 3  │  섹션 4  │              │
 │  └──────────┴──────────┴──────────┴──────────┘              │
-│  - 배경: Navy (#0A1628)                                      │
+│  - 배경: bg-white/95 backdrop-blur-lg (GNB 스타일)          │
 │  - 활성 탭: Red 하단 라인 (#EF4444)                          │
 ├─────────────────────────────────────────────────────────────┤
-│  [ProductIntro] - 상단 2컬럼: 갤러리 + 설명                   │
-├─────────────────────────────────────────────────────────────┤
-│  [Section 1] bg-white                                        │
+│  [Section 1] bg-[#0A1628] text-white (Navy 배경)            │
 │  ┌────────────────┐  ┌──────────────────────────┐           │
 │  │    이미지      │  │   텍스트 설명             │           │
 │  └────────────────┘  └──────────────────────────┘           │
 ├─────────────────────────────────────────────────────────────┤
-│  [Section 2] bg-slate-50 (지그재그)                          │
+│  [Section 2] bg-white text-[#0A1628] (지그재그)              │
 │  ┌──────────────────────────┐  ┌────────────────┐           │
 │  │   텍스트 설명             │  │    이미지      │           │
 │  └──────────────────────────┘  └────────────────┘           │
 ├─────────────────────────────────────────────────────────────┤
-│  [CTA Section] bg-gradient red                               │
+│  [Section 3] bg-[#0A1628] text-white (Navy 배경)            │
+├─────────────────────────────────────────────────────────────┤
+│  [Section 4] bg-white text-[#0A1628]                         │
+├─────────────────────────────────────────────────────────────┤
+│  [CTA Section] bg-gradient Navy + SVG 패턴                   │
 │  - 상담 문의 / 제품 문의 버튼                                 │
 ├─────────────────────────────────────────────────────────────┤
 │  Footer                                                      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### 7.3 Sub-Navigation 스타일
+**주요 변경사항 (v2.0)**
+1. Sub-Nav 위치: fixed (Header 아래) → sticky (ProductIntro 아래)
+2. Sub-Nav 스타일: Navy 배경 → GNB 스타일 (white/95 + backdrop-blur)
+3. 섹션 배경: White/Slate 교차 → Navy/White 교차 (대비 강화)
+4. ProductIntro 갤러리: 큰 메인 + 작은 썸네일 → 동일 크기 그리드
 
+### 7.3 Sub-Navigation 스타일 (v2.0)
+
+**위치 변경: ProductIntro 아래 sticky**
 ```tsx
-<nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-[#1a2942]">
-  <button className={`px-6 py-4 text-sm font-medium ${
-    active ? "text-white border-b-2 border-[#EF4444]" : "text-gray-300"
-  }`}>
-    {label}
-  </button>
+<nav className="sticky top-[72px] left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-b border-gray-200">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="flex space-x-8">
+      <button className={`px-6 py-4 text-sm font-medium transition-colors ${
+        active
+          ? "text-[#0A1628] border-b-2 border-[#EF4444]"
+          : "text-gray-500 hover:text-[#0A1628]"
+      }`}>
+        {label}
+      </button>
+    </div>
+  </div>
 </nav>
 ```
 
-### 7.4 섹션 배경 패턴
+**스타일 특징:**
+- GNB와 동일한 스타일 (white/95 + backdrop-blur-lg)
+- 활성 탭: Red 하단 라인 유지 (#EF4444)
+- 호버 시 텍스트 색상 전환 (gray-500 → Navy)
 
-| 순서 | 배경 |
-|------|------|
-| 홀수 섹션 | `bg-white` |
-| 짝수 섹션 | `bg-slate-50` |
-| CTA 섹션 | `bg-gradient-to-br from-[#EF4444] to-[#DC2626]` |
+### 7.4 섹션 배경 패턴 (v2.0 색상 반전)
+
+| 순서 | 배경 | 텍스트 | 강조 카드 배경 |
+|------|------|--------|---------------|
+| 홀수 섹션 (1, 3) | `bg-[#0A1628]` | `text-white` | `bg-white` |
+| 짝수 섹션 (2, 4) | `bg-white` | `text-[#0A1628]` | `bg-[#0A1628]` |
+| CTA 섹션 | `bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628]` | `text-white` | - |
+
+**배경-카드 대비 원칙:**
+- Navy 배경 섹션 → White 카드 사용
+- White 배경 섹션 → Navy 카드 사용
+- 항상 배경과 반대 색상으로 카드 강조
+
+### 7.5 ProductIntro 갤러리 패턴 (v2.0)
+
+**기존 방식 (큰 메인 이미지 + 작은 썸네일)**
+```tsx
+<div className="grid grid-cols-4 gap-4">
+  <div className="col-span-3">
+    <img src={main} className="w-full aspect-video" />
+  </div>
+  <div className="col-span-1 grid grid-rows-3 gap-4">
+    {thumbnails.map((thumb) => (
+      <img src={thumb} className="w-full aspect-square" />
+    ))}
+  </div>
+</div>
+```
+
+**신규 방식 (동일 크기 그리드)**
+```tsx
+<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+  {images.map((image) => (
+    <div className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+  ))}
+</div>
+```
+
+**장점:**
+- 모바일 2열 → 태블릿 이상 3열 (반응형)
+- 모든 이미지 동일한 중요도
+- 호버 시 이미지 확대 효과 (scale-105)
+
+### 7.6 카드 이미지 패턴 (Maintenance 섹션)
+
+**구조: 좌측 텍스트(50%) + 우측 이미지(50%) 가로 레이아웃**
+```tsx
+<div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
+  {[
+    { title: "정기 점검", desc: "계획된 예방 정비 프로그램", image: "/images/services/compressor-mr/01-inspection.jpg" },
+    // ... 추가 서비스
+  ].map((service, idx) => (
+    <div className="flex rounded-xl overflow-hidden bg-[#0A1628] border border-[#0A1628]/20 hover:shadow-lg hover:border-[#3B82F6]/50 transition-all min-h-[160px]">
+      {/* 좌측: 텍스트 (50%) */}
+      <div className="flex-1 p-5 md:p-6 flex flex-col justify-center">
+        <span className="text-3xl font-bold text-white/10">01</span>
+        <h4 className="font-semibold text-white text-lg mt-2">정기 점검</h4>
+        <p className="text-sm text-slate-400 mt-1">계획된 예방 정비 프로그램</p>
+      </div>
+      {/* 우측: 이미지 (50%, 패딩 없음) */}
+      <div className="w-1/2 relative flex-shrink-0">
+        <Image src={service.image} alt={service.title} fill className="object-cover" />
+      </div>
+    </div>
+  ))}
+</div>
+```
+
+**이미지 경로 규칙:**
+```
+/images/services/[product]-mr/[번호]-[서비스명].jpg
+
+예시:
+- /images/services/compressor-mr/01-inspection.jpg
+- /images/services/compressor-mr/02-emergency-repair.png
+- /images/services/compressor-mr/03-overhaul.jpg
+```
+
+**스타일 요소:**
+- 2열 그리드 (`lg:grid-cols-2`)
+- Navy 배경 (`bg-[#0A1628]`)
+- 이미지 50% 너비 (`w-1/2`), 패딩 없음
+- 번호: 연한 흰색 (`text-white/10`), 텍스트: 흰색 + slate-400
+- 호버 효과: 그림자 + 파란 테두리 (`hover:border-[#3B82F6]/50`)
+
+### 7.7 CTA 섹션 배경 패턴 (SVG 무늬)
+
+**그라디언트 + SVG 패턴 조합**
+```tsx
+<section className="relative py-24 bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] overflow-hidden">
+  {/* SVG 패턴 배경 */}
+  <div className="absolute inset-0 opacity-10">
+    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+          <path
+            d="M0 16h32M16 0v32"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            fill="none"
+          />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  {/* 콘텐츠 */}
+  <div className="relative z-10">
+    {/* CTA 내용 */}
+  </div>
+</section>
+```
+
+**패턴 특징:**
+- 32px 간격 십자 모양 그리드
+- opacity-10으로 미묘한 배경 효과
+- Navy 그라디언트와 조화
+
+### 7.8 섹션 내 좌우 높이 맞추기
+
+**문제: 좌우 컬럼 높이 불일치**
+```tsx
+{/* 잘못된 예시 */}
+<div className="grid md:grid-cols-2 gap-12">
+  <div className="flex flex-col">
+    <h2>제목</h2>
+    <p>짧은 설명</p>
+  </div>
+  <div className="flex flex-col">
+    <h2>제목</h2>
+    <p>긴 설명이 여러 줄...</p>
+  </div>
+</div>
+```
+
+**해결: items-stretch + flex-1 + justify-between**
+```tsx
+<div className="grid md:grid-cols-2 gap-12 items-stretch">
+  <div className="flex flex-col flex-1 justify-between">
+    <div>
+      <h2 className="text-3xl font-bold mb-4">제목</h2>
+      <p className="text-gray-600 mb-8">짧은 설명</p>
+    </div>
+    <ul className="space-y-3">
+      {/* 리스트 */}
+    </ul>
+  </div>
+
+  <div className="flex flex-col flex-1 justify-between">
+    <div>
+      <h2 className="text-3xl font-bold mb-4">제목</h2>
+      <p className="text-gray-600 mb-8">긴 설명이 여러 줄...</p>
+    </div>
+    <ul className="space-y-3">
+      {/* 리스트 */}
+    </ul>
+  </div>
+</div>
+```
+
+**핵심 클래스 조합:**
+- `items-stretch`: 그리드 아이템 높이 동일하게
+- `flex flex-col`: 세로 방향 플렉스
+- `flex-1`: 남은 공간 채우기
+- `justify-between`: 상단 콘텐츠와 하단 리스트 사이 공간 균등 분배
 
 ---
 
@@ -539,6 +726,14 @@ public/images/
 
 ## Changelog
 
+- **2026-01-25: v2.1** - Products 페이지 디자인 패턴 업데이트
+  - Sub-Nav 위치 변경: fixed (Header 아래) → sticky (ProductIntro 아래)
+  - Sub-Nav 스타일 변경: Navy 배경 → GNB 스타일 (white/95 + backdrop-blur)
+  - 섹션 배경 색상 반전 패턴: Navy/White 교차 (대비 강화)
+  - ProductIntro 갤러리 패턴: 동일 크기 그리드 (2/3열)
+  - 카드 이미지 패턴 추가: 상단 이미지 + 하단 텍스트
+  - CTA 섹션 SVG 배경 패턴 추가
+  - 섹션 내 좌우 높이 맞추기 가이드 추가
 - **2026-01-23: v2.0** - 통합 디자인 시스템
   - UI_guide_2nd_organized.md 콘텐츠 통합
   - PRODUCTS-REDESIGN-GUIDE.md 레이아웃 패턴 통합

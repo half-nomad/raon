@@ -122,32 +122,6 @@ export default function CompressorPage() {
     <>
       <Header />
       <main className="min-h-screen bg-white">
-        {/* Fixed Sub Navigation - 태산 스타일 (Header 바로 아래 고정) */}
-        <nav className="fixed top-[72px] left-0 right-0 z-40 bg-[#0A1628] border-b border-white/10">
-          <div className="section-container">
-            <div className="flex overflow-x-auto scrollbar-hide">
-              {subNavItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
-                    ${activeSection === item.id
-                      ? "text-white"
-                      : "text-slate-400 hover:text-slate-200"
-                    }
-                  `}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
-        </nav>
-
         {/* Hero Section */}
         <section className="relative pt-[172px] pb-24 bg-gradient-to-br from-[#0A1628] via-[#0f1d32] to-[#1a2942] text-white">
         <div className="section-container">
@@ -188,62 +162,99 @@ export default function CompressorPage() {
         ]}
       />
 
-      {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white → navy) ========== */}
+      {/* Sub Navigation - ProductIntro와 콘텐츠 섹션 사이, 스크롤 시 상단 고정 */}
+      <nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+        <div className="section-container">
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {subNavItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`
+                  relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors
+                  ${activeSection === item.id
+                    ? "text-[#0A1628]"
+                    : "text-slate-500 hover:text-[#0A1628]"
+                  }
+                `}
+              >
+                {item.label}
+                {activeSection === item.id && (
+                  <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
 
-      {/* Section 1: NEW COMPRESSOR - 흰색 배경 */}
-      <section id="new" className="py-16 md:py-24 bg-white">
+      {/* ========== 모든 섹션 세로 나열 (배경 교차: navy → white → navy → white) ========== */}
+
+      {/* Section 1: NEW COMPRESSOR - 네이비 배경 */}
+      <section id="new" className="py-16 md:py-24 bg-[#0A1628]">
         <div className="section-container">
           {/* 섹션 헤더 */}
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
               NEW COMPRESSOR
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
             {/* 왼쪽: 파트너 정보 */}
-            <div>
+            <div className="flex flex-col">
               <div className="mb-8">
-                <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
-                  FIMA
-                </h3>
+                <div className="flex items-center gap-6 mb-4">
+                  <h3 className="text-xl md:text-2xl font-bold text-white">
+                    FIMA
+                  </h3>
+                  {/* FIMA 로고 이미지 박스 */}
+                  <div className="w-24 h-12 bg-white rounded-lg flex items-center justify-center p-2">
+                    <Image
+                      src="/images/partners/fima-logo.png"
+                      alt="FIMA Logo"
+                      width={80}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
                 <p className="text-[#3B82F6] font-medium">Germany</p>
-                <p className="text-slate-600 mt-4 leading-relaxed">
-                  독일 소재 Turbo Compressor 및 Blower 전문 제조사로,
-                  고효율 원심 압축기 및 특수 목적 블로워를 공급합니다.
+                <p className="text-slate-300 mt-4 leading-relaxed">
+                  독일 소재 Turbo Compressor 및 Blower 전문 제조사로, 고효율 원심 압축기 및 특수 목적 블로워를 공급합니다.
                 </p>
               </div>
 
               {/* 제품군 - 인포그래픽 스타일 */}
-              <div className="space-y-3">
+              <div className="space-y-3 flex-1 flex flex-col justify-end">
                 {fimaProducts.map((product, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                    className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/5 pl-4 py-3 pr-4"
                   >
                     <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                    <span className="text-slate-700 font-medium">{product}</span>
+                    <span className="text-white font-medium">{product}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* 오른쪽: 핵심 특징 - 인포그래픽 */}
-            <div className="bg-slate-50 rounded-2xl p-8">
-              <h4 className="text-lg font-bold text-[#0A1628] mb-6">핵심 특징</h4>
-              <div className="space-y-6">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col">
+              <h4 className="text-lg font-bold text-white mb-6">핵심 특징</h4>
+              <div className="space-y-6 flex-1 flex flex-col justify-between">
                 {[
                   { num: "01", title: "고효율", desc: "최적화된 에너지 효율로 운영비 절감" },
                   { num: "02", title: "방폭 인증", desc: "위험지역 설치 가능한 방폭 사양" },
                   { num: "03", title: "맞춤 설계", desc: "공정 요구사항에 맞춘 설계" },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <span className="text-3xl font-bold text-[#3B82F6]/20">{item.num}</span>
+                    <span className="text-3xl font-bold text-white/10">{item.num}</span>
                     <div>
-                      <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
-                      <p className="text-sm text-slate-500 mt-1">{item.desc}</p>
+                      <h5 className="font-semibold text-white">{item.title}</h5>
+                      <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -253,31 +264,31 @@ export default function CompressorPage() {
         </div>
       </section>
 
-      {/* Section 2: SPARE PARTS - 네이비 배경 (반전) */}
-      <section id="spares" className="py-16 md:py-24 bg-[#0A1628]">
+      {/* Section 2: SPARE PARTS - 흰색 배경 (반전) */}
+      <section id="spares" className="py-16 md:py-24 bg-white">
         <div className="section-container">
           {/* 섹션 헤더 */}
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
               SPARE PARTS
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-            <p className="text-slate-300 mt-4 max-w-2xl">
+            <p className="text-slate-600 mt-4 max-w-2xl">
               모든 브랜드의 왕복동 압축기 부품을 공급합니다.
               Modification과 Upgrade, Reverse Engineering을 통한 부품 제작도 가능합니다.
             </p>
           </div>
 
-          {/* 부품 그리드 - 클린한 카드 */}
+          {/* 부품 그리드 - 강조 카드 (Navy 배경 유지) */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {sparePartsCategories.map((part, idx) => (
               <div
                 key={idx}
-                className="group relative rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all"
+                className="group relative rounded-xl overflow-hidden bg-[#0A1628] border border-[#0A1628]/20 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
               >
-                {/* 이미지 */}
-                <div className="aspect-square relative bg-white/5">
+                {/* 이미지 - 화이트 배경 */}
+                <div className="aspect-square relative bg-white">
                   <Image
                     src={part.image}
                     alt={part.name}
@@ -302,17 +313,17 @@ export default function CompressorPage() {
         </div>
       </section>
 
-      {/* Section 3: TROUBLE SHOOTING - 흰색 배경 */}
-      <section id="troubleshooting" className="py-16 md:py-24 bg-white">
+      {/* Section 3: TROUBLE SHOOTING - 네이비 배경 (반전) */}
+      <section id="troubleshooting" className="py-16 md:py-24 bg-[#0A1628]">
         <div className="section-container">
           {/* 섹션 헤더 */}
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
               TROUBLE SHOOTING
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-            <p className="text-slate-600 mt-4 max-w-2xl">
+            <p className="text-slate-300 mt-4 max-w-2xl">
               30년간 축적된 현장 경험을 바탕으로 압축기 운전 중 발생하는
               다양한 문제에 대한 <span className="text-[#EF4444] font-semibold">체계적인 진단 및 해결 방안</span>을 제공합니다.
             </p>
@@ -328,22 +339,22 @@ export default function CompressorPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex gap-5 p-6 bg-slate-50 rounded-xl"
+                className="flex gap-5 p-6 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors"
               >
-                <span className="text-4xl font-bold text-[#0A1628]/10">
+                <span className="text-4xl font-bold text-white/20">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <h4 className="font-semibold text-[#0A1628] mb-1">{item.title}</h4>
-                  <p className="text-sm text-slate-600">{item.desc}</p>
+                  <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                  <p className="text-sm text-slate-300">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* 해결 프로세스 */}
-          <div className="mt-12 p-8 bg-gradient-to-r from-slate-50 to-slate-100 rounded-2xl">
-            <h4 className="text-lg font-bold text-[#0A1628] mb-6">해결 프로세스</h4>
+          <div className="mt-12 p-8 bg-white/10 border border-white/20 rounded-2xl">
+            <h4 className="text-lg font-bold text-white mb-6">해결 프로세스</h4>
             <div className="flex flex-col md:flex-row gap-4 md:gap-0">
               {["문제 접수", "현장 진단", "솔루션 제안", "부품 수배", "작업 완료"].map((step, idx) => (
                 <div key={idx} className="flex-1 flex items-center">
@@ -351,7 +362,7 @@ export default function CompressorPage() {
                     <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
                       {idx + 1}
                     </span>
-                    <span className="text-sm font-medium text-[#0A1628]">{step}</span>
+                    <span className="text-sm font-medium text-white">{step}</span>
                   </div>
                   {idx < 4 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
                 </div>
@@ -361,66 +372,71 @@ export default function CompressorPage() {
         </div>
       </section>
 
-      {/* Section 4: M&R (Maintenance & Repair) - 네이비 배경 */}
-      <section id="maintenance" className="py-16 md:py-24 bg-[#0A1628]">
+      {/* Section 4: M&R (Maintenance & Repair) - 흰색 배경 (반전) */}
+      <section id="maintenance" className="py-16 md:py-24 bg-white">
         <div className="section-container">
           {/* 섹션 헤더 */}
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
               M&R (유지보수 & 정비)
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-            <p className="text-slate-300 mt-4 max-w-2xl">
+            <p className="text-slate-600 mt-4 max-w-2xl">
               예방 정비부터 긴급 수리까지, 압축기 수명 연장과
-              <span className="text-white font-semibold"> 안정적인 운전</span>을 위한 종합 서비스를 제공합니다.
+              <span className="text-[#0A1628] font-semibold"> 안정적인 운전</span>을 위한 종합 서비스를 제공합니다.
             </p>
           </div>
 
-          {/* 서비스 그리드 - 인포그래픽 스타일 */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 서비스 그리드 - 가로 레이아웃 카드 (Navy 배경 유지) */}
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
             {[
-              { title: "정기 점검", desc: "계획된 예방 정비 프로그램" },
-              { title: "긴급 수리", desc: "24시간 긴급 대응 체계" },
-              { title: "오버홀", desc: "분해 점검 및 전면 정비" },
-              { title: "부품 교체", desc: "순정 부품 공급 및 설치" },
-              { title: "성능 진단", desc: "효율 측정 및 최적화 제안" },
-              { title: "기술 교육", desc: "운전자 대상 교육 프로그램" },
+              { title: "정기 점검", desc: "계획된 예방 정비 프로그램", image: "/images/services/compressor-mr/01-inspection.jpg" },
+              { title: "긴급 수리", desc: "24시간 긴급 대응 체계", image: "/images/services/compressor-mr/02-emergency-repair.png" },
+              { title: "오버홀", desc: "분해 점검 및 전면 정비", image: "/images/services/compressor-mr/03-overhaul.jpg" },
+              { title: "부품 교체", desc: "순정 부품 공급 및 설치", image: "/images/services/compressor-mr/04-parts-replacement.jpg" },
+              { title: "성능 진단", desc: "효율 측정 및 최적화 제안", image: "/images/services/compressor-mr/05-diagnosis.jpg" },
+              { title: "기술 교육", desc: "운전자 대상 교육 프로그램", image: "/images/services/compressor-mr/06-training.jpg" },
             ].map((service, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                className="flex rounded-xl overflow-hidden bg-[#0A1628] border border-[#0A1628]/20 hover:shadow-lg hover:border-[#3B82F6]/50 transition-all min-h-[160px]"
               >
-                <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
-                <h4 className="font-semibold text-white mt-2">{service.title}</h4>
-                <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
+                {/* 텍스트 영역 (좌측 50%) */}
+                <div className="flex-1 p-5 md:p-6 flex flex-col justify-center">
+                  <span className="text-3xl font-bold text-white/10">{String(idx + 1).padStart(2, '0')}</span>
+                  <h4 className="font-semibold text-white text-lg mt-2">{service.title}</h4>
+                  <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
+                </div>
+                {/* 이미지 영역 (우측 50%, 패딩 없음) */}
+                <div className="w-1/2 relative flex-shrink-0">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* 파트너 네트워크 강조 */}
-          <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#3B82F6]/10 to-[#3B82F6]/5 border border-[#3B82F6]/20">
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              <div>
-                <span className="text-4xl font-bold text-white">30+</span>
-                <p className="text-slate-400 mt-1">년 현장 경험</p>
-              </div>
-              <div>
-                <span className="text-4xl font-bold text-white">24/7</span>
-                <p className="text-slate-400 mt-1">긴급 대응</p>
-              </div>
-              <div>
-                <span className="text-4xl font-bold text-white">Global</span>
-                <p className="text-slate-400 mt-1">파트너 네트워크</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
-        <div className="section-container text-center">
+      <section className="relative bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] text-white py-12 md:py-16 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
+        <div className="section-container text-center relative z-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             압축기 솔루션이 필요하신가요?
           </h2>

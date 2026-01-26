@@ -115,15 +115,15 @@ export function PartnersClients() {
   const tClients = useTranslations("partners.majorClients");
 
   const partners: LogoItem[] = [
-    { name: "SPXFLOW", type: "Mixer/Heat Exchange", logo: "/images/partners/spx-flow.jpg" },
+    { name: "SPXFLOW", type: "Agitator/Mixer", logo: "/images/partners/spx-flow.jpg" },
     { name: "NEUMAN & ESSER", type: "Compressor", logo: "/images/partners/neuman-esser.jpg" },
-    { name: "CASTANET", type: "Cylinder Liner", logo: "/images/partners/castanet.jpg" },
-    { name: "WTQ", type: "Pump", logo: "/images/partners/wtq.jpg" },
-    { name: "CP pump", type: "Pump System", logo: "/images/partners/cp-pump-systems.jpg" },
+    { name: "CASTANET", type: "Compressor Parts", logo: "/images/partners/castanet.jpg" },
+    { name: "WTQ", type: "Cylinder Liner", logo: "/images/partners/wtq.jpg" },
+    { name: "CP pump", type: "Chemical Pump", logo: "/images/partners/cp-pump-systems.jpg" },
     // KB DELTA - 노출 금지 (2025-12-18)
-    // { name: "KB DELTA", type: "Bearing", logo: "/images/partners/kb-delta-logo.png" },
-    { name: "TURBO LINK", type: "Turbocharger", logo: "/images/partners/turbolink.jpg" },
-    { name: "FIMA", type: "Oil Purifier", logo: "/images/partners/fima.jpg" },
+    // { name: "KB DELTA", type: "Valve Parts", logo: "/images/partners/kb-delta-logo.png" },
+    { name: "TURBO LINK", type: "Bearing", logo: "/images/partners/turbolink.jpg" },
+    { name: "FIMA", type: "Turbo Compressor", logo: "/images/partners/fima.jpg" },
     { name: "NIDEC", type: "Motor", logo: "/images/partners/nidec.webp" },
     { name: "삼영필텍", type: "Oil Purifier", logo: "/images/partners/syt.jpg" },
     { name: "LDW", type: "Motor/Generator", logo: "/images/partners/ldw_logo.png" },

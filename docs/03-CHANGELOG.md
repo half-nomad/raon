@@ -6,6 +6,43 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-01-26
+
+### Added
+- **CEO 페이지 이미지 추가** (`components/company/ceo-message.tsx`)
+  - 대표이사 사진 (`/images/hero/president.png`) 추가
+  - 인사말 영역 상단에 RAON 로고 (`/images/hero/raon-logo.jpg`) 추가
+- **카테고리 이미지 5개 추가** (`public/images/category/`)
+  - compressor_cat.jpg, pump_cat.png, bearing_cat.png, motor_cat.webp, mixer_cat.jpg
+- **파트너십 상세 정보 추가** (`messages/ko.json`, `messages/en.json`)
+  - 9개 글로벌 파트너사 상세 설명 (PDF 회사소개서 기반)
+  - CASTANET, KB DELTA, SPXFLOW, NEUMAN & ESSER, TURBO LINK, WTQ, CP pump, FIMA, LDW
+
+### Changed
+- **GNB 로고 이미지 조건부 표시** (`components/layout/header.tsx`)
+  - 스크롤 전: 텍스트 "RAON" (흰색)
+  - 스크롤 후: raon-logo.jpg 이미지 표시
+- **카테고리 섹션 이미지 경로 수정** (`components/home/products-snapshot.tsx`)
+  - 실제 존재하는 이미지 파일로 경로 업데이트
+  - oilPurifier → mixer로 제품 변경
+  - bearing 링크 `/products/bearing-lubrication`으로 수정
+- **파트너 페이지 데이터 업데이트** (`app/[locale]/partners/page.tsx`)
+  - 9개 파트너사 상세 정보 (설립연도, 제품, 특징) 반영
+  - highlight 필드 추가 (핵심 강점 표시)
+- **CEO 이미지 크기 1/2 축소** (`components/company/ceo-message.tsx`)
+  - 이미지 컨테이너 w-1/2, max-w-[280px] 적용
+
+### Removed
+- **CEO 페이지 서명란 삭제** (`components/company/ceo-message.tsx`)
+  - signature, signaturePlaceholder 섹션 제거
+
+### Technical
+- Next.js Image 컴포넌트 최적화 (priority, sizes 속성)
+- 번역 키 추가 (photoAlt, partnerDetails)
+- 반응형 이미지 레이아웃 (모바일 중앙/데스크톱 우측 정렬)
+
+---
+
 ## [1.3.0] - 2026-01-26
 
 ### Added

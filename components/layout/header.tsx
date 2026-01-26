@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { Menu, ChevronDown } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -55,14 +56,21 @@ export function Header() {
       <div className="section-container h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span
-              className={`text-2xl font-bold transition-colors ${
-                scrolled ? "text-[#0A1628]" : "text-white"
-              }`}
-            >
-              RAON
-            </span>
+          <Link href="/" className="flex items-center h-10">
+            {scrolled ? (
+              <Image
+                src="/images/hero/raon-logo.jpg"
+                alt="RAON Total Solution"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain"
+                priority
+              />
+            ) : (
+              <span className="text-2xl font-bold text-white">
+                RAON
+              </span>
+            )}
           </Link>
 
           {/* Desktop Navigation */}

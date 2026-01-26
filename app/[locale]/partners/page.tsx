@@ -9,32 +9,34 @@ export default async function PartnersPage() {
   const t = await getTranslations("partners");
   const globalPartners = [
     {
-      name: "SPXFLOW",
+      name: "SPXFLOW Mixing Solutions",
       country: "Global",
       year: "2022",
-      relationship: "한국 Master 대리점",
-      description:
-        "믹서, 교반기, 펌프 등 산업용 유체 처리 장비 전문 글로벌 기업",
-      products: ["Mixer & Agitator", "Pump"],
+      relationship: t("partnerDetails.spxflow.relationship"),
+      description: t("partnerDetails.spxflow.description"),
+      products: ["Agitator", "Side Entry Mixer"],
       logo: "/images/partners/spx-flow.jpg",
+      highlight: t("partnerDetails.spxflow.highlight"),
     },
     {
       name: "NEUMAN & ESSER",
       country: "Global",
       year: "2024",
-      relationship: "울산 대리점",
-      description: "왕복동 압축기 및 고압 가스 압축 시스템 전문 제조사",
-      products: ["Compressor"],
+      relationship: t("partnerDetails.neumanEsser.relationship"),
+      description: t("partnerDetails.neumanEsser.description"),
+      products: ["Compressor", "After Market", "Revamping"],
       logo: "/images/partners/neuman-esser.jpg",
+      highlight: t("partnerDetails.neumanEsser.highlight"),
     },
     {
       name: "CASTANET",
       country: "France",
       year: "2021",
-      relationship: "Wearing Parts 대리점",
-      description: "압축기용 피스톤, 라이너 등 소모성 부품 전문 제조사",
-      products: ["Piston", "Wearing Parts"],
+      relationship: t("partnerDetails.castanet.relationship"),
+      description: t("partnerDetails.castanet.description"),
+      products: ["Piston Ring", "Rider Ring", "Packing Ring", "Oil Scraper"],
       logo: "/images/partners/castanet.jpg",
+      highlight: t("partnerDetails.castanet.highlight"),
     },
     // KB DELTA - 노출 금지 (2025-12-18)
     // {
@@ -42,51 +44,66 @@ export default async function PartnersPage() {
     //   country: "USA",
     //   year: "2021",
     //   relationship: "대리점",
-    //   description: "압축기용 밸브 전문 제조사",
-    //   products: ["Valve"],
+    //   description: t("partnerDetails.kbDelta.description"),
+    //   products: ["Valve Spare Parts"],
+    //   highlight: t("partnerDetails.kbDelta.highlight"),
     // },
     {
       name: "TURBO LINK",
       country: "Korea",
       year: "2024",
-      relationship: "정유·석유화학 분야 대리점",
-      description: "고성능 베어링 전문 제조사",
-      products: ["Bearing"],
+      relationship: t("partnerDetails.turbolink.relationship"),
+      description: t("partnerDetails.turbolink.description"),
+      products: ["Tilting Pad Bearing", "Fluid Film Bearing"],
       logo: "/images/partners/turbolink.jpg",
+      highlight: t("partnerDetails.turbolink.highlight"),
     },
     {
       name: "WTQ",
       country: "China",
       year: "2025",
-      relationship: "한국 대리점",
-      description: "선박용 실린더 라이너 전문 제조사",
+      relationship: t("partnerDetails.wtq.relationship"),
+      description: t("partnerDetails.wtq.description"),
       products: ["Cylinder Liner"],
       logo: "/images/partners/wtq.jpg",
+      highlight: t("partnerDetails.wtq.highlight"),
     },
     {
-      name: "CP Pumpen",
+      name: "CP pump system",
       country: "Switzerland",
       year: "2025",
-      relationship: "울산 대리점",
-      description: "산업용 펌프 시스템 전문 제조사",
-      products: ["Pump"],
+      relationship: t("partnerDetails.cpPump.relationship"),
+      description: t("partnerDetails.cpPump.description"),
+      products: ["Chemical Process Pump", "Magnetic Drive Pump"],
       logo: "/images/partners/cp-pump-systems.jpg",
+      highlight: t("partnerDetails.cpPump.highlight"),
     },
     {
       name: "FIMA",
       country: "Germany",
       year: "2025",
-      relationship: "대리점",
-      description: "압축기 전문 제조사",
-      products: ["Compressor"],
+      relationship: t("partnerDetails.fima.relationship"),
+      description: t("partnerDetails.fima.description"),
+      products: ["Turbo Compressor", "Blower"],
       logo: "/images/partners/fima.jpg",
+      highlight: t("partnerDetails.fima.highlight"),
+    },
+    {
+      name: "LDW",
+      country: "Germany",
+      year: "-",
+      relationship: t("partnerDetails.ldw.relationship"),
+      description: t("partnerDetails.ldw.description"),
+      products: ["DC Motor", "Generator", "3-Phase Induction Motor"],
+      logo: "/images/partners/ldw_logo.png",
+      highlight: t("partnerDetails.ldw.highlight"),
     },
     {
       name: "NIDEC",
       country: "Japan",
       year: "-",
-      relationship: "파트너",
-      description: "세계 최대 모터 제조업체",
+      relationship: t("partnerDetails.nidec.relationship"),
+      description: t("partnerDetails.nidec.description"),
       products: ["Motor"],
       logo: "/images/partners/nidec.webp",
     },
@@ -94,19 +111,10 @@ export default async function PartnersPage() {
       name: "삼영필텍 (SYT)",
       country: "Korea",
       year: "-",
-      relationship: "파트너",
-      description: "오일 정화 장비 전문 제조사",
+      relationship: t("partnerDetails.syt.relationship"),
+      description: t("partnerDetails.syt.description"),
       products: ["Oil Purifier"],
       logo: "/images/partners/syt.jpg",
-    },
-    {
-      name: "LDW",
-      country: "Germany",
-      year: "-",
-      relationship: "파트너",
-      description: "대형 전동기/발전기 전문 제조사 (Lloyd Dynamowerke GmbH)",
-      products: ["Motor", "Generator"],
-      logo: "/images/partners/ldw_logo.png",
     },
   ];
 
@@ -225,6 +233,13 @@ export default async function PartnersPage() {
                   <p className="text-slate-700 text-sm leading-relaxed">
                     {partner.description}
                   </p>
+
+                  {/* Highlight - if exists */}
+                  {partner.highlight && (
+                    <p className="text-[#3B82F6] text-xs leading-relaxed bg-blue-50 p-2 rounded">
+                      {partner.highlight}
+                    </p>
+                  )}
 
                   <div className="pt-3 border-t border-slate-200">
                     <div className="flex items-center text-sm text-slate-600 mb-2">

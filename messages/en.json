@@ -96,6 +96,7 @@
       "commitment": "We will continue to grow as a trusted business partner that provides the highest value to our customers through unwavering trust and innovation.",
       "closing": "Thank you.",
       "signature": "CEO Kim Hye-Kyung",
+      "photoAlt": "CEO Kim Hye-Kyung",
       "photoPlaceholder": "CEO Photo (to be added)",
       "signaturePlaceholder": "Signature Image"
     },
@@ -505,6 +506,61 @@
       "partnerInfo": {
         "contractYear": "Contract Year:",
         "relationship": "Relationship:"
+      }
+    },
+    "partnerDetails": {
+      "spxflow": {
+        "relationship": "Korea Master Agency",
+        "description": "Agitator / Side entry mixer specialist. Brands: Lightnin, Stelzer, Plenty, Philadelphia, Uutechnic",
+        "highlight": "The world's largest mixing equipment manufacturer"
+      },
+      "neumanEsser": {
+        "relationship": "Ulsan Agency",
+        "description": "Founded in Germany in 1830. Reciprocating compressor After market and Revamping specialist",
+        "highlight": "Future energy infrastructure integrated solutions. Clients: SK Energy, S-Oil, Hyundai Chemical (Daesan)"
+      },
+      "castanet": {
+        "relationship": "Wearing Parts Agency",
+        "description": "Reciprocating compressor parts specialist (Piston Ring, Rider Ring, Packing Ring, Oil Scraper Packing)",
+        "highlight": "Main Sub-Vendor for Howden Thomassen Compressor (Netherlands). Reverse Engineering capability for all compressor brands"
+      },
+      "kbDelta": {
+        "relationship": "Agency",
+        "description": "Reciprocating compressor valve Spare Parts specialist",
+        "highlight": "Owns Engineering Plastic raw material and Spring manufacturing subsidiaries. Supplies to Hoerbiger, COOK, CPI valve makers"
+      },
+      "turbolink": {
+        "relationship": "Oil Refinery & Petrochemical Agency",
+        "description": "Venture startup founded in 2001. Fluid film bearing design, manufacturing and engineering specialist",
+        "highlight": "From 65,000 RPM ultra-high speed turbo compressor bearings to hundreds of tons heavy load bearings"
+      },
+      "wtq": {
+        "relationship": "Korea Agency",
+        "description": "Founded in 1967. Compressor and marine cylinder liner specialist manufacturer",
+        "highlight": "900 employees, assets of 150 billion KRW. Clients: Cummins, Caterpillar, MAN, Wartsila. Over 58% market share in China"
+      },
+      "cpPump": {
+        "relationship": "Ulsan Agency",
+        "description": "Headquartered in Zofingen, Switzerland. High-precision chemical process pumps and specialty pumps",
+        "highlight": "Leak-free (Magnetic drive) design. Specialized in sanitary equipment and bio-industry sterilization processes"
+      },
+      "fima": {
+        "relationship": "Agency",
+        "description": "Founded in Germany in 1964. Turbo Compressor & Blower specialist",
+        "highlight": "World's leading technology in Zone 0 blowers for explosion-proof/hermetic applications"
+      },
+      "ldw": {
+        "relationship": "Partner",
+        "description": "Founded in 1915, headquartered in Bremen, Germany. DC motor/generator (10~8,000Kw), large 3-phase induction motors, synchronous generators",
+        "highlight": "130 specialized professionals. Made-to-Order custom manufacturing"
+      },
+      "nidec": {
+        "relationship": "Partner",
+        "description": "World's largest comprehensive motor manufacturer"
+      },
+      "syt": {
+        "relationship": "Partner",
+        "description": "Domestic oil purification equipment specialist manufacturer"
       }
     },
     "whyPartner": {

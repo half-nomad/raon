@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function CEOMessage() {
@@ -20,28 +21,35 @@ export function CEOMessage() {
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Image/Signature Placeholder */}
-          <div className="order-2 lg:order-1">
-            <div className="relative">
-              {/* CEO Photo Placeholder */}
-              <div className="aspect-[4/5] bg-gray-100 rounded-2xl border-2 border-dashed border-gray-300 flex items-center justify-center mb-6">
-                <span className="text-gray-400 text-sm">{t("photoPlaceholder")}</span>
-              </div>
-
-              {/* Signature */}
-              <div className="text-right">
-                <p className="text-lg font-semibold text-[#0A1628] mb-1">
-                  {t("signature")}
-                </p>
-                <div className="h-16 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">{t("signaturePlaceholder")}</span>
-                </div>
+          {/* Left: CEO Photo */}
+          <div className="order-2 lg:order-1 flex justify-center lg:justify-end">
+            <div className="relative w-1/2 max-w-[280px]">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/hero/president.png"
+                  alt={t("photoAlt")}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  priority
+                />
               </div>
             </div>
           </div>
 
           {/* Right: Message Content */}
           <div className="order-1 lg:order-2">
+            {/* Logo */}
+            <div className="mb-8">
+              <Image
+                src="/images/hero/raon-logo.jpg"
+                alt="Raon Total Solution"
+                width={180}
+                height={60}
+                className="object-contain"
+              />
+            </div>
+
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-lg sm:text-xl font-medium text-[#0A1628]">
                 {t("greeting")}

@@ -97,6 +97,7 @@
       "commitment": "앞으로도 변함없는 신뢰와 혁신으로 고객 여러분께 최고의 가치를 제공하는 신뢰받는 비즈니스 파트너로 성장하는 주식회사 라온토탈솔루션이 되겠습니다.",
       "closing": "감사합니다.",
       "signature": "대표이사 김혜경 올림",
+      "photoAlt": "대표이사 김혜경",
       "photoPlaceholder": "CEO 사진 삽입 예정",
       "signaturePlaceholder": "서명 이미지"
     },
@@ -888,6 +889,61 @@
       "partnerInfo": {
         "contractYear": "계약 연도:",
         "relationship": "관계:"
+      }
+    },
+    "partnerDetails": {
+      "spxflow": {
+        "relationship": "한국 Master 대리점",
+        "description": "Agitator / Side entry mixer 전문. Lightnin, Stelzer, Plenty, Philadelphia, Uutechnic 브랜드 보유",
+        "highlight": "지구상 가장 큰 혼합(Mixing) 제조업체"
+      },
+      "neumanEsser": {
+        "relationship": "울산 대리점",
+        "description": "1830년 독일 설립. 왕복동 압축기 After market 및 Revamping 전문",
+        "highlight": "미래 에너지 인프라 통합솔루션 제공. SK에너지, S-Oil, 현대케미칼(대산) 납품"
+      },
+      "castanet": {
+        "relationship": "Wearing Parts 대리점",
+        "description": "왕복동압축기 부품 전문 (Piston Ring, Rider Ring, Packing Ring, Oil Scraper Packing)",
+        "highlight": "Howden Thomassen Compressor(네덜란드)의 주 Sub-Vendor. Reverse Engineering으로 모든 브랜드 압축기 부품 공급 가능"
+      },
+      "kbDelta": {
+        "relationship": "대리점",
+        "description": "왕복동압축기 밸브 Spare Parts 전문",
+        "highlight": "Engineering Plastic 원자재 및 Spring 제작 자회사 보유. Hoerbiger, COOK, CPI 등 Valve 제작사에 원자재/부품 공급"
+      },
+      "turbolink": {
+        "relationship": "정유·석유화학 분야 대리점",
+        "description": "2001년 벤처기업 창업. 유체윤활베어링 설계, 제조 및 엔지니어링 전문",
+        "highlight": "65,000 RPM급 초고속 터보압축기 베어링부터 수백톤 고하중 베어링까지 공급"
+      },
+      "wtq": {
+        "relationship": "한국 대리점",
+        "description": "1967년 설립. 압축기 및 선박용 실린더 라이너 전문 제조사",
+        "highlight": "900명 직원, 자산 1,500억원 규모. Cummins, Caterpillar, MAN, Wartsila 등 납품. 중국 내 시장점유율 58% 이상"
+      },
+      "cpPump": {
+        "relationship": "울산 대리점",
+        "description": "스위스 Zofingen 본사. 고정밀 화학 공정용 펌프 및 특수펌프 전문",
+        "highlight": "무누출(Magnetic drive) 설계. 위생설비, 바이오 산업 멸균 공정 특화"
+      },
+      "fima": {
+        "relationship": "대리점",
+        "description": "1964년 독일 설립. Turbo Compressor & Blower 전문",
+        "highlight": "Zone 0 blowers 폭발방지/밀폐 분야 세계 최고 기술 보유"
+      },
+      "ldw": {
+        "relationship": "파트너",
+        "description": "1915년 설립, 독일 브레멘 본사. DC motor/발전기(10~8,000Kw), 대형 3상 유도전동기, 동기 발전기 전문",
+        "highlight": "130명 전문 인력. 주문생산(Made-to-Order) 방식으로 맞춤형 제작"
+      },
+      "nidec": {
+        "relationship": "파트너",
+        "description": "세계 최대 종합 모터 제조업체"
+      },
+      "syt": {
+        "relationship": "파트너",
+        "description": "오일 정화 장비 전문 국내 제조사"
       }
     },
     "whyPartner": {

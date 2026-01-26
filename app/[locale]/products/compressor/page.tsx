@@ -9,7 +9,7 @@ import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // 대표 이미지 (상단 갤러리용)
 const heroImages = [
@@ -25,7 +25,7 @@ const subNavItems = [
   { id: "new", label: "NEW COMPRESSOR" },
   { id: "spares", label: "SPARE PARTS" },
   { id: "troubleshooting", label: "TROUBLE SHOOTING" },
-  { id: "maintenance", label: "M&R" },
+  { id: "maintenance", label: "MAINTENANCE & REPAIR" },
 ];
 
 // SPARE PARTS 카테고리
@@ -85,6 +85,18 @@ const fimaProducts = [
 export default function CompressorPage() {
   const t = useTranslations();
   const [activeSection, setActiveSection] = useState("new");
+
+  // SPARE PARTS 캐러셀 상태
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalCards = sparePartsCategories.length; // 7개
+
+  // 자동 슬라이드 (3초 간격, 1개씩 이동)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % totalCards);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [totalCards]);
 
   // 스크롤 위치에 따라 활성 섹션 업데이트
   useEffect(() => {
@@ -223,7 +235,7 @@ export default function CompressorPage() {
                 </div>
                 <p className="text-[#3B82F6] font-medium">Germany</p>
                 <p className="text-slate-300 mt-4 leading-relaxed">
-                  독일 소재 Turbo Compressor 및 Blower 전문 제조사로, 고효율 원심 압축기 및 특수 목적 블로워를 공급합니다.
+                  독일 FIMA Maschinenbau GmbH의 국내대리점으로써 정유, 석유화학, 에너지 외 특수 산업 분야의 Process Application에 최적화 된 Turbo Blower 및 Compressor(Interally Geared Technology)를 공급하고 있습니다.
                 </p>
               </div>
 
@@ -241,24 +253,15 @@ export default function CompressorPage() {
               </div>
             </div>
 
-            {/* 오른쪽: 핵심 특징 - 인포그래픽 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 flex flex-col">
-              <h4 className="text-lg font-bold text-white mb-6">핵심 특징</h4>
-              <div className="space-y-6 flex-1 flex flex-col justify-between">
-                {[
-                  { num: "01", title: "고효율", desc: "최적화된 에너지 효율로 운영비 절감" },
-                  { num: "02", title: "방폭 인증", desc: "위험지역 설치 가능한 방폭 사양" },
-                  { num: "03", title: "맞춤 설계", desc: "공정 요구사항에 맞춘 설계" },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <span className="text-3xl font-bold text-white/10">{item.num}</span>
-                    <div>
-                      <h5 className="font-semibold text-white">{item.title}</h5>
-                      <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* 오른쪽: FIMA Turbo Compressor 이미지 */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/products/new-compressor/fima-turbo-compressor.jpg"
+                alt="FIMA Turbo Compressor"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
@@ -271,43 +274,80 @@ export default function CompressorPage() {
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
             <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-              SPARE PARTS
+              RECIPROCATING COMPRESSOR SPARE PARTS SOLUTION
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
             <p className="text-slate-600 mt-4 max-w-2xl">
-              모든 브랜드의 왕복동 압축기 부품을 공급합니다.
-              Modification과 Upgrade, Reverse Engineering을 통한 부품 제작도 가능합니다.
+              네덜란드 왕복동압축기 제작사의 국내대리점으로써의 30년 경험을 바탕으로 왕복동압축기의 Technical Background 및 Know how를 가지로 모든 제작사의 왕복동압축기에 대한 CAPITAL PARTS 및 CONSUMABLE PARTS에 대한 부품을 공급하고 있습니다.
             </p>
           </div>
 
-          {/* 부품 그리드 - 강조 카드 (Navy 배경 유지) */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {sparePartsCategories.map((part, idx) => (
+          {/* 부품 캐러셀 */}
+          <div className="relative">
+            {/* 왼쪽 화살표 */}
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev - 1 + totalCards) % totalCards)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-[#0A1628] text-white flex items-center justify-center hover:bg-[#3B82F6] transition-colors shadow-lg"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* 캐러셀 컨테이너 */}
+            <div className="overflow-hidden">
               <div
-                key={idx}
-                className="group relative rounded-xl overflow-hidden bg-[#0A1628] border border-[#0A1628]/20 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * (100 / 4)}%)` }}
               >
-                {/* 이미지 - 화이트 배경 */}
-                <div className="aspect-square relative bg-white">
-                  <Image
-                    src={part.image}
-                    alt={part.name}
-                    fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 640px) 50vw, 25vw"
-                  />
-                </div>
-                {/* 정보 */}
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-semibold text-white">{part.name}</h4>
-                    {part.partner !== "-" && (
-                      <span className="text-xs text-[#EF4444] font-medium">{part.partner}</span>
-                    )}
+                {/* 무한 루프를 위해 카드 배열을 2번 반복 */}
+                {[...sparePartsCategories, ...sparePartsCategories].map((part, idx) => (
+                  <div
+                    key={idx}
+                    className="w-1/4 flex-shrink-0 px-2"
+                  >
+                    <div className="group relative rounded-xl overflow-hidden bg-[#0A1628] border border-[#0A1628]/20 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                      <div className="aspect-square relative bg-white">
+                        <Image
+                          src={part.image}
+                          alt={part.name}
+                          fill
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                          sizes="25vw"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-1">
+                          <h4 className="font-semibold text-white">{part.name}</h4>
+                          {part.partner !== "-" && (
+                            <span className="text-xs text-[#EF4444] font-medium">{part.partner}</span>
+                          )}
+                        </div>
+                        <p className="text-sm text-slate-400">{part.description}</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-sm text-slate-400">{part.description}</p>
-                </div>
+                ))}
               </div>
+            </div>
+
+            {/* 오른쪽 화살표 */}
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev + 1) % totalCards)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-[#0A1628] text-white flex items-center justify-center hover:bg-[#3B82F6] transition-colors shadow-lg"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* 인디케이터 dots - 7개 */}
+          <div className="flex justify-center gap-2 mt-6">
+            {sparePartsCategories.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  currentSlide === idx ? 'bg-[#EF4444]' : 'bg-slate-300'
+                }`}
+              />
             ))}
           </div>
         </div>
@@ -324,51 +364,47 @@ export default function CompressorPage() {
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
             <p className="text-slate-300 mt-4 max-w-2xl">
-              30년간 축적된 현장 경험을 바탕으로 압축기 운전 중 발생하는
-              다양한 문제에 대한 <span className="text-[#EF4444] font-semibold">체계적인 진단 및 해결 방안</span>을 제공합니다.
+              TURBO COMPRESSOR 및 왕복 압축기 부품 TROUBLE 발생 시 GLOBAL OEM 및 SUB-SUPPLIER, 그리고 국내 SERVICE NET WORK을 통한 <span className="text-[#EF4444] font-semibold">최적화 된 SOLUTION</span>을 제안하고 있습니다.
             </p>
           </div>
 
-          {/* 문제 유형 - 인포그래픽 테이블 스타일 */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { title: "진동 및 소음 문제", desc: "베어링 마모, 정렬 불량, 임펠러 손상 등 진단" },
-              { title: "온도 이상", desc: "냉각 시스템, 윤활유, 씰 상태 점검" },
-              { title: "압력 불균형", desc: "밸브 누설, 씰링 불량, 가스켓 손상 확인" },
-              { title: "효율 저하", desc: "내부 마모, 밸브 타이밍, 제어 시스템 최적화" },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="flex gap-5 p-6 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors"
-              >
-                <span className="text-4xl font-bold text-white/20">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h4 className="font-semibold text-white mb-1">{item.title}</h4>
-                  <p className="text-sm text-slate-300">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* 해결 프로세스 */}
-          <div className="mt-12 p-8 bg-white/10 border border-white/20 rounded-2xl">
-            <h4 className="text-lg font-bold text-white mb-6">해결 프로세스</h4>
-            <div className="flex flex-col md:flex-row gap-4 md:gap-0">
-              {["문제 접수", "현장 진단", "솔루션 제안", "부품 수배", "작업 완료"].map((step, idx) => (
-                <div key={idx} className="flex-1 flex items-center">
-                  <div className="flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
-                      {idx + 1}
-                    </span>
-                    <span className="text-sm font-medium text-white">{step}</span>
+          {/* 문제 유형 - 2컬럼 레이아웃 (리스트 + 이미지) */}
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* 왼쪽: 문제 유형 리스트 */}
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { title: "진동 및 소음 문제", desc: "베어링 마모, 정렬 불량, 임펠러 손상 등 진단" },
+                { title: "온도 이상", desc: "냉각 시스템, 윤활유, 씰 상태 점검" },
+                { title: "압력 불균형", desc: "밸브 누설, 씰링 불량, 가스켓 손상 확인" },
+                { title: "효율 저하", desc: "내부 마모, 밸브 타이밍, 제어 시스템 최적화" },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex gap-5 p-6 bg-white/10 border border-white/20 rounded-xl hover:bg-white/15 transition-colors"
+                >
+                  <span className="text-4xl font-bold text-white/20">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                    <p className="text-sm text-slate-300">{item.desc}</p>
                   </div>
-                  {idx < 4 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
                 </div>
               ))}
             </div>
+
+            {/* 오른쪽: Trouble Shooting 이미지 */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/products/troubleshooting/troubleshooting-service.jpg"
+                alt="Trouble Shooting Service"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -379,12 +415,11 @@ export default function CompressorPage() {
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
             <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-              M&R (유지보수 & 정비)
+              MAINTENANCE & REPAIR (유지보수 & 정비)
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
             <p className="text-slate-600 mt-4 max-w-2xl">
-              예방 정비부터 긴급 수리까지, 압축기 수명 연장과
-              <span className="text-[#0A1628] font-semibold"> 안정적인 운전</span>을 위한 종합 서비스를 제공합니다.
+              현지 정비업체와의 SERVICE PARTNERSHIP을 통하여 신규 기계 설치 공사 및 회전기계정비작업과 부품수리에 대한 <span className="text-[#0A1628] font-semibold">SOLUTION</span>을 제공하고 있습니다.
             </p>
           </div>
 

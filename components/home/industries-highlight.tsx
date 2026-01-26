@@ -47,7 +47,7 @@ function IndustryCard({
             {subtitle}
           </p>
           <h3 className="text-2xl sm:text-3xl font-bold mb-3">{title}</h3>
-          <p className="text-white/90 mb-4 line-clamp-2">{description}</p>
+          <p className="text-white/90 mb-4">{description}</p>
 
           {/* Key Points */}
           <ul className="space-y-1 mb-4">
@@ -106,6 +106,15 @@ export function IndustriesHighlight() {
       image: "/images/industries/oil-refinery.PNG",
     },
     {
+      title: t("powerPlant.title"),
+      subtitle: "Power Plant",
+      description: t("powerPlant.description"),
+      bullets: t.raw("powerPlant.bullets") as string[],
+      tags: ["Bearing", "Compressor Parts", "Oil Purifier"],
+      href: "/industries/power-plant",
+      image: "/images/industries/power-plant.jpg",
+    },
+    {
       title: t("shipbuilding.title"),
       subtitle: "Ship Building",
       description: t("shipbuilding.description"),
@@ -133,7 +142,7 @@ export function IndustriesHighlight() {
         </div>
 
         {/* Industry Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {industries.map((industry, index) => (
             <IndustryCard key={index} {...industry} />
           ))}

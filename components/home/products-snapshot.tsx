@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
@@ -66,18 +65,6 @@ export function ProductsSnapshot() {
       image: "/images/category/compressor-parts_cat.jpg",
     },
     {
-      name: t("products.mixer.name"),
-      description: t("products.mixer.description"),
-      href: "/products/mixer",
-      image: "/images/category/Mixer & Agitator_cat.jpg",
-    },
-    {
-      name: t("products.motor.name"),
-      description: t("products.motor.description"),
-      href: "/products/motor",
-      image: "/images/category/motor_cat.jpg",
-    },
-    {
       name: t("products.pump.name"),
       description: t("products.pump.description"),
       href: "/products/pump",
@@ -88,6 +75,12 @@ export function ProductsSnapshot() {
       description: t("products.bearing.description"),
       href: "/products/bearing",
       image: "/images/category/bearing_cat.jpg",
+    },
+    {
+      name: t("products.motor.name"),
+      description: t("products.motor.description"),
+      href: "/products/motor",
+      image: "/images/category/motor_cat.jpg",
     },
     {
       name: t("products.oilPurifier.name"),
@@ -114,25 +107,10 @@ export function ProductsSnapshot() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {products.map((product) => (
             <ProductCard key={product.href} {...product} />
           ))}
-        </div>
-
-        {/* View All CTA */}
-        <div className="text-center">
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-2 border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628] hover:text-white transition-all"
-          >
-            <Link href="/products">
-              {t("viewAll")}
-              <ChevronRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>

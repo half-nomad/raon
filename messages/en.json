@@ -354,6 +354,15 @@
           "Globally certified products",
           "Rapid delivery response system"
         ]
+      },
+      "powerPlant": {
+        "title": "Power Plant",
+        "description": "Providing optimized rotating machinery solutions for thermal, combined cycle, and renewable energy power plants",
+        "bullets": [
+          "Turbine bearing systems",
+          "Compressor parts",
+          "Oil purification solutions"
+        ]
       }
     }
   },

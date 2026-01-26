@@ -6,6 +6,84 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-01-26
+
+### Added
+- **Power Plant 산업 페이지 신규 생성** (`app/[locale]/industries/power-plant/page.tsx`)
+  - 발전소 회전기계 솔루션 소개 페이지
+  - 터빈용 베어링, 압축기 부품, 윤활유 정제 서비스 안내
+  - 관련 제품 링크 (Compressor, Bearing, Oil Purifier)
+- **홈 페이지 산업별 솔루션에 발전소 카드 추가** (`components/home/industries-highlight.tsx`)
+  - 정유 → 발전소 → 조선 순서로 3열 그리드 배치
+  - 카드 설명 줄바꿈 시 잘림 방지 (line-clamp 제거)
+- **번역 키 추가** (`messages/ko.json`, `messages/en.json`)
+  - industries.highlight.powerPlant 섹션 추가
+
+### Changed
+- **Compressor 페이지 SPARE PARTS 섹션 캐러셀 구현**
+  - 1개씩 자동 슬라이드 (3초 간격)
+  - 좌우 화살표 내비게이션
+  - 7개 인디케이터 dots
+- **Compressor 페이지 콘텐츠 수정**
+  - NEW COMPRESSOR: FIMA 설명 업데이트 + 이미지 컴포넌트 추가
+  - SPARE PARTS: 제목 → "RECIPROCATING COMPRESSOR SPARE PARTS SOLUTION"
+  - TROUBLE SHOOTING: 2컬럼 레이아웃 (리스트 + 이미지), 해결 프로세스 삭제
+  - M&R: 제목 → "MAINTENANCE & REPAIR"
+- **홈 페이지 주요 제품 섹션 수정** (`components/home/products-snapshot.tsx`)
+  - 6개 → 5개 카테고리 (Mixer 제거)
+  - "전체 제품 보기" 버튼 삭제
+
+### Technical
+- 자동 슬라이드 캐러셀 구현 (useState + useEffect)
+- 무한 루프 슬라이드 (카드 배열 복제 방식)
+- 반응형 3열 그리드 레이아웃
+
+---
+
+## [1.2.0] - 2026-01-25
+
+### Changed
+- **Compressor 페이지 디자인 대폭 리뉴얼** (`app/[locale]/products/compressor/page.tsx`)
+  - Sub Navigation 위치 변경: fixed → sticky (ProductIntro 아래)
+  - 섹션 색상 반전 패턴 적용 (홀수: Navy, 짝수: White)
+  - 강조 카드 Navy 배경 유지 (White 배경 섹션에서)
+  - FIMA 파트너 로고 이미지 박스 추가
+  - Spare parts 이미지 배경 화이트로 변경
+  - Troubleshooting 카드 배경 밝게 (bg-white/10)
+  - M&R 통계 섹션 삭제
+  - CTA 섹션 SVG 배경 무늬 추가
+- **ProductIntro 컴포넌트 갤러리 스타일 변경** (`components/products/product-intro.tsx`)
+  - 기존: 큰 메인 이미지 + 작은 썸네일
+  - 변경: 모든 이미지 동일 크기 카드 (grid-cols-2 sm:grid-cols-3)
+- **M&R 서비스 카드 이미지 구조 추가**
+  - 상단 이미지 (aspect-[4/3]) + 하단 텍스트 레이아웃
+  - 이미지 경로: `/images/services/compressor-mr/`
+
+### Added
+- 이미지 폴더 생성: `public/images/services/compressor-mr/`
+
+### Technical
+- #new 섹션 좌우 컬럼 높이 맞춤 (items-stretch, flex)
+- 반응형 갤러리 그리드 개선
+- Next.js Image 컴포넌트 최적화
+
+---
+
+## [1.1.4] - 2026-01-23
+
+### Removed
+- **레거시 제품 페이지 삭제** (P5.3-11, P5.3-12)
+  - `app/[locale]/products/bearing/` 삭제 → `/bearing-lubrication`으로 redirect
+  - `app/[locale]/products/cylinder-liner/` 삭제 → `/compressor`로 redirect
+  - `app/[locale]/products/oil-purifier/` 삭제 → `/bearing-lubrication`으로 redirect
+
+### Changed
+- **제품 페이지 설명문 통일** (P5.3-13)
+  - pump, mixer, bearing-lubrication 페이지에 "30년 경력" 문구 반영
+  - 전체 5개 제품 페이지 설명문 일관성 확보
+
+---
+
 ## [1.1.3] - 2026-01-23
 
 ### Changed

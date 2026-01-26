@@ -10,6 +10,7 @@ interface ProductCardProps {
   description: string;
   href: string;
   image: string;
+  bgColor?: string;
 }
 
 function ProductCard({
@@ -17,6 +18,7 @@ function ProductCard({
   description,
   href,
   image,
+  bgColor,
 }: ProductCardProps) {
   const t = useTranslations("products.snapshot");
 
@@ -26,28 +28,29 @@ function ProductCard({
       className="group relative overflow-hidden rounded-xl bg-white border border-gray-200 hover:border-[#3B82F6] hover:shadow-xl transition-all duration-300"
     >
       {/* Product Image */}
-      <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-50">
+      <div className={`relative h-40 sm:h-48 lg:h-36 xl:h-40 overflow-hidden ${bgColor || 'bg-white'}`}>
         <Image
           src={image}
           alt={name}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          unoptimized
+          className="object-contain p-3 lg:p-2 group-hover:scale-105 transition-transform duration-500"
         />
       </div>
 
       {/* Product Info */}
-      <div className="p-5 sm:p-6">
-        <h3 className="text-lg sm:text-xl font-bold text-[#0A1628] mb-2 group-hover:text-[#3B82F6] transition-colors">
+      <div className="p-4 sm:p-5 lg:p-3 xl:p-4">
+        <h3 className="text-base sm:text-lg lg:text-sm xl:text-base font-bold text-[#0A1628] mb-1.5 lg:mb-1 group-hover:text-[#3B82F6] transition-colors line-clamp-1">
           {name}
         </h3>
-        <p className="text-sm text-gray-600 line-clamp-2 mb-4">
+        <p className="text-sm lg:text-xs xl:text-sm text-gray-600 line-clamp-2 mb-3 lg:mb-2">
           {description}
         </p>
 
         {/* View More Link */}
-        <div className="flex items-center text-sm font-semibold text-[#3B82F6] group-hover:gap-2 transition-all">
+        <div className="flex items-center text-sm lg:text-xs xl:text-sm font-semibold text-[#3B82F6] group-hover:gap-1 transition-all">
           <span>{t("learnMore")}</span>
-          <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <ChevronRight className="ml-1 w-4 h-4 lg:w-3 lg:h-3 xl:w-4 xl:h-4 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </Link>
@@ -106,8 +109,8 @@ export function ProductsSnapshot() {
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Products Grid - 5 columns on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {products.map((product) => (
             <ProductCard key={product.href} {...product} />
           ))}

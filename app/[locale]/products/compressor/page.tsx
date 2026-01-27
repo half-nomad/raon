@@ -11,13 +11,21 @@ import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-// 대표 이미지 (상단 갤러리용)
+// 대표 이미지 (상단 갤러리용) - compressor 폴더 전체 이미지
 const heroImages = [
-  { src: "/images/products/compressor-parts/Valve-Assy&Internal-Parts_1.jpg", alt: "Compressor Valve Assembly" },
-  { src: "/images/products/compressor-parts/piston_1.jpg", alt: "Piston" },
-  { src: "/images/products/compressor-parts/cylinder-liner_1.jpg", alt: "Cylinder Liner" },
-  { src: "/images/products/compressor-parts/piston-rod_1.jpg", alt: "Piston Rod" },
-  { src: "/images/products/compressor-parts/Crosshead_1.jpg", alt: "Crosshead" },
+  { src: "/images/products/compressor/Turbo Compressor.jpg", alt: "Turbo Compressor" },
+  { src: "/images/products/compressor/crosshead.png", alt: "Crosshead" },
+  { src: "/images/products/compressor/cylinder-liner_2.jpg", alt: "Cylinder Liner" },
+  { src: "/images/products/compressor/Oil-Scraper-Packing_3.jpg", alt: "Oil Scraper Packing" },
+  { src: "/images/products/compressor/Packing-Cup&Packing-Ring_1.jpg", alt: "Packing Cup & Packing Ring" },
+  { src: "/images/products/compressor/piston_1.jpg", alt: "Piston 1" },
+  { src: "/images/products/compressor/piston_2.jpg", alt: "Piston 2" },
+  { src: "/images/products/compressor/Piston-ring_2.jpg", alt: "Piston Ring" },
+  { src: "/images/products/compressor/piston-rod_1.jpg", alt: "Piston Rod 1" },
+  { src: "/images/products/compressor/piston-rod_2.jpg", alt: "Piston Rod 2" },
+  { src: "/images/products/compressor/radial fans.jpg", alt: "Radial Fans" },
+  { src: "/images/products/compressor/Rider-ring_2.jpg", alt: "Rider Ring" },
+  { src: "/images/products/compressor/Valve-Assy&Internal-Parts_1.jpg", alt: "Valve Assembly & Internal Parts" },
 ];
 
 // 서브 네비게이션 정의
@@ -34,43 +42,43 @@ const sparePartsCategories = [
     name: "Cylinder Liner",
     description: "피스톤 왕복 운동을 위한 교체 가능 슬리브",
     partner: "WTQ",
-    image: "/images/products/compressor-parts/cylinder-liner_1.jpg",
+    image: "/images/products/compressor/cylinder-liner_2.jpg",
   },
   {
     name: "Piston",
     description: "실린더 내 왕복 운동으로 가스 압축",
     partner: "Castanet SA",
-    image: "/images/products/compressor-parts/piston_1.jpg",
+    image: "/images/products/compressor/piston_1.jpg",
   },
   {
     name: "Piston Rod",
     description: "피스톤과 크랭크샤프트 연결 부품",
     partner: "Castanet SA",
-    image: "/images/products/compressor-parts/piston-rod_1.jpg",
+    image: "/images/products/compressor/piston-rod_1.jpg",
   },
   {
     name: "Crosshead",
     description: "피스톤 왕복 운동 안정화 지지 부품",
     partner: "-",
-    image: "/images/products/compressor-parts/Crosshead_1.jpg",
+    image: "/images/products/compressor/crosshead.png",
   },
   {
     name: "Piston Ring & Rider Ring",
     description: "기밀 유지 및 마찰 저감 소모품",
     partner: "-",
-    image: "/images/products/compressor-parts/Piston-ring_1.jpg",
+    image: "/images/products/compressor/Piston-ring_2.jpg",
   },
   {
     name: "Packing & Oil Scraper",
     description: "고압 밀봉 및 오일 누출 방지",
     partner: "-",
-    image: "/images/products/compressor-parts/Packing-Cup&Packing-Ring_1.jpg",
+    image: "/images/products/compressor/Packing-Cup&Packing-Ring_1.jpg",
   },
   {
     name: "Valve Assembly",
     description: "가스 흐름 방향 제어 (흡기/배출)",
     partner: "KB Delta",
-    image: "/images/products/compressor-parts/Valve-Assy&Internal-Parts_1.jpg",
+    image: "/images/products/compressor/Valve-Assy&Internal-Parts_1.jpg",
   },
 ];
 
@@ -225,7 +233,7 @@ export default function CompressorPage() {
                   {/* FIMA 로고 이미지 박스 */}
                   <div className="w-24 h-12 bg-white rounded-lg flex items-center justify-center p-2">
                     <Image
-                      src="/images/partners/fima-logo.png"
+                      src="/images/partners/fima.jpg"
                       alt="FIMA Logo"
                       width={80}
                       height={32}
@@ -256,7 +264,7 @@ export default function CompressorPage() {
             {/* 오른쪽: FIMA Turbo Compressor 이미지 */}
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/images/products/new-compressor/fima-turbo-compressor.jpg"
+                src="/images/products/compressor/Turbo Compressor.jpg"
                 alt="FIMA Turbo Compressor"
                 fill
                 className="object-cover"
@@ -396,7 +404,7 @@ export default function CompressorPage() {
             {/* 오른쪽: Trouble Shooting 이미지 */}
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/images/products/troubleshooting/troubleshooting-service.jpg"
+                src="/images/products/compressor/radial fans.jpg"
                 alt="Trouble Shooting Service"
                 fill
                 className="object-cover"

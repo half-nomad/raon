@@ -47,69 +47,38 @@ export function ProductIntro({
   const prevImage = () =>
     setLightboxIndex((prev) => (prev - 1 + images.length) % images.length);
 
-  // 모자이크 레이아웃: 메인 1장 + 서브 4장
-  const mainImage = images[0];
-  const subImages = images.slice(1, 5);
-
   return (
     <>
       <section className={cn("py-8 md:py-12 lg:py-16", className)}>
         <div className="section-container">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* 이미지 갤러리 - 모자이크 */}
-            <div className="space-y-2">
-              {/* 메인 이미지 */}
-              <div
-                className="relative aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 cursor-pointer group"
-                onClick={() => openLightbox(0)}
-              >
-                {mainImage ? (
-                  <Image
-                    src={mainImage.src}
-                    alt={mainImage.alt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    priority
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                    <span className="text-6xl">📦</span>
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                  <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
-                </div>
-              </div>
-
-              {/* 서브 이미지 그리드 */}
-              {subImages.length > 0 && (
-                <div className="grid grid-cols-4 gap-2">
-                  {subImages.map((img, idx) => (
+            {/* 이미지 갤러리 - 균등 그리드 */}
+            <div>
+              {images.length > 0 ? (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+                  {images.map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative aspect-square rounded-lg overflow-hidden bg-slate-100 cursor-pointer group"
-                      onClick={() => openLightbox(idx + 1)}
+                      className="relative aspect-square rounded-md overflow-hidden bg-slate-100 cursor-pointer group"
+                      onClick={() => openLightbox(idx)}
                     >
                       <Image
                         src={img.src}
                         alt={img.alt}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
-                        sizes="120px"
+                        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 120px"
+                        priority={idx === 0}
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+                      </div>
                     </div>
                   ))}
-                  {/* 더보기 버튼 (이미지가 5개 이상일 때) */}
-                  {images.length > 5 && (
-                    <button
-                      onClick={() => openLightbox(4)}
-                      className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded"
-                    >
-                      +{images.length - 5}
-                    </button>
-                  )}
+                </div>
+              ) : (
+                <div className="aspect-square rounded-lg bg-slate-100 flex items-center justify-center text-slate-400">
+                  <span className="text-6xl">📦</span>
                 </div>
               )}
             </div>

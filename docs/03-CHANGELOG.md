@@ -6,6 +6,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1] - 2026-02-13
+
+### Changed
+- **Mixer 페이지 전면 개편** (`app/[locale]/products/mixer/page.tsx`)
+  - 4섹션 → 2섹션 축소 (Mixing Solution + SPXFlow Mixer Brands)
+  - UUTECHNIC 브랜드 제거 (5개→4개 브랜드)
+  - 브랜드 설명 원고 교체 (work_list.md 기반: 태그라인, 주요 용도, 핵심 가치, 강점)
+  - 16개 제품 이미지 타일형 갤러리 노출
+  - 브랜드별 이미지 캐러셀 (좌우 네비게이션 + dot indicator)
+  - SPXFLOW 로고 카드 추가
+  - CTA 섹션 SVG 배경 패턴 통일 (Compressor/Pump 스타일)
+  - 브랜드 카드 2열 그리드 레이아웃
+- **Mixer 이미지 브랜드별 폴더 재구성** (Lightnin, Plenty_mixers, Philadelphia, Stelzer)
+
+### Removed
+- 기존 mixer 루트 이미지 4장 (브랜드 하위 폴더로 이동)
+- cylinder-liner 이미지 3장 삭제
+
+---
+
 ## [1.5.0] - 2026-02-13
 
 ### Changed

@@ -6,6 +6,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] - 2026-02-13
+
+### Changed
+- **Bearing-Lubrication 페이지 2섹션 구조 개편** (`app/[locale]/products/bearing-lubrication/page.tsx`)
+  - 4섹션 → 2섹션 축소 (BEARING SOLUTION + LUBRICATION SOLUTION)
+  - Sub-Nav 3탭 → 2탭 (SERVICES 탭 제거)
+  - 제품 카드 그리드 → 설명 + 이미지 캐러셀 레이아웃 변경
+  - heroImages 10개 매핑 (bearing 4개 + oil-purifier 6개)
+  - 텍스트:이미지 60:40 비율 그리드 (`grid-cols-[3fr_2fr]`)
+  - 지그재그 레이아웃 (섹션 01: 텍스트-좌/이미지-우, 섹션 02: 이미지-좌/텍스트-우)
+  - CTA 섹션 SVG 배경 패턴 통일 (Compressor/Pump/Mixer 스타일)
+- **Oil-purifier 이미지 6개 교체** (기존 4개 삭제 → 신규 p1-01~p1-06.png 추가)
+
+### Removed
+- cylinder-liner 이미지 3장 삭제
+- 기존 oil-purifier 이미지 4장 삭제 (신규 이미지로 교체)
+
+---
+
 ## [1.5.1] - 2026-02-13
 
 ### Changed

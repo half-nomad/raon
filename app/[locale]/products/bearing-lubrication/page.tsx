@@ -2,79 +2,52 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // 대표 이미지 (상단 갤러리용)
 const heroImages = [
-  { src: "/images/products/bearing-lubrication/bearing-1.jpg", alt: "Tilting Pad Bearing" },
-  { src: "/images/products/bearing-lubrication/bearing-2.jpg", alt: "Journal Bearing" },
-  { src: "/images/products/bearing-lubrication/oil-purifier.jpg", alt: "Oil Purifier" },
+  // Bearing (4)
+  { src: "/images/products/bearing/bearing_TILTING%20PAD%20THRUST%20BEARING.png", alt: "Tilting Pad Thrust Bearing" },
+  { src: "/images/products/bearing/bearing_JOURNAL%20%26%20THRUST%20COMBINED%20BEARING.png", alt: "Journal & Thrust Combined Bearing" },
+  { src: "/images/products/bearing/bearing_VERTICAL%20BEARING.png", alt: "Vertical Bearing" },
+  { src: "/images/products/bearing/bearing_FIXED%20PROFILE%20BEARING.png", alt: "Fixed Profile Bearing" },
+  // Oil Purifier (6)
+  { src: "/images/products/oil-purifier/p1-01.png", alt: "Oil Purifier System" },
+  { src: "/images/products/oil-purifier/p1-02.png", alt: "Oil Purifier Unit" },
+  { src: "/images/products/oil-purifier/p1-03.png", alt: "Oil Purifier Rental" },
+  { src: "/images/products/oil-purifier/p1-04.png", alt: "Oil Flushing System" },
+  { src: "/images/products/oil-purifier/p1-05.png", alt: "Oil Purifier Product 5" },
+  { src: "/images/products/oil-purifier/p1-06.png", alt: "Oil Purifier Product 6" },
 ];
 
 // 서브 네비게이션 정의
 const subNavItems = [
   { id: "bearing", label: "BEARING SOLUTION" },
   { id: "lubrication", label: "LUBRICATION SOLUTION" },
-  { id: "services", label: "SERVICES" },
 ];
 
-// Bearing 제품군
-const bearingProducts = [
-  {
-    name: "Tilting Pad Journal Bearing",
-    description: "고속 회전 장비에 최적화된 틸팅 패드 저널 베어링",
-    features: ["고속 회전 대응", "저진동 설계", "자동 조심 기능"],
-  },
-  {
-    name: "Tilting Pad Thrust Bearing",
-    description: "축방향 하중을 지지하는 틸팅 패드 스러스트 베어링",
-    features: ["높은 하중 용량", "균일한 압력 분포", "긴 수명"],
-  },
-  {
-    name: "Journal & Thrust Combined",
-    description: "저널과 스러스트 기능을 통합한 복합 베어링",
-    features: ["통합 설계", "공간 절약", "설치 용이"],
-  },
-  {
-    name: "Vertical Guide & Thrust",
-    description: "수직형 펌프 및 회전기계용 가이드 베어링",
-    features: ["수직 축 지지", "정밀 정렬", "내마모성"],
-  },
-  {
-    name: "Fixed Profile Bearing",
-    description: "안정적인 성능과 경제적인 유지보수 제공",
-    features: ["안정적 성능", "경제적", "유지보수 용이"],
-  },
-  {
-    name: "Repair / Retrofit / Replacement",
-    description: "기존 베어링의 수리, 개조, 교체 서비스",
-    features: ["현장 수리", "성능 개선", "비용 절감"],
-  },
+// Bearing 이미지 (캐러셀용)
+const bearingImages = [
+  { src: "/images/products/bearing/bearing_TILTING%20PAD%20THRUST%20BEARING.png", alt: "Tilting Pad Thrust Bearing" },
+  { src: "/images/products/bearing/bearing_JOURNAL%20%26%20THRUST%20COMBINED%20BEARING.png", alt: "Journal & Thrust Combined Bearing" },
+  { src: "/images/products/bearing/bearing_VERTICAL%20BEARING.png", alt: "Vertical Bearing" },
+  { src: "/images/products/bearing/bearing_FIXED%20PROFILE%20BEARING.png", alt: "Fixed Profile Bearing" },
 ];
 
-// Lubrication 서비스
-const lubricationServices = [
-  {
-    name: "Oil Purifier",
-    description: "오염된 오일에서 수분, 가스, 미립자를 제거하여 오일 수명 연장",
-    features: ["수분 제거", "미립자 여과", "가스 제거"],
-  },
-  {
-    name: "Oil Purifier Rental Service",
-    description: "단기 프로젝트나 정비 기간 동안 장비 임대 서비스",
-    features: ["단기 임대", "장비 운송", "기술 지원"],
-  },
-  {
-    name: "Oil Flushing Service",
-    description: "배관 및 윤활 시스템의 오염물질 제거 전문 서비스",
-    features: ["배관 세척", "오염물 제거", "품질 검증"],
-  },
+// Lubrication 이미지 (캐러셀용)
+const lubricationImages = [
+  { src: "/images/products/oil-purifier/p1-01.png", alt: "Oil Purifier System 1" },
+  { src: "/images/products/oil-purifier/p1-02.png", alt: "Oil Purifier System 2" },
+  { src: "/images/products/oil-purifier/p1-03.png", alt: "Oil Purifier System 3" },
+  { src: "/images/products/oil-purifier/p1-04.png", alt: "Oil Purifier System 4" },
+  { src: "/images/products/oil-purifier/p1-05.png", alt: "Oil Purifier System 5" },
+  { src: "/images/products/oil-purifier/p1-06.png", alt: "Oil Purifier System 6" },
 ];
 
 // Bearing 서비스
@@ -85,8 +58,9 @@ const bearingServiceList = [
 ];
 
 export default function BearingLubricationPage() {
-  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("bearing");
+  const [bearingImageIdx, setBearingImageIdx] = useState(0);
+  const [lubricationImageIdx, setLubricationImageIdx] = useState(0);
 
   // 스크롤 위치에 따라 활성 섹션 업데이트
   useEffect(() => {
@@ -118,6 +92,14 @@ export default function BearingLubricationPage() {
         behavior: "smooth",
       });
     }
+  };
+
+  // 캐러셀 네비게이션
+  const goToPrev = (current: number, total: number, setter: (v: number) => void) => {
+    setter((current - 1 + total) % total);
+  };
+  const goToNext = (current: number, total: number, setter: (v: number) => void) => {
+    setter((current + 1) % total);
   };
 
   return (
@@ -188,9 +170,7 @@ export default function BearingLubricationPage() {
           </div>
         </nav>
 
-        {/* ========== 모든 섹션 세로 나열 (배경 교차: white → navy → white) ========== */}
-
-        {/* Section 1: BEARING SOLUTION - 네이비 배경 */}
+        {/* ========== Section 01: BEARING SOLUTION - 네이비 배경 ========== */}
         <section id="bearing" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
@@ -202,9 +182,10 @@ export default function BearingLubricationPage() {
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              {/* 왼쪽: 파트너 정보 */}
-              <div>
+            {/* 2-col: 좌(텍스트) / 우(캐러셀) */}
+            <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-start">
+              {/* 좌측: 설명 영역 */}
+              <div className="flex flex-col">
                 <div className="mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                     터보링크 (TURBOLINK)
@@ -216,36 +197,75 @@ export default function BearingLubricationPage() {
                   </p>
                 </div>
 
-                {/* 서비스 - 인포그래픽 스타일 */}
-                <div className="space-y-3">
+                {/* 서비스 목록 */}
+                <div className="space-y-3 mb-8">
                   {bearingServiceList.map((service, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4"
-                    >
+                    <div key={idx} className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4">
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
                       <span className="text-white font-medium">{service}</span>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              {/* 오른쪽: 핵심 특징 - 인포그래픽 */}
-              <div className="bg-white/10 rounded-2xl p-8">
-                <h4 className="text-lg font-bold text-white mb-6">핵심 특징</h4>
-                <div className="space-y-6">
+                {/* 핵심 특징 */}
+                <div className="space-y-4">
                   {[
-                    { num: "01", title: "초고속 대응", desc: "65,000rpm급 고속 회전에 최적화된 설계" },
-                    { num: "02", title: "고하중 지지", desc: "수백톤 축하중 지지 가능한 견고한 구조" },
-                    { num: "03", title: "맞춤 설계", desc: "고객 요구사항에 맞춘 커스텀 베어링 설계" },
+                    { title: "초고속 대응", desc: "65,000rpm급 고속 회전 최적화" },
+                    { title: "고하중 지지", desc: "수백톤 축하중 견고한 구조" },
+                    { title: "맞춤 설계", desc: "고객 요구사항 커스텀 설계" },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex gap-4">
-                      <span className="text-3xl font-bold text-[#3B82F6]/50">{item.num}</span>
+                    <div key={idx} className="flex gap-3">
+                      <span className="text-[#3B82F6] font-bold">{String(idx + 1).padStart(2, '0')}</span>
                       <div>
                         <h5 className="font-semibold text-white">{item.title}</h5>
-                        <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
+                        <p className="text-sm text-slate-400">{item.desc}</p>
                       </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 우측: 이미지 캐러셀 */}
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-white">
+                <Image
+                  src={bearingImages[bearingImageIdx].src}
+                  alt={bearingImages[bearingImageIdx].alt}
+                  fill
+                  className="object-contain p-8"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+
+                {/* 좌측 화살표 */}
+                <button
+                  onClick={() => goToPrev(bearingImageIdx, bearingImages.length, setBearingImageIdx)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
+                  aria-label="이전 베어링 이미지"
+                >
+                  <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
+                </button>
+
+                {/* 우측 화살표 */}
+                <button
+                  onClick={() => goToNext(bearingImageIdx, bearingImages.length, setBearingImageIdx)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
+                  aria-label="다음 베어링 이미지"
+                >
+                  <ChevronRight className="w-5 h-5 text-[#0A1628]" />
+                </button>
+
+                {/* Dot indicators */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {bearingImages.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      onClick={() => setBearingImageIdx(dotIdx)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        dotIdx === bearingImageIdx
+                          ? "bg-[#0A1628] w-4"
+                          : "bg-[#0A1628]/30 hover:bg-[#0A1628]/60"
+                      }`}
+                      aria-label={`베어링 이미지 ${dotIdx + 1}`}
+                    />
                   ))}
                 </div>
               </div>
@@ -253,174 +273,108 @@ export default function BearingLubricationPage() {
           </div>
         </section>
 
-        {/* Section 2: BEARING PRODUCTS - 흰색 배경 */}
-        <section className="py-16 md:py-24 bg-white">
+        {/* ========== Section 02: LUBRICATION SOLUTION - 흰색 배경 ========== */}
+        <section id="lubrication" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
               <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-                BEARING PRODUCTS
-              </h2>
-              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
-                다양한 유체윤활베어링 제품군을 공급합니다.
-                고객의 요구사항에 맞춘 맞춤 설계 및 역설계를 통한 신규 제작도 가능합니다.
-              </p>
-            </div>
-
-            {/* 베어링 제품 그리드 */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {bearingProducts.map((product, idx) => (
-                <div
-                  key={idx}
-                  className="group p-6 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[#3B82F6]/50 font-bold">{String(idx + 1).padStart(2, '0')}</span>
-                    <h4 className="font-semibold text-white">{product.name}</h4>
-                  </div>
-                  <p className="text-sm text-slate-400 mb-4">{product.description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {product.features.map((f, i) => (
-                      <span key={i} className="text-xs px-2 py-1 bg-[#3B82F6]/10 rounded text-[#3B82F6]">
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: LUBRICATION SOLUTION - 네이비 배경 */}
-        <section id="lubrication" className="py-16 md:py-24 bg-[#0A1628]">
-          <div className="section-container">
-            {/* 섹션 헤더 */}
-            <div className="mb-12">
-              <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
                 LUBRICATION SOLUTION
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
-                <span className="text-[#EF4444] font-semibold">삼영필텍</span>의 특허 기술인 이중 진공 시스템과 전기 필터를 통해
-                수분 제거 및 바니쉬 신속 제거가 가능합니다.
-              </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              {/* 왼쪽: 파트너 정보 */}
-              <div>
+            {/* 2-col: 좌(캐러셀) / 우(텍스트) — 지그재그 */}
+            <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 items-start">
+              {/* 텍스트 (모바일 first, 데스크톱에서 우측) */}
+              <div className="flex flex-col lg:order-last">
                 <div className="mb-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                  <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
                     삼영필텍 (SAMYOUNG FILTECH)
                   </h3>
                   <p className="text-[#3B82F6] font-medium">Korea</p>
-                  <p className="text-slate-300 mt-4 leading-relaxed">
+                  <p className="text-slate-600 mt-4 leading-relaxed">
                     윤활유 청정도 유지 전문 기업으로, 국내 특허 기술인 이중 진공 시스템과 전기 필터를 통해
                     수분 제거 및 바니쉬 신속 제거가 가능합니다.
                   </p>
                 </div>
 
-                {/* 특허 기술 - 인포그래픽 스타일 */}
-                <div className="space-y-3">
+                {/* 특허 기술 리스트 */}
+                <div className="space-y-3 mb-8">
                   {[
                     "이중 진공 시스템 - 효율적인 수분 제거",
                     "전기 필터 - 미세 입자 완벽 여과",
                     "바니쉬 신속 제거 - 윤활유 수명 연장",
                     "베어링 수명 반영구적 연장",
                   ].map((tech, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/10 pl-4 py-3 pr-4"
-                    >
+                    <div key={idx} className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4">
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="text-white font-medium">{tech}</span>
+                      <span className="text-[#0A1628] font-medium">{tech}</span>
                     </div>
                   ))}
                 </div>
-              </div>
 
-              {/* 오른쪽: 핵심 혜택 */}
-              <div className="bg-white/10 rounded-2xl p-8">
-                <h4 className="text-lg font-bold text-white mb-6">도입 효과</h4>
-                <div className="space-y-6">
+                {/* 도입 효과 */}
+                <div className="space-y-4">
                   {[
-                    { num: "01", title: "윤활유 수명 연장", desc: "오염물질 제거로 오일 교체 주기 연장" },
-                    { num: "02", title: "베어링 보호", desc: "청정 윤활유로 베어링 마모 최소화" },
-                    { num: "03", title: "비용 절감", desc: "오일 비용 및 정비 비용 절감" },
+                    { title: "윤활유 수명 연장", desc: "오염물질 제거로 오일 교체 주기 연장" },
+                    { title: "베어링 보호", desc: "청정 윤활유로 베어링 마모 최소화" },
+                    { title: "비용 절감", desc: "오일 비용 및 정비 비용 절감" },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex gap-4">
-                      <span className="text-3xl font-bold text-[#3B82F6]/50">{item.num}</span>
+                    <div key={idx} className="flex gap-3">
+                      <span className="text-[#3B82F6] font-bold">{String(idx + 1).padStart(2, '0')}</span>
                       <div>
-                        <h5 className="font-semibold text-white">{item.title}</h5>
-                        <p className="text-sm text-slate-400 mt-1">{item.desc}</p>
+                        <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
+                        <p className="text-sm text-slate-500">{item.desc}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Section 4: SERVICES - 흰색 배경 */}
-        <section id="services" className="py-16 md:py-24 bg-white">
-          <div className="section-container">
-            {/* 섹션 헤더 */}
-            <div className="mb-12">
-              <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-                SERVICES
-              </h2>
-              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
-                Oil Purifier 판매부터 임대 서비스, Oil Flushing 서비스까지
-                <span className="text-[#0A1628] font-semibold"> 윤활 시스템 전반에 대한 종합 서비스</span>를 제공합니다.
-              </p>
-            </div>
+              {/* 캐러셀 (모바일 second, 데스크톱에서 좌측) */}
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-100 lg:order-first">
+                <Image
+                  src={lubricationImages[lubricationImageIdx].src}
+                  alt={lubricationImages[lubricationImageIdx].alt}
+                  fill
+                  className="object-contain p-8"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
 
-            {/* 서비스 그리드 */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {lubricationServices.map((service, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-xl bg-[#0A1628] border border-slate-200 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
+                {/* 좌측 화살표 */}
+                <button
+                  onClick={() => goToPrev(lubricationImageIdx, lubricationImages.length, setLubricationImageIdx)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
+                  aria-label="이전 윤활 이미지"
                 >
-                  <span className="text-3xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
-                  <h4 className="font-semibold text-white mt-2">{service.name}</h4>
-                  <p className="text-sm text-slate-400 mt-1 mb-4">{service.description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.features.map((f, i) => (
-                      <span key={i} className="text-xs px-2 py-1 bg-[#3B82F6]/10 rounded text-[#3B82F6]">
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+                  <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
+                </button>
 
-            {/* 파트너 네트워크 강조 */}
-            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#0A1628] to-[#1a2942] border border-slate-200">
-              <div className="grid md:grid-cols-4 gap-8 text-center">
-                <div>
-                  <span className="text-4xl font-bold text-white">65K</span>
-                  <p className="text-slate-400 mt-1">rpm 고속 대응</p>
-                </div>
-                <div>
-                  <span className="text-4xl font-bold text-white">100+</span>
-                  <p className="text-slate-400 mt-1">톤 고하중 대응</p>
-                </div>
-                <div>
-                  <span className="text-4xl font-bold text-white">2</span>
-                  <p className="text-slate-400 mt-1">국내 전문 파트너</p>
-                </div>
-                <div>
-                  <span className="text-4xl font-bold text-white">24/7</span>
-                  <p className="text-slate-400 mt-1">기술 지원</p>
+                {/* 우측 화살표 */}
+                <button
+                  onClick={() => goToNext(lubricationImageIdx, lubricationImages.length, setLubricationImageIdx)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
+                  aria-label="다음 윤활 이미지"
+                >
+                  <ChevronRight className="w-5 h-5 text-[#0A1628]" />
+                </button>
+
+                {/* Dot indicators */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {lubricationImages.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      onClick={() => setLubricationImageIdx(dotIdx)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        dotIdx === lubricationImageIdx
+                          ? "bg-[#0A1628] w-4"
+                          : "bg-[#0A1628]/30 hover:bg-[#0A1628]/60"
+                      }`}
+                      aria-label={`윤활 이미지 ${dotIdx + 1}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
@@ -428,8 +382,17 @@ export default function BearingLubricationPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
-          <div className="section-container text-center">
+        <section className="relative bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] text-white py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                backgroundSize: "60px 60px",
+              }}
+            />
+          </div>
+          <div className="section-container text-center relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               베어링 & 윤활 솔루션이 필요하신가요?
             </h2>
@@ -445,10 +408,10 @@ export default function BearingLubricationPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/contact"
+                href="/products"
                 className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
               >
-                견적 요청
+                다른 제품 보기
               </Link>
             </div>
           </div>

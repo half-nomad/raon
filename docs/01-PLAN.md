@@ -53,66 +53,21 @@
 
 ### Phase 5: 2차 리뉴얼 (진행 중) 🔄
 
-콘텐츠 가이드: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md)
+> **세부 작업 현황**: [02-TODO.md](./02-TODO.md) 참조
+> **콘텐츠 가이드**: [UI_guide_2nd_organized.md](./UI_guide_2nd_organized.md)
 
-#### 5.1 완료된 작업
-- [x] 번역 키 누락 오류 수정
-- [x] 영문 레이아웃 깨짐 수정
-- [x] GNB 메뉴 개편
-- [x] UI/UX 디자인 개선
-- [x] SEO 기반 작업 (도메인 수정, verification 태그, 등록 가이드)
-
-#### 5.2 구조 변경 (P0) ✅
-- [x] 번역 키 추가 (messages/ko.json, en.json) - ~50개
-- [x] Header 네비게이션 수정 (Products 5개 드롭다운, Industries 3개)
-- [x] Products 메인 페이지 수정 (7개 → 5개 카테고리)
-
-#### 5.3 핵심 콘텐츠 (P1) ✅
-- [x] Products 페이지 공통 레이아웃 구현 (상단 2컬럼: 갤러리+설명)
-- [x] Compressor 페이지 재구성 (서브메뉴 탭 구조)
-- [x] Pump 페이지 재구성 (서브메뉴 탭 구조)
-- [x] Mixer 페이지 재구성 (SPXFlow 5개 브랜드)
-- [x] Motor 페이지 재구성 (서브메뉴 탭 구조)
-- [x] Bearing & Lubrication 통합 페이지 완성 (Oil Purifier 통합)
-- [x] 레거시 페이지 삭제 (bearing, cylinder-liner, oil-purifier)
-- [x] 각 페이지 메인 설명문 통일 (30년 경력 반영)
-
-#### 5.4 Products 페이지 디자인 통일 (진행 중) 🔄
-- [x] Compressor 페이지 디자인 리뉴얼 (레퍼런스 완성)
-- [ ] Pump 페이지 동일 스타일 적용
-- [ ] Mixer 페이지 동일 스타일 적용
-- [ ] Motor 페이지 동일 스타일 적용
-- [ ] Bearing-Lubrication 페이지 동일 스타일 적용
-
-**적용 패턴:**
-- Sub Nav sticky 위치 (ProductIntro 아래)
-- 섹션 색상 반전 (홀수 Navy / 짝수 White)
-- ProductIntro 갤러리 균등 카드
-- 서비스 카드 이미지 추가
-- CTA 배경 무늬
-
-#### 5.5 확장 기능 (P2)
-- [x] Power Plant 페이지 신규 생성 ✅ (2026-01-26)
-- [x] 홈 페이지 산업별 솔루션 발전소 카드 추가 ✅ (2026-01-26)
-- [ ] Industries 메인 페이지 3영역 확장
-- [ ] Partners 페이지 카테고리별 그룹핑
-- [x] URL 리다이렉트 설정 (기존 URL 호환)
-
-#### 5.6 외부 자료 반영 (P3) - 자료 수급 후
-- [ ] 파트너사별 상세 설명 삽입
-- [ ] 제품 이미지 교체
-- [ ] 파트너사 로고 고화질 교체
-
-#### 파일 변경 요약
-| 구분 | 개수 | 상세 |
-|------|------|------|
-| 수정 | 12개 | header, products/*, industries/*, partners, messages, config |
-| 신규 | 2개 | bearing-lubrication, power-plant |
-| 삭제 | 3개 | bearing, cylinder-liner, oil-purifier → 통합
+- [x] 5.1 버그 수정 및 UI 개선 (번역 오류, 레이아웃, GNB 메뉴, SEO 기반)
+- [x] 5.2 구조 변경 (Products 5개 카테고리 통합, 번역 키 추가)
+- [x] 5.3 핵심 콘텐츠 구현 (5개 제품 페이지 재구성, 공통 레이아웃)
+- [x] 5.4 Products 디자인 통일 (Compressor 스타일 전체 적용)
+- [x] 5.5 확장 기능 (Power Plant 페이지 추가, URL 리다이렉트)
+- [ ] 5.6 외부 자료 반영 (파트너사 설명, 제품 이미지, 로고 교체 - 자료 수급 후)
 
 ---
 
 ## 진행 현황
+
+> **세부 진행률**: [02-TODO.md](./02-TODO.md) 참조
 
 | 구분 | 완료 | 전체 | 상태 |
 |------|------|------|------|
@@ -120,8 +75,8 @@
 | Phase 2 | 4 | 4 | ✅ 완료 |
 | Phase 3 | 5 | 5 | ✅ 완료 |
 | Phase 4 | 4 | 4 | ✅ 완료 |
-| Phase 5 | 35 | 42 | 🔄 진행 중 (83%) |
-| **합계** | **53** | **60** | **88%** |
+| Phase 5 | 5 | 6 | 🔄 진행 중 (83%) |
+| **합계** | **23** | **24** | **96%** |
 
 ---
 

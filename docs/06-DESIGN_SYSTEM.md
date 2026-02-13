@@ -1,8 +1,8 @@
 # Design System
 # Raon Total Solution B2B Website
 
-**Version:** 2.1
-**Last Updated:** 2026-01-25
+**Version:** 2.2
+**Last Updated:** 2026-02-13
 **Status:** Active
 
 ---
@@ -346,13 +346,15 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 
 **신규 방식 (동일 크기 그리드)**
 ```tsx
-<div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
   {images.map((image) => (
-    <div className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-100">
-      <img
+    <div className="group relative aspect-square rounded-md overflow-hidden bg-slate-100 cursor-pointer">
+      <Image
         src={image.src}
         alt={image.alt}
-        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        fill
+        className="object-cover transition-transform duration-300 group-hover:scale-110"
+        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 120px"
       />
     </div>
   ))}
@@ -360,9 +362,10 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 ```
 
 **장점:**
-- 모바일 2열 → 태블릿 이상 3열 (반응형)
-- 모든 이미지 동일한 중요도
-- 호버 시 이미지 확대 효과 (scale-105)
+- 모바일 2열 → 태블릿 3열 → 데스크톱 4열 (반응형)
+- 정사각형(aspect-square) 균등 그리드
+- 호버 시 이미지 확대 효과 (scale-110)
+- 컴팩트한 간격 (gap-2) + 작은 라운딩 (rounded-md)
 
 ### 7.6 카드 이미지 패턴 (Maintenance 섹션)
 
@@ -403,7 +406,7 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 - 3열 그리드 (`md:grid-cols-2 lg:grid-cols-3`)
 - Navy 배경 (`bg-[#0A1628]`)
 - 이미지 50% 너비 (`w-1/2`), 패딩 없음
-- 번호: 연한 흰색 (`text-white/50`), 텍스트: 흰색 + slate-400
+- 번호: 연한 흰색 (`text-white/10`), 텍스트: 흰색 + slate-400
 - 호버 효과: 그림자 + 파란 테두리 (`hover:border-[#3B82F6]/50`)
 
 ### 7.9 제품 페이지 디자인 통일 패턴 (v2.1)
@@ -436,29 +439,28 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 ```
 
 #### 번호 가시성
-- Navy 배경: `text-white/50` (50% 투명도)
-- White 배경: `text-[#0A1628]/30` 또는 `text-[#3B82F6]/50`
+- **섹션 헤더 번호** (01, 02, 03, 04): `text-[#EF4444]` (Accent Red 통일, 배경 무관)
+- **카드 내부 번호** (장식적 배경 요소):
+  - Navy 배경 카드: `text-white/10` ~ `text-white/20`
+  - White 배경: `text-[#0A1628]/10` ~ `text-[#0A1628]/20`
 
-### 7.7 CTA 섹션 배경 패턴 (SVG 무늬)
+### 7.7 CTA 섹션 배경 패턴 (CSS backgroundImage)
 
-**그라디언트 + SVG 패턴 조합**
+**그라디언트 + CSS backgroundImage 패턴 조합**
+
+**패딩:** `py-12 md:py-16` (CTA 전용 컴팩트 패딩)
+
 ```tsx
-<section className="relative py-24 bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] overflow-hidden">
-  {/* SVG 패턴 배경 */}
+<section className="relative py-12 md:py-16 bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] overflow-hidden">
+  {/* CSS backgroundImage 패턴 */}
   <div className="absolute inset-0 opacity-10">
-    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-          <path
-            d="M0 16h32M16 0v32"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            fill="none"
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)" />
-    </svg>
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,...")`,
+        backgroundSize: "60px 60px",
+      }}
+    />
   </div>
 
   {/* 콘텐츠 */}
@@ -469,9 +471,10 @@ Tailwind CSS v4 및 shadcn/ui를 기반으로 B2B 기술 기업의 전문성과 
 ```
 
 **패턴 특징:**
-- 32px 간격 십자 모양 그리드
+- 60px 간격 십자 모양 패턴 (CSS backgroundImage)
 - opacity-10으로 미묘한 배경 효과
 - Navy 그라디언트와 조화
+- CTA 전용 컴팩트 패딩 (py-12 md:py-16)
 
 ### 7.8 섹션 내 좌우 높이 맞추기
 
@@ -759,6 +762,11 @@ public/images/
 
 ## Changelog
 
+- **2026-02-13: v2.2** - 디자인 시스템 현행화
+  - ProductIntro 갤러리: 4열 그리드, aspect-square, gap-2, rounded-md 반영
+  - 번호 가시성: 섹션 헤더 Red 통일, 카드 내 번호 장식적 투명도 반영
+  - CTA 섹션: 컴팩트 패딩 (py-12 md:py-16), CSS backgroundImage 패턴 반영
+  - 카드 내 번호 투명도: text-white/10~20 (장식적 배경 요소)
 - **2026-01-25: v2.1** - Products 페이지 디자인 패턴 업데이트
   - Sub-Nav 위치 변경: fixed (Header 아래) → sticky (ProductIntro 아래)
   - Sub-Nav 스타일 변경: Navy 배경 → GNB 스타일 (white/95 + backdrop-blur)

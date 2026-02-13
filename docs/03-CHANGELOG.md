@@ -6,6 +6,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.0] - 2026-02-13
+
+### Changed
+- **Pump 페이지 구조 대폭 개선** (`app/[locale]/products/pump/page.tsx`)
+  - 4섹션 → 2섹션 축소 (디자인 시스템 정합성 확보)
+  - CP Pump 제품 카탈로그 이미지 16개 매핑 (Magnetic 11개 + Mechanical 3개)
+  - 제품 카드 UI: 텍스트만 → 상단 이미지(bg-white) + 하단 텍스트 카드
+  - 제품 카드 그리드 4열 레이아웃 적용 (lg:grid-cols-4)
+  - CTA 섹션 SVG 배경 패턴 + 그라디언트 통일 (Compressor 스타일)
+  - CP PUMP 로고 카드 추가 (파트너 로고)
+- **Compressor 페이지 이미지 폴더 정리 및 갤러리 4x4 그리드 적용**
+- **홈 페이지 제품 카드 5열 레이아웃 + bearing 이미지 업데이트**
+- **홈 페이지 발전소 이미지 추가**
+
+### Technical
+- 디자인 시스템 v2.2 현행화 (06-DESIGN_SYSTEM.md)
+- 문서 현행화 및 역할 분리
+
+---
+
 ## [1.4.0] - 2026-01-26
 
 ### Added

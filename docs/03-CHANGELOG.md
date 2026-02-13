@@ -6,6 +6,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.3] - 2026-02-13
+
+### Changed
+- **Motor 페이지 2섹션 구조 개편** (`app/[locale]/products/motor/page.tsx`)
+  - 4섹션 → 2섹션 축소 (MOTOR SPARE PARTS + 방폭인증서비스)
+  - Sub-Nav 4탭 → 2탭
+  - heroImages 8개 매핑 (NIDEC 모터 제품 이미지)
+  - Section 01: LDW/NIDEC 파트너 로고 삽입 + 이미지 캐러셀 (7:3 비율)
+  - Section 02: 풀 너비 텍스트 레이아웃 (인증기관 3개 + 프로세스 4단계 + 서비스 통합)
+  - CTA 섹션 SVG 배경 패턴 통일 (Compressor/Pump/Mixer/Bearing 스타일)
+- **Motor 이미지 8개 교체** (기존 2개 삭제 → 신규 8개 webp 추가)
+
+### Removed
+- 기존 motor 이미지 2장 삭제 (motor_2.png, motor_3.webp)
+- Section 3 (인증 프로세스), Section 4 (기술 지원) → Section 2에 통합
+
+---
+
 ## [1.5.2] - 2026-02-13
 
 ### Changed

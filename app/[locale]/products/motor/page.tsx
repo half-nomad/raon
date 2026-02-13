@@ -2,27 +2,30 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
 import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-// 대표 이미지 (상단 갤러리용) - Motor 관련 이미지 필요 시 교체
+// 대표 이미지 (상단 갤러리 + 캐러셀 공용)
 const heroImages = [
-  { src: "/images/products/motor/motor-main.jpg", alt: "Industrial Motor" },
-  { src: "/images/products/motor/ldw-motor.jpg", alt: "LDW Motor" },
-  { src: "/images/products/motor/nidec-motor.jpg", alt: "NIDEC Motor" },
+  { src: "/images/products/motor/definitepurpose.webp", alt: "Definite Purpose Motor" },
+  { src: "/images/products/motor/FRACTIONAL.webp", alt: "Fractional Motor" },
+  { src: "/images/products/motor/iecmotor.webp", alt: "IEC Motor" },
+  { src: "/images/products/motor/WPII.webp", alt: "WPII Motor" },
+  { src: "/images/products/motor/Capacitorstartmotor.webp", alt: "Capacitor Start Motor" },
+  { src: "/images/products/motor/splitphase.webp", alt: "Split Phase Motor" },
+  { src: "/images/products/motor/severeduty.webp", alt: "Severe Duty Motor" },
+  { src: "/images/products/motor/AGDutySinglephase_edit.webp", alt: "AG Duty Single Phase Motor" },
 ];
 
-// 서브 네비게이션 정의
+// 서브 네비게이션 정의 (2개)
 const subNavItems = [
-  { id: "spare-parts", label: "SPARE PARTS" },
+  { id: "spare-parts", label: "MOTOR SPARE PARTS" },
   { id: "certification", label: "방폭인증서비스" },
-  { id: "process", label: "인증 프로세스" },
-  { id: "support", label: "기술 지원" },
 ];
 
 // 파트너사 (원고 기반)
@@ -31,12 +34,14 @@ const partners = [
     name: "LDW",
     fullName: "Lloyd Dynamowerke GmbH",
     country: "Germany",
+    logo: "/images/partners/ldw_logo.png",
     description: "대형 Synchronous 및 Induction Motor 제작사",
   },
   {
     name: "NIDEC",
     fullName: "舊 Ansaldo",
     country: "Italy",
+    logo: "/images/partners/nidec.webp",
     description: "대형 Synchronous 및 Induction Motor 제작사",
   },
 ];
@@ -85,8 +90,8 @@ const certificationProcess = [
 ];
 
 export default function MotorPage() {
-  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("spare-parts");
+  const [sparePartsImageIdx, setSparePartsImageIdx] = useState(0);
 
   // 스크롤 위치에 따라 활성 섹션 업데이트
   useEffect(() => {
@@ -118,6 +123,14 @@ export default function MotorPage() {
         behavior: "smooth",
       });
     }
+  };
+
+  // 캐러셀 네비게이션
+  const goToPrev = (current: number, total: number, setter: (v: number) => void) => {
+    setter((current - 1 + total) % total);
+  };
+  const goToNext = (current: number, total: number, setter: (v: number) => void) => {
+    setter((current + 1) % total);
   };
 
   return (
@@ -162,8 +175,8 @@ export default function MotorPage() {
           ]}
         />
 
-        {/* Sub Navigation - ProductIntro와 콘텐츠 섹션 사이, 스크롤 시 상단 고정 */}
-        <nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
+        {/* Sticky Sub Navigation */}
+        <nav className="sticky top-[72px] left-0 right-0 z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
           <div className="section-container">
             <div className="flex overflow-x-auto scrollbar-hide">
               {subNavItems.map((item) => (
@@ -188,9 +201,7 @@ export default function MotorPage() {
           </div>
         </nav>
 
-        {/* ========== 모든 섹션 세로 나열 (배경 교차: navy → white → navy → white) ========== */}
-
-        {/* Section 1: SPARE PARTS - 네이비 배경 */}
+        {/* ========== Section 01: MOTOR SPARE PARTS - Navy bg, 7:3 ========== */}
         <section id="spare-parts" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
             {/* 섹션 헤더 */}
@@ -205,12 +216,21 @@ export default function MotorPage() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              {/* 왼쪽: 파트너 정보 */}
-              <div>
-                <div className="space-y-6">
+            {/* 2-col: 좌(텍스트 70%) / 우(캐러셀 30%) */}
+            <div className="grid lg:grid-cols-[7fr_3fr] gap-12 lg:gap-16 items-start">
+              {/* 좌측: 파트너 소개 + 서비스 목록 */}
+              <div className="flex flex-col">
+                {/* 파트너 카드 */}
+                <div className="space-y-6 mb-8">
                   {partners.map((partner, idx) => (
-                    <div key={idx} className="mb-8 p-6 bg-white/10 border border-white/20 rounded-xl hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                    <div key={idx} className="bg-white/10 border border-white/20 rounded-xl p-6 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
+                      <Image
+                        src={partner.logo}
+                        alt={partner.name}
+                        width={120}
+                        height={40}
+                        className="object-contain mb-3"
+                      />
                       <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
                         {partner.name}
                       </h3>
@@ -225,20 +245,65 @@ export default function MotorPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* 서비스 목록 */}
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-6">서비스 내용</h4>
+                  <div className="space-y-3">
+                    {sparePartsServices.map((service, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/5 pl-4 py-3 pr-4"
+                      >
+                        <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
+                        <span className="text-white font-medium">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              {/* 오른쪽: 서비스 특징 - 인포그래픽 스타일 */}
-              <div>
-                <h4 className="text-lg font-bold text-white mb-6">서비스 내용</h4>
-                <div className="space-y-3">
-                  {sparePartsServices.map((service, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-white/5 pl-4 py-3 pr-4"
-                    >
-                      <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="text-white font-medium">{service}</span>
-                    </div>
+              {/* 우측: 이미지 캐러셀 */}
+              <div className="relative aspect-square rounded-2xl overflow-hidden bg-white">
+                <Image
+                  src={heroImages[sparePartsImageIdx].src}
+                  alt={heroImages[sparePartsImageIdx].alt}
+                  fill
+                  className="object-contain p-8"
+                  sizes="(max-width: 1024px) 100vw, 30vw"
+                />
+
+                {/* 좌측 화살표 */}
+                <button
+                  onClick={() => goToPrev(sparePartsImageIdx, heroImages.length, setSparePartsImageIdx)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
+                  aria-label="이전 모터 이미지"
+                >
+                  <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
+                </button>
+
+                {/* 우측 화살표 */}
+                <button
+                  onClick={() => goToNext(sparePartsImageIdx, heroImages.length, setSparePartsImageIdx)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
+                  aria-label="다음 모터 이미지"
+                >
+                  <ChevronRight className="w-5 h-5 text-[#0A1628]" />
+                </button>
+
+                {/* Dot indicators */}
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                  {heroImages.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      onClick={() => setSparePartsImageIdx(dotIdx)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        dotIdx === sparePartsImageIdx
+                          ? "bg-[#0A1628] w-4"
+                          : "bg-[#0A1628]/30 hover:bg-[#0A1628]/60"
+                      }`}
+                      aria-label={`모터 이미지 ${dotIdx + 1}`}
+                    />
                   ))}
                 </div>
               </div>
@@ -246,7 +311,7 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* Section 2: 방폭인증서비스 - 흰색 배경 (반전) */}
+        {/* ========== Section 02: 방폭인증서비스 - White bg, 풀 너비 세로 스택 ========== */}
         <section id="certification" className="py-16 md:py-24 bg-white">
           <div className="section-container">
             {/* 섹션 헤더 */}
@@ -256,14 +321,18 @@ export default function MotorPage() {
                 방폭인증서비스
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
+            </div>
+
+            {/* 설명 */}
+            <div className="mb-8">
+              <p className="text-slate-600 leading-relaxed">
                 국내 방폭 지역 설치 외산 수입 모터 → 국내 인증 필수.
                 <span className="text-[#0A1628] font-semibold"> KOSHA/KTL/KGS</span> 인증 대응 서비스를 제공합니다.
               </p>
             </div>
 
-            {/* 인증 기관 그리드 */}
-            <div className="grid sm:grid-cols-3 gap-4 mb-12">
+            {/* 인증 기관 3개 카드 */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-8">
               {certificationAgencies.map((agency, idx) => (
                 <div
                   key={idx}
@@ -277,67 +346,36 @@ export default function MotorPage() {
               ))}
             </div>
 
-            {/* 서비스 내용 */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {certificationServices.map((service, idx) => (
-                <div
-                  key={idx}
-                  className="p-5 rounded-xl bg-[#0A1628] border border-slate-700 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
-                >
-                  <span className="text-2xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
-                  <p className="text-white font-medium mt-2">{service}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: 인증 프로세스 - 네이비 배경 */}
-        <section id="process" className="py-16 md:py-24 bg-[#0A1628]">
-          <div className="section-container">
-            {/* 섹션 헤더 */}
-            <div className="mb-12">
-              <span className="text-[#EF4444] font-bold text-sm tracking-wider">03</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
-                인증 프로세스
-              </h2>
-              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-300 mt-4 max-w-2xl">
-                30년간 축적된 현장 경험을 바탕으로 <span className="text-[#EF4444] font-semibold">체계적인 인증 절차</span>를 제공합니다.
-              </p>
-            </div>
-
-            {/* 프로세스 - 인포그래픽 테이블 스타일 */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              {certificationProcess.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="flex gap-5 p-6 bg-white/10 border border-white/20 rounded-xl hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
-                >
-                  <span className="text-4xl font-bold text-white/20">
-                    {String(item.step).padStart(2, '0')}
-                  </span>
-                  <div>
-                    <h4 className="font-semibold text-white mb-1">{item.title}</h4>
-                    <p className="text-sm text-slate-300">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* 프로세스 플로우 */}
-            <div className="p-8 bg-white/10 border border-white/20 rounded-2xl">
-              <h4 className="text-lg font-bold text-white mb-6">진행 순서</h4>
-              <div className="flex flex-col md:flex-row gap-4 md:gap-0">
+            {/* 인증 프로세스 4단계 */}
+            <div className="mb-8">
+              <h4 className="text-lg font-bold text-[#0A1628] mb-4">인증 프로세스</h4>
+              <div className="grid sm:grid-cols-2 gap-3">
                 {certificationProcess.map((item, idx) => (
-                  <div key={idx} className="flex-1 flex items-center">
-                    <div className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-full bg-[#3B82F6] text-white flex items-center justify-center text-sm font-bold">
-                        {idx + 1}
-                      </span>
-                      <span className="text-sm font-medium text-white">{item.title}</span>
+                  <div
+                    key={idx}
+                    className="flex items-start gap-3 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                  >
+                    <span className="text-[#3B82F6] font-bold text-lg">{String(item.step).padStart(2, '0')}</span>
+                    <div>
+                      <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
+                      <p className="text-sm text-slate-500">{item.desc}</p>
                     </div>
-                    {idx < certificationProcess.length - 1 && <span className="hidden md:block flex-1 h-px bg-[#3B82F6]/30 mx-4" />}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 서비스 내용 */}
+            <div>
+              <h4 className="text-lg font-bold text-[#0A1628] mb-4">서비스 내용</h4>
+              <div className="space-y-3">
+                {certificationServices.map((service, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4"
+                  >
+                    <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-[#0A1628] font-medium">{service}</span>
                   </div>
                 ))}
               </div>
@@ -345,66 +383,18 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* Section 4: 기술 지원 - 흰색 배경 */}
-        <section id="support" className="py-16 md:py-24 bg-white">
-          <div className="section-container">
-            {/* 섹션 헤더 */}
-            <div className="mb-12">
-              <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-                기술 지원
-              </h2>
-              <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-              <p className="text-slate-600 mt-4 max-w-2xl">
-                국내 정유/석유화학 신설 프로젝트 다수 <span className="text-[#0A1628] font-semibold">방폭 기계 설치 경험</span> 보유.
-                복잡한 인증 절차를 원활하게 진행하여 고객의 프로젝트 일정을 준수합니다.
-              </p>
-            </div>
-
-            {/* 지원 서비스 그리드 */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { title: "기술 문서 지원", desc: "방폭 인증용 기술 문서 작성 지원" },
-                { title: "현장 기술 지원", desc: "설치 및 시운전 기술 지원" },
-                { title: "Supervisor 파견", desc: "해외 전문가 파견 서비스" },
-                { title: "부품 수배", desc: "정품 부품 신속 수배" },
-                { title: "정기 점검", desc: "예방 정비 프로그램" },
-                { title: "긴급 대응", desc: "24시간 긴급 대응 체계" },
-              ].map((service, idx) => (
-                <div
-                  key={idx}
-                  className="p-6 rounded-xl bg-[#0A1628] border border-slate-700 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all"
-                >
-                  <span className="text-3xl font-bold text-white/50">{String(idx + 1).padStart(2, '0')}</span>
-                  <h4 className="font-semibold text-white mt-2">{service.title}</h4>
-                  <p className="text-sm text-slate-400 mt-1">{service.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* 핵심 강점 강조 */}
-            <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-[#0A1628] to-[#1a2942] border border-[#3B82F6]/20">
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <span className="text-4xl font-bold text-white">30+</span>
-                  <p className="text-slate-400 mt-1">년 현장 경험</p>
-                </div>
-                <div>
-                  <span className="text-4xl font-bold text-white">2</span>
-                  <p className="text-slate-400 mt-1">글로벌 파트너</p>
-                </div>
-                <div>
-                  <span className="text-4xl font-bold text-white">3</span>
-                  <p className="text-slate-400 mt-1">인증 기관 대응</p>
-                </div>
-              </div>
-            </div>
+        {/* CTA Section with SVG background pattern */}
+        <section className="relative bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] text-white py-12 md:py-16 overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                backgroundSize: "60px 60px",
+              }}
+            />
           </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-gradient-to-br from-[#0A1628] to-[#1a2942] text-white py-12 md:py-16">
-          <div className="section-container text-center">
+          <div className="section-container text-center relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               모터 솔루션이 필요하신가요?
             </h2>
@@ -420,10 +410,10 @@ export default function MotorPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/contact"
+                href="/products"
                 className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
               >
-                견적 요청
+                다른 제품 보기
               </Link>
             </div>
           </div>

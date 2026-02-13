@@ -946,6 +946,37 @@
         "description": "오일 정화 장비 전문 국내 제조사"
       }
     },
+    "categories": {
+      "compressor": {
+        "description": "Turbo Compressor, Blower 및 왕복동압축기 전문 파트너",
+        "fima": "1964년 독일에서 설립된 TURBO COMPRESSOR & BLOWER 제조사로 독일 본사를 중심으로 중국, 인도, 캐나다, 터키 등 글로벌 거점을 운영하고 있습니다. F1~F8 시리즈 포괄적 라인업과 Zone 0 blowers 폭발방지/밀폐 분야 세계 최고 기술력을 보유하고 있으며, 국내 EPC가 수행하는 국내외 프로젝트에 신규 기계 공급 및 After Service를 지원합니다.",
+        "neumanEsser": "1830년 독일에서 설립된 RECIPROCATING COMPRESSOR 제조사로 에너지 전환과 순환경제를 추진하는 업계의 신뢰할 수 있는 파트너입니다. 당사는 Aftermarket 울산지역 대리점으로 SK에너지, S-Oil, 현대케미칼(대산)에 기술지원, Trouble Shooting, Repair, Maintenance, Engineering Study 및 Modification, Spare Parts(부품) 공급 등의 Solution을 제공합니다.",
+        "castanet": "프랑스의 왕복동압축기 부품 제작사로 유럽 내 왕복동압축기 OEM에 소모성 부품을 공급하는 Sub-Vendor입니다. Reverse Engineering을 통하여 모든 브랜드의 왕복동압축기 부품 공급이 가능하며, 특히 120년 역사를 가진 Howden Thomassen Compressor(네덜란드)의 주 Sub-Vendor로 OEM Original 부품 뿐만 아니라 Cost Saving 및 수명 연장을 위한 부품을 공급하고 있습니다.",
+        "wtq": "1967년 중국 장쑤성에서 설립된 Cylinder Liner 전문 제작사로 900명의 임직원과 12만m² 공장에 100개 이상의 생산라인을 보유하고 있습니다. 실린더라이너 직경 80~1500mm까지 생산하며, Cummins, Caterpillar, Daimler, MAN, Wartsila, KOBELCO 등 글로벌 고객사에 공급합니다. 중국 내 시장점유율 58% 이상을 차지하고 있습니다."
+      },
+      "pump": {
+        "description": "Chemical Process 및 Magnetic Driven Pump 전문 파트너",
+        "cpPump": "스위스 조핑겐(Zofingen)에 본사를 둔 원심 펌프 제작사로 R&D 및 생산을 모두 스위스에서 수행합니다. 무누출(Magnetic drive) 설계와 위험물 이송에 특화되어 있으며, 당사는 2025년 울산지역 대리점계약을 체결하여 고질적인 문제로 해결이 어려운 Process에 Trouble Shooting을 통한 PUMP를 공급하고 있습니다."
+      },
+      "mixer": {
+        "description": "글로벌 Mixing Solution 전문 파트너",
+        "spxflow": "지구상에서 가장 큰 혼합 제조업체인 SPXFLOW의 Mixing Solution은 LIGHTNIN, STELZER, PLENTY, PHILADELPHIA, UUTECHNIC 5개 브랜드와 함께 수세기 동안의 경험을 바탕으로 프로세스 속도 향상, 생산량 향상, 에너지 절감 및 비용 절감에 도움이 되도록 각 고객의 특정 요구에 맞는 맞춤형 Mixing Solution을 개발 공급하고 있습니다."
+      },
+      "bearingLubrication": {
+        "description": "유체윤활베어링 및 윤활유 정제 전문 파트너",
+        "turbolink": "2001년 벤처기업으로 창업하여 김해 본사 공장(6,600m²)을 보유한 유체윤활베어링 설계 및 제조 전문 기업입니다. 65,000 RPM급의 초고속 터보압축기 베어링으로부터 축 하중 수백톤에 이르는 고하중 터빈 발전기 베어링까지 자체 기술로 개발하여 OEM에 공급합니다. 당사는 2024년 대리점계약을 체결하고 정유/석유화학 산업분야에 Repair, Trouble Shooting, Reverse Engineering을 통한 Bearing Solution을 제공하고 있습니다.",
+        "syt": "회전기계 윤활 시스템 및 핵심 부품인 베어링의 신뢰성 확보를 위해 윤활유 청정도 유지를 위한 외길로 국내 특허 원천 기술인 수분제거, 이중 고진공시스템과 이물질(바니쉬)제거, 전기필터 기술로 윤활유 정제기를 제작 공급하고 있습니다."
+      },
+      "motor": {
+        "description": "대형 Synchronous 및 Induction Motor 전문 파트너",
+        "ldw": "1915년 독일 브레멘에서 설립된 100년 이상의 역사를 가진 대형 Motor 제작사입니다. 130여 명의 전문 인력이 설계부터 제작까지 일괄 수행하며, 주문생산(Made-to-Order) 방식으로 DC motor/발전기(10~8,000Kw), 대형 3상 유도전동기, 동기 발전기를 제작합니다. 국내 정유 석유화학 공장에 설치 운전되며 기술지원(Trouble Shooting 및 Supervisor 파견) 및 Spare Parts 공급을 하고 있습니다.",
+        "nidec": "이탈리아의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다. 국내 설치된 기계에 대한 기술지원(Trouble Shooting 및 Supervisor 파견) 및 Spare Parts(부품) 공급을 하고 있습니다."
+      }
+    },
+    "certifications": {
+      "title": "공식 인증서",
+      "description": "라온토탈솔루션은 글로벌 파트너사로부터 공식 대리점/파트너 인증을 획득하여 정품 부품과 서비스를 제공합니다."
+    },
     "whyPartner": {
       "title": "파트너십의 강점",
       "items": {
@@ -991,6 +1022,10 @@
       "partnersDesc": "전 세계 최고 수준의 제조사 협력",
       "clients": "주요 고객사",
       "clientsDesc": "국내 4대 정유사 포함 주요 기업"
+    },
+    "certifications": {
+      "title": "공식 인증서",
+      "description": "글로벌 파트너사로부터 공식 인증을 받아 정품 부품과 기술 서비스를 제공합니다."
     },
     "cta": {
       "title": "라온토탈솔루션과 함께하시겠습니까?",

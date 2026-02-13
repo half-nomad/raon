@@ -1,120 +1,194 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle2, Globe, Wrench, Package, BadgeDollarSign, Award } from "lucide-react";
+import {
+  CheckCircle2,
+  Globe,
+  Wrench,
+  Package,
+  BadgeDollarSign,
+  Award,
+} from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-export default async function PartnersPage() {
-  const t = await getTranslations("partners");
-  const globalPartners = [
+const subNavItems = [
+  { id: "compressor", label: "COMPRESSOR" },
+  { id: "pump", label: "PUMP" },
+  { id: "mixer", label: "MIXER" },
+  { id: "bearing-lubrication", label: "BEARING & LUBRICATION" },
+  { id: "motor", label: "MOTOR" },
+];
+
+export default function PartnersPage() {
+  const t = useTranslations("partners");
+  const [activeSection, setActiveSection] = useState("compressor");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = subNavItems.map((item) =>
+        document.getElementById(item.id)
+      );
+      const scrollPosition = window.scrollY + 200;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(subNavItems[i].id);
+          break;
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 140;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
+    }
+  };
+
+  const partnerCategories = [
     {
-      name: "SPXFLOW Mixing Solutions",
-      country: "Global",
-      year: "2022",
-      relationship: t("partnerDetails.spxflow.relationship"),
-      description: t("partnerDetails.spxflow.description"),
-      products: ["Agitator", "Side Entry Mixer"],
-      logo: "/images/partners/spx-flow.jpg",
-      highlight: t("partnerDetails.spxflow.highlight"),
+      id: "compressor",
+      label: "COMPRESSOR",
+      description: t("categories.compressor.description"),
+      partners: [
+        {
+          name: "FIMA",
+          country: "Germany",
+          logo: "/images/partners/fima.jpg",
+          relationship: t("partnerDetails.fima.relationship"),
+          description: t("categories.compressor.fima"),
+          products: ["Turbo Compressor", "Blower"],
+          highlight: t("partnerDetails.fima.highlight"),
+        },
+        {
+          name: "NEUMAN & ESSER",
+          country: "Germany",
+          logo: "/images/partners/neuman-esser.jpg",
+          relationship: t("partnerDetails.neumanEsser.relationship"),
+          description: t("categories.compressor.neumanEsser"),
+          products: ["Reciprocating Compressor", "After Market", "Revamping"],
+          highlight: t("partnerDetails.neumanEsser.highlight"),
+        },
+        {
+          name: "CASTANET",
+          country: "France",
+          logo: "/images/partners/castanet.jpg",
+          relationship: t("partnerDetails.castanet.relationship"),
+          description: t("categories.compressor.castanet"),
+          products: [
+            "Piston Ring",
+            "Rider Ring",
+            "Packing Ring",
+            "Oil Scraper",
+          ],
+          highlight: t("partnerDetails.castanet.highlight"),
+        },
+        // KB DELTA - 노출 금지 (2025-12-18)
+        {
+          name: "WTQ",
+          country: "China",
+          logo: "/images/partners/wtq.jpg",
+          relationship: t("partnerDetails.wtq.relationship"),
+          description: t("categories.compressor.wtq"),
+          products: ["Cylinder Liner"],
+          highlight: t("partnerDetails.wtq.highlight"),
+        },
+      ],
     },
     {
-      name: "NEUMAN & ESSER",
-      country: "Global",
-      year: "2024",
-      relationship: t("partnerDetails.neumanEsser.relationship"),
-      description: t("partnerDetails.neumanEsser.description"),
-      products: ["Compressor", "After Market", "Revamping"],
-      logo: "/images/partners/neuman-esser.jpg",
-      highlight: t("partnerDetails.neumanEsser.highlight"),
+      id: "pump",
+      label: "PUMP",
+      description: t("categories.pump.description"),
+      partners: [
+        {
+          name: "CP PUMP",
+          country: "Switzerland",
+          logo: "/images/partners/cp-pump-systems.jpg",
+          relationship: t("partnerDetails.cpPump.relationship"),
+          description: t("categories.pump.cpPump"),
+          products: ["Chemical Process Pump", "Magnetic Drive Pump"],
+          highlight: t("partnerDetails.cpPump.highlight"),
+        },
+      ],
     },
     {
-      name: "CASTANET",
-      country: "France",
-      year: "2021",
-      relationship: t("partnerDetails.castanet.relationship"),
-      description: t("partnerDetails.castanet.description"),
-      products: ["Piston Ring", "Rider Ring", "Packing Ring", "Oil Scraper"],
-      logo: "/images/partners/castanet.jpg",
-      highlight: t("partnerDetails.castanet.highlight"),
-    },
-    // KB DELTA - 노출 금지 (2025-12-18)
-    // {
-    //   name: "KB DELTA",
-    //   country: "USA",
-    //   year: "2021",
-    //   relationship: "대리점",
-    //   description: t("partnerDetails.kbDelta.description"),
-    //   products: ["Valve Spare Parts"],
-    //   highlight: t("partnerDetails.kbDelta.highlight"),
-    // },
-    {
-      name: "TURBO LINK",
-      country: "Korea",
-      year: "2024",
-      relationship: t("partnerDetails.turbolink.relationship"),
-      description: t("partnerDetails.turbolink.description"),
-      products: ["Tilting Pad Bearing", "Fluid Film Bearing"],
-      logo: "/images/partners/turbolink.jpg",
-      highlight: t("partnerDetails.turbolink.highlight"),
+      id: "mixer",
+      label: "MIXER",
+      description: t("categories.mixer.description"),
+      partners: [
+        {
+          name: "SPXFLOW",
+          country: "Global",
+          logo: "/images/partners/spx-flow.jpg",
+          relationship: t("partnerDetails.spxflow.relationship"),
+          description: t("categories.mixer.spxflow"),
+          products: [
+            "LIGHTNIN",
+            "STELZER",
+            "PLENTY",
+            "PHILADELPHIA",
+            "UUTECHNIC",
+          ],
+          highlight: t("partnerDetails.spxflow.highlight"),
+        },
+      ],
     },
     {
-      name: "WTQ",
-      country: "China",
-      year: "2025",
-      relationship: t("partnerDetails.wtq.relationship"),
-      description: t("partnerDetails.wtq.description"),
-      products: ["Cylinder Liner"],
-      logo: "/images/partners/wtq.jpg",
-      highlight: t("partnerDetails.wtq.highlight"),
+      id: "bearing-lubrication",
+      label: "BEARING & LUBRICATION",
+      description: t("categories.bearingLubrication.description"),
+      partners: [
+        {
+          name: "TURBO LINK",
+          country: "Korea",
+          logo: "/images/partners/turbolink.jpg",
+          relationship: t("partnerDetails.turbolink.relationship"),
+          description: t("categories.bearingLubrication.turbolink"),
+          products: ["Tilting Pad Bearing", "Fluid Film Bearing"],
+          highlight: t("partnerDetails.turbolink.highlight"),
+        },
+        {
+          name: "삼영필텍 (SYT)",
+          country: "Korea",
+          logo: "/images/partners/syt.jpg",
+          relationship: t("partnerDetails.syt.relationship"),
+          description: t("categories.bearingLubrication.syt"),
+          products: ["Oil Purifier"],
+        },
+      ],
     },
     {
-      name: "CP pump system",
-      country: "Switzerland",
-      year: "2025",
-      relationship: t("partnerDetails.cpPump.relationship"),
-      description: t("partnerDetails.cpPump.description"),
-      products: ["Chemical Process Pump", "Magnetic Drive Pump"],
-      logo: "/images/partners/cp-pump-systems.jpg",
-      highlight: t("partnerDetails.cpPump.highlight"),
-    },
-    {
-      name: "FIMA",
-      country: "Germany",
-      year: "2025",
-      relationship: t("partnerDetails.fima.relationship"),
-      description: t("partnerDetails.fima.description"),
-      products: ["Turbo Compressor", "Blower"],
-      logo: "/images/partners/fima.jpg",
-      highlight: t("partnerDetails.fima.highlight"),
-    },
-    {
-      name: "LDW",
-      country: "Germany",
-      year: "-",
-      relationship: t("partnerDetails.ldw.relationship"),
-      description: t("partnerDetails.ldw.description"),
-      products: ["DC Motor", "Generator", "3-Phase Induction Motor"],
-      logo: "/images/partners/ldw_logo.png",
-      highlight: t("partnerDetails.ldw.highlight"),
-    },
-    {
-      name: "NIDEC",
-      country: "Japan",
-      year: "-",
-      relationship: t("partnerDetails.nidec.relationship"),
-      description: t("partnerDetails.nidec.description"),
-      products: ["Motor"],
-      logo: "/images/partners/nidec.webp",
-    },
-    {
-      name: "삼영필텍 (SYT)",
-      country: "Korea",
-      year: "-",
-      relationship: t("partnerDetails.syt.relationship"),
-      description: t("partnerDetails.syt.description"),
-      products: ["Oil Purifier"],
-      logo: "/images/partners/syt.jpg",
+      id: "motor",
+      label: "MOTOR",
+      description: t("categories.motor.description"),
+      partners: [
+        {
+          name: "LDW",
+          country: "Germany",
+          logo: "/images/partners/ldw_logo.png",
+          relationship: t("partnerDetails.ldw.relationship"),
+          description: t("categories.motor.ldw"),
+          products: ["DC Motor", "Generator", "3-Phase Induction Motor"],
+          highlight: t("partnerDetails.ldw.highlight"),
+        },
+        {
+          name: "NIDEC",
+          country: "Japan",
+          logo: "/images/partners/nidec.webp",
+          relationship: t("partnerDetails.nidec.relationship"),
+          description: t("categories.motor.nidec"),
+          products: ["Synchronous Motor", "Induction Motor"],
+        },
+      ],
     },
   ];
 
@@ -188,82 +262,183 @@ export default async function PartnersPage() {
         </div>
       </section>
 
-      {/* Global Partners */}
-      <section className="py-16 md:py-24">
+      {/* Sticky Sub-Navigation */}
+      <nav className="sticky top-[72px] z-40 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200">
         <div className="section-container">
+          <div className="flex overflow-x-auto scrollbar-hide">
+            {subNavItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative px-6 py-4 text-sm md:text-base font-medium whitespace-nowrap transition-colors ${
+                  activeSection === item.id
+                    ? "text-[#0A1628]"
+                    : "text-slate-500 hover:text-[#0A1628]"
+                }`}
+              >
+                {item.label}
+                {activeSection === item.id && (
+                  <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#EF4444]" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
+      {/* Category Sections */}
+      {partnerCategories.map((category, categoryIdx) => {
+        const isOdd = categoryIdx % 2 === 0;
+        const sectionNumber = String(categoryIdx + 1).padStart(2, "0");
+
+        return (
+          <section
+            key={category.id}
+            id={category.id}
+            className={`py-16 md:py-24 ${
+              isOdd ? "bg-[#0A1628] text-white" : "bg-white text-[#0A1628]"
+            }`}
+          >
+            <div className="section-container">
+              <div className="max-w-5xl mx-auto">
+              {/* Section Header */}
+              <div className="mb-12">
+                <span className="text-[#EF4444] font-bold text-sm tracking-wider">
+                  {sectionNumber}
+                </span>
+                <h2
+                  className={`text-2xl md:text-3xl font-bold mt-2 ${
+                    isOdd ? "text-white" : "text-[#0A1628]"
+                  }`}
+                >
+                  {category.label}
+                </h2>
+                <div className="w-16 h-1 bg-[#EF4444] mt-4" />
+                <p
+                  className={`mt-4 max-w-2xl ${
+                    isOdd ? "text-slate-300" : "text-slate-600"
+                  }`}
+                >
+                  {category.description}
+                </p>
+              </div>
+
+              {/* Partner Entries */}
+              {isOdd ? (
+                <div className="space-y-0 divide-y divide-white/10">
+                  {category.partners.map((partner, pIdx) => (
+                    <div key={pIdx} className="flex flex-col md:flex-row gap-5 md:gap-8 items-start py-8 first:pt-0 last:pb-0">
+                      {/* Logo - constrained */}
+                      <div className="flex-shrink-0 w-[140px] md:w-[160px] h-[60px] md:h-[70px] bg-white rounded-lg flex items-center justify-center p-3">
+                        <Image
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          width={160}
+                          height={70}
+                          className="object-contain max-w-[120px] max-h-[50px]"
+                        />
+                      </div>
+
+                      {/* Text content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-xl font-bold text-white">{partner.name}</h3>
+                          <span className="px-2.5 py-0.5 bg-white/10 text-slate-300 text-xs rounded-full">{partner.country}</span>
+                        </div>
+                        <p className="text-[#3B82F6] text-sm font-medium mb-3">{partner.relationship}</p>
+                        <p className="text-slate-300 text-sm leading-relaxed mb-3">{partner.description}</p>
+                        {partner.highlight && (
+                          <p className="text-[#93C5FD] text-xs leading-relaxed bg-blue-900/20 px-3 py-2 rounded inline-block mb-3">{partner.highlight}</p>
+                        )}
+                        <div className="flex flex-wrap gap-2">
+                          {partner.products.map((product, pidx) => (
+                            <span key={pidx} className="px-3 py-1 bg-[#3B82F6]/20 text-[#3B82F6] text-xs rounded-full border border-[#3B82F6]/30">{product}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="space-y-0 divide-y divide-slate-200">
+                  {category.partners.map((partner, pIdx) => (
+                    <div key={pIdx} className="flex flex-col md:flex-row gap-5 md:gap-8 items-start py-8 first:pt-0 last:pb-0">
+                      {/* Logo - constrained */}
+                      <div className="flex-shrink-0 w-[140px] md:w-[160px] h-[60px] md:h-[70px] bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-center p-3">
+                        <Image
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          width={160}
+                          height={70}
+                          className="object-contain max-w-[120px] max-h-[50px]"
+                        />
+                      </div>
+
+                      {/* Text content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-xl font-bold text-[#0A1628]">{partner.name}</h3>
+                          <span className="px-2.5 py-0.5 bg-slate-100 text-slate-600 text-xs rounded-full">{partner.country}</span>
+                        </div>
+                        <p className="text-[#3B82F6] text-sm font-medium mb-3">{partner.relationship}</p>
+                        <p className="text-slate-600 text-sm leading-relaxed mb-3">{partner.description}</p>
+                        {partner.highlight && (
+                          <p className="text-[#3B82F6] text-xs leading-relaxed bg-blue-50 px-3 py-2 rounded inline-block mb-3">{partner.highlight}</p>
+                        )}
+                        <div className="flex flex-wrap gap-2">
+                          {partner.products.map((product, pidx) => (
+                            <span key={pidx} className="px-3 py-1 bg-[#3B82F6] text-white text-xs rounded-full">{product}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Certifications Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0A1628] mb-4">
-              {t("globalPartners.title")}
+              {t("certifications.title")}
             </h2>
+            <div className="w-16 h-1 bg-[#EF4444] mx-auto mb-6" />
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              {t("globalPartners.description")}
+              {t("certifications.description")}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {globalPartners.map((partner, idx) => (
-              <div
-                key={idx}
-                className="bg-white border border-slate-200 rounded-xl p-6 hover:border-[#3B82F6] hover:shadow-lg transition-all"
-              >
-                {/* Partner Logo */}
-                <div className="aspect-video bg-white border border-slate-100 rounded-lg mb-4 flex items-center justify-center p-4 overflow-hidden">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-
-                {/* Partner Info */}
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between">
-                    <h3 className="text-xl font-bold text-[#0A1628]">
-                      {partner.name}
-                    </h3>
-                    <span className="px-2 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">
-                      {partner.country}
-                    </span>
-                  </div>
-
-                  <p className="text-slate-700 text-sm leading-relaxed">
-                    {partner.description}
-                  </p>
-
-                  {/* Highlight - if exists */}
-                  {partner.highlight && (
-                    <p className="text-[#3B82F6] text-xs leading-relaxed bg-blue-50 p-2 rounded">
-                      {partner.highlight}
-                    </p>
-                  )}
-
-                  <div className="pt-3 border-t border-slate-200">
-                    <div className="flex items-center text-sm text-slate-600 mb-2">
-                      <span className="font-semibold mr-2">{t("globalPartners.partnerInfo.contractYear")}</span>
-                      <span>{partner.year}</span>
-                    </div>
-                    <div className="flex items-center text-sm text-slate-600 mb-3">
-                      <span className="font-semibold mr-2">{t("globalPartners.partnerInfo.relationship")}</span>
-                      <span>{partner.relationship}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {partner.products.map((product, pIdx) => (
-                        <span
-                          key={pIdx}
-                          className="px-3 py-1 bg-[#3B82F6] text-white text-xs rounded-full"
-                        >
-                          {product}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+              <Image
+                src="/images/partners/cerification1.png"
+                alt="SPXFLOW, NEUMAN & ESSER, TURBOLINK 인증서"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg"
+              />
+              <p className="text-xs text-slate-500 text-center mt-3">
+                SPXFLOW · NEUMAN & ESSER · TURBOLINK
+              </p>
+            </div>
+            <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
+              <Image
+                src="/images/partners/certification2.png"
+                alt="KB DELTA, FIMA, LDW 인증서"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg"
+              />
+              <p className="text-xs text-slate-500 text-center mt-3">
+                FIMA · LDW · KB DELTA
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -363,12 +538,12 @@ export default async function PartnersPage() {
             </p>
           </div>
 
-          {/* Client Logo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
+          {/* Client Logo Grid - Single Row */}
+          <div className="flex flex-wrap justify-center items-center gap-6">
             {clients.map((client, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 rounded-lg flex items-center justify-center hover:border-[#3B82F6] hover:shadow-md transition-all p-8 h-32"
+                className="bg-white border border-slate-200 rounded-lg flex items-center justify-center hover:border-[#3B82F6] hover:shadow-md transition-all p-4 w-[140px] h-[80px] md:w-[160px] md:h-[90px]"
               >
                 <div className="relative w-full h-full">
                   <Image
@@ -376,28 +551,11 @@ export default async function PartnersPage() {
                     alt={`${client.name} logo`}
                     fill
                     className="object-contain"
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="160px"
                   />
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Client Highlight */}
-          <div className="bg-slate-50 rounded-2xl p-8 md:p-12">
-            <div className="text-center max-w-3xl mx-auto">
-              <h3 className="text-2xl font-bold text-[#0A1628] mb-4">
-                {t("majorClients.trustSection.title")}
-              </h3>
-              <p className="text-slate-700 text-lg leading-relaxed mb-6">
-                {t("majorClients.trustSection.description")}
-              </p>
-              <div className="p-6 bg-white rounded-lg border border-slate-200">
-                <p className="text-slate-600 text-sm">
-                  {t("majorClients.trustSection.experience")}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>

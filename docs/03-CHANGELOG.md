@@ -6,6 +6,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.4] - 2026-02-13
+
+### Changed
+- **Partners 페이지 v2 리디자인** (`app/[locale]/partners/page.tsx`)
+  - 카드 기반 그리드 → 수평 엔트리 레이아웃 (로고 좌측 + 텍스트 우측)
+  - 로고 크기 제한 (max 160px, aspect-video 제거)
+  - 콘텐츠 영역 `max-w-5xl` 추가 패딩으로 가운데 집중
+  - 공식 인증서 섹션 신규 추가 (파트너십 강점 상단에 배치)
+  - 주요 고객사 로고 한 줄 배치 (`flex-wrap justify-center`)
+  - 신뢰받는 파트너 섹션 제거
+
+### Added
+- 인증서 이미지 2장 (`cerification1.png`, `certification2.png`)
+- PDF 회사소개서 기반 파트너 설명 보강 (8개사: FIMA, NEA, CASTANET, WTQ, CP PUMP, SPXFLOW, 터보링크, LDW)
+- `partners.certifications` 번역 키 추가 (ko/en)
+
+---
+
 ## [1.5.3] - 2026-02-13
 
 ### Changed

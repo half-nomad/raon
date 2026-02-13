@@ -563,6 +563,37 @@
         "description": "Domestic oil purification equipment specialist manufacturer"
       }
     },
+    "categories": {
+      "compressor": {
+        "description": "Turbo Compressor, Blower & Reciprocating Compressor Partners",
+        "fima": "Founded in Germany in 1964, FIMA is a TURBO COMPRESSOR & BLOWER manufacturer operating global hubs in China, India, Canada, and Turkey from its German headquarters. With a comprehensive lineup from F1 to F8 series and world-leading technology in Zone 0 blowers for explosion-proof/hermetic applications, it supplies new machinery for domestic and international EPC projects and provides full After Service support.",
+        "neumanEsser": "Founded in Germany in 1830, NEUMAN & ESSER is a trusted RECIPROCATING COMPRESSOR manufacturer driving energy transition and circular economy. As the Ulsan regional Aftermarket agency, we provide solutions including technical support, Trouble Shooting, Repair, Maintenance, Engineering Study & Modification, and Spare Parts supply to SK Energy, S-Oil, and Hyundai Chemical (Daesan).",
+        "castanet": "A French reciprocating compressor parts manufacturer serving as a Sub-Vendor for European OEMs. Through Reverse Engineering, they can supply parts for all compressor brands. Notably, they are the main Sub-Vendor for Howden Thomassen Compressor (Netherlands) with 120 years of history, supplying both OEM Original parts and parts for Cost Saving and extended service life.",
+        "wtq": "Founded in 1967 in Jiangsu Province, China, WTQ is a specialized Cylinder Liner manufacturer with 900 employees and over 100 production lines across a 120,000m² facility. Producing cylinder liners with diameters from 80 to 1,500mm, they supply global clients including Cummins, Caterpillar, Daimler, MAN, Wartsila, and KOBELCO, holding over 58% market share in China."
+      },
+      "pump": {
+        "description": "Chemical Process & Magnetic Driven Pump Partners",
+        "cpPump": "Headquartered in Zofingen, Switzerland, CP Pump performs all R&D and production in Switzerland. Specializing in leak-free (Magnetic drive) design and hazardous fluid transfer, we established our Ulsan agency contract in 2025 to supply pumps through Trouble Shooting for processes with chronic problems that are difficult to resolve."
+      },
+      "mixer": {
+        "description": "Global Mixing Solution Partners",
+        "spxflow": "As the world's largest mixing equipment manufacturer, SPXFLOW's Mixing Solutions, together with five brands—LIGHTNIN, STELZER, PLENTY, PHILADELPHIA, and UUTECHNIC—draw on centuries of experience to develop and supply customized Mixing Solutions tailored to each customer's specific needs, helping improve process speed, increase production, save energy, and reduce costs."
+      },
+      "bearingLubrication": {
+        "description": "Fluid Film Bearing & Lubrication Purification Partners",
+        "turbolink": "Founded as a venture startup in 2001 with a 6,600m² headquarters factory in Gimhae, TURBOLINK specializes in the design and manufacturing of fluid film bearings. Developing a diverse product range from 65,000 RPM ultra-high speed turbo compressor bearings to heavy-load turbine generator bearings weighing hundreds of tons with proprietary technology, supplying to OEMs. We established our agency contract in 2024 to provide Bearing Solutions through Repair, Trouble Shooting, and Reverse Engineering for the oil refinery and petrochemical industry.",
+        "syt": "Dedicated solely to maintaining lubricant cleanliness for the reliability of rotating machinery lubrication systems and core bearing components, manufacturing and supplying lubricant purifiers with domestically patented original technologies including moisture removal, dual high-vacuum systems, and contaminant (varnish) removal with electric filter technology."
+      },
+      "motor": {
+        "description": "Large Synchronous & Induction Motor Partners",
+        "ldw": "Founded in 1915 in Bremen, Germany, LDW is a large Motor manufacturer with over 100 years of history. With 130 specialized professionals handling everything from design to production, they manufacture DC motor/generators (10~8,000Kw), large 3-phase induction motors, and synchronous generators in a Made-to-Order fashion. Installed and operating in domestic oil refinery and petrochemical plants, providing technical support (Trouble Shooting and Supervisor dispatch) and Spare Parts supply.",
+        "nidec": "An Italian (formerly Ansaldo) large Synchronous and Induction Motor manufacturer, installed and operating in domestic oil refinery and petrochemical plants through rotating machinery (reciprocating compressor) OEMs. Providing technical support (Trouble Shooting and Supervisor dispatch) and Spare Parts supply for machinery installed in Korea."
+      }
+    },
+    "certifications": {
+      "title": "Official Certifications",
+      "description": "Raon Total Solution has obtained official agency and partner certifications from global partners, ensuring genuine parts and services."
+    },
     "whyPartner": {
       "title": "Partnership Strengths",
       "items": {
@@ -608,6 +639,10 @@
       "partnersDesc": "Collaboration with world-class manufacturers",
       "clients": "Major Clients",
       "clientsDesc": "Including the 4 major domestic refineries"
+    },
+    "certifications": {
+      "title": "Official Certifications",
+      "description": "We are officially certified by our global partners to provide genuine parts and technical services."
     },
     "cta": {
       "title": "Would you like to work with Raon Total Solution?",

@@ -94,7 +94,7 @@ export function ProductsSnapshot() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#F0F4FF] to-[#E8EEFF]">
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

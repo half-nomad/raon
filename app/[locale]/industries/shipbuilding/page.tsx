@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { IndustryHero } from "@/components/industries/industry-hero";
 import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
@@ -23,9 +23,9 @@ export default async function ShipbuildingPage() {
   const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: t("relatedProducts.cylinderLiner"), href: "/products#cylinder-liner" },
-    { name: t("relatedProducts.oilPurifier"), href: "/products#oil-purifier" },
-    { name: t("relatedProducts.bearing"), href: "/products#bearing" },
+    { name: t("relatedProducts.cylinderLiner"), href: "/products/bearing-lubrication" },
+    { name: t("relatedProducts.oilPurifier"), href: "/products/bearing-lubrication" },
+    { name: t("relatedProducts.bearing"), href: "/products/bearing-lubrication" },
   ];
 
   const specifications = [

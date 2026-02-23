@@ -39,8 +39,8 @@ export default async function PowerPlantPage() {
 
   const relatedProducts = [
     { name: t("relatedProducts.compressor"), href: "/products/compressor" },
-    { name: t("relatedProducts.bearing"), href: "/products/bearing" },
-    { name: t("relatedProducts.oilPurifier"), href: "/products/oil-purifier" },
+    { name: t("relatedProducts.bearing"), href: "/products/bearing-lubrication" },
+    { name: t("relatedProducts.oilPurifier"), href: "/products/bearing-lubrication" },
   ];
 
   return (

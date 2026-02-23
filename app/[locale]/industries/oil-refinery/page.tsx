@@ -37,10 +37,10 @@ export default async function OilRefineryPage() {
   const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: t("relatedProducts.compressor"), href: "/products#compressor" },
-    { name: t("relatedProducts.pump"), href: "/products#pump" },
-    { name: t("relatedProducts.mixer"), href: "/products#mixer" },
-    { name: t("relatedProducts.bearing"), href: "/products#bearing" },
+    { name: t("relatedProducts.compressor"), href: "/products/compressor" },
+    { name: t("relatedProducts.pump"), href: "/products/pump" },
+    { name: t("relatedProducts.mixer"), href: "/products/mixer" },
+    { name: t("relatedProducts.bearing"), href: "/products/bearing-lubrication" },
   ];
 
   return (

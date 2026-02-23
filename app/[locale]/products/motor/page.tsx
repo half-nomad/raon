@@ -35,14 +35,14 @@ const partners = [
     fullName: "Lloyd Dynamowerke GmbH",
     country: "Germany",
     logo: "/images/partners/ldw_logo.png",
-    description: "대형 Synchronous 및 Induction Motor 제작사",
+    description: "독일의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다.",
   },
   {
     name: "NIDEC",
     fullName: "舊 Ansaldo",
     country: "Italy",
     logo: "/images/partners/nidec.webp",
-    description: "대형 Synchronous 및 Induction Motor 제작사",
+    description: "이탈리아의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다.",
   },
 ];
 

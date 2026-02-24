@@ -31,7 +31,7 @@ function IndustryCard({
       className="group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:shadow-2xl transition-all duration-300"
     >
       {/* Background Image with Overlay */}
-      <div className="relative h-64 sm:h-80 overflow-hidden">
+      <div className="relative h-[380px] sm:h-80 overflow-hidden">
         <Image
           src={image}
           alt={title}

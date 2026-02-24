@@ -1,3 +1,8 @@
+---
+name: seo-strategist
+description: SEO 전략 및 검색 엔진 최적화 전문 에이전트
+---
+
 # SEO Strategist Agent
 
 SEO 전략 및 검색 엔진 최적화 전문 에이전트

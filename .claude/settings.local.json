@@ -13,7 +13,18 @@
       "mcp__chrome-devtools__navigate_page",
       "mcp__hyperbrowser__scrape_webpage",
       "mcp__hyperbrowser__browser_use_agent",
-      "mcp__hyperbrowser__claude_computer_use_agent"
+      "mcp__hyperbrowser__claude_computer_use_agent",
+      "mcp__chrome-devtools__new_page",
+      "mcp__chrome-devtools__take_screenshot",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__evaluate_script",
+      "mcp__playwright__browser_navigate",
+      "mcp__chrome-devtools__select_page",
+      "mcp__chrome-devtools__resize_page",
+      "mcp__chrome-devtools__close_page",
+      "mcp__chrome-devtools__list_console_messages",
+      "mcp__chrome-devtools__click",
+      "mcp__chrome-devtools__emulate"
     ]
   },
   "enableAllProjectMcpServers": true,

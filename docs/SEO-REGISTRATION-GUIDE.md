@@ -4,6 +4,7 @@
 **프레임워크**: Next.js 16 (App Router)
 **Sitemap URL**: https://raontotalsolution.com/sitemap.xml
 **작성일**: 2025-01-21
+**최종 수정**: 2026-02-24 (v1.6.0 환경변수 방식 반영)
 
 ---
 
@@ -183,83 +184,100 @@ Google은 두 가지 속성 유형을 제공합니다:
 
 ---
 
-## 3. 인증 코드 적용 방법
+## 3. 인증 코드 적용 방법 (v1.6.0 환경변수 방식)
 
-### 3.1 파일 위치
+### 3.1 구조
 
-인증 코드는 Next.js의 메타데이터 설정에서 관리됩니다.
+인증 코드는 **환경변수**로 관리됩니다. 코드 변경 없이 Vercel 대시보드에서 설정 가능합니다.
 
-**파일 경로**: `app/[locale]/layout.tsx`
-
-### 3.2 현재 설정 확인
-
+**코드 위치**: `app/[locale]/layout.tsx`
 ```typescript
-// app/[locale]/layout.tsx (78-84번째 줄)
 verification: {
-  google: 'GOOGLE_VERIFICATION_CODE', // Google Search Console에서 발급
+  google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
   other: {
-    'naver-site-verification': 'NAVER_VERIFICATION_CODE', // 네이버 서치어드바이저에서 발급
+    'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_VERIFICATION || '',
   },
 },
 ```
 
-### 3.3 인증 코드 교체
-
-1. **네이버 인증 코드 적용**
-   - `NAVER_VERIFICATION_CODE`를 실제 코드로 교체
-   ```typescript
-   'naver-site-verification': '실제네이버인증코드',
-   ```
-
-2. **구글 인증 코드 적용**
-   - `GOOGLE_VERIFICATION_CODE`를 실제 코드로 교체
-   ```typescript
-   google: '실제구글인증코드',
-   ```
-
-### 3.4 적용 예시
-
-```typescript
-verification: {
-  google: 'Abc123XYZ789def456', // 실제 구글 인증 코드
-  other: {
-    'naver-site-verification': 'abc123def456ghi789', // 실제 네이버 인증 코드
-  },
-},
+**환경변수 참조**: `.env.example`
+```
+NEXT_PUBLIC_GOOGLE_VERIFICATION=
+NEXT_PUBLIC_NAVER_VERIFICATION=
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+NEXT_PUBLIC_NAVER_ANALYTICS_ID=
 ```
 
-### 3.5 배포
+### 3.2 적용 방법 A: Vercel 대시보드 (권장)
+
+코드 수정/배포 없이 즉시 적용:
+
+1. **Vercel 대시보드** 접속 → 해당 프로젝트 선택
+2. **Settings** → **Environment Variables**
+3. 환경변수 추가:
+
+| Key | Value | Environment |
+|-----|-------|-------------|
+| `NEXT_PUBLIC_GOOGLE_VERIFICATION` | `구글에서 발급한 인증코드` | Production |
+| `NEXT_PUBLIC_NAVER_VERIFICATION` | `네이버에서 발급한 인증코드` | Production |
+
+4. **Save** 클릭
+5. **Deployments** → 최신 배포의 **...** → **Redeploy** 클릭 (환경변수 반영)
+
+### 3.3 적용 방법 B: .env.local 파일 (로컬 테스트용)
 
 ```bash
-# 변경사항 커밋
-git add app/[locale]/layout.tsx
-git commit -m "feat: add search console verification codes"
-
-# 배포 (Vercel)
-git push origin main
+# 프로젝트 루트에 .env.local 생성 (git에 포함되지 않음)
+NEXT_PUBLIC_GOOGLE_VERIFICATION=Abc123XYZ789def456
+NEXT_PUBLIC_NAVER_VERIFICATION=abc123def456ghi789
 ```
 
-### 3.6 배포 후 검증
-
-#### 메타 태그 확인
+### 3.4 배포 후 검증
 
 브라우저에서 소스 코드 확인:
 1. https://raontotalsolution.com 접속
 2. `Ctrl + U` (또는 `Cmd + Option + U`)로 소스 보기
 3. `<head>` 태그 내에서 검색:
-   - `naver-site-verification`
    - `google-site-verification`
+   - `naver-site-verification`
 
-#### 예상 결과
-
+예상 결과:
 ```html
-<head>
-  ...
-  <meta name="google-site-verification" content="Abc123XYZ789def456" />
-  <meta name="naver-site-verification" content="abc123def456ghi789" />
-  ...
-</head>
+<meta name="google-site-verification" content="Abc123XYZ789def456" />
+<meta name="naver-site-verification" content="abc123def456ghi789" />
 ```
+
+### 3.5 Analytics 설정 (선택)
+
+GA4와 Naver Analytics도 동일하게 환경변수로 설정:
+
+| Key | Value | 발급처 |
+|-----|-------|--------|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX` | Google Analytics 4 |
+| `NEXT_PUBLIC_NAVER_ANALYTICS_ID` | `발급코드` | Naver Analytics |
+
+환경변수가 비어있으면 스크립트가 렌더링되지 않으므로 안전합니다.
+
+---
+
+## 3-A. 권한 이전 가이드
+
+본인 계정으로 먼저 등록 후 고객에게 권한 이전하는 방법:
+
+### Google Search Console 권한 이전
+
+1. **Search Console** → **설정** → **사용자 및 권한**
+2. **사용자 추가** 클릭
+3. 고객 Google 계정 입력 → 권한: **소유자** 선택
+4. 고객이 이메일 수락 후 소유자 등록 완료
+5. (선택) 본인 계정을 제거하거나 **전체** 권한으로 유지
+
+### Naver Search Advisor 권한 이전
+
+네이버는 직접적인 권한 이전이 불가하므로:
+1. 고객 네이버 계정으로 **새로 등록** (같은 도메인 중복 등록 가능)
+2. 고객 계정에서 소유권 확인 (동일 메타태그가 이미 적용되어 있으므로 즉시 인증 성공)
+3. 본인 계정의 등록은 삭제해도 무관
 
 ---
 

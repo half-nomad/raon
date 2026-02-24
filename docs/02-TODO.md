@@ -1,6 +1,6 @@
 # TODO - 라온토탈솔루션 웹사이트
 
-> **최종 수정**: 2026-02-13
+> **최종 수정**: 2026-02-24
 > **진행률**: 48/51 완료 (94%)
 
 ---
@@ -103,10 +103,21 @@
 - [x] CTA 버튼: `py-3` → `py-4 min-h-11` (44px)
 - [x] 상세: [QA_REPORT.md](./QA_REPORT.md) 참조
 
-### 3. SEO 등록 (P3) ✅ 코드 준비 완료
+### 3. SEO 테크니컬 세팅 (P3) ✅ v1.6.0 완료
 - [x] 도메인 .co.kr → .com 수정 (sitemap, robots, layout)
-- [x] Verification 메타태그 placeholder 추가
+- [x] Verification 메타태그 환경변수화 (`process.env`)
 - [x] 등록 가이드 작성 → [SEO-REGISTRATION-GUIDE.md](./SEO-REGISTRATION-GUIDE.md)
+- [x] Schema URL 수정 (organization, product, breadcrumb) `.co.kr` → `.com`
+- [x] sitemap.ts 보완 (power-plant, privacy, terms 추가 / bearing-lubrication 수정 / redirect 페이지 제거)
+- [x] robots.ts `host` 속성 추가
+- [x] i18n 메타데이터 키 추가 (compressor, pump, mixer, motor, bearingLubrication, powerPlant, privacy, terms)
+- [x] Font 최적화: CDN → `next/font/local` (PretendardVariable.woff2)
+- [x] Analytics 컴포넌트 준비 (GA4 + Naver)
+- [x] 15개 페이지 전체 `generateMetadata` 적용 (7개 layout.tsx 신규 생성)
+- [x] OrganizationSchema 전역 적용
+- [x] BreadcrumbSchema 전 페이지 확장 (3개 → 12개)
+- [x] ProductSchema 5개 제품 페이지 적용
+- [x] OG 이미지 자동 생성 시스템 (14개 opengraph-image.tsx)
 - [ ] Naver Search Advisor 등록 (고객 계정 필요)
 - [ ] Google Search Console 등록 (고객 계정 필요)
 

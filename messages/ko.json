@@ -68,6 +68,38 @@
     "contact": {
       "title": "문의하기",
       "description": "회전기계 부품 견적 및 기술 상담 문의"
+    },
+    "compressor": {
+      "title": "Compressor & Parts | 왕복동 압축기 부품",
+      "description": "NEUMAN & ESSER, FIMA, CASTANET 등 글로벌 파트너의 왕복동 압축기 부품 및 터보 컴프레서 솔루션"
+    },
+    "pump": {
+      "title": "Pump | Magnetic Driven Pump 솔루션",
+      "description": "CP Pump의 Sealless 마그네틱 드리븐 펌프. 부식성 유체 및 슬러리 이송 전문"
+    },
+    "mixer": {
+      "title": "Mixer & Agitator | 산업용 믹서 솔루션",
+      "description": "SPXFLOW Lightnin 산업용 믹서 및 교반기. 정유·석유화학·화학·식품 산업 최적 혼합 솔루션"
+    },
+    "motor": {
+      "title": "Motor | 대형 산업용 모터 부품",
+      "description": "LDW, NIDEC 대형 Motor 부품 공급 및 방폭인증 서비스. 정유·석유화학 플랜트 전문"
+    },
+    "bearingLubrication": {
+      "title": "Bearing & Lubrication | 유체윤활베어링 솔루션",
+      "description": "터보링크 틸팅패드 베어링 및 삼영필텍 윤활유 정제 솔루션. 초고속~고하중 대응"
+    },
+    "powerPlant": {
+      "title": "발전소",
+      "description": "화력, 복합화력, 신재생에너지 발전소에 최적화된 회전기계 솔루션을 제공합니다"
+    },
+    "privacy": {
+      "title": "개인정보처리방침",
+      "description": "라온토탈솔루션의 개인정보처리방침"
+    },
+    "terms": {
+      "title": "이용약관",
+      "description": "라온토탈솔루션 웹사이트 이용약관"
     }
   },
   "hero": {

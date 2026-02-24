@@ -11,7 +11,7 @@ export function BreadcrumbSchema({ items }: { items: BreadcrumbItem[] }) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://raontotalsolution.co.kr${item.url}`,
+      item: `https://raontotalsolution.com${item.url}`,
     })),
   };
 

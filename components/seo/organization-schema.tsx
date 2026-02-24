@@ -6,8 +6,8 @@ export function OrganizationSchema() {
     '@type': 'Organization',
     name: '라온토탈솔루션',
     alternateName: 'Raon Total Solution',
-    url: 'https://raontotalsolution.co.kr',
-    logo: 'https://raontotalsolution.co.kr/images/company/raon-logo.png',
+    url: 'https://raontotalsolution.com',
+    logo: 'https://raontotalsolution.com/images/company/raon-logo.png',
     description: '30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업. 정유·석유화학 및 조선 산업을 위한 최적의 품질과 납기를 제공합니다.',
     address: {
       '@type': 'PostalAddress',
@@ -20,7 +20,7 @@ export function OrganizationSchema() {
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+82-2-575-3051',
-      email: 'rts@raontotalsolution.co.kr',
+      email: 'rts@raontotalsolution.com',
       contactType: 'Customer Service',
       availableLanguage: ['Korean', 'English'],
     },

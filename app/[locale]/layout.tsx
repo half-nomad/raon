@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
+import localFont from 'next/font/local';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { GoogleAnalytics } from '@/components/analytics/google-analytics';
+import { NaverAnalytics } from '@/components/analytics/naver-analytics';
+import { OrganizationSchema } from '@/components/seo/organization-schema';
 import "../globals.css";
+
+const pretendard = localFont({
+  src: '../../public/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+  variable: '--font-pretendard',
+});
 
 type Props = {
   children: React.ReactNode;
@@ -41,20 +52,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: t('siteName'),
       title: t('home.title'),
       description: t('home.description'),
-      images: [
-        {
-          url: '/images/og/main-og.jpg',
-          width: 1200,
-          height: 630,
-          alt: t('siteName'),
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('home.title'),
       description: t('home.description'),
-      images: ['/images/og/main-og.jpg'],
     },
     robots: {
       index: true,
@@ -75,11 +77,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         'x-default': 'https://raontotalsolution.com/ko',
       },
     },
-    // Search Console 인증 태그 (등록 후 실제 값으로 교체)
     verification: {
-      google: 'GOOGLE_VERIFICATION_CODE', // Google Search Console에서 발급
+      google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || '',
       other: {
-        'naver-site-verification': 'NAVER_VERIFICATION_CODE', // 네이버 서치어드바이저에서 발급
+        'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_VERIFICATION || '',
       },
     },
   };
@@ -101,14 +102,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={pretendard.variable}>
       <head>
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-        />
         {/* hreflang 태그 */}
         <link rel="alternate" hrefLang="ko" href="https://raontotalsolution.com/ko" />
         <link rel="alternate" hrefLang="en" href="https://raontotalsolution.com/en" />
@@ -118,6 +113,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <OrganizationSchema />
+        <GoogleAnalytics />
+        <NaverAnalytics />
       </body>
     </html>
   );

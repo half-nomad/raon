@@ -8,5 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ['/api/'],
     },
     sitemap: 'https://raontotalsolution.com/sitemap.xml',
+    host: 'https://raontotalsolution.com',
   }
 }

@@ -1,9 +1,59 @@
+import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { BreadcrumbSchema } from "@/components/seo/breadcrumb-schema";
 import { getTranslations } from "next-intl/server";
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    title: t("products.title"),
+    description: t("products.description"),
+    keywords:
+      locale === "ko"
+        ? [
+            "회전기계 부품",
+            "압축기",
+            "펌프",
+            "믹서",
+            "모터",
+            "베어링",
+            "Compressor",
+            "Pump",
+            "Mixer",
+          ]
+        : [
+            "rotating equipment parts",
+            "compressor",
+            "pump",
+            "mixer",
+            "motor",
+            "bearing",
+          ],
+    openGraph: {
+      title: t("products.title"),
+      description: t("products.description"),
+      url: `https://raontotalsolution.com/${locale}/products`,
+      locale: locale === "ko" ? "ko_KR" : "en_US",
+    },
+    alternates: {
+      canonical: `https://raontotalsolution.com/${locale}/products`,
+      languages: {
+        ko: "https://raontotalsolution.com/ko/products",
+        en: "https://raontotalsolution.com/en/products",
+      },
+    },
+  };
+}
 
 export default async function ProductsPage() {
   const t = await getTranslations();
@@ -77,6 +127,12 @@ export default async function ProductsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Products", url: "/products" },
+        ]}
+      />
       <Header />
 
       {/* Hero Section */}

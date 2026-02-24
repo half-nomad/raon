@@ -8,11 +8,18 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "privacy" });
+  const t = await getTranslations({ locale, namespace: "metadata" });
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title: t("privacy.title"),
+    description: t("privacy.description"),
+    alternates: {
+      canonical: `https://raontotalsolution.com/${locale}/privacy`,
+      languages: {
+        ko: "https://raontotalsolution.com/ko/privacy",
+        en: "https://raontotalsolution.com/en/privacy",
+      },
+    },
   };
 }
 

@@ -68,6 +68,38 @@
     "contact": {
       "title": "Contact",
       "description": "Rotating equipment parts quotation and technical consultation inquiry"
+    },
+    "compressor": {
+      "title": "Compressor & Parts | Reciprocating Compressor Solutions",
+      "description": "Reciprocating compressor parts and turbo compressor solutions from NEUMAN & ESSER, FIMA, CASTANET"
+    },
+    "pump": {
+      "title": "Pump | Magnetic Driven Pump Solutions",
+      "description": "CP Pump sealless magnetic driven pumps for corrosive fluid and slurry transfer"
+    },
+    "mixer": {
+      "title": "Mixer & Agitator | Industrial Mixing Solutions",
+      "description": "SPXFLOW Lightnin industrial mixers and agitators for oil refinery, petrochemical, and food industries"
+    },
+    "motor": {
+      "title": "Motor | Large Industrial Motor Parts",
+      "description": "LDW, NIDEC large motor parts and explosion-proof certification services for oil refinery plants"
+    },
+    "bearingLubrication": {
+      "title": "Bearing & Lubrication | Fluid Bearing Solutions",
+      "description": "Turbolink tilting pad bearings and oil purification solutions for ultra-high speed to heavy load applications"
+    },
+    "powerPlant": {
+      "title": "Power Plant",
+      "description": "Optimized rotating equipment solutions for thermal, combined cycle, and renewable energy power plants"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Raon Total Solution Privacy Policy"
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Raon Total Solution Website Terms of Service"
     }
   },
   "hero": {

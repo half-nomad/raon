@@ -36,7 +36,7 @@ export function ProductSchema({
     }),
     category,
     ...(image && {
-      image: `https://raontotalsolution.co.kr${image}`,
+      image: `https://raontotalsolution.com${image}`,
     }),
     offers: {
       '@type': 'Offer',

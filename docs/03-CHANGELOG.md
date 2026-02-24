@@ -6,6 +6,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.0] - 2026-02-24
+
+### Added
+- **OG 이미지 자동 생성 시스템**: `lib/og-image.tsx` 공통 템플릿 + 14개 `opengraph-image.tsx` (Navy 그라데이션 + 브랜드 라인)
+- **페이지별 메타데이터**: 7개 클라이언트 페이지 `layout.tsx` 생성 (compressor, pump, mixer, motor, bearing-lubrication, partners, contact)
+- **Analytics 컴포넌트**: `components/analytics/google-analytics.tsx` (GA4) + `naver-analytics.tsx`
+- **i18n 메타데이터 키 8개 추가**: compressor, pump, mixer, motor, bearingLubrication, powerPlant, privacy, terms (ko/en)
+- **OrganizationSchema 전역 적용**: root layout body에 렌더링
+- **BreadcrumbSchema 확장**: 3개 산업 페이지 → 12개 전 페이지 (company, products, 5개 제품, partners, contact)
+- **ProductSchema 적용**: 5개 제품 페이지 layout.tsx에 구조화 데이터 추가
+- `.env.example` 생성 (verification, analytics 환경변수 가이드)
+
+### Changed
+- **Font 최적화**: CDN `<link>` → `next/font/local` (PretendardVariable.woff2 self-hosted)
+- **Schema URL 수정**: `.co.kr` → `.com` (organization, product, breadcrumb 3개 파일)
+- **sitemap.ts 보완**: `/industries/power-plant`, `/privacy`, `/terms` 추가 / `/products/bearing` → `/products/bearing-lubrication` / cylinder-liner, oil-purifier 제거
+- **robots.ts**: `host: 'https://raontotalsolution.com'` 추가
+- **Verification 환경변수화**: 하드코딩 placeholder → `process.env.NEXT_PUBLIC_*`
+- **Privacy/Terms 메타데이터 보강**: alternates + canonical URL 추가
+- **company/page.tsx, products/page.tsx**: `generateMetadata` 함수 추가
+- Root layout에서 수동 OG images 참조 제거 (opengraph-image.tsx 자동 감지)
+
+---
+
 ## [1.5.4] - 2026-02-13
 
 ### Changed

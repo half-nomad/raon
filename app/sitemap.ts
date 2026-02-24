@@ -12,16 +12,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/industries', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/industries/oil-refinery', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/industries/shipbuilding', priority: 0.8, changeFrequency: 'monthly' as const },
+    { path: '/industries/power-plant', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/products', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/products/compressor', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/products/mixer', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/products/motor', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/products/pump', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/products/bearing', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/products/cylinder-liner', priority: 0.7, changeFrequency: 'weekly' as const },
-    { path: '/products/oil-purifier', priority: 0.7, changeFrequency: 'weekly' as const },
+    { path: '/products/bearing-lubrication', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/partners', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/contact', priority: 0.9, changeFrequency: 'monthly' as const },
+    { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   ]
 
   // 각 페이지에 대해 모든 언어 버전 생성 + hreflang alternates

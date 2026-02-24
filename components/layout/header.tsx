@@ -90,7 +90,7 @@ export function Header() {
               onMouseLeave={() => setCompanyOpen(false)}
             >
               <button
-                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
+                className={`cursor-pointer text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
                   scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
@@ -143,7 +143,7 @@ export function Header() {
               onMouseLeave={() => setIndustriesOpen(false)}
             >
               <button
-                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
+                className={`cursor-pointer text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
                   scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >
@@ -208,7 +208,7 @@ export function Header() {
               onMouseLeave={() => setProductsOpen(false)}
             >
               <button
-                className={`text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
+                className={`cursor-pointer text-sm font-medium transition-colors hover:text-[#3B82F6] flex items-center gap-1 ${
                   scrolled ? "text-[#0A1628]" : "text-white"
                 }`}
               >

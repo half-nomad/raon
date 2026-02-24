@@ -437,9 +437,9 @@ export default function CompressorPage() {
               { title: "정기 점검", desc: "계획된 예방 정비 프로그램", image: "/images/services/compressor-mr/01-inspection.jpg" },
               { title: "긴급 수리", desc: "24시간 긴급 대응 체계", image: "/images/services/compressor-mr/02-emergency-repair.png" },
               { title: "오버홀", desc: "분해 점검 및 전면 정비", image: "/images/services/compressor-mr/03-overhaul.jpg" },
-              { title: "부품 교체", desc: "순정 부품 공급 및 설치", image: "/images/services/compressor-mr/04-parts-replacement.jpg" },
-              { title: "성능 진단", desc: "효율 측정 및 최적화 제안", image: "/images/services/compressor-mr/05-diagnosis.jpg" },
-              { title: "기술 교육", desc: "운전자 대상 교육 프로그램", image: "/images/services/compressor-mr/06-training.jpg" },
+              { title: "부품 교체", desc: "순정 부품 공급 및 설치", image: "/images/services/compressor-mr/04-change.png" },
+              { title: "성능 진단", desc: "효율 측정 및 최적화 제안", image: "/images/services/compressor-mr/05-chek_point.png" },
+              { title: "기술 교육", desc: "운전자 대상 교육 프로그램", image: "/images/services/compressor-mr/06-lesson.png" },
             ].map((service, idx) => (
               <div
                 key={idx}

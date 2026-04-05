@@ -81,7 +81,7 @@ export default function PartnersPage() {
         {
           name: "CASTANET",
           country: "France",
-          logo: "/images/partners/castanet.jpg",
+          logo: "/images/partners/castanet.png",
           relationship: t("partnerDetails.castanet.relationship"),
           description: t("categories.compressor.castanet"),
           products: [
@@ -112,7 +112,7 @@ export default function PartnersPage() {
         {
           name: "CP PUMP",
           country: "Switzerland",
-          logo: "/images/partners/cp-pump-systems.jpg",
+          logo: "/images/partners/cp-pump-systems.png",
           relationship: t("partnerDetails.cpPump.relationship"),
           description: t("categories.pump.cpPump"),
           products: ["Chemical Process Pump", "Magnetic Drive Pump"],
@@ -159,7 +159,7 @@ export default function PartnersPage() {
         {
           name: "삼영필텍 (SYT)",
           country: "Korea",
-          logo: "/images/partners/syt.jpg",
+          logo: "/images/partners/syt.png",
           relationship: t("partnerDetails.syt.relationship"),
           description: t("categories.bearingLubrication.syt"),
           products: ["Oil Purifier"],
@@ -602,9 +602,13 @@ export default function PartnersPage() {
         <div className="section-container text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("cta.title")}
+            <br />
+            {t("cta.titleLine2")}
           </h2>
           <p className="text-lg text-slate-200 mb-8 max-w-2xl mx-auto">
             {t("cta.description")}
+            <br />
+            {t("cta.descriptionLine2")}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

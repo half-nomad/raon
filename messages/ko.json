@@ -1060,8 +1060,10 @@
       "description": "글로벌 파트너사로부터 공식 인증을 받아 정품 부품과 기술 서비스를 제공합니다."
     },
     "cta": {
-      "title": "라온토탈솔루션과 함께하시겠습니까?",
-      "description": "글로벌 파트너십과 30년 경험을 바탕으로 최고의 솔루션을 제공합니다.",
+      "title": "라온토탈솔루션과",
+      "titleLine2": "함께하시겠습니까?",
+      "description": "글로벌 파트너십과 30년 경험을 바탕으로",
+      "descriptionLine2": "최고의 솔루션을 제공합니다.",
       "partnershipInquiry": "파트너십 문의",
       "viewProducts": "제품 보기"
     }

@@ -677,8 +677,10 @@
       "description": "We are officially certified by our global partners to provide genuine parts and technical services."
     },
     "cta": {
-      "title": "Would you like to work with Raon Total Solution?",
-      "description": "We provide the best solutions based on global partnerships and 30 years of experience.",
+      "title": "Would you like to work with",
+      "titleLine2": "Raon Total Solution?",
+      "description": "We provide the best solutions based on",
+      "descriptionLine2": "global partnerships and 30 years of experience.",
       "partnershipInquiry": "Partnership Inquiry",
       "viewProducts": "View Products"
     }

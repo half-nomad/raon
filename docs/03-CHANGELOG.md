@@ -6,6 +6,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.0] - 2026-04-05
+
+### Fixed
+- **제품 목록 이미지 수정**: `/ko/products` 5개 카테고리 이미지 경로 불일치 수정 (파일명·확장자 매칭)
+- **파트너 로고 수정**: CASTANET, CP Pump, 삼영필텍 로고 확장자 .jpg → .png 수정
+- **Footer 링크 수정**: Bearing 링크 `/products/bearing` → `/products/bearing-lubrication`
+
+### Changed
+- **CEO 인사말 섹션**: "CEO MESSAGE" 라벨 삭제, 로고 삭제, 대표 사진 placeholder 처리, "대표이사 김혜경" 서명 추가
+- **History 섹션**: 소제목 라벨 삭제 (섹션 유지)
+- **Location 섹션**: 소제목 라벨 삭제
+- **헤더 로고**: 스크롤 후에도 텍스트 "RAON" 유지 (이미지 → 텍스트 통일)
+- **Partners CTA**: 제목/설명 텍스트 줄바꿈 분리 (4행)
+- **모바일 산업 페이지**: "관련 제품 바로가기" 버튼 텍스트 사이즈 축소
+
+---
+
 ## [1.6.1] - 2026-02-24
 
 ### Changed

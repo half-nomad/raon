@@ -198,7 +198,7 @@ export default function PumpPage() {
                     {/* CP PUMP 로고 이미지 박스 */}
                     <div className="w-24 h-12 bg-white rounded-lg flex items-center justify-center p-2">
                       <Image
-                        src="/images/partners/cp-pump-systems.jpg"
+                        src="/images/partners/cp-pump-systems.png"
                         alt="CP PUMP Logo"
                         width={80}
                         height={32}

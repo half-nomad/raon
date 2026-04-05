@@ -88,7 +88,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/products/bearing"
+                  href="/products/bearing-lubrication"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
                   {t("productList.bearing")}

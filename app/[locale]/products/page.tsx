@@ -69,7 +69,7 @@ export default async function ProductsPage() {
         t("products.categories.compressor.features.2"),
       ],
       slug: "/products/compressor",
-      image: "/images/category/compressor-parts_cat.jpg",
+      image: "/images/category/compressor_cat.jpg",
     },
     {
       id: "pump",
@@ -82,7 +82,7 @@ export default async function ProductsPage() {
         t("products.categories.pump.features.2"),
       ],
       slug: "/products/pump",
-      image: "/images/category/pump_cat.jpg",
+      image: "/images/category/pump_cat.png",
     },
     {
       id: "mixer",
@@ -95,7 +95,7 @@ export default async function ProductsPage() {
         t("products.categories.mixer.features.2"),
       ],
       slug: "/products/mixer",
-      image: "/images/category/Mixer & Agitator_cat.jpg",
+      image: "/images/category/mixer_cat.jpg",
     },
     {
       id: "bearingLubrication",
@@ -108,7 +108,7 @@ export default async function ProductsPage() {
         t("products.categories.bearingLubrication.features.2"),
       ],
       slug: "/products/bearing-lubrication",
-      image: "/images/category/bearing_cat.jpg",
+      image: "/images/category/bearing_cat.png",
     },
     {
       id: "motor",
@@ -121,7 +121,7 @@ export default async function ProductsPage() {
         t("products.categories.motor.features.2"),
       ],
       slug: "/products/motor",
-      image: "/images/category/motor_cat.jpg",
+      image: "/images/category/motor_cat.webp",
     },
   ];
 

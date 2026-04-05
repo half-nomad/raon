@@ -96,9 +96,6 @@ export function HistoryTimeline() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">
-            {t("label")}
-          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             {t("title")}
           </h2>

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function CEOMessage() {
@@ -11,9 +10,6 @@ export function CEOMessage() {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">
-            {t("label")}
-          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4">
             {t("title")}
           </h2>
@@ -25,31 +21,15 @@ export function CEOMessage() {
           <div className="order-2 lg:order-1 flex justify-center lg:justify-end">
             <div className="relative w-1/2 max-w-[280px]">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
-                <Image
-                  src="/images/hero/president.png"
-                  alt={t("photoAlt")}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                  priority
-                />
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                  <span className="text-gray-400 text-sm">사진 준비중</span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right: Message Content */}
           <div className="order-1 lg:order-2">
-            {/* Logo */}
-            <div className="mb-8">
-              <Image
-                src="/images/hero/raon-logo.jpg"
-                alt="Raon Total Solution"
-                width={180}
-                height={60}
-                className="object-contain"
-              />
-            </div>
-
             <div className="space-y-6 text-gray-700 leading-relaxed">
               <p className="text-lg sm:text-xl font-medium text-[#0A1628]">
                 {t("greeting")}
@@ -79,6 +59,9 @@ export function CEOMessage() {
 
               <p className="text-lg font-semibold text-[#0A1628] pt-4">
                 {t("closing")}
+              </p>
+              <p className="text-base text-gray-500 mt-1">
+                대표이사 김혜경
               </p>
             </div>
           </div>

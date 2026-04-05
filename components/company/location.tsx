@@ -44,9 +44,6 @@ export function Location() {
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <p className="text-sm font-semibold text-[#3B82F6] uppercase tracking-wide mb-3">
-            {t("label")}
-          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] mb-4">
             {t("title")}
           </h2>

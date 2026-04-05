@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function CEOMessage() {
@@ -21,9 +22,14 @@ export function CEOMessage() {
           <div className="order-2 lg:order-1 flex justify-center lg:justify-end">
             <div className="relative w-1/2 max-w-[280px]">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">사진 준비중</span>
-                </div>
+                <Image
+                  src="/images/company/ceo2.png"
+                  alt={t("photoAlt")}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -60,9 +66,15 @@ export function CEOMessage() {
               <p className="text-lg font-semibold text-[#0A1628] pt-4">
                 {t("closing")}
               </p>
-              <p className="text-base text-gray-500 mt-1">
-                대표이사 김혜경
-              </p>
+              <div className="mt-4">
+                <Image
+                  src="/images/company/ceo-signature.png"
+                  alt="대표이사 김혜경 서명"
+                  width={200}
+                  height={60}
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>

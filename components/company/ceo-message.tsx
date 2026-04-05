@@ -6,7 +6,7 @@ export function CEOMessage() {
   const t = useTranslations("company.ceo");
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-white">
+    <section id="greeting" className="scroll-mt-20 py-16 sm:py-24 lg:py-32 bg-white">
       <div className="section-container">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

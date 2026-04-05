@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **제품 목록 이미지 수정**: `/ko/products` 5개 카테고리 이미지 경로 불일치 수정 (파일명·확장자 매칭)
 - **파트너 로고 수정**: CASTANET, CP Pump, 삼영필텍 로고 확장자 .jpg → .png 수정
 - **Footer 링크 수정**: Bearing 링크 `/products/bearing` → `/products/bearing-lubrication`
+- **Company 앵커 네비게이션 수정**: 인사말/연혁/오시는길 링크 클릭 시 해당 섹션으로 스크롤 (id + scroll-mt 추가)
 
 ### Changed
 - **CEO 인사말 섹션**: "CEO MESSAGE" 라벨 삭제, 로고 삭제, 대표 사진 placeholder 처리, "대표이사 김혜경" 서명 추가
@@ -19,6 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Location 섹션**: 소제목 라벨 삭제
 - **헤더 로고**: 스크롤 후에도 텍스트 "RAON" 유지 (이미지 → 텍스트 통일)
 - **Partners CTA**: 제목/설명 텍스트 줄바꿈 분리 (4행)
+- **Home CTA**: 두 줄 문구 사이 간격 추가
+- **제품 목록 레이아웃**: PC에서 2열 고정 (max-w-5xl 제한)
+- **Footer 업데이트**: 회사명 → "Raon Total Solution", 설명 문구 변경, Products 메뉴를 헤더 BUSINESS ITEM과 동일하게 (Motor 추가, Oil Purifier 제거)
 - **모바일 산업 페이지**: "관련 제품 바로가기" 버튼 텍스트 사이즈 축소
 
 ---

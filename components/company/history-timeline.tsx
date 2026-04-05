@@ -86,7 +86,7 @@ export function HistoryTimeline() {
   }, [findClosestToCenter]);
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0A1628] to-[#0F1D32]">
+    <section id="history" className="scroll-mt-20 py-16 sm:py-24 lg:py-32 bg-gradient-to-b from-[#0A1628] to-[#0F1D32]">
       <div className="section-container">
         {/* Section Header */}
         <motion.div

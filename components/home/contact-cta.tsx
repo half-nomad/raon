@@ -25,9 +25,8 @@ export function ContactCTA() {
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-            {t("cta.title")}
-            <br className="hidden sm:block" />
-            {t("cta.titleLine2")}
+            <span className="block">{t("cta.title")}</span>
+            <span className="block mt-2">{t("cta.titleLine2")}</span>
           </h2>
 
           {/* Description */}

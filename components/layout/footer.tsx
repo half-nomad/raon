@@ -13,9 +13,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">RAON</h3>
+            <h3 className="text-xl font-bold">Raon Total Solution</h3>
             <p className="text-sm text-gray-300">
-              {t("description")}
+              30년 경험의 회전기계 및 왕복동 압축기 부품·솔루션 전문 기업
             </p>
           </div>
 
@@ -67,15 +67,7 @@ export function Footer() {
                   href="/products/compressor"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.compressor")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products/mixer"
-                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
-                >
-                  {t("productList.mixer")}
+                  Compressor
                 </Link>
               </li>
               <li>
@@ -83,7 +75,15 @@ export function Footer() {
                   href="/products/pump"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.pump")}
+                  Pump
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products/mixer"
+                  className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
+                >
+                  Mixer
                 </Link>
               </li>
               <li>
@@ -91,15 +91,15 @@ export function Footer() {
                   href="/products/bearing-lubrication"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.bearing")}
+                  Bearing & Lubrication
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/products/oil-purifier"
+                  href="/products/motor"
                   className="text-sm text-gray-300 hover:text-[#3B82F6] transition-colors"
                 >
-                  {t("productList.oilPurifier")}
+                  Motor
                 </Link>
               </li>
             </ul>

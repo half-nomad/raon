@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: industryT('title'),
     description: industryT('description'),
     keywords: isKorean
-      ? ['발전소', 'Power Plant', '터빈', 'Turbine', '압축기', 'Compressor', 'Bearing', '베어링', 'Oil Purifier']
-      : ['Power Plant', 'turbine', 'compressor', 'bearing', 'oil purifier', 'industrial equipment', 'rotating machinery'],
+      ? ['발전소', 'Power Plant', '터빈', 'Turbine', '압축기', 'Compressor', 'Bearing', '베어링', 'Motor', '모터']
+      : ['Power Plant', 'turbine', 'compressor', 'bearing', 'motor', 'industrial equipment', 'rotating machinery'],
     openGraph: {
       title: `${industryT('title')} | ${t('siteName')}`,
       description: industryT('description'),
@@ -40,7 +40,7 @@ export default async function PowerPlantPage() {
   const relatedProducts = [
     { name: t("relatedProducts.compressor"), href: "/products/compressor" },
     { name: t("relatedProducts.bearing"), href: "/products/bearing-lubrication" },
-    { name: t("relatedProducts.oilPurifier"), href: "/products/bearing-lubrication" },
+    { name: t("relatedProducts.motor"), href: "/products/motor" },
   ];
 
   return (

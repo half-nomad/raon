@@ -37,49 +37,14 @@ const subNavItems = [
 ];
 
 // SPARE PARTS 카테고리
-const sparePartsCategories = [
-  {
-    name: "Cylinder Liner",
-    description: "피스톤 왕복 운동을 위한 교체 가능 슬리브",
-    partner: "WTQ",
-    image: "/images/products/compressor/cylinder-liner_2.jpg",
-  },
-  {
-    name: "Piston",
-    description: "실린더 내 왕복 운동으로 가스 압축",
-    partner: "Castanet SA",
-    image: "/images/products/compressor/piston_1.jpg",
-  },
-  {
-    name: "Piston Rod",
-    description: "피스톤과 크랭크샤프트 연결 부품",
-    partner: "Castanet SA",
-    image: "/images/products/compressor/piston-rod_1.jpg",
-  },
-  {
-    name: "Crosshead",
-    description: "피스톤 왕복 운동 안정화 지지 부품",
-    partner: "-",
-    image: "/images/products/compressor/crosshead.png",
-  },
-  {
-    name: "Piston Ring & Rider Ring",
-    description: "기밀 유지 및 마찰 저감 소모품",
-    partner: "-",
-    image: "/images/products/compressor/Piston-ring_2.jpg",
-  },
-  {
-    name: "Packing & Oil Scraper",
-    description: "고압 밀봉 및 오일 누출 방지",
-    partner: "-",
-    image: "/images/products/compressor/Packing-Cup&Packing-Ring_1.jpg",
-  },
-  {
-    name: "Valve Assembly",
-    description: "가스 흐름 방향 제어 (흡기/배출)",
-    partner: "KB Delta",
-    image: "/images/products/compressor/Valve-Assy&Internal-Parts_1.jpg",
-  },
+const sparePartKeys = [
+  { nameKey: "cylinderLiner", descKey: "cylinderLinerDesc", partner: "WTQ", image: "/images/products/compressor/cylinder-liner_2.jpg" },
+  { nameKey: "piston", descKey: "pistonDesc", partner: "Castanet SA", image: "/images/products/compressor/piston_1.jpg" },
+  { nameKey: "pistonRod", descKey: "pistonRodDesc", partner: "Castanet SA", image: "/images/products/compressor/piston-rod_1.jpg" },
+  { nameKey: "crosshead", descKey: "crossheadDesc", partner: "-", image: "/images/products/compressor/crosshead.png" },
+  { nameKey: "pistonRing", descKey: "pistonRingDesc", partner: "-", image: "/images/products/compressor/Piston-ring_2.jpg" },
+  { nameKey: "packingOilScraper", descKey: "packingOilScraperDesc", partner: "-", image: "/images/products/compressor/Packing-Cup&Packing-Ring_1.jpg" },
+  { nameKey: "valveAssembly", descKey: "valveAssemblyDesc", partner: "KB Delta", image: "/images/products/compressor/Valve-Assy&Internal-Parts_1.jpg" },
 ];
 
 // FIMA 제품군
@@ -94,9 +59,17 @@ export default function CompressorPage() {
   const t = useTranslations();
   const [activeSection, setActiveSection] = useState("new");
 
+  // SPARE PARTS 데이터 (번역 적용)
+  const sparePartsCategories = sparePartKeys.map((part) => ({
+    name: t(`products.compressorPage.spareParts.${part.nameKey}`),
+    description: t(`products.compressorPage.spareParts.${part.descKey}`),
+    partner: part.partner,
+    image: part.image,
+  }));
+
   // SPARE PARTS 캐러셀 상태
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalCards = sparePartsCategories.length; // 7개
+  const totalCards = sparePartsCategories.length;
 
   // 자동 슬라이드 (3초 간격, 1개씩 이동)
   useEffect(() => {
@@ -158,27 +131,27 @@ export default function CompressorPage() {
             COMPRESSOR
           </h1>
           <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
-            왕복동 압축기 부품 및 Turbo Compressor 솔루션
+            {t("products.compressorPage.heroSubtitle")}
           </p>
         </div>
       </section>
 
       {/* Product Intro - 2컬럼 레이아웃 */}
       <ProductIntro
-        title="압축기 전문 솔루션"
-        description="RTS는 30년 경력의 해외 제작사와 영업 기술 지원에 대한 경험을 바탕으로 왕복동압축기 부품, Turbo Compressor(원심 및 블로워) 신규 기계 공급 및 부품에 대한 SOLUTION을 제공하고 있습니다."
+        title={t("products.compressorPage.introTitle")}
+        description={t("products.compressorPage.introDescription")}
         images={heroImages}
         partners={[
-          { name: "FIMA", country: "독일" },
-          { name: "WTQ", country: "중국" },
-          { name: "Castanet SA", country: "프랑스" },
-          { name: "KB Delta", country: "미국" },
+          { name: "FIMA", country: t("products.compressorPage.countryGermany") },
+          { name: "WTQ", country: t("products.compressorPage.countryChina") },
+          { name: "Castanet SA", country: t("products.compressorPage.countryFrance") },
+          { name: "KB Delta", country: t("products.compressorPage.countryUSA") },
         ]}
         highlights={[
-          "Turbo Compressor 신규 공급",
-          "왕복동 압축기 전 부품",
-          "정유/석유화학 30년 실적",
-          "글로벌 파트너 네트워크",
+          t("products.compressorPage.highlightTurbo"),
+          t("products.compressorPage.highlightParts"),
+          t("products.compressorPage.highlightTrackRecord"),
+          t("products.compressorPage.highlightGlobalPartners"),
         ]}
       />
 
@@ -243,7 +216,7 @@ export default function CompressorPage() {
                 </div>
                 <p className="text-[#3B82F6] font-medium">Germany</p>
                 <p className="text-slate-300 mt-4 leading-relaxed">
-                  독일 FIMA Maschinenbau GmbH의 국내대리점으로써 정유, 석유화학, 에너지 외 특수 산업 분야의 Process Application에 최적화 된 Turbo Blower 및 Compressor(Interally Geared Technology)를 공급하고 있습니다.
+                  {t("products.compressorPage.fimaDescription")}
                 </p>
               </div>
 
@@ -286,7 +259,7 @@ export default function CompressorPage() {
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
             <p className="text-slate-600 mt-4 max-w-2xl">
-              네덜란드 왕복동압축기 제작사의 국내대리점으로써의 30년 경험을 바탕으로 왕복동압축기의 Technical Background 및 Know how를 가지로 모든 제작사의 왕복동압축기에 대한 CAPITAL PARTS 및 CONSUMABLE PARTS에 대한 부품을 공급하고 있습니다.
+              {t("products.compressorPage.sparePartsDescription")}
             </p>
           </div>
 
@@ -371,9 +344,7 @@ export default function CompressorPage() {
               TROUBLE SHOOTING
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-            <p className="text-slate-300 mt-4 max-w-2xl">
-              TURBO COMPRESSOR 및 왕복 압축기 부품 TROUBLE 발생 시 GLOBAL OEM 및 SUB-SUPPLIER, 그리고 국내 SERVICE NET WORK을 통한 <span className="text-[#EF4444] font-semibold">최적화 된 SOLUTION</span>을 제안하고 있습니다.
-            </p>
+            <p className="text-slate-300 mt-4 max-w-2xl" dangerouslySetInnerHTML={{ __html: t("products.compressorPage.troubleShootingDescription") }} />
           </div>
 
           {/* 문제 유형 - 2컬럼 레이아웃 (리스트 + 이미지) */}
@@ -381,10 +352,10 @@ export default function CompressorPage() {
             {/* 왼쪽: 문제 유형 리스트 */}
             <div className="grid grid-cols-1 gap-4">
               {[
-                { title: "진동 및 소음 문제", desc: "베어링 마모, 정렬 불량, 임펠러 손상 등 진단" },
-                { title: "온도 이상", desc: "냉각 시스템, 윤활유, 씰 상태 점검" },
-                { title: "압력 불균형", desc: "밸브 누설, 씰링 불량, 가스켓 손상 확인" },
-                { title: "효율 저하", desc: "내부 마모, 밸브 타이밍, 제어 시스템 최적화" },
+                { title: t("products.compressorPage.tsVibrationTitle"), desc: t("products.compressorPage.tsVibrationDesc") },
+                { title: t("products.compressorPage.tsTemperatureTitle"), desc: t("products.compressorPage.tsTemperatureDesc") },
+                { title: t("products.compressorPage.tsPressureTitle"), desc: t("products.compressorPage.tsPressureDesc") },
+                { title: t("products.compressorPage.tsEfficiencyTitle"), desc: t("products.compressorPage.tsEfficiencyDesc") },
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -423,23 +394,21 @@ export default function CompressorPage() {
           <div className="mb-12">
             <span className="text-[#EF4444] font-bold text-sm tracking-wider">04</span>
             <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-              MAINTENANCE & REPAIR (유지보수 & 정비)
+              {t("products.compressorPage.maintenanceTitle")}
             </h2>
             <div className="w-16 h-1 bg-[#EF4444] mt-4" />
-            <p className="text-slate-600 mt-4 max-w-2xl">
-              현지 정비업체와의 SERVICE PARTNERSHIP을 통하여 신규 기계 설치 공사 및 회전기계정비작업과 부품수리에 대한 <span className="text-[#0A1628] font-semibold">SOLUTION</span>을 제공하고 있습니다.
-            </p>
+            <p className="text-slate-600 mt-4 max-w-2xl" dangerouslySetInnerHTML={{ __html: t("products.compressorPage.maintenanceDescription") }} />
           </div>
 
           {/* 서비스 그리드 - 가로 레이아웃 카드 (Navy 배경 유지) */}
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { title: "정기 점검", desc: "계획된 예방 정비 프로그램", image: "/images/services/compressor-mr/01-inspection.jpg" },
-              { title: "긴급 수리", desc: "24시간 긴급 대응 체계", image: "/images/services/compressor-mr/02-emergency-repair.png" },
-              { title: "오버홀", desc: "분해 점검 및 전면 정비", image: "/images/services/compressor-mr/03-overhaul.jpg" },
-              { title: "부품 교체", desc: "순정 부품 공급 및 설치", image: "/images/services/compressor-mr/04-change.png" },
-              { title: "성능 진단", desc: "효율 측정 및 최적화 제안", image: "/images/services/compressor-mr/05-chek_point.png" },
-              { title: "기술 교육", desc: "운전자 대상 교육 프로그램", image: "/images/services/compressor-mr/06-lesson.png" },
+              { title: t("products.compressorPage.mrInspectionTitle"), desc: t("products.compressorPage.mrInspectionDesc"), image: "/images/services/compressor-mr/01-inspection.jpg" },
+              { title: t("products.compressorPage.mrEmergencyTitle"), desc: t("products.compressorPage.mrEmergencyDesc"), image: "/images/services/compressor-mr/02-emergency-repair.png" },
+              { title: t("products.compressorPage.mrOverhaulTitle"), desc: t("products.compressorPage.mrOverhaulDesc"), image: "/images/services/compressor-mr/03-overhaul.jpg" },
+              { title: t("products.compressorPage.mrReplacementTitle"), desc: t("products.compressorPage.mrReplacementDesc"), image: "/images/services/compressor-mr/04-change.png" },
+              { title: t("products.compressorPage.mrDiagnosticsTitle"), desc: t("products.compressorPage.mrDiagnosticsDesc"), image: "/images/services/compressor-mr/05-chek_point.png" },
+              { title: t("products.compressorPage.mrTrainingTitle"), desc: t("products.compressorPage.mrTrainingDesc"), image: "/images/services/compressor-mr/06-lesson.png" },
             ].map((service, idx) => (
               <div
                 key={idx}
@@ -481,24 +450,24 @@ export default function CompressorPage() {
         </div>
         <div className="section-container text-center relative z-10">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            압축기 솔루션이 필요하신가요?
+            {t("products.compressorPage.ctaTitle")}
           </h2>
           <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-            30년 경력의 전문가가 최적의 솔루션을 제안해 드립니다.
+            {t("products.compressorPage.ctaDescription")}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#EF4444] text-white rounded-full font-semibold hover:bg-[#DC2626] transition-colors"
             >
-              기술 상담 신청
+              {t("products.compressorPage.ctaConsultation")}
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
             >
-              견적 요청
+              {t("products.compressorPage.ctaQuote")}
             </Link>
           </div>
         </div>

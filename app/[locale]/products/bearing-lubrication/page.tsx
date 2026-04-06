@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
@@ -50,17 +51,19 @@ const lubricationImages = [
   { src: "/images/products/oil-purifier/p1-06.png", alt: "Oil Purifier System 6" },
 ];
 
-// Bearing 서비스
-const bearingServiceList = [
-  "BEARING REPAIR - 손상된 베어링 수리 및 복원",
-  "REVERSE ENGINEERING - 역설계를 통한 베어링 신규 공급",
-  "TROUBLE SHOOTING - NEW DESIGN 개선 베어링 공급",
-];
+// Bearing 서비스 키 목록
+const bearingServiceKeys = ["repair", "reverseEngineering", "troubleShooting"] as const;
 
 export default function BearingLubricationPage() {
+  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("bearing");
   const [bearingImageIdx, setBearingImageIdx] = useState(0);
   const [lubricationImageIdx, setLubricationImageIdx] = useState(0);
+
+  // 번역 적용된 서비스 목록
+  const bearingServiceList = bearingServiceKeys.map(
+    (key) => t(`products.bearingPage.bearingServices.${key}`)
+  );
 
   // 스크롤 위치에 따라 활성 섹션 업데이트
   useEffect(() => {
@@ -122,25 +125,25 @@ export default function BearingLubricationPage() {
               BEARING & LUBRICATION
             </h1>
             <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
-              유체윤활베어링 및 윤활유 청정 솔루션
+              {t("products.bearingPage.heroSubtitle")}
             </p>
           </div>
         </section>
 
         {/* Product Intro - 2컬럼 레이아웃 */}
         <ProductIntro
-          title="베어링 & 윤활 전문 솔루션"
-          description="RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, 국내 BEARING 제작사 터보링크와 윤활 정제기 제작사 삼영필텍의 영업대리점으로써 BEARING과 LUBRICATION에 대한 SOLUTION을 제공합니다. 65,000rpm급 초고속 터보압축기 베어링부터 수백톤 고하중 터빈 발전기 베어링까지 폭넓은 제품군을 보유하고 있습니다."
+          title={t("products.bearingPage.introTitle")}
+          description={t("products.bearingPage.introDescription")}
           images={heroImages}
           partners={[
-            { name: "터보링크 (TURBOLINK)", country: "한국" },
-            { name: "삼영필텍 (SAMYOUNG FILTECH)", country: "한국" },
+            { name: t("products.bearingPage.partnerTurbolink"), country: t("products.bearingPage.countryKorea") },
+            { name: t("products.bearingPage.partnerSamyoung"), country: t("products.bearingPage.countryKorea") },
           ]}
           highlights={[
-            "65,000rpm 초고속 대응",
-            "수백톤 고하중 대응",
-            "국내 제작사 협력",
-            "빠른 납기 실현",
+            t("products.bearingPage.highlightUltraHighSpeed"),
+            t("products.bearingPage.highlightHeavyLoad"),
+            t("products.bearingPage.highlightDomesticPartner"),
+            t("products.bearingPage.highlightFastDelivery"),
           ]}
         />
 
@@ -188,12 +191,11 @@ export default function BearingLubricationPage() {
               <div className="flex flex-col">
                 <div className="mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
-                    터보링크 (TURBOLINK)
+                    {t("products.bearingPage.turbolinkName")}
                   </h3>
                   <p className="text-[#3B82F6] font-medium">Korea</p>
                   <p className="text-slate-300 mt-4 leading-relaxed">
-                    고속 고하중 회전기계의 유체윤활베어링 설계 및 제조 전문 기업으로,
-                    65,000rpm급 초고속 터보압축기 베어링부터 축 하중 수백톤 고하중 터빈 발전기 베어링까지 공급합니다.
+                    {t("products.bearingPage.turbolinkDescription")}
                   </p>
                 </div>
 
@@ -209,16 +211,12 @@ export default function BearingLubricationPage() {
 
                 {/* 핵심 특징 */}
                 <div className="space-y-4">
-                  {[
-                    { title: "초고속 대응", desc: "65,000rpm급 고속 회전 최적화" },
-                    { title: "고하중 지지", desc: "수백톤 축하중 견고한 구조" },
-                    { title: "맞춤 설계", desc: "고객 요구사항 커스텀 설계" },
-                  ].map((item, idx) => (
+                  {(["ultraHighSpeed", "heavyLoadSupport", "customDesign"] as const).map((key, idx) => (
                     <div key={idx} className="flex gap-3">
                       <span className="text-[#3B82F6] font-bold">{String(idx + 1).padStart(2, '0')}</span>
                       <div>
-                        <h5 className="font-semibold text-white">{item.title}</h5>
-                        <p className="text-sm text-slate-400">{item.desc}</p>
+                        <h5 className="font-semibold text-white">{t(`products.bearingPage.bearingFeatures.${key}.title`)}</h5>
+                        <p className="text-sm text-slate-400">{t(`products.bearingPage.bearingFeatures.${key}.desc`)}</p>
                       </div>
                     </div>
                   ))}
@@ -239,7 +237,7 @@ export default function BearingLubricationPage() {
                 <button
                   onClick={() => goToPrev(bearingImageIdx, bearingImages.length, setBearingImageIdx)}
                   className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
-                  aria-label="이전 베어링 이미지"
+                  aria-label={t("products.bearingPage.ariaPrevBearing")}
                 >
                   <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
                 </button>
@@ -248,7 +246,7 @@ export default function BearingLubricationPage() {
                 <button
                   onClick={() => goToNext(bearingImageIdx, bearingImages.length, setBearingImageIdx)}
                   className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
-                  aria-label="다음 베어링 이미지"
+                  aria-label={t("products.bearingPage.ariaNextBearing")}
                 >
                   <ChevronRight className="w-5 h-5 text-[#0A1628]" />
                 </button>
@@ -264,7 +262,7 @@ export default function BearingLubricationPage() {
                           ? "bg-[#0A1628] w-4"
                           : "bg-[#0A1628]/30 hover:bg-[#0A1628]/60"
                       }`}
-                      aria-label={`베어링 이미지 ${dotIdx + 1}`}
+                      aria-label={t("products.bearingPage.ariaBearingImage", { index: dotIdx + 1 })}
                     />
                   ))}
                 </div>
@@ -291,42 +289,32 @@ export default function BearingLubricationPage() {
               <div className="flex flex-col lg:order-last">
                 <div className="mb-8">
                   <h3 className="text-xl md:text-2xl font-bold text-[#0A1628] mb-1">
-                    삼영필텍 (SAMYOUNG FILTECH)
+                    {t("products.bearingPage.samyoungName")}
                   </h3>
                   <p className="text-[#3B82F6] font-medium">Korea</p>
                   <p className="text-slate-600 mt-4 leading-relaxed">
-                    윤활유 청정도 유지 전문 기업으로, 국내 특허 기술인 이중 진공 시스템과 전기 필터를 통해
-                    수분 제거 및 바니쉬 신속 제거가 가능합니다.
+                    {t("products.bearingPage.samyoungDescription")}
                   </p>
                 </div>
 
                 {/* 특허 기술 리스트 */}
                 <div className="space-y-3 mb-8">
-                  {[
-                    "이중 진공 시스템 - 효율적인 수분 제거",
-                    "전기 필터 - 미세 입자 완벽 여과",
-                    "바니쉬 신속 제거 - 윤활유 수명 연장",
-                    "베어링 수명 반영구적 연장",
-                  ].map((tech, idx) => (
+                  {(["dualVacuum", "electricFilter", "varnishRemoval", "bearingLifeExtension"] as const).map((key, idx) => (
                     <div key={idx} className="flex items-center gap-4 border-l-4 border-[#3B82F6] bg-slate-50 pl-4 py-3 pr-4">
                       <span className="text-[#3B82F6] font-bold text-lg">{String(idx + 1).padStart(2, '0')}</span>
-                      <span className="text-[#0A1628] font-medium">{tech}</span>
+                      <span className="text-[#0A1628] font-medium">{t(`products.bearingPage.lubricationTech.${key}`)}</span>
                     </div>
                   ))}
                 </div>
 
                 {/* 도입 효과 */}
                 <div className="space-y-4">
-                  {[
-                    { title: "윤활유 수명 연장", desc: "오염물질 제거로 오일 교체 주기 연장" },
-                    { title: "베어링 보호", desc: "청정 윤활유로 베어링 마모 최소화" },
-                    { title: "비용 절감", desc: "오일 비용 및 정비 비용 절감" },
-                  ].map((item, idx) => (
+                  {(["oilLifeExtension", "bearingProtection", "costReduction"] as const).map((key, idx) => (
                     <div key={idx} className="flex gap-3">
                       <span className="text-[#3B82F6] font-bold">{String(idx + 1).padStart(2, '0')}</span>
                       <div>
-                        <h5 className="font-semibold text-[#0A1628]">{item.title}</h5>
-                        <p className="text-sm text-slate-500">{item.desc}</p>
+                        <h5 className="font-semibold text-[#0A1628]">{t(`products.bearingPage.lubricationBenefits.${key}.title`)}</h5>
+                        <p className="text-sm text-slate-500">{t(`products.bearingPage.lubricationBenefits.${key}.desc`)}</p>
                       </div>
                     </div>
                   ))}
@@ -347,7 +335,7 @@ export default function BearingLubricationPage() {
                 <button
                   onClick={() => goToPrev(lubricationImageIdx, lubricationImages.length, setLubricationImageIdx)}
                   className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
-                  aria-label="이전 윤활 이미지"
+                  aria-label={t("products.bearingPage.ariaPrevLubrication")}
                 >
                   <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
                 </button>
@@ -356,7 +344,7 @@ export default function BearingLubricationPage() {
                 <button
                   onClick={() => goToNext(lubricationImageIdx, lubricationImages.length, setLubricationImageIdx)}
                   className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
-                  aria-label="다음 윤활 이미지"
+                  aria-label={t("products.bearingPage.ariaNextLubrication")}
                 >
                   <ChevronRight className="w-5 h-5 text-[#0A1628]" />
                 </button>
@@ -372,7 +360,7 @@ export default function BearingLubricationPage() {
                           ? "bg-[#0A1628] w-4"
                           : "bg-[#0A1628]/30 hover:bg-[#0A1628]/60"
                       }`}
-                      aria-label={`윤활 이미지 ${dotIdx + 1}`}
+                      aria-label={t("products.bearingPage.ariaLubricationImage", { index: dotIdx + 1 })}
                     />
                   ))}
                 </div>
@@ -394,24 +382,24 @@ export default function BearingLubricationPage() {
           </div>
           <div className="section-container text-center relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              베어링 & 윤활 솔루션이 필요하신가요?
+              {t("products.bearingPage.ctaTitle")}
             </h2>
             <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-              국내 전문 제작사와의 협력으로 빠른 납기와 맞춤 설계를 제공합니다.
+              {t("products.bearingPage.ctaDescription")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#EF4444] text-white rounded-full font-semibold hover:bg-[#DC2626] transition-colors"
               >
-                기술 상담 신청
+                {t("products.bearingPage.ctaConsultation")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/products"
                 className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
               >
-                다른 제품 보기
+                {t("products.bearingPage.ctaViewProducts")}
               </Link>
             </div>
           </div>

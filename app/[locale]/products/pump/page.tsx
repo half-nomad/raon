@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
@@ -55,25 +56,27 @@ const mechanicalPumps = [
   { model: "EB", desc: "PFA-Lined Chemical Process Pump", image: "/images/products/pump/PIC_EB-Pumpe_ohne_Fuesse_ohne_Sperrdruckgefaess_011_gross_neuer_Schatten_2020.png" },
 ];
 
-// Trouble Shooting 항목
-const troubleShootingItems = [
-  {
-    problem: "혹독한 부식성(황산) 유체",
-    solution: "PFA Lined Pump",
-  },
-  {
-    problem: "Slurry(이물질)로 인한 부품 손상",
-    solution: "특수재질(Hastelloy C22) PUMP",
-  },
-  {
-    problem: "이물질에 Magnetic Pump 사용 불가?",
-    solution: "CP Pump 특허 기술로 해결! (이물질 30%까지 이송 가능)",
-    highlight: true,
-  },
-];
+// Trouble Shooting 항목 (translated in component)
 
 export default function PumpPage() {
+  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("solution");
+
+  const troubleShootingItems = [
+    {
+      problem: t("products.pumpPage.troubleItem1Problem"),
+      solution: t("products.pumpPage.troubleItem1Solution"),
+    },
+    {
+      problem: t("products.pumpPage.troubleItem2Problem"),
+      solution: t("products.pumpPage.troubleItem2Solution"),
+    },
+    {
+      problem: t("products.pumpPage.troubleItem3Problem"),
+      solution: t("products.pumpPage.troubleItem3Solution"),
+      highlight: true,
+    },
+  ];
 
   // 스크롤 위치에 따라 활성 섹션 업데이트
   useEffect(() => {
@@ -127,24 +130,24 @@ export default function PumpPage() {
               PUMP
             </h1>
             <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
-              Magnetic Driven(Sealless) Pump 전문 솔루션
+              {t("products.pumpPage.heroSubtitle")}
             </p>
           </div>
         </section>
 
         {/* Product Intro - 2컬럼 레이아웃 */}
         <ProductIntro
-          title="펌프 전문 솔루션"
-          description="RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, 스위스 CP Pump의 국내대리점으로써 Magnetic Driven(Sealless) Pump 전문 솔루션을 제공합니다. Metal 및 PFA Lined PUMP를 통해 정유, 석유화학, 바이오, F&B 등 모든 산업 분야에 최적의 PUMP를 공급합니다."
+          title={t("products.pumpPage.introTitle")}
+          description={t("products.pumpPage.introDescription")}
           images={heroImages}
           partners={[
-            { name: "CP PUMP", country: "스위스" },
+            { name: "CP PUMP", country: t("products.pumpPage.partnerCountry") },
           ]}
           highlights={[
-            "Magnetic Driven(Sealless) Pump 전문",
-            "Metal 및 PFA Lined PUMP",
-            "이물질 30%까지 이송 가능",
-            "누설 제로, TCO 절감",
+            t("products.pumpPage.highlight1"),
+            t("products.pumpPage.highlight2"),
+            t("products.pumpPage.highlight3"),
+            t("products.pumpPage.highlight4"),
           ]}
         />
 
@@ -208,18 +211,17 @@ export default function PumpPage() {
                   </div>
                   <p className="text-[#3B82F6] font-medium">Switzerland</p>
                   <p className="text-slate-300 mt-4 leading-relaxed">
-                    스위스에 소재한 CP Pump는 50년 이상의 역사를 가진 Magnetic Driven Pump 전문 제조사입니다.
-                    고객 만족을 최우선으로 Trouble Shooting을 통한 최적의 PUMP를 공급합니다.
+                    {t("products.pumpPage.cpPumpDescription")}
                   </p>
                 </div>
 
                 {/* 핵심 장점 리스트 */}
                 <div className="space-y-3 flex-1 flex flex-col justify-end">
                   {[
-                    { num: "01", title: "완전 밀폐", desc: "Sealless 설계로 누설 제로" },
-                    { num: "02", title: "내화학성", desc: "부식성 유체 안전 이송" },
-                    { num: "03", title: "고효율", desc: "에너지 비용 절감" },
-                    { num: "04", title: "저유지보수", desc: "씰 교체 불필요, TCO 절감" },
+                    { num: "01", title: t("products.pumpPage.advantage1Title"), desc: t("products.pumpPage.advantage1Desc") },
+                    { num: "02", title: t("products.pumpPage.advantage2Title"), desc: t("products.pumpPage.advantage2Desc") },
+                    { num: "03", title: t("products.pumpPage.advantage3Title"), desc: t("products.pumpPage.advantage3Desc") },
+                    { num: "04", title: t("products.pumpPage.advantage4Title"), desc: t("products.pumpPage.advantage4Desc") },
                   ].map((item, idx) => (
                     <div key={idx} className="flex gap-4 border-l-4 border-[#3B82F6] bg-white/5 pl-4 py-3 pr-4">
                       <span className="text-[#3B82F6] font-bold text-lg">{item.num}</span>
@@ -326,7 +328,7 @@ export default function PumpPage() {
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
               <p className="text-slate-600 mt-4 max-w-2xl">
-                혹독한 부식성 유체와 Slurry로 인한 부품 손상 문제를 해결합니다
+                {t("products.pumpPage.troubleDescription")}
               </p>
             </div>
 
@@ -339,16 +341,16 @@ export default function PumpPage() {
                 >
                   {item.highlight && (
                     <span className="inline-block px-2 py-1 bg-[#3B82F6] text-white text-xs font-bold rounded mb-4">
-                      특허 기술
+                      {t("products.pumpPage.patentedTech")}
                     </span>
                   )}
                   <span className="text-4xl font-bold text-white/30">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                   <div className="mt-4">
-                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">문제</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">{t("products.pumpPage.problemLabel")}</p>
                     <h4 className="font-semibold text-white mb-4">{item.problem}</h4>
-                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">해결</p>
+                    <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">{t("products.pumpPage.solutionLabel")}</p>
                     <p className="text-sm text-[#3B82F6] font-medium">{item.solution}</p>
                   </div>
                 </div>
@@ -357,13 +359,13 @@ export default function PumpPage() {
 
             {/* 일반 펌프 문제 & CP Pump 솔루션 */}
             <div className="bg-[#0A1628] rounded-2xl p-8">
-              <h4 className="text-lg font-bold text-white mb-6">일반적인 펌프 문제 & CP Pump 솔루션</h4>
+              <h4 className="text-lg font-bold text-white mb-6">{t("products.pumpPage.commonProblemsTitle")}</h4>
               <div className="grid md:grid-cols-2 gap-6">
                 {[
-                  { problem: "펌프 누설", solution: "Magnetic Drive 방식으로 완전 밀폐" },
-                  { problem: "과도한 진동/소음", solution: "정밀 밸런싱 임펠러와 고품질 베어링" },
-                  { problem: "유량/압력 저하", solution: "내마모성 소재와 최적화된 임펠러 설계" },
-                  { problem: "잦은 유지보수", solution: "Sealless 설계로 씰 관련 유지보수 불필요" },
+                  { problem: t("products.pumpPage.commonProblem1"), solution: t("products.pumpPage.commonSolution1") },
+                  { problem: t("products.pumpPage.commonProblem2"), solution: t("products.pumpPage.commonSolution2") },
+                  { problem: t("products.pumpPage.commonProblem3"), solution: t("products.pumpPage.commonSolution3") },
+                  { problem: t("products.pumpPage.commonProblem4"), solution: t("products.pumpPage.commonSolution4") },
                 ].map((item, idx) => (
                   <div key={idx} className="flex gap-4 p-4 bg-white/10 rounded-lg border border-white/10 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
                     <span className="text-2xl font-bold text-white/30">{String(idx + 1).padStart(2, '0')}</span>
@@ -392,24 +394,24 @@ export default function PumpPage() {
           </div>
           <div className="section-container text-center relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              펌프 전문가와 상담하세요
+              {t("products.pumpPage.ctaTitle")}
             </h2>
             <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-              30년 경력의 전문가가 귀사의 공정에 최적화된 펌프 솔루션을 제안해 드립니다
+              {t("products.pumpPage.ctaDescription")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#EF4444] text-white rounded-full font-semibold hover:bg-[#DC2626] transition-colors"
               >
-                기술 상담 신청
+                {t("products.pumpPage.ctaConsultation")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/products"
                 className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
               >
-                다른 제품 보기
+                {t("products.pumpPage.ctaOtherProducts")}
               </Link>
             </div>
           </div>

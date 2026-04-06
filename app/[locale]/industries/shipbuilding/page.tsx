@@ -10,7 +10,7 @@ import { getTranslations } from "next-intl/server";
 export const metadata: Metadata = {
   title: '조선 산업 | Shipbuilding',
   description: 'WTQ 선박용 실린더 라이너 전문 공급. 직경 480~1500mm, 선박 메인 엔진 및 해양 설비 적용. 삼영필텍 오일 정화 시스템으로 최적의 품질 보장.',
-  keywords: ['조선', 'Shipbuilding', '선박용 실린더 라이너', 'Cylinder Liner', 'WTQ', 'Oil Purifier', 'Marine Engine'],
+  keywords: ['조선', 'Shipbuilding', 'Compressor', 'Motor', 'Bearing', 'WTQ', 'Marine Engine'],
   openGraph: {
     title: '조선 산업 | 라온토탈솔루션',
     description: 'WTQ 선박용 실린더 라이너 전문 공급. 선박 메인 엔진 및 해양 설비',
@@ -23,8 +23,8 @@ export default async function ShipbuildingPage() {
   const services = t.raw("services") as string[];
 
   const relatedProducts = [
-    { name: t("relatedProducts.cylinderLiner"), href: "/products/bearing-lubrication" },
-    { name: t("relatedProducts.oilPurifier"), href: "/products/bearing-lubrication" },
+    { name: t("relatedProducts.compressor"), href: "/products/compressor" },
+    { name: t("relatedProducts.motor"), href: "/products/motor" },
     { name: t("relatedProducts.bearing"), href: "/products/bearing-lubrication" },
   ];
 

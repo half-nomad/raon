@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ProductIntro } from "@/components/products/product-intro";
@@ -10,7 +11,6 @@ import BackButton from "@/components/ui/back-button";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-// 대표 이미지 (상단 갤러리 + 캐러셀 공용)
 const heroImages = [
   { src: "/images/products/motor/definitepurpose.webp", alt: "Definite Purpose Motor" },
   { src: "/images/products/motor/FRACTIONAL.webp", alt: "Fractional Motor" },
@@ -22,78 +22,72 @@ const heroImages = [
   { src: "/images/products/motor/AGDutySinglephase_edit.webp", alt: "AG Duty Single Phase Motor" },
 ];
 
-// 서브 네비게이션 정의 (2개)
-const subNavItems = [
-  { id: "spare-parts", label: "MOTOR SPARE PARTS" },
-  { id: "certification", label: "방폭인증서비스" },
-];
-
-// 파트너사 (원고 기반)
-const partners = [
-  {
-    name: "LDW",
-    fullName: "Lloyd Dynamowerke GmbH",
-    country: "Germany",
-    logo: "/images/partners/ldw_logo.png",
-    description: "독일의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다.",
-  },
-  {
-    name: "NIDEC",
-    fullName: "舊 Ansaldo",
-    country: "Italy",
-    logo: "/images/partners/nidec.webp",
-    description: "이탈리아의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다.",
-  },
-];
-
-// 서비스 특징
-const sparePartsServices = [
-  "LDW/NIDEC Motor 기술지원",
-  "Supervisor 파견 서비스",
-  "정품 Spare Parts 공급",
-  "현장 기술 인력 파견",
-];
-
-// 방폭 인증 기관 (원고 기반)
-const certificationAgencies = [
-  {
-    code: "KOSHA",
-    name: "한국산업안전보건공단",
-    desc: "산업안전 및 방폭 인증 총괄 기관",
-  },
-  {
-    code: "KTL",
-    name: "한국산업기술시험원",
-    desc: "산업기술 시험 및 인증 전문 기관",
-  },
-  {
-    code: "KGS",
-    name: "한국가스안전공사",
-    desc: "가스 관련 방폭 설비 인증 기관",
-  },
-];
-
-// 인증 서비스 내용
-const certificationServices = [
-  "방폭 인증 필요 유무 판단",
-  "인증 절차 컨설팅",
-  "기술 문서 작성 지원",
-  "인증 기관 대응",
-];
-
-// 인증 프로세스
-const certificationProcess = [
-  { step: 1, title: "사전 검토", desc: "기존 장비 현황 및 요구사항 분석" },
-  { step: 2, title: "인증 계획", desc: "적합한 인증 기관 및 절차 수립" },
-  { step: 3, title: "서류 준비", desc: "기술 문서 및 시험 자료 준비" },
-  { step: 4, title: "인증 취득", desc: "심사 대응 및 인증서 발급" },
-];
-
 export default function MotorPage() {
+  const t = useTranslations();
   const [activeSection, setActiveSection] = useState("spare-parts");
   const [sparePartsImageIdx, setSparePartsImageIdx] = useState(0);
 
-  // 스크롤 위치에 따라 활성 섹션 업데이트
+  const subNavItems = [
+    { id: "spare-parts", label: t("products.motorPage.subNav.spareParts") },
+    { id: "certification", label: t("products.motorPage.subNav.certification") },
+  ];
+
+  const partners = [
+    {
+      name: "LDW",
+      fullName: "Lloyd Dynamowerke GmbH",
+      country: "Germany",
+      logo: "/images/partners/ldw_logo.png",
+      description: t("products.motorPage.partners.ldw.description"),
+    },
+    {
+      name: "NIDEC",
+      fullName: t("products.motorPage.partners.nidec.fullName"),
+      country: "Italy",
+      logo: "/images/partners/nidec.webp",
+      description: t("products.motorPage.partners.nidec.description"),
+    },
+  ];
+
+  const sparePartsServices = [
+    t("products.motorPage.sparePartsServices.techSupport"),
+    t("products.motorPage.sparePartsServices.supervisorDispatch"),
+    t("products.motorPage.sparePartsServices.genuineParts"),
+    t("products.motorPage.sparePartsServices.fieldEngineers"),
+  ];
+
+  const certificationAgencies = [
+    {
+      code: "KOSHA",
+      name: t("products.motorPage.certAgencies.kosha.name"),
+      desc: t("products.motorPage.certAgencies.kosha.desc"),
+    },
+    {
+      code: "KTL",
+      name: t("products.motorPage.certAgencies.ktl.name"),
+      desc: t("products.motorPage.certAgencies.ktl.desc"),
+    },
+    {
+      code: "KGS",
+      name: t("products.motorPage.certAgencies.kgs.name"),
+      desc: t("products.motorPage.certAgencies.kgs.desc"),
+    },
+  ];
+
+  const certificationServices = [
+    t("products.motorPage.certServices.needAssessment"),
+    t("products.motorPage.certServices.procedureConsulting"),
+    t("products.motorPage.certServices.documentSupport"),
+    t("products.motorPage.certServices.agencyResponse"),
+  ];
+
+  const certificationProcess = [
+    { step: 1, title: t("products.motorPage.certProcess.step1.title"), desc: t("products.motorPage.certProcess.step1.desc") },
+    { step: 2, title: t("products.motorPage.certProcess.step2.title"), desc: t("products.motorPage.certProcess.step2.desc") },
+    { step: 3, title: t("products.motorPage.certProcess.step3.title"), desc: t("products.motorPage.certProcess.step3.desc") },
+    { step: 4, title: t("products.motorPage.certProcess.step4.title"), desc: t("products.motorPage.certProcess.step4.desc") },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = subNavItems.map(item => document.getElementById(item.id));
@@ -112,7 +106,6 @@ export default function MotorPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 부드러운 스크롤 이동
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -125,7 +118,6 @@ export default function MotorPage() {
     }
   };
 
-  // 캐러셀 네비게이션
   const goToPrev = (current: number, total: number, setter: (v: number) => void) => {
     setter((current - 1 + total) % total);
   };
@@ -153,25 +145,25 @@ export default function MotorPage() {
               MOTOR
             </h1>
             <p className="text-slate-300 mt-3 text-base md:text-lg max-w-2xl">
-              외산 모터 부품 공급 및 방폭 인증 솔루션
+              {t("products.motorPage.heroSubtitle")}
             </p>
           </div>
         </section>
 
-        {/* Product Intro - 2컬럼 레이아웃 */}
+        {/* Product Intro */}
         <ProductIntro
-          title="모터 전문 솔루션"
-          description="RTS는 정유, 석유화학에 30년의 왕복동압축기 공급 실적으로 현장에 설치된 외산 모터에 대한 부품 공급 및 방폭 인증(KOSHA/KGS/KTL)에 대한 SOLUTION을 제공하고 있습니다."
+          title={t("products.motorPage.introTitle")}
+          description={t("products.motorPage.introDescription")}
           images={heroImages}
           partners={[
-            { name: "LDW", country: "독일" },
-            { name: "NIDEC", country: "이탈리아" },
+            { name: "LDW", country: t("products.motorPage.countryGermany") },
+            { name: "NIDEC", country: t("products.motorPage.countryItaly") },
           ]}
           highlights={[
-            "대형 Synchronous/Induction Motor",
-            "방폭 인증 컨설팅",
-            "정유/석유화학 30년 실적",
-            "글로벌 파트너 네트워크",
+            t("products.motorPage.highlights.syncInductionMotor"),
+            t("products.motorPage.highlights.explosionProofConsulting"),
+            t("products.motorPage.highlights.thirtyYearTrackRecord"),
+            t("products.motorPage.highlights.globalPartnerNetwork"),
           ]}
         />
 
@@ -201,10 +193,9 @@ export default function MotorPage() {
           </div>
         </nav>
 
-        {/* ========== Section 01: MOTOR SPARE PARTS - Navy bg, 7:3 ========== */}
+        {/* ========== Section 01: MOTOR SPARE PARTS ========== */}
         <section id="spare-parts" className="py-16 md:py-24 bg-[#0A1628]">
           <div className="section-container">
-            {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">01</span>
               <h2 className="text-2xl md:text-3xl font-bold text-white mt-2">
@@ -212,15 +203,12 @@ export default function MotorPage() {
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
               <p className="text-slate-300 mt-4 max-w-2xl">
-                해외 OEM 왕복동압축기에 동력원으로 공급되는 외산 Motor의 Aftermarket 국내대리점
+                {t("products.motorPage.sparePartsDescription")}
               </p>
             </div>
 
-            {/* 2-col: 좌(텍스트 70%) / 우(캐러셀 30%) */}
             <div className="grid lg:grid-cols-[7fr_3fr] gap-12 lg:gap-16 items-start">
-              {/* 좌측: 파트너 소개 + 서비스 목록 */}
               <div className="flex flex-col">
-                {/* 파트너 카드 */}
                 <div className="space-y-6 mb-8">
                   {partners.map((partner, idx) => (
                     <div key={idx} className="bg-white/10 border border-white/20 rounded-xl p-6 hover:border-[#3B82F6]/50 hover:shadow-lg transition-all">
@@ -240,15 +228,14 @@ export default function MotorPage() {
                         {partner.description}
                       </p>
                       <p className="text-sm text-slate-400 mt-2">
-                        국내 정유/석유화학 공장 설치, 기술지원/Supervisor/부품 공급
+                        {t("products.motorPage.partnerInstallNote")}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                {/* 서비스 목록 */}
                 <div>
-                  <h4 className="text-lg font-bold text-white mb-6">서비스 내용</h4>
+                  <h4 className="text-lg font-bold text-white mb-6">{t("products.motorPage.serviceContentTitle")}</h4>
                   <div className="space-y-3">
                     {sparePartsServices.map((service, idx) => (
                       <div
@@ -263,7 +250,6 @@ export default function MotorPage() {
                 </div>
               </div>
 
-              {/* 우측: 이미지 캐러셀 */}
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-white">
                 <Image
                   src={heroImages[sparePartsImageIdx].src}
@@ -273,25 +259,22 @@ export default function MotorPage() {
                   sizes="(max-width: 1024px) 100vw, 30vw"
                 />
 
-                {/* 좌측 화살표 */}
                 <button
                   onClick={() => goToPrev(sparePartsImageIdx, heroImages.length, setSparePartsImageIdx)}
                   className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
-                  aria-label="이전 모터 이미지"
+                  aria-label={t("products.motorPage.aria.prevMotorImage")}
                 >
                   <ChevronLeft className="w-5 h-5 text-[#0A1628]" />
                 </button>
 
-                {/* 우측 화살표 */}
                 <button
                   onClick={() => goToNext(sparePartsImageIdx, heroImages.length, setSparePartsImageIdx)}
                   className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-colors"
-                  aria-label="다음 모터 이미지"
+                  aria-label={t("products.motorPage.aria.nextMotorImage")}
                 >
                   <ChevronRight className="w-5 h-5 text-[#0A1628]" />
                 </button>
 
-                {/* Dot indicators */}
                 <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
                   {heroImages.map((_, dotIdx) => (
                     <button
@@ -302,7 +285,7 @@ export default function MotorPage() {
                           ? "bg-[#0A1628] w-4"
                           : "bg-[#0A1628]/30 hover:bg-[#0A1628]/60"
                       }`}
-                      aria-label={`모터 이미지 ${dotIdx + 1}`}
+                      aria-label={t("products.motorPage.aria.motorImageDot", { index: dotIdx + 1 })}
                     />
                   ))}
                 </div>
@@ -311,27 +294,23 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* ========== Section 02: 방폭인증서비스 - White bg, 풀 너비 세로 스택 ========== */}
+        {/* ========== Section 02: Explosion-Proof Certification Service ========== */}
         <section id="certification" className="py-16 md:py-24 bg-white">
           <div className="section-container">
-            {/* 섹션 헤더 */}
             <div className="mb-12">
               <span className="text-[#EF4444] font-bold text-sm tracking-wider">02</span>
               <h2 className="text-2xl md:text-3xl font-bold text-[#0A1628] mt-2">
-                방폭인증서비스
+                {t("products.motorPage.certSectionTitle")}
               </h2>
               <div className="w-16 h-1 bg-[#EF4444] mt-4" />
             </div>
 
-            {/* 설명 */}
             <div className="mb-8">
-              <p className="text-slate-600 leading-relaxed">
-                국내 방폭 지역 설치 외산 수입 모터 → 국내 인증 필수.
-                <span className="text-[#0A1628] font-semibold"> KOSHA/KTL/KGS</span> 인증 대응 서비스를 제공합니다.
-              </p>
+              <p className="text-slate-600 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t.raw("products.motorPage.certDescription") }}
+              />
             </div>
 
-            {/* 인증 기관 3개 카드 */}
             <div className="grid sm:grid-cols-3 gap-4 mb-8">
               {certificationAgencies.map((agency, idx) => (
                 <div
@@ -346,9 +325,8 @@ export default function MotorPage() {
               ))}
             </div>
 
-            {/* 인증 프로세스 4단계 */}
             <div className="mb-8">
-              <h4 className="text-lg font-bold text-[#0A1628] mb-4">인증 프로세스</h4>
+              <h4 className="text-lg font-bold text-[#0A1628] mb-4">{t("products.motorPage.certProcessTitle")}</h4>
               <div className="grid sm:grid-cols-2 gap-3">
                 {certificationProcess.map((item, idx) => (
                   <div
@@ -365,9 +343,8 @@ export default function MotorPage() {
               </div>
             </div>
 
-            {/* 서비스 내용 */}
             <div>
-              <h4 className="text-lg font-bold text-[#0A1628] mb-4">서비스 내용</h4>
+              <h4 className="text-lg font-bold text-[#0A1628] mb-4">{t("products.motorPage.certServiceContentTitle")}</h4>
               <div className="space-y-3">
                 {certificationServices.map((service, idx) => (
                   <div
@@ -383,7 +360,7 @@ export default function MotorPage() {
           </div>
         </section>
 
-        {/* CTA Section with SVG background pattern */}
+        {/* CTA Section */}
         <section className="relative bg-gradient-to-br from-[#0A1628] via-[#1A2D47] to-[#0A1628] text-white py-12 md:py-16 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div
@@ -396,24 +373,24 @@ export default function MotorPage() {
           </div>
           <div className="section-container text-center relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              모터 솔루션이 필요하신가요?
+              {t("products.motorPage.cta.title")}
             </h2>
             <p className="text-slate-300 mb-8 max-w-xl mx-auto">
-              30년 경력의 전문가가 최적의 솔루션을 제안해 드립니다.
+              {t("products.motorPage.cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#EF4444] text-white rounded-full font-semibold hover:bg-[#DC2626] transition-colors"
               >
-                기술 상담 신청
+                {t("products.motorPage.cta.requestConsultation")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/products"
                 className="inline-flex items-center justify-center px-6 py-3 border border-white/30 text-white rounded-full font-semibold hover:bg-white/10 transition-colors"
               >
-                다른 제품 보기
+                {t("products.motorPage.cta.viewOtherProducts")}
               </Link>
             </div>
           </div>

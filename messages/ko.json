@@ -155,7 +155,9 @@
         },
         "2022": {
           "year": "2022",
-          "events": ["SPX Flow Technology 한국 Master 대리점 계약 체결"]
+          "events": [
+            "SPX Flow Technology 한국 Master 대리점 계약 체결"
+          ]
         },
         "2021": {
           "year": "2021",
@@ -167,7 +169,9 @@
         },
         "2020": {
           "year": "2020",
-          "events": ["HK 인터내셔널 설립 (개인)"]
+          "events": [
+            "HK 인터내셔널 설립 (개인)"
+          ]
         }
       }
     },
@@ -235,7 +239,12 @@
         "bearing": "Bearing"
       },
       "ctaButton": "상담 문의하기",
-      "features": ["고압 프로세스 가스 압축기", "API 규격 펌프", "산업용 믹서 및 교반기", "내부식성 특수 베어링"],
+      "features": [
+        "고압 프로세스 가스 압축기",
+        "API 규격 펌프",
+        "산업용 믹서 및 교반기",
+        "내부식성 특수 베어링"
+      ],
       "overview": {
         "title": "산업 개요",
         "description": "정유 및 석유화학 산업은 원유를 정제하여 연료, 윤활유, 석유화학 제품을 생산하는 핵심 산업입니다. 이 산업에서는 극한의 온도와 압력, 부식성 환경에서 작동하는 고성능 장비가 필수적입니다."
@@ -333,12 +342,17 @@
       "featuresOfficialAgentDesc": "2025년 한국 대리점 개설",
       "relatedProductsTitle": "관련 제품 바로가기",
       "relatedProducts": {
-        "cylinderLiner": "Cylinder Liner",
-        "oilPurifier": "Oil Purifier",
+        "compressor": "Compressor & Parts",
+        "motor": "Motor",
         "bearing": "Bearing"
       },
       "ctaButton": "상담 문의하기",
-      "features": ["선박 엔진용 실린더 라이너", "고효율 선박용 모터", "해양 환경 특수 베어링", "선박용 오일 정화 시스템"],
+      "features": [
+        "선박 엔진용 실린더 라이너",
+        "고효율 선박용 모터",
+        "해양 환경 특수 베어링",
+        "선박용 오일 정화 시스템"
+      ],
       "overview": {
         "title": "산업 개요",
         "description": "조선 산업은 대형 선박부터 특수 선박까지 다양한 종류의 선박을 건조하는 산업입니다. 선박은 극한의 해양 환경에서 장기간 운항해야 하므로 내구성과 신뢰성이 뛰어난 부품이 필수적입니다."
@@ -426,10 +440,15 @@
       "relatedProducts": {
         "compressor": "Compressor & Parts",
         "bearing": "Bearing",
-        "oilPurifier": "Oil Purifier"
+        "motor": "Motor"
       },
       "ctaButton": "상담 문의하기",
-      "features": ["터빈용 틸팅패드 베어링", "압축기 부품 솔루션", "윤활유 정제 시스템", "회전기계 정비 서비스"],
+      "features": [
+        "터빈용 틸팅패드 베어링",
+        "압축기 부품 솔루션",
+        "윤활유 정제 시스템",
+        "회전기계 정비 서비스"
+      ],
       "overview": {
         "title": "산업 개요",
         "description": "발전 산업은 화력, 복합화력, 신재생에너지 등 다양한 발전 방식을 통해 전력을 생산하는 핵심 산업입니다. 발전소에서는 고온·고압 환경에서 연속 운전되는 터빈, 압축기 등 고성능 회전기계가 필수적입니다."
@@ -863,7 +882,13 @@
       ],
       "compatibility": {
         "title": "호환 엔진",
-        "engines": ["MAN B&W", "Wartsila", "Hyundai-HiMSEN", "Doosan", "STX"]
+        "engines": [
+          "MAN B&W",
+          "Wartsila",
+          "Hyundai-HiMSEN",
+          "Doosan",
+          "STX"
+        ]
       }
     },
     "oilPurifier": {
@@ -898,6 +923,387 @@
         "소형·경량 설계",
         "유지보수 용이"
       ]
+    },
+    "compressorPage": {
+      "heroSubtitle": "왕복동 압축기 부품 및 Turbo Compressor 솔루션",
+      "introTitle": "압축기 전문 솔루션",
+      "introDescription": "RTS는 30년 경력의 해외 제작사와 영업 기술 지원에 대한 경험을 바탕으로 왕복동압축기 부품, Turbo Compressor(원심 및 블로워) 신규 기계 공급 및 부품에 대한 SOLUTION을 제공하고 있습니다.",
+      "countryGermany": "독일",
+      "countryChina": "중국",
+      "countryFrance": "프랑스",
+      "countryUSA": "미국",
+      "highlightTurbo": "Turbo Compressor 신규 공급",
+      "highlightParts": "왕복동 압축기 전 부품",
+      "highlightTrackRecord": "정유/석유화학 30년 실적",
+      "highlightGlobalPartners": "글로벌 파트너 네트워크",
+      "fimaDescription": "독일 FIMA Maschinenbau GmbH의 국내대리점으로써 정유, 석유화학, 에너지 외 특수 산업 분야의 Process Application에 최적화 된 Turbo Blower 및 Compressor(Interally Geared Technology)를 공급하고 있습니다.",
+      "sparePartsDescription": "네덜란드 왕복동압축기 제작사의 국내대리점으로써의 30년 경험을 바탕으로 왕복동압축기의 Technical Background 및 Know how를 가지로 모든 제작사의 왕복동압축기에 대한 CAPITAL PARTS 및 CONSUMABLE PARTS에 대한 부품을 공급하고 있습니다.",
+      "spareParts": {
+        "cylinderLiner": "Cylinder Liner",
+        "cylinderLinerDesc": "피스톤 왕복 운동을 위한 교체 가능 슬리브",
+        "piston": "Piston",
+        "pistonDesc": "실린더 내 왕복 운동으로 가스 압축",
+        "pistonRod": "Piston Rod",
+        "pistonRodDesc": "피스톤과 크랭크샤프트 연결 부품",
+        "crosshead": "Crosshead",
+        "crossheadDesc": "피스톤 왕복 운동 안정화 지지 부품",
+        "pistonRing": "Piston Ring & Rider Ring",
+        "pistonRingDesc": "기밀 유지 및 마찰 저감 소모품",
+        "packingOilScraper": "Packing & Oil Scraper",
+        "packingOilScraperDesc": "고압 밀봉 및 오일 누출 방지",
+        "valveAssembly": "Valve Assembly",
+        "valveAssemblyDesc": "가스 흐름 방향 제어 (흡기/배출)"
+      },
+      "troubleShootingDescription": "TURBO COMPRESSOR 및 왕복 압축기 부품 TROUBLE 발생 시 GLOBAL OEM 및 SUB-SUPPLIER, 그리고 국내 SERVICE NET WORK을 통한 <span class=\"text-[#EF4444] font-semibold\">최적화 된 SOLUTION</span>을 제안하고 있습니다.",
+      "tsVibrationTitle": "진동 및 소음 문제",
+      "tsVibrationDesc": "베어링 마모, 정렬 불량, 임펠러 손상 등 진단",
+      "tsTemperatureTitle": "온도 이상",
+      "tsTemperatureDesc": "냉각 시스템, 윤활유, 씰 상태 점검",
+      "tsPressureTitle": "압력 불균형",
+      "tsPressureDesc": "밸브 누설, 씰링 불량, 가스켓 손상 확인",
+      "tsEfficiencyTitle": "효율 저하",
+      "tsEfficiencyDesc": "내부 마모, 밸브 타이밍, 제어 시스템 최적화",
+      "maintenanceTitle": "MAINTENANCE & REPAIR (유지보수 & 정비)",
+      "maintenanceDescription": "현지 정비업체와의 SERVICE PARTNERSHIP을 통하여 신규 기계 설치 공사 및 회전기계정비작업과 부품수리에 대한 <span class=\"text-[#0A1628] font-semibold\">SOLUTION</span>을 제공하고 있습니다.",
+      "mrInspectionTitle": "정기 점검",
+      "mrInspectionDesc": "계획된 예방 정비 프로그램",
+      "mrEmergencyTitle": "긴급 수리",
+      "mrEmergencyDesc": "24시간 긴급 대응 체계",
+      "mrOverhaulTitle": "오버홀",
+      "mrOverhaulDesc": "분해 점검 및 전면 정비",
+      "mrReplacementTitle": "부품 교체",
+      "mrReplacementDesc": "순정 부품 공급 및 설치",
+      "mrDiagnosticsTitle": "성능 진단",
+      "mrDiagnosticsDesc": "효율 측정 및 최적화 제안",
+      "mrTrainingTitle": "기술 교육",
+      "mrTrainingDesc": "운전자 대상 교육 프로그램",
+      "ctaTitle": "압축기 솔루션이 필요하신가요?",
+      "ctaDescription": "30년 경력의 전문가가 최적의 솔루션을 제안해 드립니다.",
+      "ctaConsultation": "기술 상담 신청",
+      "ctaQuote": "견적 요청"
+    },
+    "pumpPage": {
+      "heroSubtitle": "Magnetic Driven(Sealless) Pump 전문 솔루션",
+      "introTitle": "펌프 전문 솔루션",
+      "introDescription": "RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, 스위스 CP Pump의 국내대리점으로써 Magnetic Driven(Sealless) Pump 전문 솔루션을 제공합니다. Metal 및 PFA Lined PUMP를 통해 정유, 석유화학, 바이오, F&B 등 모든 산업 분야에 최적의 PUMP를 공급합니다.",
+      "partnerCountry": "스위스",
+      "highlight1": "Magnetic Driven(Sealless) Pump 전문",
+      "highlight2": "Metal 및 PFA Lined PUMP",
+      "highlight3": "이물질 30%까지 이송 가능",
+      "highlight4": "누설 제로, TCO 절감",
+      "cpPumpDescription": "스위스에 소재한 CP Pump는 50년 이상의 역사를 가진 Magnetic Driven Pump 전문 제조사입니다. 고객 만족을 최우선으로 Trouble Shooting을 통한 최적의 PUMP를 공급합니다.",
+      "advantage1Title": "완전 밀폐",
+      "advantage1Desc": "Sealless 설계로 누설 제로",
+      "advantage2Title": "내화학성",
+      "advantage2Desc": "부식성 유체 안전 이송",
+      "advantage3Title": "고효율",
+      "advantage3Desc": "에너지 비용 절감",
+      "advantage4Title": "저유지보수",
+      "advantage4Desc": "씰 교체 불필요, TCO 절감",
+      "troubleDescription": "혹독한 부식성 유체와 Slurry로 인한 부품 손상 문제를 해결합니다",
+      "troubleItem1Problem": "혹독한 부식성(황산) 유체",
+      "troubleItem1Solution": "PFA Lined Pump",
+      "troubleItem2Problem": "Slurry(이물질)로 인한 부품 손상",
+      "troubleItem2Solution": "특수재질(Hastelloy C22) PUMP",
+      "troubleItem3Problem": "이물질에 Magnetic Pump 사용 불가?",
+      "troubleItem3Solution": "CP Pump 특허 기술로 해결! (이물질 30%까지 이송 가능)",
+      "patentedTech": "특허 기술",
+      "problemLabel": "문제",
+      "solutionLabel": "해결",
+      "commonProblemsTitle": "일반적인 펌프 문제 & CP Pump 솔루션",
+      "commonProblem1": "펌프 누설",
+      "commonSolution1": "Magnetic Drive 방식으로 완전 밀폐",
+      "commonProblem2": "과도한 진동/소음",
+      "commonSolution2": "정밀 밸런싱 임펠러와 고품질 베어링",
+      "commonProblem3": "유량/압력 저하",
+      "commonSolution3": "내마모성 소재와 최적화된 임펠러 설계",
+      "commonProblem4": "잦은 유지보수",
+      "commonSolution4": "Sealless 설계로 씰 관련 유지보수 불필요",
+      "ctaTitle": "펌프 전문가와 상담하세요",
+      "ctaDescription": "30년 경력의 전문가가 귀사의 공정에 최적화된 펌프 솔루션을 제안해 드립니다",
+      "ctaConsultation": "기술 상담 신청",
+      "ctaOtherProducts": "다른 제품 보기"
+    },
+    "mixerPage": {
+      "heroSubtitle": "SPXFLOW 4개 글로벌 브랜드 Mixing Solution",
+      "intro": {
+        "title": "Mixing Solution 전문",
+        "description": "RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, SPXFLOW의 국내 마스터 대리점으로써 다양한 혼합 공정에 필요한 MIXER를 설계 제작하여 공급합니다. 생산성 향상, 에너지 절감 및 비용 절감을 위한 고객 맞춤형 MIXING SOLUTION을 제공합니다.",
+        "partners": {
+          "lightnin": {
+            "country": "미국"
+          },
+          "plenty": {
+            "country": "영국"
+          },
+          "philadelphia": {
+            "country": "미국"
+          },
+          "stelzer": {
+            "country": "독일"
+          }
+        },
+        "highlights": {
+          "masterDistributor": "SPXFLOW Master Distributor",
+          "globalBrands": "4개 글로벌 브랜드",
+          "history": "100년 이상 역사",
+          "customSolution": "맞춤형 솔루션 설계"
+        }
+      },
+      "subNav": {
+        "solution": "Mixing Solution",
+        "brands": "SPXFlow Mixer Brands"
+      },
+      "applications": {
+        "chemical": {
+          "title": "화학 공정",
+          "desc": "화학 반응, 용해, 분산"
+        },
+        "waterTreatment": {
+          "title": "수처리/폐수",
+          "desc": "응집, 침전, 소독"
+        },
+        "petrochemical": {
+          "title": "석유화학",
+          "desc": "정유 및 플랜트 혼합"
+        },
+        "bioPharm": {
+          "title": "바이오/제약",
+          "desc": "무균 환경 정밀 혼합"
+        },
+        "foodDairy": {
+          "title": "식품/유제품",
+          "desc": "위생 설계 CIP 호환"
+        }
+      },
+      "solution": {
+        "spxflowDescription": "RTS는 SPXFLOW의 국내 마스터 대리점으로써 현대 산업 전반에 걸쳐 중요한 제조 라인인 다양한 혼합 공정에 필요한 MIXER를 설계 제작하여 공급하고 있으며 생산성 향상, 에너지 절감 및 비용 절감을 위한 고객 맞춤형 MIXING SOLUTION을 제공하고 있습니다.",
+        "coreFeatures": {
+          "title": "핵심 특징",
+          "productivity": {
+            "title": "생산성 향상",
+            "desc": "Process 속도 향상 및 생산량 증가"
+          },
+          "energySaving": {
+            "title": "에너지 절감",
+            "desc": "고효율 설계로 운영 비용 절감"
+          },
+          "customDesign": {
+            "title": "맞춤형 설계",
+            "desc": "고객 공정에 최적화된 솔루션"
+          },
+          "globalQuality": {
+            "title": "글로벌 품질",
+            "desc": "4개 브랜드의 검증된 기술력"
+          }
+        },
+        "serviceProcess": {
+          "title": "서비스 프로세스",
+          "step1": "설계 컨설팅",
+          "step2": "브랜드 선정",
+          "step3": "설계 검토",
+          "step4": "제작/납품",
+          "step5": "A/S 지원"
+        }
+      },
+      "brands": {
+        "description": "세계적인 4개 브랜드를 통해 산업별 최적의 Mixing Solution을 제안합니다.",
+        "prevImage": "{brand} 이전 이미지",
+        "nextImage": "{brand} 다음 이미지",
+        "imageIndicator": "{brand} 이미지 {index}",
+        "labels": {
+          "applications": "주요 용도",
+          "coreValue": "핵심 가치",
+          "strength": "강점"
+        },
+        "lightnin": {
+          "tagline": "첨단 기술 기반의 고효율 혼합 솔루션",
+          "description": "Lightnin은 까다로운 폐수 및 수처리, 화학, 바이오 연료, 제약 공정에서 가장 신뢰받는 브랜드입니다.",
+          "applications": "휴대용 유닛부터 대형 고정식 유닛까지의 믹서 포트폴리오.",
+          "coreValue": "독자적인 기어박스와 임펠러 기술을 통해 더 작고 강력하며, 전력 효율이 극대화된 솔루션을 제공합니다.",
+          "strength": "오염 방지(Anti-fouling) 메커니즘을 적용하여 장비 수명을 연장하고, 가동 중단 시간을 최소화하여 생산성을 높입니다."
+        },
+        "plenty": {
+          "tagline": "70년 전통의 유체 역학 전문가",
+          "description": "Plenty는 석유, 가스 및 화학 산업에서 독보적인 엔지니어링 역량의 선두 주자입니다.",
+          "applications": "저장 탱크 내 액체 혼합 및 균질화, 슬러지 침전 방지",
+          "coreValue": "유체 역학에 대한 깊은 이해를 바탕으로 Fixed(고정각)/Swivel(가변각) 등 다양한 Side-Entry(측면 진입형) 믹서를 설계합니다.",
+          "strength": "탱크를 비우지 않고도 수리가 가능한 혁신적인 설계와 타사 노후 장비까지 최신 고성능 모델로 교체해 주는 경제적인 애프터마켓 프로그램을 운영합니다."
+        },
+        "philadelphia": {
+          "tagline": "혁신적인 R&D와 고객 맞춤형 설계",
+          "description": "2021년 SPX FLOW에 합류한 Philadelphia Mixing Solutions는 북미 시장을 선도하는 혁신 브랜드입니다.",
+          "applications": "화학 공정 및 일반 산업 전반의 특수 혼합 공정",
+          "coreValue": "65년의 경력과 Philadelphia Gear Corporation의 기술적 뿌리를 계승하여 최첨단 테스트와 공정 모델링을 수행합니다.",
+          "strength": "전 세계 주요 거점(미국, 영국, 인도)을 통해 신속한 현장 지원을 제공하며, 각 고객의 개별 요구사항에 100% 부합하는 고유한 솔루션을 구축합니다."
+        },
+        "stelzer": {
+          "tagline": "엄격한 위생과 정밀한 공정 노하우",
+          "description": "독일에 기반을 둔 Stelzer는 화학, 식품 및 제약 산업에서 요구하는 최고의 위생 표준을 충족합니다.",
+          "applications": "유제품 공정, 제약, 식품 제조 및 고도의 세척/연마 공정",
+          "coreValue": "DIN EN ISO 9001:2015 표준에 따른 검증된 안전성과 CFD(전산유체역학) 시뮬레이션 역량을 보유하고 있습니다.",
+          "strength": "1946년부터 축적된 위생 설계 기술을 바탕으로, 국제 표준을 준수하는 정밀한 차원의 프로젝트 맞춤형 교반기를 제작합니다."
+        }
+      },
+      "cta": {
+        "title": "최적의 Mixing Solution이 필요하신가요?",
+        "description": "30년 경력의 전문가가 최적의 솔루션을 제안해 드립니다",
+        "requestConsultation": "기술 상담 신청",
+        "viewOtherProducts": "다른 제품 보기"
+      }
+    },
+    "motorPage": {
+      "heroSubtitle": "외산 모터 부품 공급 및 방폭 인증 솔루션",
+      "introTitle": "모터 전문 솔루션",
+      "introDescription": "RTS는 정유, 석유화학에 30년의 왕복동압축기 공급 실적으로 현장에 설치된 외산 모터에 대한 부품 공급 및 방폭 인증(KOSHA/KGS/KTL)에 대한 SOLUTION을 제공하고 있습니다.",
+      "countryGermany": "독일",
+      "countryItaly": "이탈리아",
+      "highlights": {
+        "syncInductionMotor": "대형 Synchronous/Induction Motor",
+        "explosionProofConsulting": "방폭 인증 컨설팅",
+        "thirtyYearTrackRecord": "정유/석유화학 30년 실적",
+        "globalPartnerNetwork": "글로벌 파트너 네트워크"
+      },
+      "subNav": {
+        "spareParts": "MOTOR SPARE PARTS",
+        "certification": "방폭인증서비스"
+      },
+      "sparePartsDescription": "해외 OEM 왕복동압축기에 동력원으로 공급되는 외산 Motor의 Aftermarket 국내대리점",
+      "partners": {
+        "ldw": {
+          "description": "독일의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다."
+        },
+        "nidec": {
+          "fullName": "舊 Ansaldo",
+          "description": "이탈리아의 대형 Synchronous 및 Induction Motor 제작사로 회전기계(왕복동압축기) OEM을 통하여 국내 정유 석유화학 공장에 설치 운전되고 있습니다."
+        }
+      },
+      "partnerInstallNote": "국내 정유/석유화학 공장 설치, 기술지원/Supervisor/부품 공급",
+      "serviceContentTitle": "서비스 내용",
+      "sparePartsServices": {
+        "techSupport": "LDW/NIDEC Motor 기술지원",
+        "supervisorDispatch": "Supervisor 파견 서비스",
+        "genuineParts": "정품 Spare Parts 공급",
+        "fieldEngineers": "현장 기술 인력 파견"
+      },
+      "aria": {
+        "prevMotorImage": "이전 모터 이미지",
+        "nextMotorImage": "다음 모터 이미지",
+        "motorImageDot": "모터 이미지 {index}"
+      },
+      "certSectionTitle": "방폭인증서비스",
+      "certDescription": "국내 방폭 지역 설치 외산 수입 모터 → 국내 인증 필수.<span class=\"text-[#0A1628] font-semibold\"> KOSHA/KTL/KGS</span> 인증 대응 서비스를 제공합니다.",
+      "certAgencies": {
+        "kosha": {
+          "name": "한국산업안전보건공단",
+          "desc": "산업안전 및 방폭 인증 총괄 기관"
+        },
+        "ktl": {
+          "name": "한국산업기술시험원",
+          "desc": "산업기술 시험 및 인증 전문 기관"
+        },
+        "kgs": {
+          "name": "한국가스안전공사",
+          "desc": "가스 관련 방폭 설비 인증 기관"
+        }
+      },
+      "certProcessTitle": "인증 프로세스",
+      "certProcess": {
+        "step1": {
+          "title": "사전 검토",
+          "desc": "기존 장비 현황 및 요구사항 분석"
+        },
+        "step2": {
+          "title": "인증 계획",
+          "desc": "적합한 인증 기관 및 절차 수립"
+        },
+        "step3": {
+          "title": "서류 준비",
+          "desc": "기술 문서 및 시험 자료 준비"
+        },
+        "step4": {
+          "title": "인증 취득",
+          "desc": "심사 대응 및 인증서 발급"
+        }
+      },
+      "certServiceContentTitle": "서비스 내용",
+      "certServices": {
+        "needAssessment": "방폭 인증 필요 유무 판단",
+        "procedureConsulting": "인증 절차 컨설팅",
+        "documentSupport": "기술 문서 작성 지원",
+        "agencyResponse": "인증 기관 대응"
+      },
+      "cta": {
+        "title": "모터 솔루션이 필요하신가요?",
+        "description": "30년 경력의 전문가가 최적의 솔루션을 제안해 드립니다.",
+        "requestConsultation": "기술 상담 신청",
+        "viewOtherProducts": "다른 제품 보기"
+      }
+    },
+    "bearingPage": {
+      "heroSubtitle": "유체윤활베어링 및 윤활유 청정 솔루션",
+      "introTitle": "베어링 & 윤활 전문 솔루션",
+      "introDescription": "RTS는 30년간 회전기계 분야에서 축적한 경험을 바탕으로, 국내 BEARING 제작사 터보링크와 윤활 정제기 제작사 삼영필텍의 영업대리점으로써 BEARING과 LUBRICATION에 대한 SOLUTION을 제공합니다. 65,000rpm급 초고속 터보압축기 베어링부터 수백톤 고하중 터빈 발전기 베어링까지 폭넓은 제품군을 보유하고 있습니다.",
+      "partnerTurbolink": "터보링크 (TURBOLINK)",
+      "partnerSamyoung": "삼영필텍 (SAMYOUNG FILTECH)",
+      "countryKorea": "한국",
+      "highlightUltraHighSpeed": "65,000rpm 초고속 대응",
+      "highlightHeavyLoad": "수백톤 고하중 대응",
+      "highlightDomesticPartner": "국내 제작사 협력",
+      "highlightFastDelivery": "빠른 납기 실현",
+      "turbolinkName": "터보링크 (TURBOLINK)",
+      "turbolinkDescription": "고속 고하중 회전기계의 유체윤활베어링 설계 및 제조 전문 기업으로, 65,000rpm급 초고속 터보압축기 베어링부터 축 하중 수백톤 고하중 터빈 발전기 베어링까지 공급합니다.",
+      "bearingServices": {
+        "repair": "BEARING REPAIR - 손상된 베어링 수리 및 복원",
+        "reverseEngineering": "REVERSE ENGINEERING - 역설계를 통한 베어링 신규 공급",
+        "troubleShooting": "TROUBLE SHOOTING - NEW DESIGN 개선 베어링 공급"
+      },
+      "bearingFeatures": {
+        "ultraHighSpeed": {
+          "title": "초고속 대응",
+          "desc": "65,000rpm급 고속 회전 최적화"
+        },
+        "heavyLoadSupport": {
+          "title": "고하중 지지",
+          "desc": "수백톤 축하중 견고한 구조"
+        },
+        "customDesign": {
+          "title": "맞춤 설계",
+          "desc": "고객 요구사항 커스텀 설계"
+        }
+      },
+      "ariaPrevBearing": "이전 베어링 이미지",
+      "ariaNextBearing": "다음 베어링 이미지",
+      "ariaBearingImage": "베어링 이미지 {index}",
+      "samyoungName": "삼영필텍 (SAMYOUNG FILTECH)",
+      "samyoungDescription": "윤활유 청정도 유지 전문 기업으로, 국내 특허 기술인 이중 진공 시스템과 전기 필터를 통해 수분 제거 및 바니쉬 신속 제거가 가능합니다.",
+      "lubricationTech": {
+        "dualVacuum": "이중 진공 시스템 - 효율적인 수분 제거",
+        "electricFilter": "전기 필터 - 미세 입자 완벽 여과",
+        "varnishRemoval": "바니쉬 신속 제거 - 윤활유 수명 연장",
+        "bearingLifeExtension": "베어링 수명 반영구적 연장"
+      },
+      "lubricationBenefits": {
+        "oilLifeExtension": {
+          "title": "윤활유 수명 연장",
+          "desc": "오염물질 제거로 오일 교체 주기 연장"
+        },
+        "bearingProtection": {
+          "title": "베어링 보호",
+          "desc": "청정 윤활유로 베어링 마모 최소화"
+        },
+        "costReduction": {
+          "title": "비용 절감",
+          "desc": "오일 비용 및 정비 비용 절감"
+        }
+      },
+      "ariaPrevLubrication": "이전 윤활 이미지",
+      "ariaNextLubrication": "다음 윤활 이미지",
+      "ariaLubricationImage": "윤활 이미지 {index}",
+      "ctaTitle": "베어링 & 윤활 솔루션이 필요하신가요?",
+      "ctaDescription": "국내 전문 제작사와의 협력으로 빠른 납기와 맞춤 설계를 제공합니다.",
+      "ctaConsultation": "기술 상담 신청",
+      "ctaViewProducts": "다른 제품 보기"
     }
   },
   "partners": {
@@ -1007,7 +1413,7 @@
     },
     "certifications": {
       "title": "공식 인증서",
-      "description": "라온토탈솔루션은 글로벌 파트너사로부터 공식 대리점/파트너 인증을 획득하여 정품 부품과 서비스를 제공합니다."
+      "description": "글로벌 파트너사로부터 공식 인증을 받아 정품 부품과 기술 서비스를 제공합니다."
     },
     "whyPartner": {
       "title": "파트너십의 강점",
@@ -1054,10 +1460,6 @@
       "partnersDesc": "전 세계 최고 수준의 제조사 협력",
       "clients": "주요 고객사",
       "clientsDesc": "국내 4대 정유사 포함 주요 기업"
-    },
-    "certifications": {
-      "title": "공식 인증서",
-      "description": "글로벌 파트너사로부터 공식 인증을 받아 정품 부품과 기술 서비스를 제공합니다."
     },
     "cta": {
       "title": "라온토탈솔루션과",

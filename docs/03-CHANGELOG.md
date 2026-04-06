@@ -6,6 +6,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.0] - 2026-04-06
+
+### Added
+- **제품 페이지 i18n 완전 전환**: 5개 제품 페이지(Compressor, Pump, Mixer, Motor, Bearing) 한국어 하드코딩 155개+ → 번역 키(t()) 변환
+- **번역 키 850+ 추가**: messages/ko.json, en.json에 제품 페이지 전용 번역 키 추가
+
+### Changed
+- **CEO 서명 이미지**: 대표이사 사진 적용 + 서명 이미지 배경 투명 처리
+- **Business Field 관련 제품**: Oil Purifier → Motor/Compressor로 교체 (Power Plant, Shipbuilding)
+
+---
+
 ## [1.7.0] - 2026-04-05
 
 ### Fixed
